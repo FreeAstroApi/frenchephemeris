@@ -1,7 +1,7 @@
 # FrenchEphemeris user guide
 
 This guide covers everything needed to use FrenchEphemeris from Python and Rust: installing
-the library and its data packs, the pyswisseph-style `swe_compat` module, the native engine,
+the library and its data packs, the pyswisseph style `swe_compat` module, the native engine,
 bodies, houses, sidereal zodiacs, fixed stars, events, time scales, threads and errors.
 Measurements behind every number are in the [reports](README.md).
 
@@ -16,7 +16,7 @@ Measurements behind every number are in the [reports](README.md).
 - [9. Fixed stars](#9-fixed-stars)
 - [10. Rise, set, crossings, eclipses, heliacal events](#10-rise-set-crossings-eclipses-heliacal-events)
 - [11. Time scales and Delta T](#11-time-scales-and-delta-t)
-- [12. Minor-body uncertainty](#12-minor-body-uncertainty)
+- [12. Minor body uncertainty](#12-minor-body-uncertainty)
 - [13. Threads, async code and servers](#13-threads-async-code-and-servers)
 - [14. Errors](#14-errors)
 - [15. Rust](#15-rust)
@@ -34,32 +34,32 @@ pip install dist/*.whl`.
 
 ## 2. Data packs
 
-The engine reads FEPK packs: JPL Chebyshev coefficients, memory-mapped from disk
+The engine reads FEPK packs: JPL Chebyshev coefficients, memory mapped from disk
 ([format](FORMAT.md)). Download a set with `python -m frenchephemeris.packs download
 --set <name>` (each file is checked against a SHA-256 sum; files already present are verified
 and skipped):
 
 | Set | Files | Size | Years | Fidelity |
 |---|---|---|---|---|
-| `standard` (default) | main DE441/DE442 pack, minor bodies, 2401–2581 refit | ~256 MB | −2 … 2581 | bit-identical to JPL |
-| `modern` | DE442 1800–2401, minor bodies | ~69 MB | 1800 … 2401 | bit-identical |
-| `dev` | DE442 1900–2100, minor bodies | ~27 MB | 1900 … 2100 | bit-identical |
+| `standard` (default) | main DE441/DE442 pack, minor bodies, 2401–2581 refit | ~256 MB | −2 … 2581 | bit identical to JPL |
+| `modern` | DE442 1800–2401, minor bodies | ~69 MB | 1800 … 2401 | bit identical |
+| `dev` | DE442 1900–2100, minor bodies | ~27 MB | 1900 … 2100 | bit identical |
 | `extended` | DE441 refits before −2 and after 2401 | ~305 MB | −13198 … 17190 | planets ≤ 0.001″, Moon ≤ 0.1 km |
-| `asteroids` | 326-asteroid bundle | ~108 MB | per body | JPL small-body fits |
+| `asteroids` | 326-asteroid bundle | ~108 MB | per body | JPL small body fits |
 | `compact` | lossy refit, minor bodies | ~13 MB | 1800 … 2400 | planets ≤ 0.001″, Moon ≤ 0.04″ |
 | `mobile` | quantized refits of planets and minor bodies | ~2 MB | 1800 … 2400 | planets ≤ 0.007″, Moon ≤ 0.4″ |
 
 `python -m frenchephemeris.packs list` prints every pack; `path` prints the data directory.
 
 **Where packs are found**, in order: `$FRENCHEPHEMERIS_PACK` (the main pack file), then
-`$FRENCHEPHEMERIS_DATA` or the per-user data directory (`~/.local/share/frenchephemeris/packs`
+`$FRENCHEPHEMERIS_DATA` or the per user data directory (`~/.local/share/frenchephemeris/packs`
 on Linux, `~/Library/Application Support/frenchephemeris/packs` on macOS,
 `%LOCALAPPDATA%\frenchephemeris\packs` on Windows), then `data/packs/` in a source
-checkout. Bit-identical packs are preferred over lossy ones when several are installed.
-`$FRENCHEPHEMERIS_MINOR_PACK` overrides the minor-body pack ("" disables it).
+checkout. Bit identical packs are preferred over lossy ones when several are installed.
+`$FRENCHEPHEMERIS_MINOR_PACK` overrides the minor body pack ("" disables it).
 
 **Docker and servers:** run `python -m frenchephemeris.packs download --dest /app/packs`
-during the image build and set `FRENCHEPHEMERIS_DATA=/app/packs`. Packs are memory-mapped,
+during the image build and set `FRENCHEPHEMERIS_DATA=/app/packs`. Packs are memory mapped,
 so all worker processes share the same pages.
 
 ## 3. The `swe_compat` module
@@ -106,7 +106,7 @@ ecl = swe.sol_eclipse_when_glob(jd, swe.ECL_ALLTYPES_SOLAR)               # next
 | Import | `import frenchephemeris.swe_compat as swe` instead of `import swisseph as swe` |
 | Ephemeris path | `set_ephe_path()` is ignored; packs are found as in [§2](#2-data-packs) |
 | Settings scope | `set_sid_mode`, `set_topo` and the Delta T settings apply to the current thread or asyncio task, not the process: set them where you compute |
-| Date range | outside the loaded packs, calls raise `swe_compat.Error` instead of falling back to a lower-precision model |
+| Date range | outside the loaded packs, calls raise `swe_compat.Error` instead of falling back to a lower precision model |
 | Results | positions come from JPL DE441/DE442 and differ from Swiss Ephemeris by fractions of an arcsecond for modern dates; after 2025 both engines forecast Delta T and differ by up to a few arcseconds for the Moon by 2100 |
 | Ayanamsas | 46 of the 47 modes; J.N. Bhasin and Sheoran follow their authors' publications; Vettius Valens raises an error |
 | Speeds | speeds are the true rate of change of the positions |
@@ -152,7 +152,7 @@ functional API used by `swe_compat` (`fe.fixstar_ut(engine, name, jd)`,
 
 ## 7. Houses
 
-24 systems, selected by the classic one-letter codes:
+24 systems, selected by the classic one letter codes:
 
 | Code | System | Code | System |
 |---|---|---|---|
@@ -163,7 +163,7 @@ functional API used by `swe_compat` (`fe.fixstar_ut(engine, name, jd)`,
 | R | Regiomontanus | O | Porphyry |
 | B | Alcabitius | T | Topocentric (Polich/Page) |
 | M | Morinus | X | Meridian (axial rotation) |
-| H | Horizon / azimuth | F | Carter poli-equatorial |
+| H | Horizon / azimuth | F | Carter poli equatorial |
 | G | Gauquelin sectors (36) | U | Krusinski-Pisa-Goelzer |
 | Y | APC | S | Sripati |
 | L | Pullen sinusoidal delta | Q | Pullen sinusoidal ratio |
@@ -180,7 +180,7 @@ equal houses), `sunset`, `moonset` (on the 7th), `equal_vehlow_mc` (MC in the mi
 
 ## 8. Sidereal zodiacs (ayanamsas)
 
-46 built-in modes plus user-defined values (`SIDM_USER` with `set_sid_mode(mode, t0,
+46 built in modes plus user defined values (`SIDM_USER` with `set_sid_mode(mode, t0,
 ayan_t0)`), with every `SIDBIT_*` option (projection on the ecliptic of t0, on the solar
 system plane, original precession models). Identifiers for the native engine:
 
@@ -222,12 +222,12 @@ Bayer/Flamsteed designation or catalogue number: `swe.fixstar2_ut("Spica", jd, 0
 
 Delta T (TT − UT1) follows model FE-DT/2: Stephenson, Morrison, Hohenkerk and Zawilski's
 2020 spline before 1955, USNO observed values from 1955, IERS Bulletin A predictions for
-the following year, then the last 10 years' rate with the long-term acceleration
+the following year, then the last 10 years' rate with the long term acceleration
 ([TIME_FRAMES_REPORT.md §2](TIME_FRAMES_REPORT.md)). `open_default(swiss_delta_t=True)`
 uses the tidal acceleration that matches the DE441 Moon; `set_delta_t_userdef` and
-`set_tid_acc` override it per thread. UTC conversions use the IERS leap-second table.
+`set_tid_acc` override it per thread. UTC conversions use the IERS leap second table.
 
-## 12. Minor-body uncertainty
+## 12. Minor body uncertainty
 
 Before JPL's tabulation, Chiron, Pholus, Eris and Eros come from our own integration of
 JPL's orbits, and their positions are uncertain far from the present (Chiron passed 0.18 AU

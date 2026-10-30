@@ -1,0 +1,386 @@
+FrenchEphemeris
+Copyright (C) 2026 Gabriel Naulleau EI, trading as FreeAstroAPI
+
+FrenchEphemeris is dual-licensed: GNU Affero General Public License v3.0 only
+(LICENSE) OR the FrenchEphemeris commercial licence (COMMERCIAL-LICENSE.md).
+SPDX: AGPL-3.0-only OR LicenseRef-FrenchEphemeris-Commercial
+
+This NOTICE lists the third-party code, data and published works that
+FrenchEphemeris uses or ships, with their licence or terms and the attribution
+they require. Whichever licence you receive FrenchEphemeris under, the
+third-party terms below continue to apply to the third-party parts.
+
+Items marked [UNCONFIRMED] have terms that have not yet been confirmed for
+commercial redistribution; confirmation is being sought from the data providers.
+
+Contents
+  1. Code and coefficient tables (shipped in the binary)
+  2. Ephemeris data (coefficient packs, built locally from public sources)
+  3. Star catalogue (shipped in the binary)
+  4. Time, Earth-orientation and eclipse data (shipped in the binary)
+  5. Published theories and definitions (references, not licences)
+  6. Rust dependencies
+  7. Python dependencies
+  8. Test-only and tool-only sources (not shipped)
+  9. What is NOT included
+
+
+==============================================================================
+1. CODE AND COEFFICIENT TABLES
+==============================================================================
+
+1.1 ERFA (Essential Routines for Fundamental Astronomy) -- BSD-3-Clause
+    Used in: crates/fe-core/src/frames/tables.rs (IAU 2000A/2006 nutation,
+    CIO locator s, equation-of-the-equinoxes series), crates/fe-core/src/
+    time/tables.rs (Fairhead & Bretagnon TDB-TT series, from dtdb.c),
+    crates/fe-core/src/frames/iau1980/nut80_table.rs (IAU 1980 nutation,
+    from nut80.c). Numeric coefficients were transcribed by
+    crates/fe-core/tables/gen_tables.py and tools/gen_iau1980.py from ERFA
+    at commit 1a8044cde5b7763295d472a6443387239127c6c8
+    (https://github.com/liberfa/erfa). No ERFA function code is included; the
+    algorithms are reimplemented in Rust. ERFA is derived, with permission,
+    from the IAU SOFA library; FrenchEphemeris is not SOFA and SOFA is not
+    responsible for it.
+
+    ERFA licence text (reproduced as required):
+
+    ------------------------------------------------------------------------
+    Copyright (C) 2013-2021, NumFOCUS Foundation.
+    All rights reserved.
+
+    This library is derived, with permission, from the International
+    Astronomical Union's "Standards of Fundamental Astronomy" library,
+    available from http://www.iausofa.org.
+
+    The ERFA version is intended to retain identical
+    functionality to the SOFA library, but made distinct through
+    different function and file names, as set out in the SOFA license
+    conditions. The SOFA original has a role as a reference standard
+    for the IAU and IERS, and consequently redistribution is permitted only
+    in its unaltered state. The ERFA version is not subject to this
+    restriction and therefore can be included in distributions which do not
+    support the concept of "read only" software.
+
+    Although the intent is to replicate the SOFA API (other than replacement of
+    prefix names) and results (with the exception of bugs; any that are
+    discovered will be fixed), SOFA is not responsible for any errors found
+    in this version of the library.
+
+    If you wish to acknowledge the SOFA heritage, please acknowledge that
+    you are using a library derived from SOFA, rather than SOFA itself.
+
+
+    TERMS AND CONDITIONS
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+
+    1 Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+
+    2 Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in the
+       documentation and/or other materials provided with the distribution.
+
+    3 Neither the name of the Standards Of Fundamental Astronomy Board, the
+       International Astronomical Union nor the names of its contributors
+       may be used to endorse or promote products derived from this software
+       without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+    IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+    TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+    PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+    HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+    SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+    TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+    PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+    LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+    NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    ------------------------------------------------------------------------
+
+1.2 ELP 2000-82B lunar theory series -- M. Chapront-Touze & J. Chapront
+    Used in: crates/fe-core/src/points/elp_main.rs (generated by
+    tools/gen_intp_series.py; 918 terms, natural apogee/perigee).
+    References: A&A 124, 50 (1983); A&A 190, 342 (1988); notice "Lunar
+    solution ELP 2000-82B", G. Francou, Bureau des Longitudes (1996).
+    Original data: IMCCE - Observatoire de Paris,
+    ftp://ftp.imcce.fr/pub/ephem/moon/elp82b/ (files ELP1-ELP36; also CDS
+    VI/79); checksums in docs/FICTITIOUS_BODIES.md. No licence statement in
+    the distribution [UNCONFIRMED for commercial redistribution].
+    The default mean node and mean perigee polynomials (points.rs) are the
+    published ELP/MPP02 mean elements: J. Chapront, M. Chapront-Touze &
+    G. Francou (2002), A&A 387, 700; J. Chapront & G. Francou (2003),
+    A&A 404, 735 (coefficients transcribed from the papers).
+
+1.3 Vondrak, Capitaine & Wallace (2011) long-term precession
+    Used in: crates/fe-core/src/ayanamsa/vondrak.rs, frames.rs (series
+    PQPOL/PQPER/XYPOL/XYPER and the long-term epsilon_A series).
+    Reference: J. Vondrak, N. Capitaine & P. Wallace (2011), "New precession
+    expressions, valid for long time intervals", A&A 534, A22; erratum
+    A&A 541, C1 (2012). Published coefficients, transcribed from the paper.
+
+1.4 Kinoshita (1975) precession formulation
+    Used in: crates/fe-core/src/ayanamsa/orig_precession.rs (SIDBIT_PREC_ORIG
+    only). Reference: H. Kinoshita (1975), "Formulas for precession",
+    Smithsonian Astrophysical Observatory Special Report 364. Published
+    coefficients, transcribed from the report.
+
+
+==============================================================================
+2. EPHEMERIS DATA (FEPK coefficient packs)
+==============================================================================
+
+The packs (data/packs/*.bin, not stored in the repository; built with
+tools/build_pack.py, tools/build_ext_pack.py, tools/fit_minor.py) contain
+Chebyshev coefficients copied or re-fitted from the following JPL products.
+JPL ephemeris data are published by NASA/JPL without licence restrictions
+(see https://naif.jpl.nasa.gov/naif/rules.html and https://ssd.jpl.nasa.gov/).
+Attribution wording to be confirmed with JPL SSD before public redistribution
+of built packs (MINOR_BODIES_REPORT.md, open item 5).
+
+2.1 JPL planetary and lunar ephemerides DE441 and DE442
+    NASA/Jet Propulsion Laboratory, California Institute of Technology.
+    Reference: R. S. Park, W. M. Folkner, J. G. Williams & D. H. Boggs (2021),
+    "The JPL Planetary and Lunar Ephemerides DE440 and DE441", AJ 161, 105.
+    DE442: JPL, https://ssd.jpl.nasa.gov/ftp/eph/planets/bsp/ (see the kernel
+    comments, de442_tech-comments.txt).
+    Suggested credit: "Planetary and lunar positions from the JPL DE441 and
+    DE442 ephemerides (NASA/JPL-Caltech)."
+
+2.2 JPL small-body ephemerides
+    - sb441-n16 (Ceres, Pallas, Juno, Vesta; the 16 asteroid perturbers
+      integrated with DE441), JPL IOM 392R-21-005,
+      https://ssd.jpl.nasa.gov/ftp/eph/small_bodies/asteroids_de441/
+    - JPL Horizons small-body SPK files for Chiron (2060), Pholus (5145),
+      Eris (136199) and Eros (433); solutions and checksums are recorded in
+      docs/MINOR_PROVENANCE.json.
+    Credit: "JPL Horizons On-Line Ephemeris System, Solar System Dynamics
+    Group, JPL/Caltech" and Park et al. (2021), AJ 161, 105.
+    The extension of Chiron/Pholus/Eris/Eros before 1600 is FrenchEphemeris's
+    own numerical integration started from the JPL states.
+
+
+==============================================================================
+3. STAR CATALOGUE (crates/fe-core/src/stars/catalog.rs, ayanamsa/star.rs)
+==============================================================================
+
+3.1 IAU Catalog of Star Names (IAU Working Group on Star Names, WGSN)
+    -- Creative Commons Attribution 4.0 International (CC BY 4.0)
+    Machine-readable edition by E. Mamajek,
+    https://www.pas.rochester.edu/~emamajek/WGSN/IAU-CSN.txt (2022-04-04).
+    Attribution: "Star names: IAU Catalog of Star Names, IAU Working Group on
+    Star Names (WGSN), https://www.iau.org/public/themes/naming_stars/,
+    licensed under CC BY 4.0." Changes: names are matched case- and
+    space-insensitively and combined with traditional aliases and classic
+    "Name,nomenclature" display strings.
+
+3.2 Hipparcos, the New Reduction (ESA) [UNCONFIRMED for commercial redistribution]
+    Positions, proper motions and parallaxes at J1991.25 for the HIP stars.
+    Reference: F. van Leeuwen (2007), "Validation of the new Hipparcos
+    reduction", A&A 474, 653 (CDS catalogue I/311, retrieved from the CDS
+    VizieR service). Some V magnitudes from The Hipparcos and Tycho Catalogues
+    (ESA 1997, ESA SP-1200; CDS catalogue I/239), field H5.
+    Acknowledgement: "This product uses data from the ESA Hipparcos mission."
+    ESA scientific data are free to use with acknowledgement; explicit
+    confirmation of commercial-redistribution terms is pending.
+
+3.3 SIMBAD astronomical database (CDS, Strasbourg) [UNCONFIRMED for commercial redistribution]
+    Radial velocities, V magnitudes, and the places/motions of the objects
+    without a Hipparcos 2007 solution; each value's bibcode is stored in the
+    record's rv_ref field and credits the original publication (among them
+    Gontcharov 2006, CDS III/252; Kharchenko et al. 2007; Famaey et al. 2005;
+    Nordstrom et al. 2004; Ducati 2002, CDS II/237). Open-cluster places and
+    motions: Dias et al. (2002), A&A 389, 871 (CDS catalogue B/ocl, version 3.5).
+    Acknowledgement requested by CDS: "This research has made use of the
+    SIMBAD database, operated at CDS, Strasbourg, France."
+    Reference: M. Wenger et al. (2000), A&AS 143, 9.
+
+3.4 Gaia (ESA) -- not used
+    The catalogue contains no value from the Gaia mission (DR1, DR2, EDR3, DR3)
+    or from publications derived from Gaia data, so the CC BY-SA 3.0 IGO terms
+    of Gaia data do not apply. tools/build_stars.py rejects Gaia-derived
+    sources (Gaia releases and a list of Gaia-based publications) and the test
+    tests/stars.rs::no_gaia_derived_values_in_catalogue enforces it; the values
+    that were replaced are listed in tools/star_gaia_replacements.tsv.
+
+3.5 Other published values in the catalogue: alpha Cen masses (Kervella et
+    al. 2016, A&A 594, A107), parallax (Akeson et al. 2021, AJ 162, 14); Sgr A*
+    proper motion (Reid & Brunthaler 2004, ApJ 616, 872; 2020, ApJ 892, 39);
+    R0 (GRAVITY Collaboration 2019, A&A 625, L10); galactic poles (Liu, Zhu &
+    Zhang 2011, A&A 526, A16); invariable plane (Souami & Souchay 2012, A&A
+    543, A133); delta Cnc RV (Massarotti et al. 2008, AJ 135, 209).
+
+3.6 Star names in the default catalogue
+    Names come only from the IAU WGSN list (3.1), SIMBAD "NAME" identifiers
+    (3.3) and traditional names from R. H. Allen, "Star-Names and Their
+    Meanings" (1899, public domain); designations are in standard form.
+    An optional compatibility alias table with the classic names and
+    "Name,nomenclature" strings of earlier astrology software is NOT part of
+    this distribution: it is built privately (tools/build_star_compat.py) and
+    loaded at runtime only if a deployment supplies it
+    (FRENCHEPHEMERIS_STAR_COMPAT).
+
+
+==============================================================================
+4. TIME, EARTH ORIENTATION AND ECLIPSE DATA
+==============================================================================
+
+4.1 Delta T
+    - L. V. Stephenson, L. V. Morrison & C. Y. Hohenkerk (2016), Proc. R. Soc.
+      A 472, 20160404, Table S15 (figshare doi:10.6084/m9.figshare.4290866),
+      and the 2020 update of Table S15
+      (crates/fe-core/tables/sources/SMH2016-Table-S15.txt,
+      SMH2020-Table-S15.2020.txt).
+    - U.S. Naval Observatory, observed Delta T, https://maia.usno.navy.mil/ser7/
+      deltat.data and historic_deltat.data (crates/fe-core/tables/sources/
+      USNO-*.data). U.S. Government work, public domain in the United States.
+      Credit: "Delta T: U.S. Naval Observatory."
+
+4.2 IERS Earth orientation and leap seconds
+    - IERS EOP 14 C04 (IAU 1980) daily celestial pole offsets, 1962-2026,
+      crates/fe-core/src/frames/eop_c04_iau1980.bin (tools/gen_iau1980.py).
+    - Leap seconds: IERS Bulletin C 72, Leap_Second.dat
+      (https://hpiers.obspm.fr/iers/bul/bulc/Leap_Second.dat), crates/fe-core/
+      src/utc.rs.
+    Credit: "International Earth Rotation and Reference Systems Service
+    (IERS), Earth Orientation Centre and Product Centre, Paris Observatory."
+
+4.3 NASA eclipse canons and saros catalogues (F. Espenak, NASA/GSFC)
+    - Saros series table, crates/fe-core/src/eclipses/saros.rs (generated by
+      tools/gen_saros.py from https://eclipse.gsfc.nasa.gov/SEsaros/
+      SEsaroscat.html and LEsaros/LEsaroscat.html).
+    - Test references (not shipped): Five Millennium Canons of Solar and Lunar
+      Eclipses, Espenak & Meeus, NASA/TP-2006-214141, NASA/TP-2008-214170,
+      NASA/TP-2009-214173, and the Besselian-element pages.
+    Credit requested by the site: "Eclipse Predictions by Fred Espenak,
+    NASA's GSFC" (now hosted as "Eclipse Predictions by Fred Espenak,
+    www.EclipseWise.com" for later material).
+
+
+==============================================================================
+5. PUBLISHED THEORIES AND DEFINITIONS (references, not licences)
+==============================================================================
+
+The following works define methods or constants that FrenchEphemeris
+implements from the publication. They are cited for scholarship; no text or
+code is copied from them. Full per-constant provenance is in
+docs/GEOMETRY_REPORT.md (Provenance), docs/EVENTS_REPORT.md section 5,
+docs/HELIACAL_REPORT.md section 1, docs/FICTITIOUS_BODIES.md and
+docs/TIME_FRAMES_REPORT.md.
+
+- Astronomy: IAU 2000/2006 resolutions; IERS Conventions (2003, 2010);
+  Capitaine, Wallace & Chapront (2003); Lieske et al. (1977) and Lieske
+  (1979); Wahr (1981); Seidelmann (1982); Simon et al. (1994); Fairhead &
+  Bretagnon (1990); Explanatory Supplement to the Astronomical Almanac
+  (1961, 1992); Meeus, Astronomical Algorithms (2nd ed.); Mallama & Hilton
+  (2018); IAU WGCCRE 2015 (Archinal et al. 2018); Sinclair (1982), NAO TN 59;
+  Bennett (1982); Saemundsson (1986); Schaefer (1990, 1993, 1998, program
+  VISLIMIT); Yallop (1997), NAO TN 69; Danjon's shadow rule.
+- House systems: Placidus, Koch, Porphyry, Regiomontanus, Campanus,
+  Topocentric (Polich & Page), equal and whole-sign systems, Alcabitius,
+  Meridian, Carter poli-equatorial (Carter 1947), Morinus, Horizon,
+  Krusinski-Pisa-Goelzer, APC, Pullen SD/SR, Sripati, Sunshine (Makransky),
+  Savard-A (J. Savard), Gauquelin sectors (M. Gauquelin).
+- Ayanamsas: Lahiri (Indian Calendar Reform Committee 1955; Indian
+  Astronomical Ephemeris 1985), Fagan-Bradley, Raman, Krishnamurti,
+  Yukteshwar, True Pushya (P. V. R. Narasimha Rao), galactic-centre and
+  galactic-equator variants, and the other sidereal modes with the authors
+  cited in docs/GEOMETRY_REPORT.md section 2.
+- Hypothetical bodies: J. Neely (1980), Matrix Journal VII (Uranian planets);
+  R. S. Harrington (1988), AJ 96, 1476; Le Verrier (1846); J. C. Adams
+  (1846); P. Lowell (1915) via E. C. Bower (1931); P. Globa (Selena);
+  "Dr. Waltemath's Moon", Monthly Weather Review 26 (1898).
+- Classic astrology-engine API semantics: the Swiss Ephemeris programmer's
+  documentation is cited in several modules as the
+  description of the classic API's behaviour and of the published methods it
+  uses. The documentation is copyrighted by its owner; it is referenced,
+  not reproduced.
+
+
+==============================================================================
+6. RUST DEPENDENCIES (Cargo.lock; licences from `cargo metadata`)
+==============================================================================
+
+Shipped in fe-core (all builds):
+  memmap2 0.9.12            MIT OR Apache-2.0
+  thiserror 2.0.21          MIT OR Apache-2.0
+  thiserror-impl 2.0.21     MIT OR Apache-2.0   (proc macro, build time)
+  libc 0.2.191              MIT OR Apache-2.0
+  proc-macro2 1.0.107       MIT OR Apache-2.0   (build time)
+  quote 1.0.47              MIT OR Apache-2.0   (build time)
+  syn 3.0.9                 MIT OR Apache-2.0   (build time)
+  unicode-ident 1.0.27      (MIT OR Apache-2.0) AND Unicode-3.0 (build time)
+
+Shipped in the Python extension (fe-py):
+  pyo3 0.30.1               MIT OR Apache-2.0
+  pyo3-ffi 0.30.1           MIT OR Apache-2.0
+  pyo3-macros 0.30.1        MIT OR Apache-2.0   (build time)
+  pyo3-macros-backend 0.30.1 MIT OR Apache-2.0  (build time)
+  pyo3-build-config 0.30.1  MIT OR Apache-2.0   (build time)
+  numpy 0.30.0 (rust-numpy) BSD-2-Clause
+  ndarray 0.17.2            MIT OR Apache-2.0
+  matrixmultiply 0.3.11     MIT/Apache-2.0
+  num-complex 0.4.6         MIT OR Apache-2.0
+  num-integer 0.1.47        MIT OR Apache-2.0
+  num-traits 0.2.19         MIT OR Apache-2.0
+  rawpointer 0.2.1          MIT/Apache-2.0
+  rustc-hash 2.1.3          Apache-2.0 OR MIT
+  once_cell 1.21.4          MIT OR Apache-2.0
+  portable-atomic 1.15.0    Apache-2.0 OR MIT
+  portable-atomic-util 0.2.8 Apache-2.0 OR MIT
+  autocfg 1.5.1             Apache-2.0 OR MIT   (build time)
+  heck 0.5.0                MIT OR Apache-2.0   (build time)
+  target-lexicon 0.13.5     Apache-2.0 WITH LLVM-exception (build time)
+
+Tests only (dev-dependencies, not shipped):
+  serde 1.0.229, serde_core 1.0.229, serde_derive 1.0.229   MIT OR Apache-2.0
+  serde_json 1.0.154        MIT OR Apache-2.0
+  itoa 1.0.18               MIT OR Apache-2.0
+  memchr 2.8.3              Unlicense OR MIT
+  zmij 1.0.23               MIT
+
+Binary distributions must include the copyright notices and licence texts of
+these crates (MIT / Apache-2.0 / BSD-2-Clause / Unicode-3.0 notices); generate
+them with e.g. `cargo about` or `cargo-bundle-licenses` at release time.
+
+
+==============================================================================
+7. PYTHON DEPENDENCIES
+==============================================================================
+
+Runtime: numpy (>= 1.21)            BSD-3-Clause
+Build:   maturin (>= 1.7, < 2)      MIT OR Apache-2.0
+Python and the CPython ABI: Python Software Foundation License (not shipped).
+
+
+==============================================================================
+8. TEST-ONLY AND TOOL-ONLY SOURCES (not shipped)
+==============================================================================
+
+- pyerfa (BSD-3-Clause, Copyright (c) 2011-2023 PyERFA Developers): reference
+  values in public test fixtures (frames, frames_ext, horizons, obliquity,
+  stars/erfa.json, time).
+- jplephem (MIT, Brandon Rhodes): direct DE441/DE442 evaluation for
+  tests/fixtures/pack and pack builders.
+- JPL Horizons API outputs (NASA/JPL): tests/fixtures/horizons, events,
+  minor, pack_ext and harness/cache/.
+- IOTA graze predictions (D. Dunham, E. Riedel, International Occultation
+  Timing Association; generated with Occult): used for validation only and
+  kept in the private test corpus; not distributed.
+- NASA eclipse canons (section 4.3): tests/fixtures/eclipses/extras.json.
+- pyswisseph / Swiss Ephemeris (AGPL-3.0 or Swiss Ephemeris
+  Professional Licence): used ONLY as a black-box oracle through its public
+  API to measure compatibility. It is not a dependency, no Swiss code or data
+  file is read or shipped, and every file containing its outputs is kept in
+  the private corpus (private/oracle/, see tools/privatize_oracle_fixtures.py).
+
+
+==============================================================================
+9. WHAT IS NOT INCLUDED
+==============================================================================
+
+No Swiss Ephemeris source code, ephemeris files (se*.se1), star file
+(sefstars.txt) or fitted constants are included. No Moshier ephemeris code is
+included.

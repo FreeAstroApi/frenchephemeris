@@ -1,0 +1,1 @@
+{"params": {"format": "json", "COMMAND": "'7066;'", "OBJ_DATA": "'NO'", "MAKE_EPHEM": "'YES'", "EPHEM_TYPE": "'OBSERVER'", "CENTER": "'500@399'", "TIME_TYPE": "'TT'", "TLIST_TYPE": "'JD'", "TLIST": "'2321195.716800'", "QUANTITIES": "'1'", "ANG_FORMAT": "'DEG'", "EXTRA_PREC": "'YES'", "CSV_FORMAT": "'YES'"}, "row": "1643-Feb-12 05:12:11.520, , , 312.822076036, -33.222873954,"}

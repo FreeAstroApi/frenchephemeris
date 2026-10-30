@@ -1,0 +1,451 @@
+# Values replaced because their source was Gaia-derived (tools/build_stars.py).
+# object	field	Gaia-derived source	replacement (bibcode, or 'dropped')
+*   1 Peg	rv	2018yCat.1345....0G	2005A&A...430..165F
+*   2 Lyn	rv	2022yCat.1355....0G	2006AstL...32..759G
+*   7 Dra	rv	2018yCat.1345....0G	2005A&A...430..165F
+*   8 UMi	rv	2018yCat.1345....0G	2005A&A...430..165F
+*   9 Peg	rv	2018A&A...616A...7S	2008A&A...480...91S
+*  14 And	rv	2018A&A...616A...7S	2005A&A...430..165F
+*  16 Per	rv	2022yCat.1355....0G	2006AstL...32..759G
+*  16 Tau	rv	2022yCat.1355....0G	2006AstL...32..759G
+*  18 Del	rv	2018yCat.1345....0G	2013A&A...554A..84M
+*  21 LMi	rv	2022yCat.1355....0G	2006AstL...32..759G
+*  21 Lyn	rv	2022yCat.1355....0G	2006AstL...32..759G
+*  21 Tau	rv	2022yCat.1355....0G	2006AstL...32..759G
+*  22 Tau	rv	2022yCat.1355....0G	2006AstL...32..759G
+*  36 Oph	rv	2025A&A...699A.151S	2006AstL...32..759G
+*  41 Ari	rv	2022yCat.1355....0G	2006AstL...32..759G
+*  41 Lyn	rv	2018yCat.1345....0G	2005A&A...430..165F
+*  42 Peg	rv	2022yCat.1355....0G	2006AstL...32..759G
+*  47 UMa	rv	2018A&A...616A...7S	2004A&A...418..989N
+*  61 Cyg A	plx	2020yCat.1350....0G	1997A&A...323L..49P
+*  61 Cyg A	pm	2020yCat.1350....0G	1997A&A...323L..49P
+*  64 Eri	rv	2022yCat.1355....0G	2006AstL...32..759G
+*  71 Ori	rv	2018A&A...616A...7S	2004A&A...418..989N
+* 109 Vir	rv	2022yCat.1355....0G	2006AstL...32..759G
+* alf Aqr	rv	2018A&A...616A...7S	2008A&A...480...91S
+* alf Ari	rv	2018A&A...616A...7S	2005A&A...430..165F
+* alf Boo	rv	2018A&A...616A...7S	1979IAUS...30...57E
+* alf Cae	rv	2022yCat.1355....0G	2006AstL...32..759G
+* alf Cas	rv	2018A&A...616A...7S	2005A&A...430..165F
+* alf Cen A	rv	2021MNRAS.506..150B	2007A&A...465..271R
+* alf Cen B	rv	2018A&A...616A...7S	2007A&A...465..271R
+* alf Cet	rv	2023A&A...676A.129H	2005A&A...430..165F
+* alf Cha	rv	2022yCat.1355....0G	2006AstL...32..759G
+* alf Cir	rv	2018A&A...616A...7S	2006AstL...32..759G
+* alf Cnc	rv	2022yCat.1355....0G	2006AstL...32..759G
+* alf Com	rv	2018A&A...616A...7S	2004A&A...418..989N
+* alf CrA	rv	2022yCat.1355....0G	2007AN....328..889K
+* alf For	rv	2018yCat.1345....0G	1979IAUS...30...57E
+* alf Hor	rv	2018A&A...616A...7S	2006AstL...32..759G
+* alf Hya	rv	2018A&A...616A...7S	2006AstL...32..759G
+* alf Lac	rv	2022yCat.1355....0G	2006AstL...32..759G
+* alf Men	rv	2018A&A...616A...7S	2004A&A...418..989N
+* alf Mon	rv	2018A&A...616A...7S	2008A&A...480...91S
+* alf Per	rv	2018A&A...616A...7S	2008A&A...485..303M
+* alf Sex	rv	2022yCat.1355....0G	2006AstL...32..759G
+* alf Sge	rv	2018A&A...616A...7S	2008A&A...480...91S
+* alf Tau	rv	2018A&A...616A...7S	2005A&A...430..165F
+* alf Vol	rv	2022yCat.1355....0G	2006AstL...32..759G
+* alf Vul	rv	2018A&A...616A...7S	2005A&A...430..165F
+* b Oph	rv	2022yCat.1355....0G	2006AstL...32..759G
+* bet Aps	rv	2022yCat.1355....0G	2006AstL...32..759G
+* bet Aql	rv	2018A&A...616A...7S	2020AJ....160...83S
+* bet Aqr	rv	2018A&A...616A...7S	2008A&A...480...91S
+* bet Ara	rv	2023A&A...676A.129H	2006AstL...32..759G
+* bet CVn	rv	2018A&A...616A...7S	2004A&A...418..989N
+* bet Cae	rv	2018yCat.1345....0G	2006A&A...460..695T
+* bet Cet	rv	2018A&A...616A...7S	2006AstL...32..759G
+* bet Com	rv	2018A&A...616A...7S	2004A&A...418..989N
+* bet Crt	rv	2022yCat.1355....0G	2006AstL...32..759G
+* bet Del	rv	2018yCat.1345....0G	1979IAUS...30...57E
+* bet Dor	rv	2022yCat.1355....0G	2006AstL...32..759G
+* bet Dra	rv	2018A&A...616A...7S	2008A&A...480...91S
+* bet Equ	rv	2022yCat.1355....0G	2006AstL...32..759G
+* bet For	rv	2018yCat.1345....0G	2006AstL...32..759G
+* bet Gem	rv	2018A&A...616A...7S	2005A&A...430..165F
+* bet Hyi	rv	2018A&A...616A...7S	2004A&A...418..989N
+* bet Lac	rv	2022yCat.1355....0G	2013A&A...554A..84M
+* bet Oph	rv	2018A&A...616A...7S	2005A&A...430..165F
+* bet Pav	rv	2022yCat.1355....0G	2006AstL...32..759G
+* bet Pic	rv	2022yCat.1355....0G	2006AstL...32..759G
+* bet PsA	rv	2022yCat.1355....0G	2006AstL...32..759G
+* bet Ret	rv	2018yCat.1345....0G	1979IAUS...30...57E
+* bet Scl	rv	2022yCat.1355....0G	2006AstL...32..759G
+* bet Sge	rv	2018yCat.1345....0G	2006AstL...32..759G
+* bet Vir	rv	2018A&A...616A...7S	2004A&A...418..989N
+* bet02 Sgr	rv	2022yCat.1355....0G	2006AstL...32..759G
+* chi Aur	rv	2022yCat.1355....0G	2007AN....328..889K
+* chi Cet	rv	2018yCat.1345....0G	2006AstL...32..759G
+* chi Cnc	rv	2018A&A...616A...7S	2004A&A...418..989N
+* chi Her	rv	2018A&A...616A...7S	2004A&A...418..989N
+* chi Oct	rv	2022yCat.1355....0G	2006AstL...32..759G
+* chi Vir	rv	2018yCat.1345....0G	2006AstL...32..759G
+* d Oph	rv	2022yCat.1355....0G	2006AstL...32..759G
+* d Vel	rv	2018yCat.1345....0G	2006AstL...32..759G
+* del Aql	rv	2022yCat.1355....0G	2006AstL...32..759G
+* del Aqr	rv	2022yCat.1355....0G	2006AstL...32..759G
+* del CrA	rv	2018yCat.1345....0G	2006AstL...32..759G
+* del Dra	rv	2018A&A...616A...7S	2020ApJS..248...19T
+* del Eri	rv	2018A&A...616A...7S	1979IAUS...30...57E
+* del Hya	rv	2022yCat.1355....0G	2006AstL...32..759G
+* del Men	rv	2022yCat.1355....0G	2006AstL...32..759G
+* del Pav	rv	2018A&A...616A...7S	2004A&A...418..989N
+* del PsA	rv	2018yCat.1345....0G	2006AstL...32..759G
+* del Scl	rv	2022yCat.1355....0G	2006AstL...32..759G
+* del Sct	rv	2022yCat.1355....0G	2006AstL...32..759G
+* del Tau	rv	2019MNRAS.483.5026L	1979IAUS...30...57E
+* del UMa	rv	2022yCat.1355....0G	2006AstL...32..759G
+* del UMi	rv	2022yCat.1355....0G	2006AstL...32..759G
+* del Vol	rv	2022yCat.1355....0G	2006AstL...32..759G
+* e Eri	rv	2018A&A...616A...7S	2004A&A...418..989N
+* eps And	rv	2018A&A...616A...7S	2022ApJS..259...35A
+* eps Aqr	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eps Cyg	rv	2018A&A...616A...7S	2005A&A...430..165F
+* eps Eri	rv	2018A&A...616A...7S	2004A&A...418..989N
+* eps Hyi	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eps Ind	rv	2018A&A...616A...7S	2006AstL...32..759G
+* eps Leo	rv	2018A&A...616A...7S	1979IAUS...30...57E
+* eps Lep	rv	2018A&A...616A...7S	2006AstL...32..759G
+* eps Mic	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eps Mon A	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eps Oph	rv	2018A&A...616A...7S	2006AstL...32..759G
+* eps Pav	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eps Ret	rv	2018yCat.1345....0G	2011A&A...531A...8J
+* eps Sct	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eps Ser	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eps Sex	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eps Tau	rv	2018A&A...616A...7S	2005A&A...430..165F
+* eps Tel	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eps TrA	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eta Aql	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eta Cas	rv	2018A&A...616A...7S	2004A&A...418..989N
+* eta Cep	rv	2018A&A...616A...7S	2005A&A...430..165F
+* eta Cet	rv	2018yCat.1345....0G	2006AstL...32..759G
+* eta Cnc	rv	2018yCat.1345....0G	2005A&A...430..165F
+* eta Crt	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eta Crv	rv	2018yCat.1345....0G	2006AstL...32..759G
+* eta Dra	rv	2018A&A...616A...7S	2020ApJS..248...19T
+* eta Her	rv	2018A&A...616A...7S	2008A&A...480...91S
+* eta Ind	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eta Nor	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eta Oct	rv	2019A&A...624A..19B	2006AstL...32..759G
+* eta Per	rv	2018A&A...616A...7S	2005A&A...430..165F
+* eta Phe	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eta Ret	rv	2018yCat.1345....0G	2006AstL...32..759G
+* eta Ser	rv	2018A&A...616A...7S	2016A&A...585A..73N
+* eta01 CrA	rv	2022yCat.1355....0G	2006AstL...32..759G
+* eta02 Hyi	rv	2018A&A...616A...7S	2006AstL...32..759G
+* eta02 Pic	rv	2018yCat.1345....0G	2006AstL...32..759G
+* g Eri	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam Aql	rv	2018A&A...616A...7S	2005A&A...430..165F
+* gam Cam	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam Cep	rv	2018A&A...616A...7S	2005A&A...430..165F
+* gam Cnc	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam Crt	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam Cyg	rv	2018A&A...616A...7S	2006AstL...32..759G
+* gam Dor	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam Equ	rv	2018A&A...616A...7S	2006AstL...32..759G
+* gam Gru	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam Her	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam Hya	rv	2018A&A...616A...7S	2006AstL...32..759G
+* gam Hyi	rv	2018yCat.1345....0G	2006AstL...32..759G
+* gam Lep	rv	2018A&A...616A...7S	2004A&A...418..989N
+* gam Men	rv	2018yCat.1345....0G	2006AstL...32..759G
+* gam Mic	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam Oph	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam Peg	rv	2023A&A...676A.129H	2006AstL...32..759G
+* gam Pic	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam Scl	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam Sct	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam Ser	rv	2018A&A...616A...7S	2004A&A...418..989N
+* gam Tau	rv	2018A&A...616A...7S	1979IAUS...30...57E
+* gam Tri	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam01 Oct	rv	2022yCat.1355....0G	2006AstL...32..759G
+* gam02 Nor	rv	2022yCat.1355....0G	2006AstL...32..759G
+* h Boo	rv	2022yCat.1355....0G	2006AstL...32..759G
+* h UMa	rv	2022yCat.1355....0G	2006AstL...32..759G
+* iot Ant	rv	2018yCat.1345....0G	2006AstL...32..759G
+* iot Aql	rv	2022yCat.1355....0G	2006AstL...32..759G
+* iot Aqr	rv	2022yCat.1355....0G	2006AstL...32..759G
+* iot Cap	rv	2018A&A...616A...7S	2008A&A...480...91S
+* iot Cep	rv	2018A&A...616A...7S	2005A&A...430..165F
+* iot Dra	rv	2018A&A...616A...7S	2005A&A...430..165F
+* iot Eri	rv	2022yCat.1355....0G	2006AstL...32..759G
+* iot Gem	rv	2018A&A...616A...7S	2008A&A...480...91S
+* iot Hor	rv	2018A&A...616A...7S	2004A&A...418..989N
+* iot Mic	rv	2018yCat.1345....0G	2006AstL...32..759G
+* iot Oph	rv	2022yCat.1355....0G	2006AstL...32..759G
+* iot Peg	rv	2022yCat.1355....0G	2006AstL...32..759G
+* iot Per	rv	2018A&A...616A...7S	2004A&A...418..989N
+* iot Psc	rv	2018A&A...616A...7S	2004A&A...418..989N
+* iot Ret	rv	2018yCat.1345....0G	2006AstL...32..759G
+* iot Tau	rv	2022yCat.1355....0G	2006AstL...32..759G
+* iot Tel	rv	2018yCat.1345....0G	2006AstL...32..759G
+* iot Vir	rv	2018A&A...616A...7S	2004A&A...418..989N
+* kap Aqr	rv	2022yCat.1355....0G	2006AstL...32..759G
+* kap Aur	rv	2022yCat.1355....0G	2018AJ....155..240A
+* kap Col	rv	2022yCat.1355....0G	2006AstL...32..759G
+* kap Del	rv	2018A&A...616A...7S	2004A&A...418..989N
+* kap For	rv	2018yCat.1345....0G	2023ApJS..266...11B
+* kap Her A	rv	2022yCat.1355....0G	2006AstL...32..759G
+* kap Hyi	rv	2018yCat.1345....0G	2006AstL...32..759G
+* kap Leo	rv	2022yCat.1355....0G	2005A&A...430..165F
+* kap Lup	rv	2022yCat.1355....0G	2006AstL...32..759G
+* kap Lyr	rv	2022yCat.1355....0G	2005A&A...430..165F
+* kap Nor	rv	2022yCat.1355....0G	2006AstL...32..759G
+* kap Oph	rv	2018A&A...616A...7S	2005A&A...430..165F
+* kap Psc	rv	2022yCat.1355....0G	2006AstL...32..759G
+* kap Ret	rv	2018yCat.1345....0G	2006AstL...32..759G
+* kap01 Sgr	rv	2022yCat.1355....0G	2006AstL...32..759G
+* kap02 Scl	rv	2018yCat.1345....0G	2006AstL...32..759G
+* ksi Aql	rv	2018yCat.1345....0G	2005A&A...430..165F
+* ksi Eri	rv	2022yCat.1355....0G	2006AstL...32..759G
+* ksi Her	rv	2018A&A...616A...7S	2005A&A...430..165F
+* ksi Hya	rv	2018A&A...616A...7S	2006AstL...32..759G
+* ksi Men	rv	2018yCat.1345....0G	2006AstL...32..759G
+* ksi Oph	rv	2018yCat.1345....0G	2006AstL...32..759G
+* ksi Peg	rv	2018A&A...616A...7S	2004A&A...418..989N
+* ksi Ser	rv	2022yCat.1355....0G	2006AstL...32..759G
+* ksi02 CMa	rv	2022yCat.1355....0G	2006AstL...32..759G
+* ksi02 Cet	rv	2022yCat.1355....0G	2006AstL...32..759G
+* lam Boo	rv	2022yCat.1355....0G	2006AstL...32..759G
+* lam Cap	rv	2022yCat.1355....0G	2006AstL...32..759G
+* lam Cnc	rv	2022yCat.1355....0G	2006AstL...32..759G
+* lam Gem	rv	2022yCat.1355....0G	2006AstL...32..759G
+* lam Gru	rv	2022yCat.1355....0G	2006AstL...32..759G
+* lam Hor	rv	2018yCat.1345....0G	1979IAUS...30...57E
+* lam Hyi	rv	2018yCat.1345....0G	2006AstL...32..759G
+* lam Mus	rv	2022yCat.1355....0G	2006AstL...32..759G
+* lam PsA	rv	2022yCat.1355....0G	2006AstL...32..759G
+* lam Psc	rv	2022yCat.1355....0G	2006AstL...32..759G
+* lam UMa	rv	2022yCat.1355....0G	2006AstL...32..759G
+* lam UMi	rv	2018yCat.1345....0G	2005A&A...430..165F
+* lam01 For	rv	2018yCat.1345....0G	1979IAUS...30...57E
+* lam01 Phe	rv	2022yCat.1355....0G	2006AstL...32..759G
+* lam02 Scl	rv	2018yCat.1345....0G	1979IAUS...30...57E
+* mu. And	rv	2022yCat.1355....0G	2006AstL...32..759G
+* mu. Aql	rv	2018A&A...616A...7S	2005A&A...430..165F
+* mu. Ara	rv	2018A&A...616A...7S	2020AJ....160...83S
+* mu. Aur	rv	2022yCat.1355....0G	2006AstL...32..759G
+* mu. Cet	rv	2022yCat.1355....0G	1979IAUS...30...57E
+* mu. Hyi	rv	2018yCat.1345....0G	2006AstL...32..759G
+* mu. Leo	rv	2018A&A...616A...7S	2005A&A...430..165F
+* mu. Lep	rv	2022yCat.1355....0G	2006AstL...32..759G
+* mu. Men	rv	2022yCat.1355....0G	2006AstL...32..759G
+* mu. Peg	rv	2018A&A...616A...7S	2005A&A...430..165F
+* mu. Phe	rv	2022yCat.1355....0G	1979IAUS...30...57E
+* mu. Scl	rv	2018yCat.1345....0G	2006AstL...32..759G
+* mu. Vir	rv	2022yCat.1355....0G	2006AstL...32..759G
+* nu. Aqr	rv	2022yCat.1355....0G	2006AstL...32..759G
+* nu. Cap	rv	2022yCat.1355....0G	2006AstL...32..759G
+* nu. Cep	rv	2022yCat.1355....0G	2006AstL...32..759G
+* nu. Cet	rv	2022yCat.1355....0G	2006AstL...32..759G
+* nu. Lib	rv	2018yCat.1345....0G	2006AstL...32..759G
+* nu. Psc	rv	2018A&A...616A...7S	2005A&A...430..165F
+* nu. Ser	rv	2022yCat.1355....0G	2006AstL...32..759G
+* nu. Tau	rv	2022yCat.1355....0G	2006AstL...32..759G
+* nu. Tel	rv	2022yCat.1355....0G	2006AstL...32..759G
+* nu.01 Sgr	rv	2018yCat.1345....0G	2006AstL...32..759G
+* ome And	rv	2022yCat.1355....0G	2006AstL...32..759G
+* ome Eri	rv	2022yCat.1355....0G	1979IAUS...30...57E
+* ome Gem	rv	2018yCat.1345....0G	2006AstL...32..759G
+* ome Per	rv	2022yCat.1355....0G	2005A&A...430..165F
+* ome Phe	rv	2018yCat.1345....0G	2006AstL...32..759G
+* ome Psc	rv	2022yCat.1355....0G	2006AstL...32..759G
+* ome01 Tau	rv	2018A&A...616A...7S	2005A&A...430..165F
+* ome02 Aqr	rv	2022yCat.1355....0G	2006AstL...32..759G
+* ome02 Sco	rv	2022yCat.1355....0G	2006AstL...32..759G
+* omi Aur	rv	2022yCat.1355....0G	2006AstL...32..759G
+* omi Gem	rv	2022yCat.1355....0G	2006AstL...32..759G
+* omi Gru	rv	2018yCat.1345....0G	2007A&A...475..519H
+* omi Ser	rv	2022yCat.1355....0G	2006AstL...32..759G
+* omi Vir	rv	2018A&A...616A...7S	2023MNRAS.519.5472M
+* omi02 Eri	rv	2018A&A...616A...7S	2004A&A...418..989N
+* phi Boo	rv	2018yCat.1345....0G	2006AstL...32..759G
+* phi Her	rv	2022yCat.1355....0G	2006AstL...32..759G
+* phi Psc	rv	2018yCat.1345....0G	2005A&A...430..165F
+* phi02 Cet	rv	2018A&A...616A...7S	2004A&A...418..989N
+* pi. Cap	rv	2022yCat.1355....0G	2006AstL...32..759G
+* pi. Cha	rv	2022yCat.1355....0G	2006AstL...32..759G
+* pi. Peg	rv	2022yCat.1355....0G	2006AstL...32..759G
+* pi. Phe	rv	2018yCat.1345....0G	2006AstL...32..759G
+* pi. PsA	rv	2022yCat.1355....0G	2006AstL...32..759G
+* pi. Psc	rv	2022yCat.1355....0G	2006AstL...32..759G
+* pi. Scl	rv	2018yCat.1345....0G	2006AstL...32..759G
+* pi.01 Ori	rv	2022yCat.1355....0G	2006AstL...32..759G
+* pi.01 Peg	rv	2018yCat.1345....0G	2006AstL...32..759G
+* pi.06 Ori	rv	2018yCat.1345....0G	2005A&A...430..165F
+* psi And	rv	2018A&A...616A...7S	2008A&A...480...91S
+* psi Boo	rv	2018yCat.1345....0G	2005A&A...430..165F
+* psi Cap	rv	2022yCat.1355....0G	2006AstL...32..759G
+* psi Cen	rv	2022yCat.1355....0G	2006AstL...32..759G
+* psi Leo	rv	2018yCat.1345....0G	2005A&A...430..165F
+* psi Phe	rv	2023A&A...676A.129H	2006AstL...32..759G
+* psi01 Aqr	rv	2018A&A...616A...7S	2013A&A...554A..84M
+* psi05 Aur	rv	2018A&A...616A...7S	2004A&A...418..989N
+* rho And	rv	2022yCat.1355....0G	2006AstL...32..759G
+* rho Cas	rv	2022yCat.1355....0G	2006AstL...32..759G
+* rho Cep	rv	2022yCat.1355....0G	2006AstL...32..759G
+* rho Cet	rv	2022yCat.1355....0G	2006AstL...32..759G
+* rho Gem	rv	2022yCat.1355....0G	2006AstL...32..759G
+* rho Ind	rv	2018yCat.1345....0G	2004A&A...418..989N
+* rho01 Cnc	rv	2018A&A...616A...7S	2023MNRAS.519.5472M
+* sig And	rv	2022yCat.1355....0G	2006AstL...32..759G
+* sig Boo	rv	2018A&A...616A...7S	2004A&A...418..989N
+* sig Cet	rv	2022yCat.1355....0G	2006AstL...32..759G
+* sig Cyg	rv	2022yCat.1355....0G	2006AstL...32..759G
+* sig Dra	rv	2018A&A...616A...7S	2004A&A...418..989N
+* sig Hya	rv	2022yCat.1355....0G	2005A&A...430..165F
+* sig Leo	rv	2022yCat.1355....0G	2006AstL...32..759G
+* sig Oph	rv	2018A&A...616A...7S	2005A&A...430..165F
+* sig Scl	rv	2022yCat.1355....0G	2006AstL...32..759G
+* t Vel	rv	2018yCat.1345....0G	2006AstL...32..759G
+* tau Cet	rv	2018A&A...616A...7S	2004A&A...418..989N
+* tau Gem	rv	2018yCat.1345....0G	2005A&A...430..165F
+* tau Leo	rv	2018yCat.1345....0G	2006AstL...32..759G
+* tau Oct	rv	2018yCat.1345....0G	2006AstL...32..759G
+* tau Peg	rv	2022yCat.1355....0G	2006AstL...32..759G
+* tau Per	rv	2022yCat.1355....0G	2006AstL...32..759G
+* tau Psc	rv	2018yCat.1345....0G	2005A&A...430..165F
+* tau Sco	rv	2023A&A...676A.129H	2006AstL...32..759G
+* tau Vir	rv	2022yCat.1355....0G	2006AstL...32..759G
+* tau02 Hya	rv	2022yCat.1355....0G	2006AstL...32..759G
+* tau06 Eri	rv	2018yCat.1345....0G	2004A&A...418..989N
+* tet Ari	rv	2022yCat.1355....0G	2006AstL...32..759G
+* tet Boo	rv	2018A&A...616A...7S	2006AstL...32..759G
+* tet Car	rv	2023A&A...676A.129H	2004A&A...424..727P
+* tet Cha	rv	2022yCat.1355....0G	2006AstL...32..759G
+* tet Crt	rv	2022yCat.1355....0G	2006AstL...32..759G
+* tet Cyg	rv	2018A&A...616A...7S	2004A&A...418..989N
+* tet Dor	rv	2018yCat.1345....0G	2006AstL...32..759G
+* tet Gem	rv	2022yCat.1355....0G	2006AstL...32..759G
+* tet Ind	rv	2022yCat.1355....0G	2006AstL...32..759G
+* tet Leo	rv	2018A&A...616A...7S	2006AstL...32..759G
+* tet Lyr	rv	2022yCat.1355....0G	2005A&A...430..165F
+* tet Oct	rv	2018yCat.1345....0G	2006AstL...32..759G
+* tet Peg	rv	2022yCat.1355....0G	2006AstL...32..759G
+* tet Per	rv	2018A&A...616A...7S	2004A&A...418..989N
+* tet UMa	rv	2018A&A...616A...7S	2006AstL...32..759G
+* tet Vir	rv	2018A&A...616A...7S	2006AstL...32..759G
+* tet01 Ser	rv	2022yCat.1355....0G	2006AstL...32..759G
+* tet01 Tau	rv	2018A&A...616A...7S	1979IAUS...30...57E
+* tet02 Sgr	rv	2022yCat.1355....0G	2006AstL...32..759G
+* ups And	rv	2018A&A...616A...7S	2004A&A...418..989N
+* ups Aqr	rv	2018yCat.1345....0G	2006AstL...32..759G
+* ups Cap	rv	2022yCat.1355....0G	2006AstL...32..759G
+* ups Leo	rv	2022yCat.1355....0G	2006AstL...32..759G
+* ups Oct	rv	2018yCat.1345....0G	2007AN....328..889K
+* ups Per	rv	2018A&A...616A...7S	2005A&A...430..165F
+* ups Phe	rv	2022yCat.1355....0G	2006AstL...32..759G
+* ups Psc	rv	2022yCat.1355....0G	2006AstL...32..759G
+* ups UMa	rv	2022yCat.1355....0G	2006AstL...32..759G
+* ups01 Eri	rv	2018yCat.1345....0G	2006AstL...32..759G
+* ups02 Cas	rv	2018A&A...616A...7S	2008A&A...480...91S
+* ups02 Hya	rv	2022yCat.1355....0G	2006AstL...32..759G
+* zet Crt	rv	2018yCat.1345....0G	2011AAS...21743412C
+* zet Dor	rv	2018yCat.1345....0G	2006AstL...32..759G
+* zet Leo	rv	2022yCat.1355....0G	2006AstL...32..759G
+* zet Mon	rv	2022yCat.1355....0G	2006AstL...32..759G
+* zet Pic	rv	2021MNRAS.506..150B	2006AstL...32..759G
+* zet Tel	rv	2022yCat.1355....0G	2006AstL...32..759G
+* zet TrA	rv	2022yCat.1355....0G	2006AstL...32..759G
+* zet Tuc	rv	2018A&A...616A...7S	2004A&A...418..989N
+* zet Vol	rv	2022yCat.1355....0G	2006AstL...32..759G
+* zet01 Ret	rv	2018A&A...616A...7S	2004A&A...418..989N
+BD-17    63	rv	2018A&A...616A...7S	2011AAS...21743412C
+CD-23  1056	rv	2018A&A...616A...7S	2011A&A...526A.141F
+HD   1502	rv	2018yCat.1345....0G	2011AAS...21743412C
+HD   4208	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD   6434	rv	2018yCat.1345....0G	2006AstL...32..759G
+HD   7199	rv	2018A&A...616A...7S	2020AJ....160...83S
+HD   8574	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD  16175	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD  17156	rv	2018A&A...616A...7S	2018MNRAS.481.3244G
+HD  18742	rv	2018yCat.1345....0G	2011AAS...21743412C
+HD  20868	rv	2018A&A...616A...7S	2009A&A...496..513M
+HD  23079	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD  28678	rv	2018yCat.1345....0G	2011AAS...21743412C
+HD  30856	rv	2018yCat.1345....0G	2011AAS...21743412C
+HD  38283	rv	2018yCat.1345....0G	2004A&A...418..989N
+HD  43197	rv	2018A&A...616A...7S	2010A&A...523A..15N
+HD  45350	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD  45652	rv	2018A&A...616A...7S	2011AAS...21743412C
+HD  48265	rv	2018A&A...616A...7S	2006AstL...32..759G
+HD  49674	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD  52265	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD  63454	rv	2018A&A...616A...7S	2005A&A...439..367M
+HD  63765	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD  68988	rv	2018yCat.1345....0G	2004A&A...418..989N
+HD  73534	rv	2018yCat.1345....0G	2011AAS...21743412C
+HD  75898	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD  82886	rv	2018yCat.1345....0G	2011AAS...21743412C
+HD  83443	rv	2018A&A...616A...7S	2002ApJS..141..503N
+HD  85390	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD  85951	rv	2022yCat.1355....0G	2006AstL...32..759G
+HD  86081	rv	2018A&A...616A...7S	2011AAS...21743412C
+HD  93083	rv	2018A&A...616A...7S	2005A&A...437.1121L
+HD  96063	rv	2018yCat.1345....0G	2011AAS...21743412C
+HD  98219	rv	2018yCat.1345....0G	2011AAS...21743412C
+HD  99109	rv	2018A&A...616A...7S	2002ApJS..141..503N
+HD 100655	rv	2018yCat.1345....0G	2006AstL...32..759G
+HD 100777	rv	2018A&A...616A...7S	2007A&A...470..721N
+HD 102117	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD 102195	rv	2018A&A...616A...7S	2011AAS...21743412C
+HD 102956	rv	2018yCat.1345....0G	2005A&A...430..165F
+HD 108147	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD 109246	rv	2018A&A...616A...7S	2006AstL...32..759G
+HD 117618	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD 118203	rv	2018A&A...616A...7S	2005A&A...430..165F
+HD 130322	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD 131496	rv	2018yCat.1345....0G	2005A&A...430..165F
+HD 136418	rv	2018yCat.1345....0G	2016A&A...585A..73N
+HD 137388	rv	2018yCat.1345....0G	2006AstL...32..759G
+HD 148427	rv	2018yCat.1345....0G	2013A&A...554A..84M
+HD 149143	rv	2018A&A...616A...7S	2011AAS...21743412C
+HD 152581	rv	2018yCat.1345....0G	2011AAS...21743412C
+HD 153950	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD 156411	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD 161693	rv	2022yCat.1355....0G	2006AstL...32..759G
+HD 164604	rv	2018yCat.1345....0G	2006AstL...32..759G
+HD 168442	rv	2018A&A...616A...7S	2006AstL...32..759G
+HD 168746	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD 173416	rv	2018yCat.1345....0G	2013A&A...554A..84M
+HD 175541	rv	2018A&A...616A...7S	2013A&A...554A..84M
+HD 179949	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD 181342	rv	2018yCat.1345....0G	2011AAS...21743412C
+HD 181720	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD 192263	rv	2022yCat.1355....0G	2004A&A...418..989N
+HD 192699	rv	2018yCat.1345....0G	2013A&A...554A..84M
+HD 205739	rv	2018yCat.1345....0G	2006AstL...32..759G
+HD 206610	rv	2018yCat.1345....0G	2013A&A...554A..84M
+HD 208487	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD 212771	rv	2022yCat.1355....0G	2013A&A...554A..84M
+HD 218566	rv	2018A&A...616A...7S	2002AJ....124.1144L
+HD 221287	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD 224693	rv	2018A&A...616A...7S	2004A&A...418..989N
+HD 231701	rv	2018yCat.1345....0G	2011AAS...21743412C
+M  22	plx	2021MNRAS.505.5978V	2018MNRAS.478.1520B (distance)
+M  22	pm	2019MNRAS.482.5138B	2013AJ....146...33C
+M  87	pm	2018yCat.1345....0G	2017ApJS..233....3T
+NAME Ori Trapezium	plx	2021MNRAS.504..356D	2005A&A...438.1163K (distance)
+NAME Ori Trapezium	rv	2021MNRAS.504..356D	dropped
+NGC   869	place	2021A&A...647A..19T	2002A&A...389..871D
+NGC   869	plx	2018A&A...616A..10G	2002A&A...389..871D
+NGC   869	pm	2018A&A...616A..10G	2002A&A...389..871D
+NGC   869	rv	2023A&A...674A..37G	2014A&A...564A..79D
+NGC  1039	place	2021A&A...647A..19T	2002A&A...389..871D
+NGC  1039	plx	2018A&A...616A..10G	2002A&A...389..871D
+NGC  1039	pm	2018A&A...616A..10G	2002A&A...389..871D
+NGC  2632	place	2021A&A...647A..19T	2002A&A...389..871D
+NGC  2632	plx	2018A&A...616A..10G	2002A&A...389..871D
+NGC  2632	pm	2018A&A...616A..10G	2002A&A...389..871D
+NGC  2632	rv	2021A&A...647A..19T	2009A&A...498..949M
+NGC  6405	place	2021A&A...647A..19T	2002A&A...389..871D
+NGC  6405	plx	2018A&A...616A..10G	2002A&A...389..871D
+NGC  6405	pm	2018A&A...616A..10G	2002A&A...389..871D
+NGC  6405	rv	2021A&A...647A..19T	2008AJ....136..118F
+NGC  6475	place	2021A&A...647A..19T	2002A&A...389..871D
+NGC  6475	plx	2018A&A...616A..10G	2002A&A...389..871D
+NGC  6475	pm	2018A&A...616A..10G	2002A&A...389..871D
+NGC  6530	plx	2019ApJ...870...32K	2017AstBu..72..257L (distance)

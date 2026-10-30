@@ -1,0 +1,16 @@
+[package]
+name = "fe-py"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+name = "_native"
+crate-type = ["cdylib"]
+
+[dependencies]
+fe-core = { path = "../fe-core" }
+pyo3 = { version = "0.30", features = ["extension-module", "abi3-py39"] }
+numpy = "0.30"

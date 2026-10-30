@@ -1,0 +1,2362 @@
+{
+"generator": "tools/asteroid_list.py",
+"excluded_minor_pack": [
+1,
+2,
+3,
+4,
+433,
+2060,
+5145,
+136199
+],
+"count": 326,
+"bodies": [
+{
+"number": 5,
+"name": "Astraea",
+"reasons": [
+"swiss_docs: Other Transplutonians",
+"requested",
+"classical"
+]
+},
+{
+"number": 6,
+"name": "Hebe",
+"reasons": [
+"swiss_docs: Other Transplutonians",
+"requested",
+"classical"
+]
+},
+{
+"number": 7,
+"name": "Iris",
+"reasons": [
+"swiss_docs: Other Transplutonians",
+"requested",
+"classical"
+]
+},
+{
+"number": 8,
+"name": "Flora",
+"reasons": [
+"swiss_docs: Floras: Hirayama family at 2.2 AU",
+"requested",
+"classical"
+]
+},
+{
+"number": 9,
+"name": "Metis",
+"reasons": [
+"swiss_docs: Other Transplutonians",
+"requested",
+"classical"
+]
+},
+{
+"number": 10,
+"name": "Hygiea",
+"reasons": [
+"swiss_docs: Literature",
+"requested",
+"classical"
+]
+},
+{
+"number": 11,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 12,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 13,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 14,
+"name": "Irene",
+"reasons": [
+"swiss_docs: Other Transplutonians",
+"classical"
+]
+},
+{
+"number": 15,
+"name": "Eunomia",
+"reasons": [
+"swiss_docs: Literature",
+"classical"
+]
+},
+{
+"number": 16,
+"name": "Psyche",
+"reasons": [
+"swiss_docs: Literature",
+"requested",
+"classical"
+]
+},
+{
+"number": 17,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 18,
+"name": "Melpomene",
+"reasons": [
+"swiss_docs: Love asteroids",
+"classical"
+]
+},
+{
+"number": 19,
+"name": "Fortuna",
+"reasons": [
+"swiss_docs: Other Transplutonians",
+"classical"
+]
+},
+{
+"number": 20,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 21,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 22,
+"name": "Kalliope",
+"reasons": [
+"swiss_docs: Love asteroids",
+"classical"
+]
+},
+{
+"number": 23,
+"name": "Thalia",
+"reasons": [
+"swiss_docs: Love asteroids",
+"classical"
+]
+},
+{
+"number": 24,
+"name": "Themis",
+"reasons": [
+"swiss_docs: Themis family: Hirayama family at 3.13 AU",
+"classical"
+]
+},
+{
+"number": 25,
+"name": "Phocaea",
+"reasons": [
+"swiss_docs: Phocaeas: asteroid group at 2.36 AU",
+"classical"
+]
+},
+{
+"number": 26,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 27,
+"name": "Euterpe",
+"reasons": [
+"swiss_docs: Love asteroids",
+"classical"
+]
+},
+{
+"number": 28,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 29,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 30,
+"name": "Urania",
+"reasons": [
+"swiss_docs: Love asteroids",
+"requested",
+"classical"
+]
+},
+{
+"number": 31,
+"name": "Euphrosyne",
+"reasons": [
+"swiss_docs: Literature",
+"classical"
+]
+},
+{
+"number": 32,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 33,
+"name": "Polyhymnia",
+"reasons": [
+"swiss_docs: Love asteroids",
+"classical"
+]
+},
+{
+"number": 34,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 35,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 36,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 37,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 38,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 39,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 40,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 41,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 42,
+"name": "Isis",
+"reasons": [
+"swiss_docs: Other Transplutonians",
+"classical"
+]
+},
+{
+"number": 43,
+"name": "Ariadne",
+"reasons": [
+"requested",
+"classical"
+]
+},
+{
+"number": 44,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 45,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 46,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 47,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 48,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 49,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 50,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 51,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 52,
+"name": "Europa",
+"reasons": [
+"swiss_docs: Literature",
+"classical"
+]
+},
+{
+"number": 53,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 54,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 55,
+"name": "Pandora",
+"reasons": [
+"requested",
+"classical"
+]
+},
+{
+"number": 56,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 57,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 58,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 59,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 60,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 61,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 62,
+"name": "Erato",
+"reasons": [
+"swiss_docs: Love asteroids",
+"classical"
+]
+},
+{
+"number": 63,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 64,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 65,
+"name": "Cybele",
+"reasons": [
+"swiss_docs: Literature",
+"classical"
+]
+},
+{
+"number": 66,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 67,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 68,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 69,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 70,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 71,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 72,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 73,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 74,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 75,
+"name": "Eurydike",
+"reasons": [
+"requested",
+"classical"
+]
+},
+{
+"number": 76,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 77,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 78,
+"name": "Diana",
+"reasons": [
+"swiss_docs: Some frequent names",
+"classical"
+]
+},
+{
+"number": 79,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 80,
+"name": "Sappho",
+"reasons": [
+"requested",
+"classical"
+]
+},
+{
+"number": 81,
+"name": "Terpsichore",
+"reasons": [
+"swiss_docs: Love asteroids",
+"classical"
+]
+},
+{
+"number": 82,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 83,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 84,
+"name": "Klio",
+"reasons": [
+"swiss_docs: Love asteroids",
+"classical"
+]
+},
+{
+"number": 85,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 86,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 87,
+"name": "Sylvia",
+"reasons": [
+"swiss_docs: Literature",
+"classical"
+]
+},
+{
+"number": 88,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 89,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 90,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 91,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 92,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 93,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 94,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 95,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 96,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 97,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 98,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 99,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 100,
+"name": "Hekate",
+"reasons": [
+"requested",
+"classical"
+]
+},
+{
+"number": 101,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 102,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 103,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 104,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 105,
+"name": "Artemis",
+"reasons": [
+"swiss_docs: Production family",
+"classical"
+]
+},
+{
+"number": 106,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 107,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 108,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 109,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 110,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 111,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 112,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 113,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 114,
+"name": "Kassandra",
+"reasons": [
+"requested",
+"classical"
+]
+},
+{
+"number": 115,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 116,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 117,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 118,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 119,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 120,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 121,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 122,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 123,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 124,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 125,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 126,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 127,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 128,
+"name": "Nemesis",
+"reasons": [
+"requested",
+"classical"
+]
+},
+{
+"number": 129,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 130,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 131,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 132,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 133,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 134,
+"name": "Sophrosyne",
+"reasons": [
+"swiss_docs: Wisdom asteroids",
+"classical"
+]
+},
+{
+"number": 135,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 136,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 137,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 138,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 139,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 140,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 141,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 142,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 143,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 144,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 145,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 146,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 147,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 148,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 149,
+"name": "Medusa",
+"reasons": [
+"requested",
+"classical"
+]
+},
+{
+"number": 150,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 151,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 152,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 153,
+"name": "Hilda",
+"reasons": [
+"swiss_docs: Hildas: asteroid belt at 4.0 AU, in 3:2 resonance with Jupit",
+"classical"
+]
+},
+{
+"number": 154,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 155,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 156,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 157,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 158,
+"name": "Koronis",
+"reasons": [
+"swiss_docs: Koronis family: Hirayama family at 2.88 AU",
+"classical"
+]
+},
+{
+"number": 159,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 160,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 161,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 162,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 163,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 164,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 165,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 166,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 167,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 168,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 169,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 170,
+"name": "Maria",
+"reasons": [
+"swiss_docs: Some frequent names",
+"classical"
+]
+},
+{
+"number": 171,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 172,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 173,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 174,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 175,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 176,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 177,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 178,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 179,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 180,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 181,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 182,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 183,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 184,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 185,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 186,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 187,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 188,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 189,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 190,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 191,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 192,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 193,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 194,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 195,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 196,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 197,
+"name": "Arete",
+"reasons": [
+"swiss_docs: Wisdom asteroids",
+"classical"
+]
+},
+{
+"number": 198,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 199,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 200,
+"name": "",
+"reasons": [
+"classical"
+]
+},
+{
+"number": 221,
+"name": "Eos",
+"reasons": [
+"swiss_docs: Eos family: Hirayama family at 3.02 AU"
+]
+},
+{
+"number": 227,
+"name": "Philosophia",
+"reasons": [
+"swiss_docs: Wisdom asteroids"
+]
+},
+{
+"number": 234,
+"name": "Barbara",
+"reasons": [
+"swiss_docs: Some frequent names"
+]
+},
+{
+"number": 251,
+"name": "Sophia",
+"reasons": [
+"swiss_docs: Wisdom asteroids"
+]
+},
+{
+"number": 259,
+"name": "Aletheia",
+"reasons": [
+"swiss_docs: Wisdom asteroids"
+]
+},
+{
+"number": 275,
+"name": "Sapientia",
+"reasons": [
+"swiss_docs: Wisdom asteroids"
+]
+},
+{
+"number": 279,
+"name": "Thule",
+"reasons": [
+"swiss_docs: a single asteroid at 4.26 AU, in 4:3 resonance with Jupiter"
+]
+},
+{
+"number": 324,
+"name": "Bamberga",
+"reasons": [
+"swiss_docs: Literature"
+]
+},
+{
+"number": 344,
+"name": "Desiderata",
+"reasons": [
+"swiss_docs: Love asteroids"
+]
+},
+{
+"number": 349,
+"name": "Dembowska",
+"reasons": [
+"swiss_docs: Production family",
+"requested"
+]
+},
+{
+"number": 375,
+"name": "Ursula",
+"reasons": [
+"swiss_docs: Some frequent names"
+]
+},
+{
+"number": 398,
+"name": "Admete",
+"reasons": [
+"swiss_docs: Other Transplutonians"
+]
+},
+{
+"number": 399,
+"name": "Persephone",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 412,
+"name": "Elisabetha",
+"reasons": [
+"swiss_docs: Some frequent names"
+]
+},
+{
+"number": 434,
+"name": "Hungaria",
+"reasons": [
+"swiss_docs: Hungarias: asteroid group at 1.95 AU"
+]
+},
+{
+"number": 451,
+"name": "Patientia",
+"reasons": [
+"swiss_docs: Literature"
+]
+},
+{
+"number": 484,
+"name": "Pittsburghia",
+"reasons": [
+"swiss_docs: Production family"
+]
+},
+{
+"number": 499,
+"name": "Venusia",
+"reasons": [
+"swiss_docs: Love asteroids"
+]
+},
+{
+"number": 511,
+"name": "Davida",
+"reasons": [
+"swiss_docs: Literature"
+]
+},
+{
+"number": 542,
+"name": "Susanna",
+"reasons": [
+"swiss_docs: Some frequent names"
+]
+},
+{
+"number": 564,
+"name": "Dudu",
+"reasons": [
+"swiss_docs: Production family"
+]
+},
+{
+"number": 588,
+"name": "Achilles",
+"reasons": [
+"swiss_docs: Greeks ahead of Jupiter"
+]
+},
+{
+"number": 612,
+"name": "Veronika",
+"reasons": [
+"swiss_docs: Production family"
+]
+},
+{
+"number": 624,
+"name": "Hector",
+"reasons": [
+"swiss_docs: Greeks ahead of Jupiter"
+]
+},
+{
+"number": 704,
+"name": "Interamnia",
+"reasons": [
+"swiss_docs: Literature"
+]
+},
+{
+"number": 763,
+"name": "Cupido",
+"reasons": [
+"swiss_docs: Other Transplutonians"
+]
+},
+{
+"number": 884,
+"name": "Priamus",
+"reasons": [
+"swiss_docs: Trojans behind Jupiter"
+]
+},
+{
+"number": 904,
+"name": "Rockefellia",
+"reasons": [
+"swiss_docs: Love asteroids"
+]
+},
+{
+"number": 944,
+"name": "Hidalgo",
+"reasons": [
+"swiss_docs: Jupiter-crossing asteroids",
+"requested",
+"tno_centaur"
+]
+},
+{
+"number": 1034,
+"name": "Mozartia",
+"reasons": [
+"swiss_docs: Composer Asteroids"
+]
+},
+{
+"number": 1036,
+"name": "Ganymed",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 1143,
+"name": "Odysseus",
+"reasons": [
+"swiss_docs: Greeks ahead of Jupiter"
+]
+},
+{
+"number": 1170,
+"name": "Siva",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 1181,
+"name": "Lilith",
+"reasons": [
+"swiss_docs: Other Transplutonians",
+"requested"
+]
+},
+{
+"number": 1221,
+"name": "Amor",
+"reasons": [
+"swiss_docs: Amor family: they cross Mars, approach Earth",
+"requested"
+]
+},
+{
+"number": 1338,
+"name": "Duponta",
+"reasons": [
+"swiss_docs: Love asteroids"
+]
+},
+{
+"number": 1343,
+"name": "Nicole",
+"reasons": [
+"swiss_docs: Production family"
+]
+},
+{
+"number": 1376,
+"name": "Michelle",
+"reasons": [
+"swiss_docs: Production family"
+]
+},
+{
+"number": 1387,
+"name": "Kama",
+"reasons": [
+"swiss_docs: Love asteroids"
+]
+},
+{
+"number": 1388,
+"name": "Aphrodite",
+"reasons": [
+"swiss_docs: Love asteroids"
+]
+},
+{
+"number": 1389,
+"name": "Onnie",
+"reasons": [
+"swiss_docs: Love asteroids"
+]
+},
+{
+"number": 1390,
+"name": "Abastumani",
+"reasons": [
+"swiss_docs: Love asteroids"
+]
+},
+{
+"number": 1566,
+"name": "Icarus",
+"reasons": [
+"swiss_docs: Apollo family: they cross Earth; mean distance is greater th",
+"requested"
+]
+},
+{
+"number": 1580,
+"name": "Betulia",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 1620,
+"name": "Geographos",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 1627,
+"name": "Ivar",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 1685,
+"name": "Toro",
+"reasons": [
+"requested",
+"neo_myth"
+]
+},
+{
+"number": 1716,
+"name": "Peter",
+"reasons": [
+"swiss_docs: Production family"
+]
+},
+{
+"number": 1814,
+"name": "Bach",
+"reasons": [
+"swiss_docs: Composer Asteroids"
+]
+},
+{
+"number": 1815,
+"name": "Beethoven",
+"reasons": [
+"swiss_docs: Composer Asteroids"
+]
+},
+{
+"number": 1862,
+"name": "Apollo",
+"reasons": [
+"swiss_docs: Apollo family: they cross Earth; mean distance is greater th",
+"requested"
+]
+},
+{
+"number": 1864,
+"name": "Daedalus",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 1866,
+"name": "Sisyphus",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 1915,
+"name": "Quetzalcoatl",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 1930,
+"name": "Lucifer",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 1943,
+"name": "Anteros",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 1980,
+"name": "Tezcatlipoca",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 2055,
+"name": "Dvorak",
+"reasons": [
+"swiss_docs: Composer Asteroids"
+]
+},
+{
+"number": 2062,
+"name": "Aten",
+"reasons": [
+"swiss_docs: Aten family: they cross Earth; mean distance from Sun is les",
+"neo_myth"
+]
+},
+{
+"number": 2063,
+"name": "Bacchus",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 2100,
+"name": "Ra-Shalom",
+"reasons": [
+"swiss_docs: Aten family: they cross Earth; mean distance from Sun is les",
+"neo_myth"
+]
+},
+{
+"number": 2101,
+"name": "Adonis",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 2212,
+"name": "Hephaistos",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 2329,
+"name": "Orthos",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 2340,
+"name": "Hathor",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 2396,
+"name": "Kochi",
+"reasons": [
+"swiss_docs: Programmers group"
+]
+},
+{
+"number": 2968,
+"name": "Iliya",
+"reasons": [
+"swiss_docs: Programmers group"
+]
+},
+{
+"number": 3045,
+"name": "Alois",
+"reasons": [
+"swiss_docs: Programmers group"
+]
+},
+{
+"number": 3122,
+"name": "Florence",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 3200,
+"name": "Phaethon",
+"reasons": [
+"swiss_docs: Apollo family: they cross Earth; mean distance is greater th",
+"neo_myth"
+]
+},
+{
+"number": 3317,
+"name": "Paris",
+"reasons": [
+"swiss_docs: Trojans behind Jupiter"
+]
+},
+{
+"number": 3362,
+"name": "Khufu",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 3552,
+"name": "Don Quixote",
+"reasons": [
+"swiss_docs: Jupiter-crossing asteroids",
+"tno_centaur"
+]
+},
+{
+"number": 3652,
+"name": "Soros",
+"reasons": [
+"swiss_docs: Love asteroids"
+]
+},
+{
+"number": 3671,
+"name": "Dionysus",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 3753,
+"name": "Cruithne",
+"reasons": [
+"swiss_docs: Other Transplutonians",
+"neo_myth"
+]
+},
+{
+"number": 3941,
+"name": "Haydn",
+"reasons": [
+"swiss_docs: Composer Asteroids"
+]
+},
+{
+"number": 4147,
+"name": "Lennon",
+"reasons": [
+"swiss_docs: Beatles asteroids"
+]
+},
+{
+"number": 4148,
+"name": "McCartney",
+"reasons": [
+"swiss_docs: Beatles asteroids"
+]
+},
+{
+"number": 4149,
+"name": "Harrison",
+"reasons": [
+"swiss_docs: Beatles asteroids"
+]
+},
+{
+"number": 4150,
+"name": "Starr",
+"reasons": [
+"swiss_docs: Beatles asteroids"
+]
+},
+{
+"number": 4179,
+"name": "Toutatis",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 4183,
+"name": "Cuno",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 4341,
+"name": "Poseidon",
+"reasons": [
+"swiss_docs: Other Transplutonians"
+]
+},
+{
+"number": 4464,
+"name": "Vulcano",
+"reasons": [
+"swiss_docs: Other Transplutonians"
+]
+},
+{
+"number": 4660,
+"name": "Nereus",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 5011,
+"name": "Ptah",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 5261,
+"name": "Eureka",
+"reasons": [
+"swiss_docs: Mars Trojans"
+]
+},
+{
+"number": 5335,
+"name": "Damocles",
+"reasons": [
+"swiss_docs: Jupiter-crossing asteroids",
+"tno_centaur"
+]
+},
+{
+"number": 5731,
+"name": "Zeus",
+"reasons": [
+"swiss_docs: Other Transplutonians"
+]
+},
+{
+"number": 5786,
+"name": "Talos",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 7066,
+"name": "Nessus",
+"reasons": [
+"swiss_docs: Centaurs",
+"requested"
+]
+},
+{
+"number": 8405,
+"name": "Asbolus",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 10199,
+"name": "Chariklo",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 10370,
+"name": "Hylonome",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 15760,
+"name": "Albion",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 19521,
+"name": "Chaos",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 20000,
+"name": "Varuna",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 20461,
+"name": "Dioretsa",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 26375,
+"name": "1999 DE9",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 28978,
+"name": "Ixion",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 31824,
+"name": "Elatus",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 32532,
+"name": "Thereus",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 38083,
+"name": "Rhadamanthus",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 38628,
+"name": "Huya",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 42355,
+"name": "Typhon",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 47171,
+"name": "Lempo",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 49036,
+"name": "Pelion",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 50000,
+"name": "Quaoar",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 52872,
+"name": "Okyrhoe",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 52975,
+"name": "Cyllarus",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 54598,
+"name": "Bienor",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 55565,
+"name": "2002 AW197",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 55576,
+"name": "Amycus",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 58534,
+"name": "Logos",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 60558,
+"name": "Echeclus",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 65489,
+"name": "Ceto",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 79360,
+"name": "Sila-Nunam",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 83982,
+"name": "Crantor",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 84522,
+"name": "2002 TC302",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 90377,
+"name": "Sedna",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 90482,
+"name": "Orcus",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 99942,
+"name": "Apophis",
+"reasons": [
+"neo_myth"
+]
+},
+{
+"number": 120347,
+"name": "Salacia",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 136108,
+"name": "Haumea",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 136472,
+"name": "Makemake",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 148780,
+"name": "Altjira",
+"reasons": [
+"tno_centaur"
+]
+},
+{
+"number": 174567,
+"name": "Varda",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 225088,
+"name": "Gonggong",
+"reasons": [
+"requested"
+]
+},
+{
+"number": 471143,
+"name": "Dziewanna",
+"reasons": [
+"tno_centaur"
+]
+}
+]
+}

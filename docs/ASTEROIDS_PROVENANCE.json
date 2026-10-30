@@ -1,0 +1,5280 @@
+{
+ "generated_utc": "2026-10-29T14:23:18Z",
+ "tool": "tools/build_asteroids.py",
+ "pack": {
+  "path": "fepk-asteroids-v1.bin",
+  "size_bytes": 107936784,
+  "sha256": "afe56f112fa70566ece7985d3a84b70c0b5e0eb3259ba90d698af4a131da5079"
+ },
+ "clean_room": "All data from JPL Horizons; Swiss is only a black-box oracle in harness/check_asteroids.py",
+ "license": "JPL Solar System Dynamics data (NASA/JPL-Caltech), credit JPL Horizons; files are informal releases (see the Horizons SPK comments)",
+ "missing": [
+  2101
+ ],
+ "bodies": [
+  {
+   "number": 5,
+   "name": "5 Astraea (A845 XA)",
+   "solution_id": "JPL#147",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians",
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:13:05",
+   "observations": "4395 (1845-2025)",
+   "spk_sha256": "6a69c5b685462984fdf88add177cc365a8b18781307af603e67aefa953171d9a",
+   "retrieved_utc": "2026-10-29T09:39:30Z"
+  },
+  {
+   "number": 6,
+   "name": "6 Hebe (A847 NA)",
+   "solution_id": "JPL#121",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians",
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:21",
+   "observations": "6770 (1848-2026)",
+   "spk_sha256": "b3198636c7e2a8865e600bdfb78ea472694b67603435febd806d4c2c1a4932c7",
+   "retrieved_utc": "2026-10-29T09:41:53Z"
+  },
+  {
+   "number": 7,
+   "name": "7 Iris (A847 PA)",
+   "solution_id": "JPL#144",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians",
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "5954 (1848-2026)",
+   "spk_sha256": "47642663d222b60aa2a56a97d05567b22f9da8aeae20ffe4287690760180e09f",
+   "retrieved_utc": "2026-10-29T10:01:30Z"
+  },
+  {
+   "number": 8,
+   "name": "8 Flora (A847 UA)",
+   "solution_id": "JPL#152",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Floras: Hirayama family at 2.2 AU",
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2025-Sep-15_15:02:53",
+   "observations": "3564 (1847-2025)",
+   "spk_sha256": "a3952507a1f2e67f73a93c21898e131a50ba48ef017d021585d8884feabcd839",
+   "retrieved_utc": "2026-10-29T10:02:30Z"
+  },
+  {
+   "number": 9,
+   "name": "9 Metis (A848 HA)",
+   "solution_id": "JPL#148",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians",
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:13:05",
+   "observations": "4122 (1849-2025)",
+   "spk_sha256": "3a6742bebdb3233a2f1c6f9feb5760814501c19bb1a9a8e380ee78d8ae0dd9e3",
+   "retrieved_utc": "2026-10-29T10:03:35Z"
+  },
+  {
+   "number": 10,
+   "name": "10 Hygiea (A849 GA)",
+   "solution_id": "JPL#129",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Literature",
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-16_11:32:04",
+   "observations": "5207 (1849-2026)",
+   "spk_sha256": "5e8b71894f66d88c4b9b9b017ad3ebf5944c36bc7e133d467a2f327269685cc9",
+   "retrieved_utc": "2026-10-29T10:00:33Z"
+  },
+  {
+   "number": 11,
+   "name": "11 Parthenope (A850 JA)",
+   "solution_id": "JPL#143",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Oct-22_08:20:09",
+   "observations": "10626 (1850-2026)",
+   "spk_sha256": "8d06413c4ad4ff563acba26ff16750da980a664f5fe2ab466808331b6c620145",
+   "retrieved_utc": "2026-10-29T12:33:17Z"
+  },
+  {
+   "number": 12,
+   "name": "12 Victoria (A850 RA)",
+   "solution_id": "JPL#160",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Oct-22_08:20:09",
+   "observations": "4566 (1850-2026)",
+   "spk_sha256": "1d0f3e55542c43c15cf35d964d922f3cc9f172dc5feac041d9343bd0de71baab",
+   "retrieved_utc": "2026-10-29T12:33:31Z"
+  },
+  {
+   "number": 13,
+   "name": "13 Egeria (A850 VA)",
+   "solution_id": "JPL#131",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:20",
+   "observations": "3875 (1850-2026)",
+   "spk_sha256": "c36f83030c0c196c135905c4cb03efe76be8ea53ca7aa2b81eaa21078520a0ca",
+   "retrieved_utc": "2026-10-29T12:33:50Z"
+  },
+  {
+   "number": 14,
+   "name": "14 Irene (A851 KA)",
+   "solution_id": "JPL#118",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "3696 (1851-2026)",
+   "spk_sha256": "0017478eadcd3b6bb6d4dfcc4569f090290ebf8fc40514378aae7d5e53952833",
+   "retrieved_utc": "2026-10-29T11:04:33Z"
+  },
+  {
+   "number": 15,
+   "name": "15 Eunomia (A851 OA)",
+   "solution_id": "JPL#109",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Literature",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-16_11:32:04",
+   "observations": "5326 (1851-2026)",
+   "spk_sha256": "b3a0b9d9bff3749abbf31c2dd46b90e288c1a0deb2df1af71427036833e3e2ee",
+   "retrieved_utc": "2026-10-29T11:05:35Z"
+  },
+  {
+   "number": 16,
+   "name": "16 Psyche (A852 FA)",
+   "solution_id": "JPL#92",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Literature",
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2025-Feb-06_14:15:44",
+   "observations": "7401 (1984-2024)",
+   "spk_sha256": "06e93d8acb054fba7de35d31767040a3e4148e04caa3fb77e7a74f71f5d8c089",
+   "retrieved_utc": "2026-10-29T09:59:33Z"
+  },
+  {
+   "number": 17,
+   "name": "17 Thetis (A852 HA)",
+   "solution_id": "JPL#155",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Oct-22_08:20:12",
+   "observations": "11764 (1852-2026)",
+   "spk_sha256": "b769b1096baf8a1e78bc3288eea16c811b6a43dc97baf017cc435b0c26e622ec",
+   "retrieved_utc": "2026-10-29T12:34:07Z"
+  },
+  {
+   "number": 18,
+   "name": "18 Melpomene (A852 MA)",
+   "solution_id": "JPL#140",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "6749 (1852-2026)",
+   "spk_sha256": "e9633e5207b8eb1a3ff4622274c2c3558b23c40dd854bbd84cd6817d88cd4496",
+   "retrieved_utc": "2026-10-29T11:06:41Z"
+  },
+  {
+   "number": 19,
+   "name": "19 Fortuna (A852 QA)",
+   "solution_id": "JPL#170",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "9643 (1852-2026)",
+   "spk_sha256": "5366c8db2c28d04746b3ab269736f77a665587cf5159f1981aa5aa58f6a80b4d",
+   "retrieved_utc": "2026-10-29T11:07:44Z"
+  },
+  {
+   "number": 20,
+   "name": "20 Massalia (A852 SA)",
+   "solution_id": "JPL#144",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "10321 (1856-2026)",
+   "spk_sha256": "aee8d5456af52def44733e14c6f8cdff1a5170f716b5e2860ef63e60aa5f6ff2",
+   "retrieved_utc": "2026-10-29T12:34:21Z"
+  },
+  {
+   "number": 21,
+   "name": "21 Lutetia (A852 VA)",
+   "solution_id": "JPL#146",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "7110 (1866-2026)",
+   "spk_sha256": "cf52167f5d6d4588ebda27ffed558a3f4b5251b664374d3057df9a5d40a8da12",
+   "retrieved_utc": "2026-10-29T12:34:39Z"
+  },
+  {
+   "number": 22,
+   "name": "22 Kalliope (A852 WA)",
+   "solution_id": "JPL#138",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:26",
+   "observations": "12455 (1854-2026)",
+   "spk_sha256": "c038ac7c30d91377dd9eabdf9aa9054815cb72a40d4048086828e390a23638e5",
+   "retrieved_utc": "2026-10-29T11:09:44Z"
+  },
+  {
+   "number": 23,
+   "name": "23 Thalia (A852 XA)",
+   "solution_id": "JPL#132",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids",
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:13:19",
+   "observations": "5487 (1856-2025)",
+   "spk_sha256": "f0f565163a21b571d790d0ebcd0866bdd0eb1a121b959c17acf94aceaf9131c5",
+   "retrieved_utc": "2026-10-29T11:11:00Z"
+  },
+  {
+   "number": 24,
+   "name": "24 Themis (A853 GA)",
+   "solution_id": "JPL#154",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Themis family: Hirayama family at 3.13 AU",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "6577 (1853-2026)",
+   "spk_sha256": "a8f6b472b6eaf0c9b78b6400cf7c51c1bebaecd8178973b2606e606f4156394c",
+   "retrieved_utc": "2026-10-29T11:12:47Z"
+  },
+  {
+   "number": 25,
+   "name": "25 Phocaea (A853 GB)",
+   "solution_id": "JPL#139",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Phocaeas: asteroid group at 2.36 AU",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "6881 (1860-2026)",
+   "spk_sha256": "1e8fcf05f740813f2623a3b710d752ad3112d6cb19202507a7e5068de0594bfd",
+   "retrieved_utc": "2026-10-29T11:14:07Z"
+  },
+  {
+   "number": 26,
+   "name": "26 Proserpina (A853 JA)",
+   "solution_id": "JPL#161",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:24",
+   "observations": "4907 (1861-2026)",
+   "spk_sha256": "740a0e87cf5ef675941f51e3f4534dae5df99f40db127b37466a9412f38ad49c",
+   "retrieved_utc": "2026-10-29T12:34:58Z"
+  },
+  {
+   "number": 27,
+   "name": "27 Euterpe (A853 VA)",
+   "solution_id": "JPL#148",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "3924 (1853-2026)",
+   "spk_sha256": "c127b126fefaba1fd3784a22d8dc568f0539a2f0c17dcc68174f6eb1dad905f8",
+   "retrieved_utc": "2026-10-29T11:15:46Z"
+  },
+  {
+   "number": 28,
+   "name": "28 Bellona (A854 EA)",
+   "solution_id": "JPL#143",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "4685 (1856-2026)",
+   "spk_sha256": "37ec699b65a104d8b894134a3ba3a79f6fb907b648bf9489d5e93d47cfd00e29",
+   "retrieved_utc": "2026-10-29T12:35:14Z"
+  },
+  {
+   "number": 29,
+   "name": "29 Amphitrite (A854 EB)",
+   "solution_id": "JPL#175",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "3549 (1855-2026)",
+   "spk_sha256": "8b281fa7f15f5dce8989f9d65629458d815ee235208d6a264f025012e00fd6ff",
+   "retrieved_utc": "2026-10-29T12:35:28Z"
+  },
+  {
+   "number": 30,
+   "name": "30 Urania (A854 OA)",
+   "solution_id": "JPL#152",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids",
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "4904 (1860-2026)",
+   "spk_sha256": "d48fd4674112bff76fed0a537cedd9ab861e6afe612867d7225b2d46b6401ac4",
+   "retrieved_utc": "2026-10-29T10:04:44Z"
+  },
+  {
+   "number": 31,
+   "name": "31 Euphrosyne (A854 RA)",
+   "solution_id": "JPL#135",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Literature",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "4782 (1860-2026)",
+   "spk_sha256": "ecc653eb6bdd9fa115e45710a0d3375870b113ef0f40b4ec4015721d035ab831",
+   "retrieved_utc": "2026-10-29T11:17:07Z"
+  },
+  {
+   "number": 32,
+   "name": "32 Pomona (A854 UA)",
+   "solution_id": "JPL#151",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "9216 (1864-2026)",
+   "spk_sha256": "35e8e918f57b83b957adb70653bca95501f769c33b66d9b35891809c68d275db",
+   "retrieved_utc": "2026-10-29T12:35:46Z"
+  },
+  {
+   "number": 33,
+   "name": "33 Polyhymnia (A854 UB)",
+   "solution_id": "JPL#89",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:25",
+   "observations": "6146 (1856-2026)",
+   "spk_sha256": "b2350eb694ccb68db3e24b2237314d0b17fff4985af44027c9776937fd64fc22",
+   "retrieved_utc": "2026-10-29T11:18:30Z"
+  },
+  {
+   "number": 34,
+   "name": "34 Circe (A855 GA)",
+   "solution_id": "JPL#126",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:26",
+   "observations": "11509 (1864-2026)",
+   "spk_sha256": "0625b73704e8a8e19964f530ecf03d237d23ecfe275d546c69ab37a1658d8d80",
+   "retrieved_utc": "2026-10-29T12:36:04Z"
+  },
+  {
+   "number": 35,
+   "name": "35 Leukothea (A855 HA)",
+   "solution_id": "JPL#94",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:29",
+   "observations": "7743 (1860-2026)",
+   "spk_sha256": "4f614b2b933ae96570b35f2691f98e15db1a31e30b9c879a65d3e5e84bd70065",
+   "retrieved_utc": "2026-10-29T12:36:19Z"
+  },
+  {
+   "number": 36,
+   "name": "36 Atalante (A855 TA)",
+   "solution_id": "JPL#132",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:35",
+   "observations": "4836 (1866-2026)",
+   "spk_sha256": "b7ec4122b31b0cdfb71cbfa65f2b13beb1c8b790f3daf00ac0facc5803fc689f",
+   "retrieved_utc": "2026-10-29T12:36:33Z"
+  },
+  {
+   "number": 37,
+   "name": "37 Fides (A855 TB)",
+   "solution_id": "JPL#164",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:03:41",
+   "observations": "5418 (1855-2026)",
+   "spk_sha256": "7c3beef0b4b0a24223a30740951abf7835cd1af34966ffb12f8f5870651c76be",
+   "retrieved_utc": "2026-10-29T12:36:51Z"
+  },
+  {
+   "number": 38,
+   "name": "38 Leda (A856 AA)",
+   "solution_id": "JPL#147",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:04:29",
+   "observations": "6627 (1856-2026)",
+   "spk_sha256": "fca7c7bcd04668d7ef027078da9912c3d2dd5db47b40ff6ff45e495d0ab38894",
+   "retrieved_utc": "2026-10-29T12:37:09Z"
+  },
+  {
+   "number": 39,
+   "name": "39 Laetitia (A856 CA)",
+   "solution_id": "JPL#142",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:04:36",
+   "observations": "12438 (1856-2026)",
+   "spk_sha256": "142e938c10218b7d8a3ac7cc66ff04fb4943d5979b823e89dad70b2df4a36066",
+   "retrieved_utc": "2026-10-29T12:37:23Z"
+  },
+  {
+   "number": 40,
+   "name": "40 Harmonia (A856 FA)",
+   "solution_id": "JPL#154",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:04:37",
+   "observations": "11061 (1860-2026)",
+   "spk_sha256": "7d48709c2ec4de3d06953c0b494ca2a7962013e89331a22c26706afb6f433b32",
+   "retrieved_utc": "2026-10-29T12:37:37Z"
+  },
+  {
+   "number": 41,
+   "name": "41 Daphne (A856 KA)",
+   "solution_id": "JPL#169",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:04:51",
+   "observations": "8160 (1866-2026)",
+   "spk_sha256": "4751fac429d028d552c7759ebd078e98b188515f83d179f358aa31f7e08bde0b",
+   "retrieved_utc": "2026-10-29T12:37:52Z"
+  },
+  {
+   "number": 42,
+   "name": "42 Isis (A856 KB)",
+   "solution_id": "JPL#140",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:04:51",
+   "observations": "9006 (1856-2026)",
+   "spk_sha256": "4d46d3e6c7aca5b42192f12b423395180f64aff8c9497ee5b8b39f3f33de2684",
+   "retrieved_utc": "2026-10-29T11:20:51Z"
+  },
+  {
+   "number": 43,
+   "name": "43 Ariadne (A857 GA)",
+   "solution_id": "JPL#153",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:04:52",
+   "observations": "4760 (1864-2026)",
+   "spk_sha256": "f62d3e58e159f3126bb619b9cf7fc2bdaab4de2bd6b9d85a0b85a871df62dbe9",
+   "retrieved_utc": "2026-10-29T10:05:42Z"
+  },
+  {
+   "number": 44,
+   "name": "44 Nysa (A857 KA)",
+   "solution_id": "JPL#151",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:04:54",
+   "observations": "8810 (1864-2026)",
+   "spk_sha256": "e72f0d20050f4489b13c3e12b0bf97857c92477d256b7b8abfa248ebc7ea8f9c",
+   "retrieved_utc": "2026-10-29T12:38:09Z"
+  },
+  {
+   "number": 45,
+   "name": "45 Eugenia (A857 MA)",
+   "solution_id": "JPL#150",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:05:02",
+   "observations": "13144 (1866-2026)",
+   "spk_sha256": "6ab3a52d9ae9c61cdf8e9cf03747e0403fc7ee972ccdc90544574bcea18df523",
+   "retrieved_utc": "2026-10-29T12:38:25Z"
+  },
+  {
+   "number": 46,
+   "name": "46 Hestia (A857 QA)",
+   "solution_id": "JPL#195",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:15:06",
+   "observations": "6903 (1864-2025)",
+   "spk_sha256": "f3b69794d5c0c99362802ec49054b03cd969b99532064806066f05393d3f5835",
+   "retrieved_utc": "2026-10-29T12:38:37Z"
+  },
+  {
+   "number": 47,
+   "name": "47 Aglaja (A857 RA)",
+   "solution_id": "JPL#156",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:05:04",
+   "observations": "7145 (1860-2026)",
+   "spk_sha256": "54814e8601eb6840e35631b3c3b3be8ad599ac12a24ba9ee9d40bbf7cd1ef230",
+   "retrieved_utc": "2026-10-29T12:38:55Z"
+  },
+  {
+   "number": 48,
+   "name": "48 Doris (A857 SA)",
+   "solution_id": "JPL#207",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:05:11",
+   "observations": "5531 (1860-2026)",
+   "spk_sha256": "87f924ff03e0def6b602d63a6f6d454d3632ef9a2a02380144224344d1b807ec",
+   "retrieved_utc": "2026-10-29T12:39:13Z"
+  },
+  {
+   "number": 49,
+   "name": "49 Pales (A857 SB)",
+   "solution_id": "JPL#128",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:05:17",
+   "observations": "9991 (1863-2025)",
+   "spk_sha256": "b4728270266881c0c254d4fd5f6828f3d86906b58c72fd0c105ceef5252295d3",
+   "retrieved_utc": "2026-10-29T12:39:29Z"
+  },
+  {
+   "number": 50,
+   "name": "50 Virginia (A857 TA)",
+   "solution_id": "JPL#156",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:05:19",
+   "observations": "9089 (1857-2026)",
+   "spk_sha256": "e4de6c3b1af6a1abcc6a8ebcfd03a6c739cb9d31fdb77bd281644664e645777a",
+   "retrieved_utc": "2026-10-29T12:39:43Z"
+  },
+  {
+   "number": 51,
+   "name": "51 Nemausa (A858 BA)",
+   "solution_id": "JPL#158",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:05:19",
+   "observations": "12525 (1863-2026)",
+   "spk_sha256": "76f892ad07e008ec8ab921ebc8af95acd6d2d2c2e8ffb347d3bdf588aa4e7d3c",
+   "retrieved_utc": "2026-10-29T12:40:01Z"
+  },
+  {
+   "number": 52,
+   "name": "52 Europa (A858 CA)",
+   "solution_id": "JPL#143",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Literature",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:05:24",
+   "observations": "12102 (1860-2026)",
+   "spk_sha256": "1c067e4717c7995d3eb8031f528476e57f06e8bc0775fa96b01254c4b3309af0",
+   "retrieved_utc": "2026-10-29T11:23:20Z"
+  },
+  {
+   "number": 53,
+   "name": "53 Kalypso (A858 GA)",
+   "solution_id": "JPL#206",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:15:27",
+   "observations": "7473 (1866-2025)",
+   "spk_sha256": "a3b9e3709e0371d4ebecb4031486b8d7e04919fe337b341dde18bcb5ede587e7",
+   "retrieved_utc": "2026-10-29T12:40:18Z"
+  },
+  {
+   "number": 54,
+   "name": "54 Alexandra (A858 RA)",
+   "solution_id": "JPL#212",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:05:26",
+   "observations": "10913 (1996-2026)",
+   "spk_sha256": "09685746fd36a4f64d9286054b70215cce07c88f6705eb9defe26ed54772c26d",
+   "retrieved_utc": "2026-10-29T12:40:35Z"
+  },
+  {
+   "number": 55,
+   "name": "55 Pandora (A858 RB)",
+   "solution_id": "JPL#111",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:05:26",
+   "observations": "6239 (1876-2026)",
+   "spk_sha256": "fa4321a44d57a333a3d225a5fc38661d4429a6a80c966bdadda9ff5214b5092a",
+   "retrieved_utc": "2026-10-29T10:06:58Z"
+  },
+  {
+   "number": 56,
+   "name": "56 Melete (A857 RB)",
+   "solution_id": "JPL#153",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:05:28",
+   "observations": "6796 (1865-2026)",
+   "spk_sha256": "d9ab3ac31929c623442a215787cfe38d6824e5a710006216798be8025a674d3a",
+   "retrieved_utc": "2026-10-29T12:40:52Z"
+  },
+  {
+   "number": 57,
+   "name": "57 Mnemosyne (A859 SA)",
+   "solution_id": "JPL#80",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:05:29",
+   "observations": "5110 (1859-2026)",
+   "spk_sha256": "dafe62b6b2c3bd167a9fad5176fc5b3fdb3f4628900046d6e4cb15803da0e4dc",
+   "retrieved_utc": "2026-10-29T12:41:09Z"
+  },
+  {
+   "number": 58,
+   "name": "58 Concordia (A860 FA)",
+   "solution_id": "JPL#164",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:05:39",
+   "observations": "8596 (1864-2025)",
+   "spk_sha256": "6f60c8d37c2e5b864c6e3c6132580859c430a1a7b3c1d5d37c684c78f5d0ded5",
+   "retrieved_utc": "2026-10-29T12:41:22Z"
+  },
+  {
+   "number": 59,
+   "name": "59 Elpis (A860 RA)",
+   "solution_id": "JPL#156",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:05:42",
+   "observations": "7556 (1865-2026)",
+   "spk_sha256": "56e0a65dd8a057b15ccfca4f59e07e8dd36276549c93394ed2ca6f28afdc23eb",
+   "retrieved_utc": "2026-10-29T12:41:35Z"
+  },
+  {
+   "number": 60,
+   "name": "60 Echo (A860 RB)",
+   "solution_id": "JPL#161",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:06:14",
+   "observations": "8008 (1861-2026)",
+   "spk_sha256": "1c8aed9295f10dcf5f330c4e54639df770f81c6315925d56d74bd0e86aad6b58",
+   "retrieved_utc": "2026-10-29T12:41:47Z"
+  },
+  {
+   "number": 61,
+   "name": "61 Danae (A860 RC)",
+   "solution_id": "JPL#85",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:06:17",
+   "observations": "9184 (1865-2026)",
+   "spk_sha256": "778bd63561b3c3d2bc388908481315add6496697269e77c26aca98efcf91c25c",
+   "retrieved_utc": "2026-10-29T12:42:07Z"
+  },
+  {
+   "number": 62,
+   "name": "62 Erato (A860 RD)",
+   "solution_id": "JPL#159",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids",
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:16:16",
+   "observations": "11182 (1906-2025)",
+   "spk_sha256": "1e80af46a6422723b9709c8c923b5a65b2a3eae480689ff9ab4d770736c0accc",
+   "retrieved_utc": "2026-10-29T11:25:31Z"
+  },
+  {
+   "number": 63,
+   "name": "63 Ausonia (A861 CA)",
+   "solution_id": "JPL#146",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:06:18",
+   "observations": "8345 (1861-2026)",
+   "spk_sha256": "37edb810130f1050acc23b6498a31c983520dc3e43eb4adef7a8dc02e9d181d9",
+   "retrieved_utc": "2026-10-29T12:42:19Z"
+  },
+  {
+   "number": 64,
+   "name": "64 Angelina (A861 EA)",
+   "solution_id": "JPL#161",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:06:38",
+   "observations": "6443 (1861-2025)",
+   "spk_sha256": "4572b9172f35fc0d760462d2f22f302c9b25869c24d2a79210122d3ce66a2a22",
+   "retrieved_utc": "2026-10-29T12:42:33Z"
+  },
+  {
+   "number": 65,
+   "name": "65 Cybele (A861 EB)",
+   "solution_id": "JPL#122",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Literature",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:06:44",
+   "observations": "6456 (1861-2026)",
+   "spk_sha256": "b5334375d5a16a7188116b5c8f2e040ffb238ab5c99d4abd98972bc6d2611e5c",
+   "retrieved_utc": "2026-10-29T11:27:32Z"
+  },
+  {
+   "number": 66,
+   "name": "66 Maja (A861 GA)",
+   "solution_id": "JPL#88",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:06:47",
+   "observations": "7455 (1861-2026)",
+   "spk_sha256": "765b6ee79894915a64826a647a8a0af35711de89b50947913729f3c05c956e78",
+   "retrieved_utc": "2026-10-29T12:42:48Z"
+  },
+  {
+   "number": 67,
+   "name": "67 Asia (A861 HA)",
+   "solution_id": "JPL#167",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:06:49",
+   "observations": "10795 (1864-2026)",
+   "spk_sha256": "251b256fcaf1d2f23f7dabbe0c321f6ebae5471dabe309c958b10d32df10598e",
+   "retrieved_utc": "2026-10-29T12:43:07Z"
+  },
+  {
+   "number": 68,
+   "name": "68 Leto (A861 HB)",
+   "solution_id": "JPL#151",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:06:53",
+   "observations": "15771 (1863-2026)",
+   "spk_sha256": "9e712b39dd70ebd772e3cac42fa0adbeddb0dcb4a2bc0f433a696ffc9fdab08f",
+   "retrieved_utc": "2026-10-29T12:43:25Z"
+  },
+  {
+   "number": 69,
+   "name": "69 Hesperia (A861 HC)",
+   "solution_id": "JPL#158",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:07:02",
+   "observations": "5224 (1861-2026)",
+   "spk_sha256": "a8d5a9135ca62bce543f7f24a561ec78710c3c3ed4543f06acd525a6c0319b3f",
+   "retrieved_utc": "2026-10-29T12:43:43Z"
+  },
+  {
+   "number": 70,
+   "name": "70 Panopaea (A861 JA)",
+   "solution_id": "JPL#89",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:07:07",
+   "observations": "7968 (1866-2026)",
+   "spk_sha256": "e97bea972e2a5c99b86c90d3e0b19c87ae033f02d574c48fb83a80d6fc33027b",
+   "retrieved_utc": "2026-10-29T12:44:00Z"
+  },
+  {
+   "number": 71,
+   "name": "71 Niobe (A861 PA)",
+   "solution_id": "JPL#123",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2025-Nov-19_21:56:02",
+   "observations": "4852 (1864-2025)",
+   "spk_sha256": "734d797dbeb0e449389ec8dd907046f8d96dd5c015f49c7dbeca6979dd2aceb1",
+   "retrieved_utc": "2026-10-29T12:44:13Z"
+  },
+  {
+   "number": 72,
+   "name": "72 Feronia (A861 KA)",
+   "solution_id": "JPL#157",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:17:12",
+   "observations": "7927 (1865-2025)",
+   "spk_sha256": "fbe27459902171f0919b54ceefc6580c20cb90b1af14f94bad17e3a539225abc",
+   "retrieved_utc": "2026-10-29T12:44:29Z"
+  },
+  {
+   "number": 73,
+   "name": "73 Klytia (A862 GA)",
+   "solution_id": "JPL#82",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:07:13",
+   "observations": "8009 (1864-2026)",
+   "spk_sha256": "c8c494ab3a715ffe5ac766200c2e6c936a48e90fc5ae6b70c4a5f4c2163e6e1c",
+   "retrieved_utc": "2026-10-29T12:44:45Z"
+  },
+  {
+   "number": 74,
+   "name": "74 Galatea (A862 QA)",
+   "solution_id": "JPL#146",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:07:17",
+   "observations": "10410 (1864-2026)",
+   "spk_sha256": "885aa47fd9bab87b241aee3956069da7e5729500593b5d70fa753d37961f4bf5",
+   "retrieved_utc": "2026-10-29T12:45:01Z"
+  },
+  {
+   "number": 75,
+   "name": "75 Eurydike (A862 SA)",
+   "solution_id": "JPL#124",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:07:17",
+   "observations": "11262 (1864-2026)",
+   "spk_sha256": "9b6f4d76fcac1795964ef72a1ee21351adb4840700b4aebfb533d3c4f5749ed7",
+   "retrieved_utc": "2026-10-29T10:07:57Z"
+  },
+  {
+   "number": 76,
+   "name": "76 Freia (A862 UA)",
+   "solution_id": "JPL#99",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:07:19",
+   "observations": "7538 (1864-2026)",
+   "spk_sha256": "246b32e8e435b5253a655e00d174c0e01d51a045d8cd1cb28fc4bfbe650fe12b",
+   "retrieved_utc": "2026-10-29T12:45:19Z"
+  },
+  {
+   "number": 77,
+   "name": "77 Frigga (A862 VA)",
+   "solution_id": "JPL#120",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:07:20",
+   "observations": "5985 (1879-2026)",
+   "spk_sha256": "ae89510eeafe63f9a392ade4dd4ba399262f4f55b19b8f0f7ee6049ddab6080c",
+   "retrieved_utc": "2026-10-29T12:45:37Z"
+  },
+  {
+   "number": 78,
+   "name": "78 Diana (A863 EA)",
+   "solution_id": "JPL#133",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Some frequent names",
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:17:32",
+   "observations": "6349 (1863-2025)",
+   "spk_sha256": "b42c92db4d7bf9b8cd329618070c906f49d4b1f0877d9ce9093c1e0032437dc2",
+   "retrieved_utc": "2026-10-29T11:29:01Z"
+  },
+  {
+   "number": 79,
+   "name": "79 Eurynome (A863 RA)",
+   "solution_id": "JPL#148",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:07:37",
+   "observations": "9752 (1863-2026)",
+   "spk_sha256": "2106d7380ef326364f0b7f16f9e78cf216639f32e2da489870a76a1b6898baa4",
+   "retrieved_utc": "2026-10-29T12:45:53Z"
+  },
+  {
+   "number": 80,
+   "name": "80 Sappho (A864 JA)",
+   "solution_id": "JPL#82",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:07:45",
+   "observations": "4692 (1865-2026)",
+   "spk_sha256": "eab925536a4adc07e68fbdc4b018bed38911deafbfb8cd81819d67f25f2e0b4e",
+   "retrieved_utc": "2026-10-29T10:09:13Z"
+  },
+  {
+   "number": 81,
+   "name": "81 Terpsichore (A864 SA)",
+   "solution_id": "JPL#90",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:07:48",
+   "observations": "8293 (1864-2026)",
+   "spk_sha256": "bbd268feac839cbd941ab06b5a9fbeecf26cae19c9da51a825c32aeae2a1920e",
+   "retrieved_utc": "2026-10-29T11:30:30Z"
+  },
+  {
+   "number": 82,
+   "name": "82 Alkmene (A864 WA)",
+   "solution_id": "JPL#152",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:07:58",
+   "observations": "8994 (1864-2026)",
+   "spk_sha256": "0fa1b3a43c3765f00c00eb5c3718106d401c98f1a40d1c935632b60f88fea588",
+   "retrieved_utc": "2026-10-29T12:46:07Z"
+  },
+  {
+   "number": 83,
+   "name": "83 Beatrix (A865 HA)",
+   "solution_id": "JPL#150",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:18:12",
+   "observations": "6516 (1865-2025)",
+   "spk_sha256": "dc0109bd1c4e66076bc39fe522e9c1c75848d845fdb9af46353795bf77ad1de9",
+   "retrieved_utc": "2026-10-29T12:46:21Z"
+  },
+  {
+   "number": 84,
+   "name": "84 Klio (A865 QA)",
+   "solution_id": "JPL#127",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:07:59",
+   "observations": "5570 (1865-2026)",
+   "spk_sha256": "f86522f7ebd587491b6bd9fb5fd86670d1ce9eef8a74de9b312f5187ad9a20f4",
+   "retrieved_utc": "2026-10-29T11:32:49Z"
+  },
+  {
+   "number": 85,
+   "name": "85 Io (A865 SA)",
+   "solution_id": "JPL#142",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:08:12",
+   "observations": "8726 (1865-2026)",
+   "spk_sha256": "c53a0e354a3dfcd0d538a0da9752a2cbfd51efa8b50bdd921726b0af6b2b7b12",
+   "retrieved_utc": "2026-10-29T12:46:38Z"
+  },
+  {
+   "number": 86,
+   "name": "86 Semele (A866 AA)",
+   "solution_id": "JPL#143",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:08:26",
+   "observations": "6004 (1871-2026)",
+   "spk_sha256": "b9298e0b21572eabbc33e4f6e60406078ec894adc335e4c285b28ae6f4784fef",
+   "retrieved_utc": "2026-10-29T12:46:56Z"
+  },
+  {
+   "number": 87,
+   "name": "87 Sylvia (A866 KA)",
+   "solution_id": "JPL#130",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Literature",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:08:26",
+   "observations": "7387 (1885-2026)",
+   "spk_sha256": "19e6b66a7ed509d731206c0d0db9a3a82a6166f4d142a7d05cd43110ece49edb",
+   "retrieved_utc": "2026-10-29T11:34:40Z"
+  },
+  {
+   "number": 88,
+   "name": "88 Thisbe (A866 LA)",
+   "solution_id": "JPL#192",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:08:27",
+   "observations": "5605 (1866-2026)",
+   "spk_sha256": "2e275d03fd03631c2ff14a3c68ae44ec6ea8b346f9e2bb75cc3f89dfc5125e03",
+   "retrieved_utc": "2026-10-29T12:47:09Z"
+  },
+  {
+   "number": 89,
+   "name": "89 Julia (A866 PA)",
+   "solution_id": "JPL#143",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:08:29",
+   "observations": "4596 (1866-2026)",
+   "spk_sha256": "ead68a5679f6cc75dad6ec8641145ef7d84010c283c8eccb087b13a04edff408",
+   "retrieved_utc": "2026-10-29T12:47:26Z"
+  },
+  {
+   "number": 90,
+   "name": "90 Antiope (A866 TA)",
+   "solution_id": "JPL#143",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:08:34",
+   "observations": "7717 (1866-2026)",
+   "spk_sha256": "c9d2785a95e7b60880a4593c5d4d05e6a9f9a6ba8cd1dbb8bcf0ff7e12553f9b",
+   "retrieved_utc": "2026-10-29T12:47:42Z"
+  },
+  {
+   "number": 91,
+   "name": "91 Aegina (A866 VA)",
+   "solution_id": "JPL#163",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:08:35",
+   "observations": "11684 (1866-2026)",
+   "spk_sha256": "7d6728189dcae06b6b2d80e924008eafe4d65b0fe8ab7e7372b1151e4509b805",
+   "retrieved_utc": "2026-10-29T12:48:03Z"
+  },
+  {
+   "number": 92,
+   "name": "92 Undina (A867 NA)",
+   "solution_id": "JPL#136",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:08:37",
+   "observations": "5169 (1871-2026)",
+   "spk_sha256": "e0a167b51cc34b822465e6f806875bfab36061c6a7fa33e3bcff0b7334b3d5df",
+   "retrieved_utc": "2026-10-29T12:48:21Z"
+  },
+  {
+   "number": 93,
+   "name": "93 Minerva (A867 QA)",
+   "solution_id": "JPL#152",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:08:38",
+   "observations": "5519 (1870-2026)",
+   "spk_sha256": "a3559649cfb697239953017f6a07a2b6b0394acae5da9edaf01f773a6e65954e",
+   "retrieved_utc": "2026-10-29T12:48:36Z"
+  },
+  {
+   "number": 94,
+   "name": "94 Aurora (A867 RA)",
+   "solution_id": "JPL#140",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:08:38",
+   "observations": "9010 (1872-2026)",
+   "spk_sha256": "e7f742288fb9bb6fc62b7fc4c0b0c154df14d2d3e9089359a2cbfc68e5479f12",
+   "retrieved_utc": "2026-10-29T12:48:53Z"
+  },
+  {
+   "number": 95,
+   "name": "95 Arethusa (A867 WA)",
+   "solution_id": "JPL#77",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:08:43",
+   "observations": "6079 (1872-2026)",
+   "spk_sha256": "63c45acfc1d467cd506ead7789fe6f418a653503106e51553a8a6b60443fffbb",
+   "retrieved_utc": "2026-10-29T12:49:08Z"
+  },
+  {
+   "number": 96,
+   "name": "96 Aegle (A868 DA)",
+   "solution_id": "JPL#144",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:08:51",
+   "observations": "5981 (1868-2026)",
+   "spk_sha256": "c939470ef99764565167f44eafed76f0718ca8a8657f6f7eb49f4a49e6bb0720",
+   "retrieved_utc": "2026-10-29T12:49:25Z"
+  },
+  {
+   "number": 97,
+   "name": "97 Klotho (A868 DB)",
+   "solution_id": "JPL#134",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:08:54",
+   "observations": "5168 (1870-2026)",
+   "spk_sha256": "5acc355c1d42c08e3c63223f92c992b9130cfec751a16e08883988a8f99b47f4",
+   "retrieved_utc": "2026-10-29T12:49:43Z"
+  },
+  {
+   "number": 98,
+   "name": "98 Ianthe (A868 HA)",
+   "solution_id": "JPL#127",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:09:04",
+   "observations": "8963 (1870-2026)",
+   "spk_sha256": "5439b79b9c0bec1c169fa8fc483539dd23c0af274ae72afe77934250dc73179a",
+   "retrieved_utc": "2026-10-29T12:49:58Z"
+  },
+  {
+   "number": 99,
+   "name": "99 Dike (A868 KA)",
+   "solution_id": "JPL#140",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:09:04",
+   "observations": "5603 (1915-2025)",
+   "spk_sha256": "074e6677ca4233cd07871108a3e6490291180ca6bd6eed34f6c33067492deeae",
+   "retrieved_utc": "2026-10-29T12:50:14Z"
+  },
+  {
+   "number": 100,
+   "name": "100 Hekate (A868 NA)",
+   "solution_id": "JPL#77",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:09:24",
+   "observations": "9118 (1871-2026)",
+   "spk_sha256": "bcbe80eb569dd8dedddd0ae12927c4dcf67f1c5f0a2a1ddddc8f8ced77d26704",
+   "retrieved_utc": "2026-10-29T10:10:19Z"
+  },
+  {
+   "number": 101,
+   "name": "101 Helena (A868 PA)",
+   "solution_id": "JPL#140",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:19:23",
+   "observations": "8133 (1871-2025)",
+   "spk_sha256": "ecf73ab0323b374d2d211fbaf4d0a03858ebe948a5e0c8a9f5c5db734792c0a5",
+   "retrieved_utc": "2026-10-29T12:50:31Z"
+  },
+  {
+   "number": 102,
+   "name": "102 Miriam (A868 QA)",
+   "solution_id": "JPL#134",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:09:28",
+   "observations": "8872 (1870-2026)",
+   "spk_sha256": "613678c07a55d8536d7bb0cb7c89aa6d57e07bc7e1f0364d7e015a11b53e8f0d",
+   "retrieved_utc": "2026-10-29T12:50:45Z"
+  },
+  {
+   "number": 103,
+   "name": "103 Hera (A868 RA)",
+   "solution_id": "JPL#151",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:09:29",
+   "observations": "9800 (1871-2026)",
+   "spk_sha256": "283c196a30eee3737e22b9bcfbd8dcbf467b880cc740898da20aaabc8ff5ebc7",
+   "retrieved_utc": "2026-10-29T12:51:02Z"
+  },
+  {
+   "number": 104,
+   "name": "104 Klymene (A868 RB)",
+   "solution_id": "JPL#142",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:09:30",
+   "observations": "9422 (1885-2026)",
+   "spk_sha256": "95845784dbfd41d80789ac5567d2d94bb7065164f93fcaf7b577f133a5938367",
+   "retrieved_utc": "2026-10-29T12:51:14Z"
+  },
+  {
+   "number": 105,
+   "name": "105 Artemis (A868 SA)",
+   "solution_id": "JPL#157",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Production family",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:09:38",
+   "observations": "5272 (1904-2026)",
+   "spk_sha256": "2d2e039b88730e75b8d617254f943fbca9912fd44e12acef674a404056e83b20",
+   "retrieved_utc": "2026-10-29T11:36:59Z"
+  },
+  {
+   "number": 106,
+   "name": "106 Dione (A868 TA)",
+   "solution_id": "JPL#156",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2025-Nov-19_21:57:38",
+   "observations": "10152 (1871-2025)",
+   "spk_sha256": "24eaf1d756ad18a42e35b8125a86dd73432e28ce82b02c034353a2d17aaeeca2",
+   "retrieved_utc": "2026-10-29T12:51:29Z"
+  },
+  {
+   "number": 107,
+   "name": "107 Camilla (A868 WA)",
+   "solution_id": "JPL#149",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:09:57",
+   "observations": "6755 (1868-2026)",
+   "spk_sha256": "5cc0c263e7fd7629a782c9d1cea4319ea78d9cef6f662258fa33a494cf505730",
+   "retrieved_utc": "2026-10-29T12:51:45Z"
+  },
+  {
+   "number": 108,
+   "name": "108 Hecuba (A869 GB)",
+   "solution_id": "JPL#89",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:06",
+   "observations": "6424 (1880-2026)",
+   "spk_sha256": "0df2b55d3fd3956196658b3b090d39cae59f4565a3a77cdb86055d09535b8be0",
+   "retrieved_utc": "2026-10-29T12:51:59Z"
+  },
+  {
+   "number": 109,
+   "name": "109 Felicitas (A869 TA)",
+   "solution_id": "JPL#76",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:06",
+   "observations": "4887 (1996-2026)",
+   "spk_sha256": "a3a01cb853f619edec8a62f1e296bca84725989239e38db1f61afef58130980d",
+   "retrieved_utc": "2026-10-29T12:52:13Z"
+  },
+  {
+   "number": 110,
+   "name": "110 Lydia (A870 HA)",
+   "solution_id": "JPL#131",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:09",
+   "observations": "5109 (1994-2026)",
+   "spk_sha256": "8c18eae01b1144b451879bea37f24250ddac3d51d594458caa34dd3da0ca3f49",
+   "retrieved_utc": "2026-10-29T12:52:31Z"
+  },
+  {
+   "number": 111,
+   "name": "111 Ate (A870 PA)",
+   "solution_id": "JPL#149",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:11",
+   "observations": "8375 (1870-2026)",
+   "spk_sha256": "40c592edb21072005df9eec4681828eb88dce35a1e2ba7b4a0097318cddffa29",
+   "retrieved_utc": "2026-10-29T12:52:47Z"
+  },
+  {
+   "number": 112,
+   "name": "112 Iphigenia (A870 SA)",
+   "solution_id": "JPL#126",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:12",
+   "observations": "6630 (1870-2025)",
+   "spk_sha256": "3c67317627372d85b32d11c0629a5c0204cb1f8e611509529a42c23baae8c5c7",
+   "retrieved_utc": "2026-10-29T12:52:59Z"
+  },
+  {
+   "number": 113,
+   "name": "113 Amalthea (A871 EA)",
+   "solution_id": "JPL#157",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:20:24",
+   "observations": "5423 (1871-2025)",
+   "spk_sha256": "975d059f8eeabe36d843d0793f351b6e595598d81dfb8e20955155a2533ac0c6",
+   "retrieved_utc": "2026-10-29T12:53:24Z"
+  },
+  {
+   "number": 114,
+   "name": "114 Kassandra (A871 OA)",
+   "solution_id": "JPL#165",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:13",
+   "observations": "9868 (1902-2026)",
+   "spk_sha256": "9c9d4eb162c5230eda0f845001e3f7d86ef3fac75a1dad705b184e75a37694ef",
+   "retrieved_utc": "2026-10-29T10:11:32Z"
+  },
+  {
+   "number": 115,
+   "name": "115 Thyra (A871 PA)",
+   "solution_id": "JPL#117",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:20:31",
+   "observations": "6829 (1872-2025)",
+   "spk_sha256": "2108006c3dcf2379d74fbb488b33983393a1ac4a517686142075c1c9aba655dc",
+   "retrieved_utc": "2026-10-29T12:54:32Z"
+  },
+  {
+   "number": 116,
+   "name": "116 Sirona (A871 RA)",
+   "solution_id": "JPL#143",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:19",
+   "observations": "5075 (1872-2026)",
+   "spk_sha256": "7896ae4fbe8e8683ddf9c5a3447d261e049f67c95c2d90aceb5709feaa68febf",
+   "retrieved_utc": "2026-10-29T12:55:26Z"
+  },
+  {
+   "number": 117,
+   "name": "117 Lomia (A871 RB)",
+   "solution_id": "JPL#143",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:23",
+   "observations": "8527 (1876-2026)",
+   "spk_sha256": "319ebf925507d4acfc5b85c2de6f18cd9122b52cf3f3f38435821e528088a257",
+   "retrieved_utc": "2026-10-29T12:56:31Z"
+  },
+  {
+   "number": 118,
+   "name": "118 Peitho (A872 EA)",
+   "solution_id": "JPL#109",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:27",
+   "observations": "7558 (1872-2025)",
+   "spk_sha256": "f89b042aaf44d4ef5bdeca3d8cae8aac861079857cef77b0726b2306683af758",
+   "retrieved_utc": "2026-10-29T12:57:33Z"
+  },
+  {
+   "number": 119,
+   "name": "119 Althaea (A872 GA)",
+   "solution_id": "JPL#118",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:29",
+   "observations": "5558 (1872-2026)",
+   "spk_sha256": "99b4a70c338cdd86e580c1f4afcc31509ae6b45998ff259e5431b3b871417261",
+   "retrieved_utc": "2026-10-29T12:58:48Z"
+  },
+  {
+   "number": 120,
+   "name": "120 Lachesis (A872 GB)",
+   "solution_id": "JPL#163",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:29",
+   "observations": "6831 (1872-2026)",
+   "spk_sha256": "ee763d365eb55404e03092514737137f486d96de5d4755a28d8eeadac121c00b",
+   "retrieved_utc": "2026-10-29T12:59:46Z"
+  },
+  {
+   "number": 121,
+   "name": "121 Hermione (A872 JA)",
+   "solution_id": "JPL#148",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Mar-23_10:11:21",
+   "observations": "8202 (1904-2025)",
+   "spk_sha256": "6b4edd04cfd6ede5434170bcf136074a8c92f3e91850f278b70390b479807709",
+   "retrieved_utc": "2026-10-29T13:00:45Z"
+  },
+  {
+   "number": 122,
+   "name": "122 Gerda (A872 OA)",
+   "solution_id": "JPL#79",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Oct-22_08:20:11",
+   "observations": "5858 (1872-2026)",
+   "spk_sha256": "742179b0d83925746736e30113501187eff1a9becc77a429e343c98191d892f9",
+   "retrieved_utc": "2026-10-29T13:01:48Z"
+  },
+  {
+   "number": 123,
+   "name": "123 Brunhild (A872 OB)",
+   "solution_id": "JPL#70",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:34",
+   "observations": "8575 (1872-2026)",
+   "spk_sha256": "53bc92e70fe80056479615527075b2c33f131bb6500005292dbfe557f72e8955",
+   "retrieved_utc": "2026-10-29T13:02:54Z"
+  },
+  {
+   "number": 124,
+   "name": "124 Alkeste (A872 QA)",
+   "solution_id": "JPL#166",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:40",
+   "observations": "6414 (1872-2025)",
+   "spk_sha256": "e374ab792fbd46d4a8c72365c031a54316a894675807c5b6f23108830a73d24c",
+   "retrieved_utc": "2026-10-29T13:03:54Z"
+  },
+  {
+   "number": 125,
+   "name": "125 Liberatrix (A872 RA)",
+   "solution_id": "JPL#115",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:41",
+   "observations": "7629 (1872-2026)",
+   "spk_sha256": "46dbf732aa566b2b80166d1c4df96e2cd3902eb3ef5f57429fbe79212f0f0836",
+   "retrieved_utc": "2026-10-29T13:04:57Z"
+  },
+  {
+   "number": 126,
+   "name": "126 Velleda (A872 VA)",
+   "solution_id": "JPL#138",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:10:48",
+   "observations": "10178 (1872-2026)",
+   "spk_sha256": "c3ab7a78fddb582f2bcffe3ae04db51793f0f61b9110c63459572c9618f7824b",
+   "retrieved_utc": "2026-10-29T13:05:42Z"
+  },
+  {
+   "number": 127,
+   "name": "127 Johanna (A872 VB)",
+   "solution_id": "JPL#147",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:11:00",
+   "observations": "6922 (1893-2026)",
+   "spk_sha256": "9191b7bb3e1a83b34db0b2addbc191717182ff673ae4f6dda669fdc6b81c20f2",
+   "retrieved_utc": "2026-10-29T13:06:28Z"
+  },
+  {
+   "number": 128,
+   "name": "128 Nemesis (A872 WA)",
+   "solution_id": "JPL#144",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:11:08",
+   "observations": "6817 (1872-2026)",
+   "spk_sha256": "841fd6e7e85df333fb812efcca0a13682be5503ebfaa42d0537b43e20cbb2e85",
+   "retrieved_utc": "2026-10-29T10:12:50Z"
+  },
+  {
+   "number": 129,
+   "name": "129 Antigone (A873 CA)",
+   "solution_id": "JPL#145",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:21:15",
+   "observations": "5542 (1876-2026)",
+   "spk_sha256": "4774209f2df58784f8ce676a6ec84a8ad15147b91a940286ad543024c17280ec",
+   "retrieved_utc": "2026-10-29T13:07:14Z"
+  },
+  {
+   "number": 130,
+   "name": "130 Elektra (A873 DA)",
+   "solution_id": "JPL#151",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:11:15",
+   "observations": "16780 (1893-2026)",
+   "spk_sha256": "4377e824bee4505378624fe7aa1519450b5afad96e35a09baa719f1a34142b78",
+   "retrieved_utc": "2026-10-29T13:07:58Z"
+  },
+  {
+   "number": 131,
+   "name": "131 Vala (A873 KA)",
+   "solution_id": "JPL#110",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:21:46",
+   "observations": "9002 (1873-2025)",
+   "spk_sha256": "4773ee779271994eafe5a63392cbbf3366b1e94df085b541638973d02ca91a52",
+   "retrieved_utc": "2026-10-29T13:08:46Z"
+  },
+  {
+   "number": 132,
+   "name": "132 Aethra (A873 LA)",
+   "solution_id": "JPL#93",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:11:18",
+   "observations": "5574 (1873-2025)",
+   "spk_sha256": "efc25eb89526efe4b0d8c8c3fe089962a381abeb61b603429d98153179556a44",
+   "retrieved_utc": "2026-10-29T13:09:55Z"
+  },
+  {
+   "number": 133,
+   "name": "133 Cyrene (A873 QA)",
+   "solution_id": "JPL#117",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:11:36",
+   "observations": "6790 (1873-2026)",
+   "spk_sha256": "7bc29a9bc8b8d4cead06013864b570c5c7c04382a6246eef87fef41009c77589",
+   "retrieved_utc": "2026-10-29T13:11:10Z"
+  },
+  {
+   "number": 134,
+   "name": "134 Sophrosyne (A873 SA)",
+   "solution_id": "JPL#153",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Wisdom asteroids",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:11:38",
+   "observations": "7572 (1877-2026)",
+   "spk_sha256": "ca2bca1412ac0730f92732b316f9f2738a88994328445d6412f44e2be4a74e53",
+   "retrieved_utc": "2026-10-29T11:38:10Z"
+  },
+  {
+   "number": 135,
+   "name": "135 Hertha (A874 DA)",
+   "solution_id": "JPL#143",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:11:41",
+   "observations": "8724 (1875-2026)",
+   "spk_sha256": "42fb075a1c0da8e920295394f4b61b7ffc8be89abe4b1790015f846c5851a16d",
+   "retrieved_utc": "2026-10-29T13:12:51Z"
+  },
+  {
+   "number": 136,
+   "name": "136 Austria (A874 FA)",
+   "solution_id": "JPL#114",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Oct-22_08:20:11",
+   "observations": "7810 (1877-2026)",
+   "spk_sha256": "25760128ebca33b965a008431a25bbd75935cdd145f52de2e51b7fba4bd915a6",
+   "retrieved_utc": "2026-10-29T13:14:29Z"
+  },
+  {
+   "number": 137,
+   "name": "137 Meliboea (A874 HA)",
+   "solution_id": "JPL#147",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:11:50",
+   "observations": "11022 (1880-2026)",
+   "spk_sha256": "9b97b903c9c4e63f5a3effeb0f7b9880bd1c6970eee75ce7503ff31f1e987968",
+   "retrieved_utc": "2026-10-29T13:15:44Z"
+  },
+  {
+   "number": 138,
+   "name": "138 Tolosa (A874 KA)",
+   "solution_id": "JPL#114",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:11:51",
+   "observations": "11622 (1897-2026)",
+   "spk_sha256": "e2042e3ea506b98bca169695bae468732d394e27bf263565e174fdcb1faad1f2",
+   "retrieved_utc": "2026-10-29T13:16:42Z"
+  },
+  {
+   "number": 139,
+   "name": "139 Juewa (A874 TA)",
+   "solution_id": "JPL#140",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:11:58",
+   "observations": "9304 (1881-2026)",
+   "spk_sha256": "35756bb0cc577e79fc9f90c260fd16e1a4f32e9f6bb2c23f9b49a5aba13a9ce9",
+   "retrieved_utc": "2026-10-29T13:17:40Z"
+  },
+  {
+   "number": 140,
+   "name": "140 Siwa (A874 TB)",
+   "solution_id": "JPL#190",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Oct-22_08:20:11",
+   "observations": "7325 (1877-2026)",
+   "spk_sha256": "ff794bb3cfbac46431143a8a53aba65d99bfb3f276bd4bdd45a60ba8ad20bb44",
+   "retrieved_utc": "2026-10-29T13:18:51Z"
+  },
+  {
+   "number": 141,
+   "name": "141 Lumen (A875 AA)",
+   "solution_id": "JPL#113",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:00",
+   "observations": "4920 (1877-2026)",
+   "spk_sha256": "94accbcfe9c0764a58195ff3d1e80967c20c6eacf5b34e22392d793f76144089",
+   "retrieved_utc": "2026-10-29T13:19:50Z"
+  },
+  {
+   "number": 142,
+   "name": "142 Polana (A875 BA)",
+   "solution_id": "JPL#78",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:04",
+   "observations": "11895 (1880-2026)",
+   "spk_sha256": "1c9776e992dfc9a3aff0a5bb00b376fc6cbadf58efe8c499b5af32c10cbdb575",
+   "retrieved_utc": "2026-10-29T13:21:10Z"
+  },
+  {
+   "number": 143,
+   "name": "143 Adria (A875 DA)",
+   "solution_id": "JPL#91",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:06",
+   "observations": "11469 (1880-2026)",
+   "spk_sha256": "4276573354d47676e9540ad71532683c24611f32147ee42902cdbf65e25207fb",
+   "retrieved_utc": "2026-10-29T13:22:07Z"
+  },
+  {
+   "number": 144,
+   "name": "144 Vibilia (A875 LA)",
+   "solution_id": "JPL#139",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:11",
+   "observations": "5548 (1875-2026)",
+   "spk_sha256": "6a31c73b3b18ebd8450ff9bb3b95f2b35980f61b403cfce36603aaf1da603601",
+   "retrieved_utc": "2026-10-29T13:23:07Z"
+  },
+  {
+   "number": 145,
+   "name": "145 Adeona (A875 LB)",
+   "solution_id": "JPL#140",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:16",
+   "observations": "12054 (1875-2026)",
+   "spk_sha256": "c31f78c742ec07c43b4954d0103e0994efe5dfde9afb81aed6f5b6a4e9cc8899",
+   "retrieved_utc": "2026-10-29T13:24:27Z"
+  },
+  {
+   "number": 146,
+   "name": "146 Lucina (A875 LC)",
+   "solution_id": "JPL#136",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:19",
+   "observations": "12333 (1885-2026)",
+   "spk_sha256": "345c0979381f54ca9ae5ea8d4c4678ced319e6a2ebefc63a65a1a0598ec28488",
+   "retrieved_utc": "2026-10-29T13:25:37Z"
+  },
+  {
+   "number": 147,
+   "name": "147 Protogeneia (A875 NA)",
+   "solution_id": "JPL#95",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:29",
+   "observations": "6793 (1875-2025)",
+   "spk_sha256": "4f6361917b8db663e6ba3bf13cca7d32410d06528c5da4ec40a09f98830c4e16",
+   "retrieved_utc": "2026-10-29T13:26:40Z"
+  },
+  {
+   "number": 148,
+   "name": "148 Gallia (A875 PA)",
+   "solution_id": "JPL#86",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:29",
+   "observations": "5786 (1879-2026)",
+   "spk_sha256": "2e1e841dc1181bc2a37945c2fc2675850a8b8282659a9956a35b664a40d7329b",
+   "retrieved_utc": "2026-10-29T13:28:12Z"
+  },
+  {
+   "number": 149,
+   "name": "149 Medusa (A875 SA)",
+   "solution_id": "JPL#81",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:33",
+   "observations": "6591 (1891-2025)",
+   "spk_sha256": "e9645d152fd2d247e542f2dd16e8ed57b122c7155401f54d23b886c14e769ea3",
+   "retrieved_utc": "2026-10-29T10:13:58Z"
+  },
+  {
+   "number": 150,
+   "name": "150 Nuwa (A875 UA)",
+   "solution_id": "JPL#131",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:34",
+   "observations": "11434 (1880-2026)",
+   "spk_sha256": "536f5e145d7802d6d44e5ab46b37b06d569228f35bb4c22426389d25969526d9",
+   "retrieved_utc": "2026-10-29T13:29:18Z"
+  },
+  {
+   "number": 151,
+   "name": "151 Abundantia (A875 VA)",
+   "solution_id": "JPL#85",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:43",
+   "observations": "10206 (1885-2026)",
+   "spk_sha256": "76695844c36d256abf59cd483cf8fe5906986fc175e70d14201e8ece7b3548c6",
+   "retrieved_utc": "2026-10-29T13:30:19Z"
+  },
+  {
+   "number": 152,
+   "name": "152 Atala (A875 VB)",
+   "solution_id": "JPL#87",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:49",
+   "observations": "11871 (1880-2026)",
+   "spk_sha256": "9282d556b3e27e4eb9b88c36780241bc7c6bc16a4f6f941ecb6c7abf02006136",
+   "retrieved_utc": "2026-10-29T13:31:10Z"
+  },
+  {
+   "number": 153,
+   "name": "153 Hilda (A875 VC)",
+   "solution_id": "JPL#87",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Hildas: asteroid belt at 4.0 AU, in 3:2 resonance with Jupit",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:50",
+   "observations": "12422 (1880-2026)",
+   "spk_sha256": "695602a491f8f136e8b5c1a45a10c56933dd0a96493e6616ebf149cfa344f274",
+   "retrieved_utc": "2026-10-29T11:39:39Z"
+  },
+  {
+   "number": 154,
+   "name": "154 Bertha (A875 VD)",
+   "solution_id": "JPL#80",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:51",
+   "observations": "6478 (1880-2026)",
+   "spk_sha256": "d105df54e9cb34fae311f1004a506c522411c90108864302cff293271cfb616f",
+   "retrieved_utc": "2026-10-29T13:31:54Z"
+  },
+  {
+   "number": 155,
+   "name": "155 Scylla (A875 VE)",
+   "solution_id": "JPL#81",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:23:16",
+   "observations": "4784 (1875-2025)",
+   "spk_sha256": "7e8a442e60d0a7b6295c94541bba7544add8a899e38515ca5a24f098b6dae845",
+   "retrieved_utc": "2026-10-29T13:32:36Z"
+  },
+  {
+   "number": 156,
+   "name": "156 Xanthippe (A875 WA)",
+   "solution_id": "JPL#204",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:58",
+   "observations": "12356 (1901-2026)",
+   "spk_sha256": "d56ab4cab8bcca88f424bc8805586014a85a91d5cac5a5e0e4740423d992306b",
+   "retrieved_utc": "2026-10-29T13:33:41Z"
+  },
+  {
+   "number": 157,
+   "name": "157 Dejanira (A875 XA)",
+   "solution_id": "JPL#76",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:12:59",
+   "observations": "5197 (1904-2026)",
+   "spk_sha256": "21b209533041127c85fd27a0f45d7ea8ba625095eafece6569198144fcbbacc3",
+   "retrieved_utc": "2026-10-29T13:34:27Z"
+  },
+  {
+   "number": 158,
+   "name": "158 Koronis (A876 AA)",
+   "solution_id": "JPL#77",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Koronis family: Hirayama family at 2.88 AU",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:13:01",
+   "observations": "10436 (1893-2026)",
+   "spk_sha256": "e1f978c5f29dc778462fd6d9bb2a92e22f05ae8e16d9d82f5a9ed2ede4c63254",
+   "retrieved_utc": "2026-10-29T11:41:08Z"
+  },
+  {
+   "number": 159,
+   "name": "159 Aemilia (A876 BA)",
+   "solution_id": "JPL#134",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:13:04",
+   "observations": "6493 (1904-2026)",
+   "spk_sha256": "5b06abeaabc0faa6c6e82d9db3d97b407a25c2681769901a8015f107a12fb7e5",
+   "retrieved_utc": "2026-10-29T13:35:19Z"
+  },
+  {
+   "number": 160,
+   "name": "160 Una (A876 DA)",
+   "solution_id": "JPL#75",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jul-15_11:08:24",
+   "observations": "6895 (1876-2026)",
+   "spk_sha256": "ef1aeed3cf367865b3b31bfd930f64ae01174b5cbbf402a4ba1953c6a6298f4b",
+   "retrieved_utc": "2026-10-29T13:36:07Z"
+  },
+  {
+   "number": 161,
+   "name": "161 Athor (A876 HA)",
+   "solution_id": "JPL#125",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:13:26",
+   "observations": "10358 (1876-2026)",
+   "spk_sha256": "136876c102e0f6a80a82f201abd4a59c0df8460cd659f1507be94a1229b8f5d0",
+   "retrieved_utc": "2026-10-29T13:36:50Z"
+  },
+  {
+   "number": 162,
+   "name": "162 Laurentia (A876 HB)",
+   "solution_id": "JPL#88",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:13:32",
+   "observations": "10326 (1876-2026)",
+   "spk_sha256": "ed20b904266753ca1ac73e6444b43db5f8dccae5f0f2c1d1a8e433bb6340cd1c",
+   "retrieved_utc": "2026-10-29T13:37:35Z"
+  },
+  {
+   "number": 163,
+   "name": "163 Erigone (A876 HC)",
+   "solution_id": "JPL#161",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:13:35",
+   "observations": "7264 (1892-2026)",
+   "spk_sha256": "bb31a28ba6330e5aabcd1a318eff5be07f01d46deb2bb2fb58c58ff0294291fc",
+   "retrieved_utc": "2026-10-29T13:38:21Z"
+  },
+  {
+   "number": 164,
+   "name": "164 Eva (A876 NA)",
+   "solution_id": "JPL#117",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:13:42",
+   "observations": "6826 (1893-2026)",
+   "spk_sha256": "b53d8d11255b839ff4881d17bf892ce216abc65216d0451093cf30f6ccac3178",
+   "retrieved_utc": "2026-10-29T13:39:20Z"
+  },
+  {
+   "number": 165,
+   "name": "165 Loreley (A876 PA)",
+   "solution_id": "JPL#88",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:13:49",
+   "observations": "6978 (1876-2025)",
+   "spk_sha256": "b3af6812b09a7079a5d2ce2e5de09c027981c1cdbd2f629d8273cee72d0f1029",
+   "retrieved_utc": "2026-10-29T13:40:10Z"
+  },
+  {
+   "number": 166,
+   "name": "166 Rhodope (A876 PB)",
+   "solution_id": "JPL#77",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:13:55",
+   "observations": "6145 (1876-2025)",
+   "spk_sha256": "7639e1e64762e0a61c21b55ea8375aedc16f3a2555955d2b6995cae2329ee8cd",
+   "retrieved_utc": "2026-10-29T13:40:59Z"
+  },
+  {
+   "number": 167,
+   "name": "167 Urda (A876 QA)",
+   "solution_id": "JPL#77",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:24:00",
+   "observations": "10482 (1884-2025)",
+   "spk_sha256": "8a756b201c27ea0832260a997f19ae70125e1521a95f848bf8ad00267ffdfc8d",
+   "retrieved_utc": "2026-10-29T13:41:48Z"
+  },
+  {
+   "number": 168,
+   "name": "168 Sibylla (A876 SA)",
+   "solution_id": "JPL#88",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:13:55",
+   "observations": "13098 (1876-2026)",
+   "spk_sha256": "3e301b6bfd9986259267134ae0786fc23e65009e7310b2b6e4d72b49d0c9f60d",
+   "retrieved_utc": "2026-10-29T13:42:44Z"
+  },
+  {
+   "number": 169,
+   "name": "169 Zelia (A876 SB)",
+   "solution_id": "JPL#78",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:14:05",
+   "observations": "6976 (1876-2026)",
+   "spk_sha256": "637f0ee317aec5c66a41187f9168df243363df35d141c8be12c8222718f7812a",
+   "retrieved_utc": "2026-10-29T13:44:18Z"
+  },
+  {
+   "number": 170,
+   "name": "170 Maria (A877 AA)",
+   "solution_id": "JPL#80",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Some frequent names",
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:24:30",
+   "observations": "8786 (1877-2025)",
+   "spk_sha256": "3d332390ccf3d5262babc0a50f4189688a6acd92a7c5bc8c742ac11576f8da6a",
+   "retrieved_utc": "2026-10-29T11:41:56Z"
+  },
+  {
+   "number": 171,
+   "name": "171 Ophelia (A877 AB)",
+   "solution_id": "JPL#159",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:14:09",
+   "observations": "12275 (1985-2026)",
+   "spk_sha256": "6d4be8fdd1539affb85410b5a45f2915b7747fb999739fc04bbc2c06b0219caf",
+   "retrieved_utc": "2026-10-29T13:45:13Z"
+  },
+  {
+   "number": 172,
+   "name": "172 Baucis (A877 CA)",
+   "solution_id": "JPL#115",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:14:11",
+   "observations": "5877 (1882-2026)",
+   "spk_sha256": "b5e34e86c98ad5ec4d1d0812a71d2e63b682895b4ee9e98eda7bf07fe206d5eb",
+   "retrieved_utc": "2026-10-29T13:46:01Z"
+  },
+  {
+   "number": 173,
+   "name": "173 Ino (A877 PA)",
+   "solution_id": "JPL#136",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:14:24",
+   "observations": "5890 (1879-2026)",
+   "spk_sha256": "254ebd9407dabb1888d8342ef592fa875def2cd94cad52a947a4e5207ed7cef8",
+   "retrieved_utc": "2026-10-29T13:46:50Z"
+  },
+  {
+   "number": 174,
+   "name": "174 Phaedra (A877 RA)",
+   "solution_id": "JPL#88",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:14:28",
+   "observations": "9734 (1877-2026)",
+   "spk_sha256": "3c10ffe82e81d5b77b8d7a6bd5e182c6915cf58900130101ec8162b2f9cdbad5",
+   "retrieved_utc": "2026-10-29T13:47:33Z"
+  },
+  {
+   "number": 175,
+   "name": "175 Andromache (A877 TA)",
+   "solution_id": "JPL#88",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:14:30",
+   "observations": "8175 (1877-2026)",
+   "spk_sha256": "323990da29e644696a93a4f9d800c60326826e6377433201ffae4378defbd5ad",
+   "retrieved_utc": "2026-10-29T13:48:19Z"
+  },
+  {
+   "number": 176,
+   "name": "176 Iduna (A877 TB)",
+   "solution_id": "JPL#92",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:14:37",
+   "observations": "11469 (1877-2026)",
+   "spk_sha256": "4d1a5af21705bde73e4999621b4db7f4f77bb20b888958fe9fc5aef0485a6412",
+   "retrieved_utc": "2026-10-29T13:49:01Z"
+  },
+  {
+   "number": 177,
+   "name": "177 Irma (A877 VA)",
+   "solution_id": "JPL#133",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:14:44",
+   "observations": "6140 (1900-2026)",
+   "spk_sha256": "a1964415a1985dfb1e73c36d1f468e421bc60b198cad59958b5d12572ee46455",
+   "retrieved_utc": "2026-10-29T13:49:46Z"
+  },
+  {
+   "number": 178,
+   "name": "178 Belisana (A877 VB)",
+   "solution_id": "JPL#79",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:14:57",
+   "observations": "11337 (1885-2026)",
+   "spk_sha256": "f10320bd290d17cafae01d1b41ff1a1e47124511434ee7e99c89ae14b31b60e4",
+   "retrieved_utc": "2026-10-29T13:50:33Z"
+  },
+  {
+   "number": 179,
+   "name": "179 Klytaemnestra (A877 VC)",
+   "solution_id": "JPL#78",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:14:59",
+   "observations": "10252 (1880-2026)",
+   "spk_sha256": "b4291405740b06fb0b4572f0ea6736f5de45a5d6b0221360bc3755a8031cc7c8",
+   "retrieved_utc": "2026-10-29T13:51:16Z"
+  },
+  {
+   "number": 180,
+   "name": "180 Garumna (A878 BA)",
+   "solution_id": "JPL#74",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:15:21",
+   "observations": "12041 (1890-2026)",
+   "spk_sha256": "705b1a1bb525b0e26fa033497af5524efd4ce1ebc381bec11c328712fffb93a9",
+   "retrieved_utc": "2026-10-29T13:52:02Z"
+  },
+  {
+   "number": 181,
+   "name": "181 Eucharis (A878 CB)",
+   "solution_id": "JPL#116",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:15:25",
+   "observations": "11928 (1880-2026)",
+   "spk_sha256": "3e51c0a3b00e7a6705871cc187c89cc3b6b8a3cd2085a0c46598f05bf9a0d2c4",
+   "retrieved_utc": "2026-10-29T13:52:52Z"
+  },
+  {
+   "number": 182,
+   "name": "182 Elsa (A878 CC)",
+   "solution_id": "JPL#139",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:15:27",
+   "observations": "5210 (1904-2026)",
+   "spk_sha256": "283607baedcb7c9259439fc761d74322119a98df4856adc2c1ab6e17e5ee8130",
+   "retrieved_utc": "2026-10-29T13:53:41Z"
+  },
+  {
+   "number": 183,
+   "name": "183 Istria (A878 CD)",
+   "solution_id": "JPL#85",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:15:37",
+   "observations": "6298 (1889-2025)",
+   "spk_sha256": "0beae186911eb360dd373662a4036ff27c778c79cd38660f22d575e8396c2ca5",
+   "retrieved_utc": "2026-10-29T13:54:27Z"
+  },
+  {
+   "number": 184,
+   "name": "184 Dejopeja (A878 DA)",
+   "solution_id": "JPL#123",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:15:40",
+   "observations": "6218 (1892-2026)",
+   "spk_sha256": "f70c7c2ee69126829ed76773cd6f2eaee15015e68e93445d17c274683bf1485f",
+   "retrieved_utc": "2026-10-29T13:55:20Z"
+  },
+  {
+   "number": 185,
+   "name": "185 Eunike (A878 EA)",
+   "solution_id": "JPL#129",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:15:40",
+   "observations": "5881 (1880-2026)",
+   "spk_sha256": "fb668bc7a4df447e94f7a38929e84ef9b82e1e1e775f594e6bad817f9bd9a3ec",
+   "retrieved_utc": "2026-10-29T13:56:01Z"
+  },
+  {
+   "number": 186,
+   "name": "186 Celuta (A878 GA)",
+   "solution_id": "JPL#113",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:15:40",
+   "observations": "8623 (1883-2026)",
+   "spk_sha256": "72033f22f821ba0b64945942481edb450fd1a897722ff6404c473f700d08818d",
+   "retrieved_utc": "2026-10-29T13:56:50Z"
+  },
+  {
+   "number": 187,
+   "name": "187 Lamberta (A878 GB)",
+   "solution_id": "JPL#133",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:15:41",
+   "observations": "10001 (1880-2026)",
+   "spk_sha256": "8e5830325923cb66e0d544b0fb87ce611d98c956ebfcf892a8e6f5beafeb4352",
+   "retrieved_utc": "2026-10-29T13:57:34Z"
+  },
+  {
+   "number": 188,
+   "name": "188 Menippe (A878 MA)",
+   "solution_id": "JPL#105",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Mar-11_21:26:23",
+   "observations": "6097 (1897-2025)",
+   "spk_sha256": "4111b5ea6ccfd46d4a9a7e3747db67e32aeb7f134f24133a67cec2fd97705f20",
+   "retrieved_utc": "2026-10-29T13:58:22Z"
+  },
+  {
+   "number": 189,
+   "name": "189 Phthia (A878 RA)",
+   "solution_id": "JPL#121",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:15:48",
+   "observations": "10873 (1880-2026)",
+   "spk_sha256": "bd8928c151b0979e894d0d1dc0faa769cfb90770a5197f2d1f10c526cf9c52b9",
+   "retrieved_utc": "2026-10-29T13:59:03Z"
+  },
+  {
+   "number": 190,
+   "name": "190 Ismene (A878 SA)",
+   "solution_id": "JPL#148",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:15:51",
+   "observations": "12627 (1893-2026)",
+   "spk_sha256": "92431814f853d27430afd465d7d7be8ee2fbbd6db52b3ab945c416e2230b444f",
+   "retrieved_utc": "2026-10-29T13:59:48Z"
+  },
+  {
+   "number": 191,
+   "name": "191 Kolga (A878 SB)",
+   "solution_id": "JPL#148",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:15:54",
+   "observations": "10640 (1991-2025)",
+   "spk_sha256": "534b8ed91b75cbe1abb7a88e8dfeee6ca19945df568c50d984be035a71efd63e",
+   "retrieved_utc": "2026-10-29T14:00:34Z"
+  },
+  {
+   "number": 192,
+   "name": "192 Nausikaa (A879 DA)",
+   "solution_id": "JPL#140",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:15:56",
+   "observations": "6258 (1879-2025)",
+   "spk_sha256": "47424dc20cf74e790da13dd90193793ddfea99f97c1a3fc2b2090117cfe99b78",
+   "retrieved_utc": "2026-10-29T14:01:19Z"
+  },
+  {
+   "number": 193,
+   "name": "193 Ambrosia (A879 DB)",
+   "solution_id": "JPL#76",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:16:01",
+   "observations": "9233 (1915-2026)",
+   "spk_sha256": "e6b6cef025fc48bad07bf9e30e11acb9e77ed12079f6318b37d911a169e01710",
+   "retrieved_utc": "2026-10-29T14:02:08Z"
+  },
+  {
+   "number": 194,
+   "name": "194 Prokne (A879 FA)",
+   "solution_id": "JPL#172",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:16:08",
+   "observations": "6777 (1879-2026)",
+   "spk_sha256": "e1fccf4b4827bbf517d692147ade005e7ab995a565b014919669ca846879831c",
+   "retrieved_utc": "2026-10-29T14:02:55Z"
+  },
+  {
+   "number": 195,
+   "name": "195 Eurykleia (A879 HA)",
+   "solution_id": "JPL#80",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:16:10",
+   "observations": "10816 (1884-2026)",
+   "spk_sha256": "21beacb2d36768886c6e191e0b6f1561dc5a01053ad8c83d7437a2392534e2dc",
+   "retrieved_utc": "2026-10-29T14:05:15Z"
+  },
+  {
+   "number": 196,
+   "name": "196 Philomela (A879 JA)",
+   "solution_id": "JPL#150",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:16:10",
+   "observations": "11757 (1879-2026)",
+   "spk_sha256": "2f63db955795d97b1b307f06460ce2ca11a270604bcb55c5aefdb0478e57bac8",
+   "retrieved_utc": "2026-10-29T14:06:03Z"
+  },
+  {
+   "number": 197,
+   "name": "197 Arete (A879 KA)",
+   "solution_id": "JPL#81",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Wisdom asteroids",
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:16:15",
+   "observations": "10287 (1879-2026)",
+   "spk_sha256": "0c8d0c8614a0fd29d246f737637252964cf90c833534b1e31a3546da06f290a0",
+   "retrieved_utc": "2026-10-29T11:42:40Z"
+  },
+  {
+   "number": 198,
+   "name": "198 Ampella (A879 LA)",
+   "solution_id": "JPL#109",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:16:23",
+   "observations": "8053 (1898-2026)",
+   "spk_sha256": "15b2bb20f2c022bd3e0974dc2811b14d9f4f7d9980a4ce143831ec7ec941bf38",
+   "retrieved_utc": "2026-10-29T14:07:01Z"
+  },
+  {
+   "number": 199,
+   "name": "199 Byblis (A879 NA)",
+   "solution_id": "JPL#148",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:16:28",
+   "observations": "6966 (1879-2026)",
+   "spk_sha256": "1cdf09ec40f5f94385c5398d7d9f89b45e2fe857bff0c6ec055ce3202eb10cf9",
+   "retrieved_utc": "2026-10-29T14:08:19Z"
+  },
+  {
+   "number": 200,
+   "name": "200 Dynamene (A879 OA)",
+   "solution_id": "JPL#136",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "classical"
+   ],
+   "solution_date": "2026-Jun-05_03:16:32",
+   "observations": "8296 (1879-2026)",
+   "spk_sha256": "4dd387b18050a1a7a23eda4179d4906e280120f340d4a48518119ed167aab502",
+   "retrieved_utc": "2026-10-29T14:09:06Z"
+  },
+  {
+   "number": 221,
+   "name": "221 Eos (A882 BA)",
+   "solution_id": "JPL#76",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Eos family: Hirayama family at 3.02 AU"
+   ],
+   "solution_date": "2026-Jun-05_03:18:40",
+   "observations": "5689 (1885-2025)",
+   "spk_sha256": "5e30162a497d29310e874a30d0595348c6f46d450f864d518445cb88a1edcd7e",
+   "retrieved_utc": "2026-10-29T11:43:24Z"
+  },
+  {
+   "number": 227,
+   "name": "227 Philosophia (A882 PA)",
+   "solution_id": "JPL#80",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Wisdom asteroids"
+   ],
+   "solution_date": "2026-Jun-05_03:19:08",
+   "observations": "8887 (1908-2026)",
+   "spk_sha256": "886dd2434362691849c3867739ff0dd850daab7294352256c246e542e1a7e3a0",
+   "retrieved_utc": "2026-10-29T11:44:04Z"
+  },
+  {
+   "number": 234,
+   "name": "234 Barbara (A883 PA)",
+   "solution_id": "JPL#118",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Some frequent names"
+   ],
+   "solution_date": "2026-Jun-05_03:19:53",
+   "observations": "19426 (1883-2026)",
+   "spk_sha256": "bd5b65d356954461fc81b97fe32908582d05598532d5037c6be261cf6b6b29ac",
+   "retrieved_utc": "2026-10-29T11:44:47Z"
+  },
+  {
+   "number": 251,
+   "name": "251 Sophia (A885 TA)",
+   "solution_id": "JPL#83",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Wisdom asteroids"
+   ],
+   "solution_date": "2026-Jun-05_03:20:58",
+   "observations": "9682 (1885-2026)",
+   "spk_sha256": "8c591a75ba6498c0537b92b46cf7f66909b7f704e41dd14dc8a834b912b46ef4",
+   "retrieved_utc": "2026-10-29T11:45:33Z"
+  },
+  {
+   "number": 259,
+   "name": "259 Aletheia (A886 MA)",
+   "solution_id": "JPL#150",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Wisdom asteroids"
+   ],
+   "solution_date": "2026-Jun-05_03:21:48",
+   "observations": "5474 (1898-2025)",
+   "spk_sha256": "e60f910508b3ed03a1ddd29a5c634fbedc2f90e88d0afa5b258bfc4a749a22c7",
+   "retrieved_utc": "2026-10-29T11:46:17Z"
+  },
+  {
+   "number": 275,
+   "name": "275 Sapientia (A888 GB)",
+   "solution_id": "JPL#127",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Wisdom asteroids"
+   ],
+   "solution_date": "2026-Jun-05_03:23:27",
+   "observations": "13127 (1891-2026)",
+   "spk_sha256": "7b69dfeac7901b03c8ed526bf01e6c4adf3a69b42d0b1acd53e7d26e5c044aef",
+   "retrieved_utc": "2026-10-29T11:47:01Z"
+  },
+  {
+   "number": 279,
+   "name": "279 Thule (A888 UA)",
+   "solution_id": "JPL#89",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: a single asteroid at 4.26 AU, in 4:3 resonance with Jupiter"
+   ],
+   "solution_date": "2026-Jun-05_03:23:52",
+   "observations": "9331 (1889-2026)",
+   "spk_sha256": "8685a8f7f5381ecaa3517c91189fa482392c6536dbb8df2b8f3f621a1b914625",
+   "retrieved_utc": "2026-10-29T11:47:18Z"
+  },
+  {
+   "number": 324,
+   "name": "324 Bamberga (A892 DA)",
+   "solution_id": "JPL#178",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Literature"
+   ],
+   "solution_date": "2026-Jun-05_03:27:33",
+   "observations": "8794 (1892-2026)",
+   "spk_sha256": "a19cfac4867da375c3153be8dd4bb4d83c2addaad479e217c4b321ca23b9ac0f",
+   "retrieved_utc": "2026-10-29T11:47:30Z"
+  },
+  {
+   "number": 344,
+   "name": "344 Desiderata (A892 WA)",
+   "solution_id": "JPL#129",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids"
+   ],
+   "solution_date": "2026-Jun-05_03:29:02",
+   "observations": "5426 (1892-2025)",
+   "spk_sha256": "b977c7a3d4927942225731e61cb973813be62b693bdf440f949b636daa525407",
+   "retrieved_utc": "2026-10-29T11:47:48Z"
+  },
+  {
+   "number": 349,
+   "name": "349 Dembowska (A892 XB)",
+   "solution_id": "JPL#146",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Production family",
+    "requested"
+   ],
+   "solution_date": "2026-Mar-11_21:40:40",
+   "observations": "4480 (1892-2025)",
+   "spk_sha256": "1cef667bf91106398370ac304201886cce895d7bb8f252dd7f03197dadad2e2c",
+   "retrieved_utc": "2026-10-29T10:15:27Z"
+  },
+  {
+   "number": 375,
+   "name": "375 Ursula (A893 SB)",
+   "solution_id": "JPL#108",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Some frequent names"
+   ],
+   "solution_date": "2026-Mar-11_21:42:55",
+   "observations": "5908 (1893-2025)",
+   "spk_sha256": "386c850d17605ffd457268fcf75355fa90f004885c559c9fbcb921903ef73206",
+   "retrieved_utc": "2026-10-29T11:48:03Z"
+  },
+  {
+   "number": 398,
+   "name": "398 Admete (A894 YB)",
+   "solution_id": "JPL#80",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians"
+   ],
+   "solution_date": "2026-Jun-05_03:33:04",
+   "observations": "11196 (1894-2026)",
+   "spk_sha256": "2b8569b7268379b62f63bf62e77c15407e456b8d585734f2eb91e4c8683e10b1",
+   "retrieved_utc": "2026-10-29T11:48:18Z"
+  },
+  {
+   "number": 399,
+   "name": "399 Persephone (A895 DD)",
+   "solution_id": "JPL#81",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2026-Jun-05_03:33:07",
+   "observations": "6928 (1895-2025)",
+   "spk_sha256": "e9c70db96c86592a43545a8ba2310ad32bd51251bb67bfc90d4332624b3e3eef",
+   "retrieved_utc": "2026-10-29T10:16:26Z"
+  },
+  {
+   "number": 412,
+   "name": "412 Elisabetha (A896 AB)",
+   "solution_id": "JPL#80",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Some frequent names"
+   ],
+   "solution_date": "2026-Jun-05_03:34:18",
+   "observations": "7298 (1898-2026)",
+   "spk_sha256": "bb8eb947de0d4ba300fc93176604951ab7197137a0315bf3c477c000605a4a1a",
+   "retrieved_utc": "2026-10-29T11:48:35Z"
+  },
+  {
+   "number": 434,
+   "name": "434 Hungaria (A898 RB)",
+   "solution_id": "JPL#112",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Hungarias: asteroid group at 1.95 AU"
+   ],
+   "solution_date": "2026-Mar-11_21:47:53",
+   "observations": "11050 (1898-2025)",
+   "spk_sha256": "367216a7c7616e415f844b1c32ed37ceff0c97dbcddd2eb181e9ebba8d603a99",
+   "retrieved_utc": "2026-10-29T11:48:55Z"
+  },
+  {
+   "number": 451,
+   "name": "451 Patientia (A899 XA)",
+   "solution_id": "JPL#150",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Literature"
+   ],
+   "solution_date": "2026-Jun-05_03:36:51",
+   "observations": "5063 (1899-2026)",
+   "spk_sha256": "3dceaeead074d6993595d310adbb9775e9bf6a69bf695b0c9927e0d3e2c96362",
+   "retrieved_utc": "2026-10-29T11:49:16Z"
+  },
+  {
+   "number": 484,
+   "name": "484 Pittsburghia (A902 HA)",
+   "solution_id": "JPL#82",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Production family"
+   ],
+   "solution_date": "2026-Jun-05_03:39:45",
+   "observations": "5982 (1902-2026)",
+   "spk_sha256": "a0f2352d26323c9aa892e11f4dc2b7e0c06cdfc53fdbbf4987e8fbed3f003590",
+   "retrieved_utc": "2026-10-29T11:49:35Z"
+  },
+  {
+   "number": 499,
+   "name": "499 Venusia (A902 YE)",
+   "solution_id": "JPL#78",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids"
+   ],
+   "solution_date": "2026-Sep-01_08:36:17",
+   "observations": "8696 (1902-2026)",
+   "spk_sha256": "f2ca32a338caa443d07e90f193d914beea0ace32b05780b325df9e6395b6528d",
+   "retrieved_utc": "2026-10-29T11:49:52Z"
+  },
+  {
+   "number": 511,
+   "name": "511 Davida (A903 KB)",
+   "solution_id": "JPL#128",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Literature"
+   ],
+   "solution_date": "2026-Jun-05_03:41:36",
+   "observations": "5110 (1903-2026)",
+   "spk_sha256": "2c4cec49f23da01f4e04debd044de608cb5d1b26aa3b3a1ee6f783fb5825dcda",
+   "retrieved_utc": "2026-10-29T11:50:06Z"
+  },
+  {
+   "number": 542,
+   "name": "542 Susanna (A904 QA)",
+   "solution_id": "JPL#152",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Some frequent names"
+   ],
+   "solution_date": "2026-Jun-05_03:43:57",
+   "observations": "7141 (1904-2026)",
+   "spk_sha256": "7a2d1848ad6c3fc84afaa9e4953c35bb86bf3ad1c296838cb8093ed5129f336d",
+   "retrieved_utc": "2026-10-29T11:50:19Z"
+  },
+  {
+   "number": 564,
+   "name": "564 Dudu (A905 JD)",
+   "solution_id": "JPL#84",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Production family"
+   ],
+   "solution_date": "2026-Jun-05_03:46:03",
+   "observations": "11077 (1905-2026)",
+   "spk_sha256": "da8ac76737b5bbf0528b6decd2f2fde9143ecd66de1c7b4278f13a652c907044",
+   "retrieved_utc": "2026-10-29T11:50:37Z"
+  },
+  {
+   "number": 588,
+   "name": "588 Achilles (A906 DN)",
+   "solution_id": "JPL#117",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Greeks ahead of Jupiter"
+   ],
+   "solution_date": "2026-Jun-05_03:47:59",
+   "observations": "5742 (1906-2026)",
+   "spk_sha256": "148390d838bf8f9ceb4a8c8099fe6f806aa2473ba5f693e6b97ae7bc5f560766",
+   "retrieved_utc": "2026-10-29T11:50:51Z"
+  },
+  {
+   "number": 612,
+   "name": "612 Veronika (A906 TC)",
+   "solution_id": "JPL#81",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Production family"
+   ],
+   "solution_date": "2026-Jun-05_03:49:57",
+   "observations": "9499 (1906-2026)",
+   "spk_sha256": "26746c6281d5468e8644caa4399a230a63020e97e95561d9e187dea9178afe91",
+   "retrieved_utc": "2026-10-29T11:51:05Z"
+  },
+  {
+   "number": 624,
+   "name": "624 Hektor (A907 CF)",
+   "solution_id": "JPL#139",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Greeks ahead of Jupiter"
+   ],
+   "solution_date": "2026-Jun-05_03:50:35",
+   "observations": "8427 (1907-2026)",
+   "spk_sha256": "b6a98021747e4d3db976a3b515aaaace76f9c9e1540695b51272ddcb21193eb4",
+   "retrieved_utc": "2026-10-29T11:51:21Z"
+  },
+  {
+   "number": 704,
+   "name": "704 Interamnia (A910 TC)",
+   "solution_id": "JPL#179",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Literature"
+   ],
+   "solution_date": "2026-Jun-05_03:56:56",
+   "observations": "8225 (1910-2026)",
+   "spk_sha256": "741aedc4ddfce90bc342a4b3a83911e86c3e2ecdbe8e926f201a0db475149680",
+   "retrieved_utc": "2026-10-29T11:51:35Z"
+  },
+  {
+   "number": 763,
+   "name": "763 Cupido (A913 SE)",
+   "solution_id": "JPL#66",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians"
+   ],
+   "solution_date": "2026-Jun-05_04:01:47",
+   "observations": "9079 (1913-2026)",
+   "spk_sha256": "b3f353e45a4023c54e798b9b6e9c62a113f5f0f08460c53e891b0bdbb569bd31",
+   "retrieved_utc": "2026-10-29T11:51:50Z"
+  },
+  {
+   "number": 884,
+   "name": "884 Priamus (A917 SU)",
+   "solution_id": "JPL#77",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Trojans behind Jupiter"
+   ],
+   "solution_date": "2026-Jun-05_04:10:12",
+   "observations": "6575 (1917-2026)",
+   "spk_sha256": "69c96a47c9527e64387eef6616a190373aa05835e19f62316002c176e1c4232a",
+   "retrieved_utc": "2026-10-29T11:52:08Z"
+  },
+  {
+   "number": 904,
+   "name": "904 Rockefellia (A918 UC)",
+   "solution_id": "JPL#78",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids"
+   ],
+   "solution_date": "2026-Jun-05_04:12:01",
+   "observations": "8138 (1913-2026)",
+   "spk_sha256": "c10e90a7a15c2d8f79923af29eeab98ec9307801a32fffe54ce3104c63105947",
+   "retrieved_utc": "2026-10-29T11:52:25Z"
+  },
+  {
+   "number": 944,
+   "name": "944 Hidalgo (A920 UB)",
+   "solution_id": "JPL#64",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Jupiter-crossing asteroids",
+    "requested",
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Mar-11_22:28:59",
+   "observations": "2657 (1920-2024)",
+   "spk_sha256": "ed1f96b1ee4537ceb7f68ec4e387945259a78df269b3c2ffe673c06078e629d9",
+   "retrieved_utc": "2026-10-29T09:58:38Z"
+  },
+  {
+   "number": 1034,
+   "name": "1034 Mozartia (A924 RK)",
+   "solution_id": "JPL#70",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Composer Asteroids"
+   ],
+   "solution_date": "2026-Jun-05_04:22:59",
+   "observations": "5972 (1924-2026)",
+   "spk_sha256": "61940b03f05c64acd1631fb3a5336d5ed4e447f871ad7715186d7eaea01ed437",
+   "retrieved_utc": "2026-10-29T11:52:42Z"
+  },
+  {
+   "number": 1036,
+   "name": "1036 Ganymed (A924 UB)",
+   "solution_id": "JPL#1541",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Jul-25_06:19:02",
+   "observations": "13637 (1924-2026)",
+   "spk_sha256": "3516d2a3cf1d7afa9391a66360db93795d159085e886b5f2e431058c1016bb47",
+   "retrieved_utc": "2026-10-29T12:07:09Z"
+  },
+  {
+   "number": 1143,
+   "name": "1143 Odysseus (1930 BH)",
+   "solution_id": "JPL#117",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Greeks ahead of Jupiter"
+   ],
+   "solution_date": "2026-Jun-05_04:33:08",
+   "observations": "7837 (1998-2026)",
+   "spk_sha256": "d844285d17fec92bf20bacd9031b132305cf600c25a9c6287c21a5f64384a0cc",
+   "retrieved_utc": "2026-10-29T11:52:59Z"
+  },
+  {
+   "number": 1170,
+   "name": "1170 Siva (1930 SQ)",
+   "solution_id": "JPL#58",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2026-Mar-11_22:45:52",
+   "observations": "7301 (1930-2025)",
+   "spk_sha256": "4a43ee19a174e32cc7be4362861227d825793d168968d0a18d54e4bc812ca8e9",
+   "retrieved_utc": "2026-10-29T10:17:34Z"
+  },
+  {
+   "number": 1181,
+   "name": "1181 Lilith (1927 CQ)",
+   "solution_id": "JPL#73",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians",
+    "requested"
+   ],
+   "solution_date": "2026-Jun-05_04:36:43",
+   "observations": "7870 (1930-2026)",
+   "spk_sha256": "0e9359c5e5c2df51d7216f7c554358e7f1e361f5485b3c0386d0db0adbd44906",
+   "retrieved_utc": "2026-10-29T09:45:55Z"
+  },
+  {
+   "number": 1221,
+   "name": "1221 Amor (1932 EA1)",
+   "solution_id": "JPL#158",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Amor family: they cross Mars, approach Earth",
+    "requested"
+   ],
+   "solution_date": "2026-Oct-21_06:50:32",
+   "observations": "737 (1932-2026)",
+   "spk_sha256": "f01cad3b2907b8a7530af68e49fec30507d0d423fe33a72cf03efad125db9f25",
+   "retrieved_utc": "2026-10-29T10:18:46Z"
+  },
+  {
+   "number": 1338,
+   "name": "1338 Duponta (1934 XA)",
+   "solution_id": "JPL#72",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids"
+   ],
+   "solution_date": "2026-Mar-11_22:58:16",
+   "observations": "8616 (1934-2025)",
+   "spk_sha256": "7abe97547f4ecb5e4904e4056268e9c4109d49e678e7c30b1bcc6ebe0b0b34e6",
+   "retrieved_utc": "2026-10-29T11:53:14Z"
+  },
+  {
+   "number": 1343,
+   "name": "1343 Nicole (1935 FC)",
+   "solution_id": "JPL#70",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Production family"
+   ],
+   "solution_date": "2026-Jun-05_05:22:39",
+   "observations": "6101 (1935-2026)",
+   "spk_sha256": "f2c60ea138b595b1ecb7b6cb612b8649fad3f2306e39d766e6858758c95e4908",
+   "retrieved_utc": "2026-10-29T11:53:32Z"
+  },
+  {
+   "number": 1376,
+   "name": "1376 Michelle (1935 UH)",
+   "solution_id": "JPL#74",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Production family"
+   ],
+   "solution_date": "2026-Jun-05_05:24:43",
+   "observations": "5732 (1935-2026)",
+   "spk_sha256": "86602b087237141fed1f79377abd0c6ac7e2557a9203e12eb5174f758ec6aec4",
+   "retrieved_utc": "2026-10-29T11:53:48Z"
+  },
+  {
+   "number": 1387,
+   "name": "1387 Kama (1935 QD)",
+   "solution_id": "JPL#64",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids"
+   ],
+   "solution_date": "2026-Jun-05_05:25:20",
+   "observations": "5004 (1935-2026)",
+   "spk_sha256": "d112f82f12e67f33c3ced2360fc9ee93d56b4f974f05f3b1f494f1f3f004f43e",
+   "retrieved_utc": "2026-10-29T11:54:04Z"
+  },
+  {
+   "number": 1388,
+   "name": "1388 Aphrodite (1935 SS)",
+   "solution_id": "JPL#81",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids"
+   ],
+   "solution_date": "2026-Jun-05_05:25:21",
+   "observations": "12439 (1935-2026)",
+   "spk_sha256": "2ccb561983c11a57bcbd702e88740bcc3edcf132bc3f20987de69a76fcab80f4",
+   "retrieved_utc": "2026-10-29T11:54:23Z"
+  },
+  {
+   "number": 1389,
+   "name": "1389 Onnie (1935 SS1)",
+   "solution_id": "JPL#79",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids"
+   ],
+   "solution_date": "2026-Jun-05_05:25:32",
+   "observations": "6372 (1935-2026)",
+   "spk_sha256": "e61e32017ca112822ccd0a5b5086c3cff809ad170095b7b2fc29e563fddb1d3e",
+   "retrieved_utc": "2026-10-29T11:54:38Z"
+  },
+  {
+   "number": 1390,
+   "name": "1390 Abastumani (1935 TA)",
+   "solution_id": "JPL#81",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids"
+   ],
+   "solution_date": "2026-Jun-05_05:25:34",
+   "observations": "7161 (1929-2026)",
+   "spk_sha256": "3b81d94167f50f4c83d1ac133b0d3508eabb6a86bc42ae857fd205d2f5bd953c",
+   "retrieved_utc": "2026-10-29T11:54:52Z"
+  },
+  {
+   "number": 1566,
+   "name": "1566 Icarus (1949 MA)",
+   "solution_id": "JPL#196",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Apollo family: they cross Earth; mean distance is greater th",
+    "requested"
+   ],
+   "solution_date": "2026-Sep-08_06:21:03",
+   "observations": "1796 (1949-2026)",
+   "spk_sha256": "aa5b849dd377f7230a7906cc6c58068d2ee644ff65f2d9c6ccc199ae184ee9fa",
+   "retrieved_utc": "2026-10-29T09:48:32Z"
+  },
+  {
+   "number": 1580,
+   "name": "1580 Betulia (1950 KA)",
+   "solution_id": "JPL#405",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Oct-21_06:50:32",
+   "observations": "2262 (1952-2026)",
+   "spk_sha256": "6f546826fc171b17560de322e5f72c5737ccc074939fc18fe8dcf45c1b72ec2d",
+   "retrieved_utc": "2026-10-29T12:07:27Z"
+  },
+  {
+   "number": 1620,
+   "name": "1620 Geographos (1951 RA)",
+   "solution_id": "JPL#965",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Oct-28_06:18:01",
+   "observations": "10368 (1951-2026)",
+   "spk_sha256": "df5c14f5e3dc7acf2b9358ac9aed5224962dbcf674680a8b5b8ecfac39247f0c",
+   "retrieved_utc": "2026-10-29T12:07:55Z"
+  },
+  {
+   "number": 1627,
+   "name": "1627 Ivar (1929 SH)",
+   "solution_id": "JPL#1534",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Oct-27_06:18:16",
+   "observations": "14597 (1929-2026)",
+   "spk_sha256": "1319370a194822e80ec3f3917b480dc8cfadce3cf3bdae1a8c8718052d9d0acb",
+   "retrieved_utc": "2026-10-29T12:08:35Z"
+  },
+  {
+   "number": 1685,
+   "name": "1685 Toro (1948 OA)",
+   "solution_id": "JPL#921",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested",
+    "neo_myth"
+   ],
+   "solution_date": "2026-Oct-15_11:51:14",
+   "observations": "5560 (1948-2026)",
+   "spk_sha256": "67cf8feca54cc11873738f95eedfc1b81ad37daed00ee1026596340ad77b199c",
+   "retrieved_utc": "2026-10-29T10:20:50Z"
+  },
+  {
+   "number": 1716,
+   "name": "1716 Peter (1934 GF)",
+   "solution_id": "JPL#77",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Production family"
+   ],
+   "solution_date": "2026-Aug-08_17:15:19",
+   "observations": "6351 (1930-2025)",
+   "spk_sha256": "ad6739e701a25bdc88f246eb00032272a0c47e4fd4142090f884b46a266aaa46",
+   "retrieved_utc": "2026-10-29T11:55:08Z"
+  },
+  {
+   "number": 1814,
+   "name": "1814 Bach (1931 TW1)",
+   "solution_id": "JPL#68",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Composer Asteroids"
+   ],
+   "solution_date": "2026-Jun-05_05:54:13",
+   "observations": "10711 (1931-2026)",
+   "spk_sha256": "f56e4acd22b9261a759cc7a4fb9b63a680611c1eb385b0a1cecd72c1f00f629c",
+   "retrieved_utc": "2026-10-29T11:55:25Z"
+  },
+  {
+   "number": 1815,
+   "name": "1815 Beethoven (1932 CE1)",
+   "solution_id": "JPL#81",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Composer Asteroids"
+   ],
+   "solution_date": "2026-Aug-08_17:16:45",
+   "observations": "7100 (1932-2026)",
+   "spk_sha256": "b8615a31b17f1160b0ae0a75adec69839cf83cabe8864df390b4052bef2e6c5e",
+   "retrieved_utc": "2026-10-29T11:55:41Z"
+  },
+  {
+   "number": 1862,
+   "name": "1862 Apollo (1932 HA)",
+   "solution_id": "JPL#579",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Apollo family: they cross Earth; mean distance is greater th",
+    "requested"
+   ],
+   "solution_date": "2026-Aug-31_06:24:24",
+   "observations": "3701 (1930-2026)",
+   "spk_sha256": "db68fb08baac0651a3a931da303a592c6afd0dfcc48fa703750dd100853821f4",
+   "retrieved_utc": "2026-10-29T09:53:08Z"
+  },
+  {
+   "number": 1864,
+   "name": "1864 Daedalus (1971 FA)",
+   "solution_id": "JPL#850",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Apr-05_06:19:10",
+   "observations": "6597 (1971-2026)",
+   "spk_sha256": "1ce30844e96b1a2b94515da14f6593a1c82dfda5fa1a7d80cdcd75715cc8d6aa",
+   "retrieved_utc": "2026-10-29T12:08:57Z"
+  },
+  {
+   "number": 1866,
+   "name": "1866 Sisyphus (1972 XA)",
+   "solution_id": "JPL#1271",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Oct-14_06:56:35",
+   "observations": "10708 (1955-2026)",
+   "spk_sha256": "d9669eb7fdaecbb6d5074c049e54f6a5d2b4ae04c41d2b814e6bc3f8532ce7d1",
+   "retrieved_utc": "2026-10-29T12:10:03Z"
+  },
+  {
+   "number": 1915,
+   "name": "1915 Quetzalcoatl (1953 EA)",
+   "solution_id": "JPL#13",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2024-Mar-01_04:49:33",
+   "observations": "55 (1953-2020)",
+   "spk_sha256": "41dadda789718653e752a9eb78d60dd9143f91fbeceebde2ac01760ef5a1dd8a",
+   "retrieved_utc": "2026-10-29T12:10:37Z"
+  },
+  {
+   "number": 1930,
+   "name": "1930 Lucifer (1964 UA)",
+   "solution_id": "JPL#70",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2026-Jun-05_06:01:11",
+   "observations": "7505 (1954-2026)",
+   "spk_sha256": "59444d66109e9f99117c82ea68db8e898726fee2a2110bdd07d961cf65417641",
+   "retrieved_utc": "2026-10-29T10:22:32Z"
+  },
+  {
+   "number": 1943,
+   "name": "1943 Anteros (1973 EC)",
+   "solution_id": "JPL#1033",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Oct-25_06:17:54",
+   "observations": "7730 (1973-2026)",
+   "spk_sha256": "38ae5bc44074735a72b56ab675c3f1331b750a45fc54fdb186f38bedfc674ac0",
+   "retrieved_utc": "2026-10-29T12:11:06Z"
+  },
+  {
+   "number": 1980,
+   "name": "1980 Tezcatlipoca (1950 LA)",
+   "solution_id": "JPL#1099",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Oct-28_06:18:01",
+   "observations": "10358 (1950-2026)",
+   "spk_sha256": "4e80ce4575bac7f8deeca3b20a2b6c54ef396f427590c16f2da153408f8a3cec",
+   "retrieved_utc": "2026-10-29T12:11:33Z"
+  },
+  {
+   "number": 2055,
+   "name": "2055 Dvorak (1974 DB)",
+   "solution_id": "JPL#72",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Composer Asteroids"
+   ],
+   "solution_date": "2026-Jun-05_06:08:42",
+   "observations": "7183 (1974-2026)",
+   "spk_sha256": "858da4497930c6d8e42ba88704da1c7ed5a14cd49997f388d0c41352de7ad43a",
+   "retrieved_utc": "2026-10-29T11:55:58Z"
+  },
+  {
+   "number": 2062,
+   "name": "2062 Aten (1976 AA)",
+   "solution_id": "JPL#149",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Aten family: they cross Earth; mean distance from Sun is les",
+    "neo_myth"
+   ],
+   "solution_date": "2021-May-24_18:22:09",
+   "observations": "1024 (1955-2019)",
+   "spk_sha256": "e02aa3bca53375e73f30fdb589b35d5a0b653079b43f09f0e47838d418d3fae4",
+   "retrieved_utc": "2026-10-29T11:56:20Z"
+  },
+  {
+   "number": 2063,
+   "name": "2063 Bacchus (1977 HB)",
+   "solution_id": "JPL#259",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2026-Jun-16_11:32:16",
+   "observations": "1561 (1977-2025)",
+   "spk_sha256": "ce19bcc1ea3ab89c9cafba1e304d6a01cdb8004acfc3e4f4a0b056c2c40ab3ed",
+   "retrieved_utc": "2026-10-29T10:23:34Z"
+  },
+  {
+   "number": 2100,
+   "name": "2100 Ra-Shalom (1978 RA)",
+   "solution_id": "JPL#508",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Aten family: they cross Earth; mean distance from Sun is les",
+    "neo_myth"
+   ],
+   "solution_date": "2026-Sep-10_07:02:17",
+   "observations": "4245 (1975-2026)",
+   "spk_sha256": "8712e0f9b01717db51c83be50505700dfa623b24b86e9112219e261e03f62412",
+   "retrieved_utc": "2026-10-29T11:56:51Z"
+  },
+  {
+   "number": 2212,
+   "name": "2212 Hephaistos (1978 SB)",
+   "solution_id": "JPL#886",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Oct-28_06:18:00",
+   "observations": "5710 (1978-2026)",
+   "spk_sha256": "ee68ed2de419e4e188fd28430b5cdd9dc67ec074185d70c458991d350734c3ed",
+   "retrieved_utc": "2026-10-29T12:17:13Z"
+  },
+  {
+   "number": 2329,
+   "name": "2329 Orthos (1976 WA)",
+   "solution_id": "JPL#382",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Mar-05_05:17:39",
+   "observations": "1999 (1976-2026)",
+   "spk_sha256": "651399d420cdc8177edf867c7d2a3f56b6107b96bd5b7817a684209166a2a4e4",
+   "retrieved_utc": "2026-10-29T12:19:03Z"
+  },
+  {
+   "number": 2340,
+   "name": "2340 Hathor (1976 UA)",
+   "solution_id": "JPL#62",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2022-Dec-20_16:03:51",
+   "observations": "572 (1976-2021)",
+   "spk_sha256": "8c47fa5d4021061c0df65fa8b3cb11069693f260c41fbe2184eb3e310d963204",
+   "retrieved_utc": "2026-10-29T12:20:06Z"
+  },
+  {
+   "number": 2396,
+   "name": "2396 Kochi (1981 CB)",
+   "solution_id": "JPL#81",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Programmers group"
+   ],
+   "solution_date": "2026-Jun-05_06:28:53",
+   "observations": "6176 (1939-2026)",
+   "spk_sha256": "919fc716986e239a8dedaba046ff465e7e27d5eabb1eca3c921cfd7b8385b138",
+   "retrieved_utc": "2026-10-29T11:58:07Z"
+  },
+  {
+   "number": 2968,
+   "name": "2968 Iliya (1978 QJ)",
+   "solution_id": "JPL#54",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Programmers group"
+   ],
+   "solution_date": "2025-Oct-31_15:47:51",
+   "observations": "3065 (1949-2025)",
+   "spk_sha256": "545b7b990690277557f6cb4704790b64ab0b4c702fd231846c12d9996533fe1d",
+   "retrieved_utc": "2026-10-29T11:58:19Z"
+  },
+  {
+   "number": 3045,
+   "name": "3045 Alois (1984 AW)",
+   "solution_id": "JPL#69",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Programmers group"
+   ],
+   "solution_date": "2026-Jun-05_07:10:53",
+   "observations": "6021 (1951-2025)",
+   "spk_sha256": "f324037338a3bd650000272ec7092e85a6617090fb5e854b4184332c26fc26ed",
+   "retrieved_utc": "2026-10-29T11:58:39Z"
+  },
+  {
+   "number": 3122,
+   "name": "3122 Florence (1981 ET3)",
+   "solution_id": "JPL#1063",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Aug-31_06:24:25",
+   "observations": "10321 (1979-2026)",
+   "spk_sha256": "8613ec1b2d14d13307d019be9662c383389086be056a45c54b715e47420da484",
+   "retrieved_utc": "2026-10-29T12:21:53Z"
+  },
+  {
+   "number": 3200,
+   "name": "3200 Phaethon (1983 TB)",
+   "solution_id": "JPL#1029",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Apollo family: they cross Earth; mean distance is greater th",
+    "neo_myth"
+   ],
+   "solution_date": "2026-Oct-28_06:18:01",
+   "observations": "7942 (1983-2026)",
+   "spk_sha256": "b69b89c52b443b277048f6f05c7f7fbd003c201260a9c5d86815da0f400d1109",
+   "retrieved_utc": "2026-10-29T11:58:59Z"
+  },
+  {
+   "number": 3317,
+   "name": "3317 Paris (1984 KF)",
+   "solution_id": "JPL#87",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Trojans behind Jupiter"
+   ],
+   "solution_date": "2026-Jun-05_07:25:35",
+   "observations": "6123 (1963-2026)",
+   "spk_sha256": "f7b0d37fb76eec2cde6a1e513d79ebfecf9fd5a5c0f9858217871a185b456ba0",
+   "retrieved_utc": "2026-10-29T12:01:48Z"
+  },
+  {
+   "number": 3362,
+   "name": "3362 Khufu (1984 QA)",
+   "solution_id": "JPL#24",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2021-Apr-12_15:01:37",
+   "observations": "262 (1984-2004)",
+   "spk_sha256": "c58f1e736b8b9335d9e0b0241be65c80f0db2df28f904f070fbb072afafab9c4",
+   "retrieved_utc": "2026-10-29T12:22:49Z"
+  },
+  {
+   "number": 3552,
+   "name": "3552 Don Quixote (1983 SA)",
+   "solution_id": "JPL#349",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Jupiter-crossing asteroids",
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Jun-26_06:20:50",
+   "observations": "1774 (1983-2026)",
+   "spk_sha256": "88ee9973e42f5b1b3ef3419666f76f5a02213594fd5dc2867cf5c597833dd724",
+   "retrieved_utc": "2026-10-29T10:37:43Z"
+  },
+  {
+   "number": 3652,
+   "name": "3652 Soros (1981 TC3)",
+   "solution_id": "JPL#66",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Love asteroids"
+   ],
+   "solution_date": "2026-Jun-05_07:43:23",
+   "observations": "7768 (1977-2026)",
+   "spk_sha256": "1a0a188ad791058c4d77276289e716ee7fdc8ef9232844a71e3565a2900e949e",
+   "retrieved_utc": "2026-10-29T12:02:05Z"
+  },
+  {
+   "number": 3671,
+   "name": "3671 Dionysus (1984 KD)",
+   "solution_id": "JPL#231",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Sep-02_08:22:59",
+   "observations": "1193 (1984-2026)",
+   "spk_sha256": "bd23cd46cfc8c1d04cf5ec622fcf263a9177a7caab4215e79fe3f3b6e0501bc5",
+   "retrieved_utc": "2026-10-29T12:24:27Z"
+  },
+  {
+   "number": 3753,
+   "name": "3753 Cruithne (1986 TO)",
+   "solution_id": "JPL#315",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians",
+    "neo_myth"
+   ],
+   "solution_date": "2026-Oct-22_06:49:17",
+   "observations": "1721 (1973-2026)",
+   "spk_sha256": "ff0ba21d8e55ea53ce66a46e81f1da7e0142f9964fa802a25f7daa6145935349",
+   "retrieved_utc": "2026-10-29T12:02:24Z"
+  },
+  {
+   "number": 3941,
+   "name": "3941 Haydn (1973 UU5)",
+   "solution_id": "JPL#66",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Composer Asteroids"
+   ],
+   "solution_date": "2026-Jun-05_08:00:21",
+   "observations": "4671 (1973-2026)",
+   "spk_sha256": "43808416804c2a468039cdb1d5dbbd223a0600ed8cd3327e5b97f6356f2cf278",
+   "retrieved_utc": "2026-10-29T12:03:37Z"
+  },
+  {
+   "number": 4147,
+   "name": "4147 Lennon (1983 AY)",
+   "solution_id": "JPL#69",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Beatles asteroids"
+   ],
+   "solution_date": "2026-Jun-05_08:11:12",
+   "observations": "7570 (1971-2026)",
+   "spk_sha256": "45520f5e5e0b6c942e9920434085f6e86f03c21662e44a2a8a9bcc1279a04103",
+   "retrieved_utc": "2026-10-29T12:03:54Z"
+  },
+  {
+   "number": 4148,
+   "name": "4148 McCartney (1983 NT)",
+   "solution_id": "JPL#67",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Beatles asteroids"
+   ],
+   "solution_date": "2026-Jun-05_08:11:12",
+   "observations": "9275 (1935-2026)",
+   "spk_sha256": "0861c9144cbecc933141e7c17d1564ad58b8cd0272411a4711e8a525e0370f45",
+   "retrieved_utc": "2026-10-29T12:04:12Z"
+  },
+  {
+   "number": 4149,
+   "name": "4149 Harrison (1984 EZ)",
+   "solution_id": "JPL#70",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Beatles asteroids"
+   ],
+   "solution_date": "2026-Jun-05_08:11:14",
+   "observations": "5738 (1977-2026)",
+   "spk_sha256": "16153646c956d527b7c6d20e62e57d0401d8a43f769b32ec38f26b3530901edc",
+   "retrieved_utc": "2026-10-29T12:04:29Z"
+  },
+  {
+   "number": 4150,
+   "name": "4150 Starr (1984 QC1)",
+   "solution_id": "JPL#71",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Beatles asteroids"
+   ],
+   "solution_date": "2026-Jun-05_08:11:15",
+   "observations": "9976 (1957-2026)",
+   "spk_sha256": "cea8d1b1cb9b422598296e198a7955349cd4a430130b6cdc2e179a5511053fd2",
+   "retrieved_utc": "2026-10-29T12:04:49Z"
+  },
+  {
+   "number": 4179,
+   "name": "4179 Toutatis (1989 AC)",
+   "solution_id": "JPL#726",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Jun-16_11:32:22",
+   "observations": "7141 (1934-2026)",
+   "spk_sha256": "cd1ea5cf690b81f562862a50e08d40b8dfd125b38d06a9273d2e54a56ba0bd3c",
+   "retrieved_utc": "2026-10-29T12:25:26Z"
+  },
+  {
+   "number": 4183,
+   "name": "4183 Cuno (1959 LM)",
+   "solution_id": "JPL#865",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Oct-09_07:58:06",
+   "observations": "5446 (1959-2026)",
+   "spk_sha256": "8846b6d7402354abe2abd99b543cb608831956b539dca6eb8b828affa458287b",
+   "retrieved_utc": "2026-10-29T12:26:24Z"
+  },
+  {
+   "number": 4341,
+   "name": "4341 Poseidon (1987 KF)",
+   "solution_id": "JPL#223",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians"
+   ],
+   "solution_date": "2026-Oct-28_06:18:00",
+   "observations": "1113 (1987-2026)",
+   "spk_sha256": "e8ef81d48ca898a6a42c70445dfab0046990c9d2af52e5cd32f12ee5acbeb11d",
+   "retrieved_utc": "2026-10-29T12:05:06Z"
+  },
+  {
+   "number": 4464,
+   "name": "4464 Vulcano (1966 TE)",
+   "solution_id": "JPL#59",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians"
+   ],
+   "solution_date": "2026-Mar-12_02:14:26",
+   "observations": "7034 (1955-2025)",
+   "spk_sha256": "15552659c769f250e60acccc1a71383e0357bebcddf29787759e2c1b398c940c",
+   "retrieved_utc": "2026-10-29T12:05:59Z"
+  },
+  {
+   "number": 4660,
+   "name": "4660 Nereus (1982 DB)",
+   "solution_id": "JPL#278",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Jun-22_06:20:32",
+   "observations": "5002 (1981-2026)",
+   "spk_sha256": "d86c2d98a1cb06d07d1ff4035bb5858b27ee1548b81c7e6d2d02bc7c094b7f2b",
+   "retrieved_utc": "2026-10-29T12:27:32Z"
+  },
+  {
+   "number": 5011,
+   "name": "5011 Ptah (6743 P-L)",
+   "solution_id": "JPL#187",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Jun-14_06:20:29",
+   "observations": "782 (1960-2026)",
+   "spk_sha256": "2956603a313eb2c436d91f95005cd6b78675e6eaa6b293fffe8b60d60f89fc5a",
+   "retrieved_utc": "2026-10-29T12:28:33Z"
+  },
+  {
+   "number": 5261,
+   "name": "5261 Eureka (1990 MB)",
+   "solution_id": "JPL#41",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Mars Trojans"
+   ],
+   "solution_date": "2025-Nov-06_09:26:22",
+   "observations": "3061 (1979-2025)",
+   "spk_sha256": "09c15f4393f8e0d79c17a4f25a8d6e043c4c8192561af78ec6c72cb6ab71ca72",
+   "retrieved_utc": "2026-10-29T12:06:14Z"
+  },
+  {
+   "number": 5335,
+   "name": "5335 Damocles (1991 DA)",
+   "solution_id": "JPL#4",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Jupiter-crossing asteroids",
+    "tno_centaur"
+   ],
+   "solution_date": "2021-Apr-12_17:25:25",
+   "observations": "49 (1991-1992)",
+   "spk_sha256": "7bf7d0cbd132bbcff0906105daa3c1a30e0be9a3e0985b126d954cfb47f2364d",
+   "retrieved_utc": "2026-10-29T10:38:43Z"
+  },
+  {
+   "number": 5731,
+   "name": "5731 Zeus (1988 VP4)",
+   "solution_id": "JPL#289",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Other Transplutonians"
+   ],
+   "solution_date": "2026-Aug-04_06:19:35",
+   "observations": "1607 (1988-2025)",
+   "spk_sha256": "f0d5923195ec89e858f7411b4859a715af614e188168e79b3e04008b645b077c",
+   "retrieved_utc": "2026-10-29T12:06:34Z"
+  },
+  {
+   "number": 5786,
+   "name": "5786 Talos (1991 RC)",
+   "solution_id": "JPL#289",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2026-Oct-10_07:36:25",
+   "observations": "1788 (1991-2026)",
+   "spk_sha256": "36912ab8b9e74f26deaaf6dee220a321e509f95f7f0f4db3ac36554b46e747b5",
+   "retrieved_utc": "2026-10-29T12:29:50Z"
+  },
+  {
+   "number": 7066,
+   "name": "7066 Nessus (1993 HA2)",
+   "solution_id": "JPL#10",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "swiss_docs: Centaurs",
+    "requested"
+   ],
+   "solution_date": "2024-Apr-16_19:34:06",
+   "observations": "111 (1993-2009)",
+   "spk_sha256": "68d3b26e3d3ba41fcdee3558385f2a440c5c4782ac25f1379a922c228a450dbe",
+   "retrieved_utc": "2026-10-29T09:54:40Z"
+  },
+  {
+   "number": 8405,
+   "name": "8405 Asbolus (1995 GO)",
+   "solution_id": "JPL#49",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2026-Jun-05_11:29:00",
+   "observations": "507 (1995-2025)",
+   "spk_sha256": "822371d7c4699be6192c1a985d34538ba26d9e9eaea5e498aa1454b154b53b21",
+   "retrieved_utc": "2026-10-29T10:26:04Z"
+  },
+  {
+   "number": 10199,
+   "name": "10199 Chariklo (1997 CU26)",
+   "solution_id": "JPL#61",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2025-Nov-06_06:24:01",
+   "observations": "2726 (1988-2025)",
+   "spk_sha256": "e2afa0555ba10b29c4bdab156ae6f90716df40d3541b2ccde13ed5ad52d5f807",
+   "retrieved_utc": "2026-10-29T09:55:31Z"
+  },
+  {
+   "number": 10370,
+   "name": "10370 Hylonome (1995 DW2)",
+   "solution_id": "JPL#9",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2021-Apr-12_22:03:05",
+   "observations": "78 (1995-2010)",
+   "spk_sha256": "8269346b1001c510ded6bc2b1e85b1a9dc1d6c6ae70038a213e0bb65c8fc72f2",
+   "retrieved_utc": "2026-10-29T10:39:27Z"
+  },
+  {
+   "number": 15760,
+   "name": "15760 Albion (1992 QB1)",
+   "solution_id": "JPL#8",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2023-Feb-09_19:36:46",
+   "observations": "96 (1992-2022)",
+   "spk_sha256": "f427dcaf163efad347cd030a5404edc3d85910a1c6d16d023cb3c5a3a83030d2",
+   "retrieved_utc": "2026-10-29T10:40:14Z"
+  },
+  {
+   "number": 19521,
+   "name": "19521 Chaos (1998 WH24)",
+   "solution_id": "JPL#19",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Mar-12_15:04:52",
+   "observations": "174 (1991-2025)",
+   "spk_sha256": "3c9e5ef624140b7bbc350b8f292c3f6197dea16847e0db5581a2a2f0be0d2cf7",
+   "retrieved_utc": "2026-10-29T10:41:06Z"
+  },
+  {
+   "number": 20000,
+   "name": "20000 Varuna (2000 WR106)",
+   "solution_id": "JPL#65",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2026-Jun-05_17:43:19",
+   "observations": "1364 (1954-2026)",
+   "spk_sha256": "778b0a87bc5cf9b63ecb65ca5fbdc58b38181d5a11b3cdc6b31a55c67516e3dc",
+   "retrieved_utc": "2026-10-29T10:27:17Z"
+  },
+  {
+   "number": 20461,
+   "name": "20461 Dioretsa (1999 LD31)",
+   "solution_id": "JPL#7",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2021-Apr-13_03:21:44",
+   "observations": "278 (1998-2000)",
+   "spk_sha256": "53a5d6e9a478903b00fc9b845ae3933f2b864df05b551614c4c4c9a94120d403",
+   "retrieved_utc": "2026-10-29T10:41:51Z"
+  },
+  {
+   "number": 26375,
+   "name": "26375 (1999 DE9)",
+   "solution_id": "JPL#38",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Jun-05_20:16:52",
+   "observations": "553 (1990-2026)",
+   "spk_sha256": "49a48b9d6c8b4bcb5f6754b22cafacff6a7a78a5b868787e44698159e37fbacb",
+   "retrieved_utc": "2026-10-29T10:42:35Z"
+  },
+  {
+   "number": 28978,
+   "name": "28978 Ixion (2001 KX76)",
+   "solution_id": "JPL#22",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2026-Jun-05_21:15:49",
+   "observations": "587 (1982-2022)",
+   "spk_sha256": "cc23ce455fa94335b50c8a530ebb87bc47e9d652a4a23f3fc89e26a71d079d8a",
+   "retrieved_utc": "2026-10-29T10:28:47Z"
+  },
+  {
+   "number": 31824,
+   "name": "31824 Elatus (1999 UG5)",
+   "solution_id": "JPL#33",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2025-Aug-02_11:13:28",
+   "observations": "490 (1998-2025)",
+   "spk_sha256": "91361df5e373cfdcc9976bbe197015a560834a2dc11e7ce3bd425c1e4329dcb9",
+   "retrieved_utc": "2026-10-29T10:45:47Z"
+  },
+  {
+   "number": 32532,
+   "name": "32532 Thereus (2001 PT13)",
+   "solution_id": "JPL#64",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Jun-05_22:32:36",
+   "observations": "1052 (1983-2026)",
+   "spk_sha256": "b0e1ea2cd174445302d866694bf65ffde217d99ab9355435b915db1999097808",
+   "retrieved_utc": "2026-10-29T10:46:41Z"
+  },
+  {
+   "number": 38083,
+   "name": "38083 Rhadamanthus (1999 HX11)",
+   "solution_id": "JPL#11",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2021-Apr-13_08:32:03",
+   "observations": "79 (1999-2020)",
+   "spk_sha256": "1c38429a22dd81ec5d11a241700d7668978a967ebcc8a43fe362795c88414091",
+   "retrieved_utc": "2026-10-29T10:47:35Z"
+  },
+  {
+   "number": 38628,
+   "name": "38628 Huya (2000 EB173)",
+   "solution_id": "JPL#53",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2025-Sep-17_00:41:10",
+   "observations": "927 (1996-2025)",
+   "spk_sha256": "5f7550c24977c658d309c77ce03591ae2e276a1054687214681049bf2ac5c755",
+   "retrieved_utc": "2026-10-29T10:48:24Z"
+  },
+  {
+   "number": 42355,
+   "name": "42355 Typhon (2002 CR46)",
+   "solution_id": "JPL#41",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Jun-06_01:55:29",
+   "observations": "515 (1989-2025)",
+   "spk_sha256": "5b2dfa081b4317731c9064272c67793f4f17d7862bb225a664b2d786bbca494b",
+   "retrieved_utc": "2026-10-29T10:49:29Z"
+  },
+  {
+   "number": 47171,
+   "name": "47171 Lempo (1999 TC36)",
+   "solution_id": "JPL#57",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Jun-06_03:29:33",
+   "observations": "1143 (1974-2026)",
+   "spk_sha256": "c456ff5052ebddadecfecdd83cacf85dd9ad61c02925a9aed9eaf34784dee51d",
+   "retrieved_utc": "2026-10-29T10:50:30Z"
+  },
+  {
+   "number": 49036,
+   "name": "49036 Pelion (1998 QM107)",
+   "solution_id": "JPL#6",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2025-Feb-12_07:47:42",
+   "observations": "104 (1998-2024)",
+   "spk_sha256": "91987a46de8bb55aadaab7a08abba3e1c3f9f42ed8f6ddadf6a5df5e58b04b7d",
+   "retrieved_utc": "2026-10-29T10:51:22Z"
+  },
+  {
+   "number": 50000,
+   "name": "50000 Quaoar (2002 LM60)",
+   "solution_id": "JPL#52",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2026-Oct-09_09:29:33",
+   "observations": "1058 (1954-2025)",
+   "spk_sha256": "964ac2e39d26041ff577b12d0b62186ec268e89654289d3a33496b67955d69bf",
+   "retrieved_utc": "2026-10-29T09:57:54Z"
+  },
+  {
+   "number": 52872,
+   "name": "52872 Okyrhoe (1998 SG35)",
+   "solution_id": "JPL#75",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Mar-13_03:38:27",
+   "observations": "948 (1998-2025)",
+   "spk_sha256": "da41aed366b81f7465a06e0a9655751ec1ebd072106678f60d2a038f63e8e861",
+   "retrieved_utc": "2026-10-29T10:52:12Z"
+  },
+  {
+   "number": 52975,
+   "name": "52975 Cyllarus (1998 TF35)",
+   "solution_id": "JPL#12",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2025-Feb-12_08:38:45",
+   "observations": "87 (1998-2024)",
+   "spk_sha256": "7e1a3b6de4caa7827bef8be99bb4a8f90a09bfbb2e64962fb055fd163bfb03e2",
+   "retrieved_utc": "2026-10-29T10:53:37Z"
+  },
+  {
+   "number": 54598,
+   "name": "54598 Bienor (2000 QC243)",
+   "solution_id": "JPL#83",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Jun-06_06:17:35",
+   "observations": "2171 (1953-2026)",
+   "spk_sha256": "9e8c7279cb070466f00f86aea411653861e0b21c972a826b2934435855a0946a",
+   "retrieved_utc": "2026-10-29T10:54:33Z"
+  },
+  {
+   "number": 55565,
+   "name": "55565 Aya (2002 AW197)",
+   "solution_id": "JPL#39",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Mar-13_04:27:08",
+   "observations": "1262 (1997-2025)",
+   "spk_sha256": "56cf0e0e604a9c9cdc9a73e43fef95fcce0f55030dc71b977032c5c8bdff5126",
+   "retrieved_utc": "2026-10-29T10:55:26Z"
+  },
+  {
+   "number": 55576,
+   "name": "55576 Amycus (2002 GB10)",
+   "solution_id": "JPL#17",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Aug-20_09:29:53",
+   "observations": "158 (1987-2025)",
+   "spk_sha256": "8de8d4044a030b8bc6eaff8b679f51c863775a01bdaa1eba4d6ea0f73fa73b4e",
+   "retrieved_utc": "2026-10-29T10:56:18Z"
+  },
+  {
+   "number": 58534,
+   "name": "58534 Logos (1997 CQ29)",
+   "solution_id": "JPL#17",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2024-Jun-04_08:33:35",
+   "observations": "115 (1997-2024)",
+   "spk_sha256": "69cb4588d04a6adc3cc24c9513ce34e11587fced7c2c1841c5e19b1e9934eb90",
+   "retrieved_utc": "2026-10-29T10:57:08Z"
+  },
+  {
+   "number": 60558,
+   "name": "60558 Echeclus (2000 EC98)",
+   "solution_id": "JPL#123",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Jun-06_07:48:54",
+   "observations": "5211 (1979-2026)",
+   "spk_sha256": "8a1afab755d52e971f0377c63f2718d2218609f2fe4e43c18a006c8ebcb04e3f",
+   "retrieved_utc": "2026-10-29T10:57:57Z"
+  },
+  {
+   "number": 65489,
+   "name": "65489 Ceto (2003 FX128)",
+   "solution_id": "JPL#13",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Jun-06_08:54:33",
+   "observations": "277 (1987-2025)",
+   "spk_sha256": "6dab10b65c95849ea961de302df70e78da3bc54aff2ae370490c2c7d6d71155b",
+   "retrieved_utc": "2026-10-29T10:58:53Z"
+  },
+  {
+   "number": 79360,
+   "name": "79360 Sila-Nunam (1997 CS29)",
+   "solution_id": "JPL#33",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Jun-06_12:11:57",
+   "observations": "576 (1997-2026)",
+   "spk_sha256": "f937383e51499442c9d0e0a65b1e20f4f5a951ddefa1d7ab851155db46d0f05e",
+   "retrieved_utc": "2026-10-29T10:59:41Z"
+  },
+  {
+   "number": 83982,
+   "name": "83982 Crantor (2002 GO9)",
+   "solution_id": "JPL#28",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Aug-20_09:42:40",
+   "observations": "319 (2001-2025)",
+   "spk_sha256": "198783e3a71a4b0dc37df44eafe365c09605f837a1f65c3daeffa6a3a1c34b35",
+   "retrieved_utc": "2026-10-29T11:00:36Z"
+  },
+  {
+   "number": 84522,
+   "name": "84522 (2002 TC302)",
+   "solution_id": "JPL#37",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2026-Jun-06_13:11:01",
+   "observations": "569 (2000-2026)",
+   "spk_sha256": "a7a717fef7152d963ac8b8ff3e4ffff6297698c29e4c6caa255a5e81eab6b30f",
+   "retrieved_utc": "2026-10-29T11:01:25Z"
+  },
+  {
+   "number": 90377,
+   "name": "90377 Sedna (2003 VB12)",
+   "solution_id": "JPL#51",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2026-Jun-06_14:12:24",
+   "observations": "671 (1990-2026)",
+   "spk_sha256": "848d84a9abc016c1c4edc64a9c5bb98a2c898f205022e49e72f147d88d14fe5c",
+   "retrieved_utc": "2026-10-29T09:56:15Z"
+  },
+  {
+   "number": 90482,
+   "name": "90482 Orcus (2004 DW)",
+   "solution_id": "JPL#61",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2026-Jun-06_14:13:31",
+   "observations": "2158 (1951-2026)",
+   "spk_sha256": "3585f010a2f28929ac1cfa73bea4d8babee81d81b19252df9670bf6f2095b205",
+   "retrieved_utc": "2026-10-29T10:30:10Z"
+  },
+  {
+   "number": 99942,
+   "name": "99942 Apophis (2004 MN4)",
+   "solution_id": "JPL#220",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "neo_myth"
+   ],
+   "solution_date": "2024-Jun-25_10:48:08",
+   "observations": "7370 (2004-2022)",
+   "spk_sha256": "05e3a105fee9a50082e6f74ffc40d32e0f662bc261422b1f0ae3ab8ebaa09ca9",
+   "retrieved_utc": "2026-10-29T12:32:43Z"
+  },
+  {
+   "number": 120347,
+   "name": "120347 Salacia (2004 SB60)",
+   "solution_id": "JPL#42",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2025-Nov-07_12:48:45",
+   "observations": "751 (1982-2025)",
+   "spk_sha256": "2c5f02cbf4ee7be854011ec8971147a6720c5163e5b403ab31207f63fc5e5fb5",
+   "retrieved_utc": "2026-10-29T10:31:35Z"
+  },
+  {
+   "number": 136108,
+   "name": "136108 Haumea (2003 EL61)",
+   "solution_id": "JPL#132",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2026-Jun-06_21:06:04",
+   "observations": "6692 (1955-2026)",
+   "spk_sha256": "d0939bf41a76250fe4933497e6a105d245237d8da0553d92a7e28a3d47c121f1",
+   "retrieved_utc": "2026-10-29T09:57:08Z"
+  },
+  {
+   "number": 136472,
+   "name": "136472 Makemake (2005 FY9)",
+   "solution_id": "JPL#130",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2026-Jun-06_21:09:02",
+   "observations": "6348 (1955-2026)",
+   "spk_sha256": "6d6b721c69070518b9472fcca303057030cfd08e6929ec918502bb01b204920a",
+   "retrieved_utc": "2026-10-29T10:32:48Z"
+  },
+  {
+   "number": 148780,
+   "name": "148780 Altjira (2001 UQ18)",
+   "solution_id": "JPL#15",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2023-Feb-09_17:59:21",
+   "observations": "83 (2001-2022)",
+   "spk_sha256": "1ac9ef2afcea1d2e28c98cd3d5c35527fbc2109f1a53fabf8add2806a9011ddd",
+   "retrieved_utc": "2026-10-29T11:02:37Z"
+  },
+  {
+   "number": 174567,
+   "name": "174567 Varda (2003 MW12)",
+   "solution_id": "JPL#17",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2024-Oct-11_19:47:55",
+   "observations": "747 (1980-2024)",
+   "spk_sha256": "45766e2992716c09b3f8ab576e57fd6eddea5ff2e76aadc96a8b48735620b15e",
+   "retrieved_utc": "2026-10-29T10:34:10Z"
+  },
+  {
+   "number": 225088,
+   "name": "225088 Gonggong (2007 OR10)",
+   "solution_id": "JPL#25",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "requested"
+   ],
+   "solution_date": "2026-Aug-27_09:12:03",
+   "observations": "574 (1985-2025)",
+   "spk_sha256": "dba066b80e24edf32b25c88ee978a1e4d1fb46a9878cd64388b99d3400cbe4b6",
+   "retrieved_utc": "2026-10-29T10:36:18Z"
+  },
+  {
+   "number": 471143,
+   "name": "471143 Dziewanna (2010 EK139)",
+   "solution_id": "JPL#12",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598072.5
+   ],
+   "reasons": [
+    "tno_centaur"
+   ],
+   "solution_date": "2025-Jul-02_10:35:02",
+   "observations": "237 (2002-2024)",
+   "spk_sha256": "640c70ae9ad1ce742e7daca3e3713192946002519b996da7f151575804ac5b41",
+   "retrieved_utc": "2026-10-29T11:03:31Z"
+  }
+ ]
+}

@@ -1,0 +1,156 @@
+{
+ "source": "JPL Horizons API (DE441), airless apparent elevation + angular diameter, 1-min steps",
+ "R0_deg": 0.5666666666666667,
+ "cases": [
+  {
+   "name": "Paris",
+   "body": 0,
+   "kind": "rise",
+   "lon": 2.35,
+   "lat": 48.85,
+   "h": 0.0,
+   "jd": 2460389.5,
+   "t_horizons": 2460389.7449435256
+  },
+  {
+   "name": "Paris",
+   "body": 1,
+   "kind": "set",
+   "lon": 2.35,
+   "lat": 48.85,
+   "h": 0.0,
+   "jd": 2460389.5,
+   "t_horizons": 2460389.6889209086
+  },
+  {
+   "name": "Quito",
+   "body": 0,
+   "kind": "set",
+   "lon": -78.51,
+   "lat": -0.22,
+   "h": 0.0,
+   "jd": 2455378.5,
+   "t_horizons": 2455379.473049081
+  },
+  {
+   "name": "Quito",
+   "body": 1,
+   "kind": "rise",
+   "lon": -78.51,
+   "lat": -0.22,
+   "h": 0.0,
+   "jd": 2455378.5,
+   "t_horizons": 2455378.6136751976
+  },
+  {
+   "name": "Sydney",
+   "body": 0,
+   "kind": "rise",
+   "lon": 151.21,
+   "lat": -33.87,
+   "h": 0.0,
+   "jd": 2450075.5,
+   "t_horizons": 2450076.2795210555
+  },
+  {
+   "name": "Sydney",
+   "body": 1,
+   "kind": "set",
+   "lon": 151.21,
+   "lat": -33.87,
+   "h": 0.0,
+   "jd": 2450075.5,
+   "t_horizons": 2450075.951432531
+  },
+  {
+   "name": "Suva",
+   "body": 0,
+   "kind": "set",
+   "lon": 178.44,
+   "lat": -18.14,
+   "h": 0.0,
+   "jd": 2451910.5,
+   "t_horizons": 2451910.781672637
+  },
+  {
+   "name": "Apia",
+   "body": 1,
+   "kind": "rise",
+   "lon": -171.77,
+   "lat": -13.83,
+   "h": 0.0,
+   "jd": 2458370.5,
+   "t_horizons": 2458371.234635665
+  },
+  {
+   "name": "Anchorage",
+   "body": 0,
+   "kind": "rise",
+   "lon": -149.9,
+   "lat": 61.22,
+   "h": 0.0,
+   "jd": 2459001.5,
+   "t_horizons": 2459002.0241704118
+  },
+  {
+   "name": "Anchorage",
+   "body": 1,
+   "kind": "set",
+   "lon": -149.9,
+   "lat": 61.22,
+   "h": 0.0,
+   "jd": 2459001.5,
+   "t_horizons": 2459002.0063703367
+  },
+  {
+   "name": "Tromso",
+   "body": 0,
+   "kind": "set",
+   "lon": 18.95,
+   "lat": 69.65,
+   "h": 0.0,
+   "jd": 2460444.5,
+   "t_horizons": 2460445.4042203585
+  },
+  {
+   "name": "Ushuaia",
+   "body": 0,
+   "kind": "rise",
+   "lon": -68.3,
+   "lat": -54.8,
+   "h": 0.0,
+   "jd": 2442584.5,
+   "t_horizons": 2442585.040744394
+  },
+  {
+   "name": "McMurdo-ish",
+   "body": 1,
+   "kind": "set",
+   "lon": 166.67,
+   "lat": -65.0,
+   "h": 0.0,
+   "jd": 2453411.5,
+   "t_horizons": 2453411.916099431
+  },
+  {
+   "name": "Delhi",
+   "body": 0,
+   "kind": "rise",
+   "lon": 77.21,
+   "lat": 28.61,
+   "h": 0.0,
+   "jd": 2437700.5,
+   "t_horizons": 2437700.5676645897
+  },
+  {
+   "name": "Delhi",
+   "body": 1,
+   "kind": "rise",
+   "lon": 77.21,
+   "lat": 28.61,
+   "h": 0.0,
+   "jd": 2437700.5,
+   "t_horizons": 2437700.5728109563
+  }
+ ]
+}

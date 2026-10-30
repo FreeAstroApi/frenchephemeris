@@ -1,0 +1,16 @@
+/target
+/data/sources/
+/data/packs/
+/.venv
+__pycache__/
+*.so
+*.pyc
+.DS_Store
+/data/nasa/
+/data/iota/
+/data/iers/
+/data/horizons/
+
+# Private Swiss-oracle corpus (never published; see tools/privatize_oracle_fixtures.py)
+/private
+/dist/

@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo fmt --all --check
+      - run: cargo clippy --release --workspace --all-targets -- -D warnings
+
+  test:
+    runs-on: ubuntu-latest
+    env:
+      FRENCHEPHEMERIS_DATA: ${{ github.workspace }}/data/packs
+      FE_PACK_DIR: ${{ github.workspace }}/data/packs
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build and install the Python package
+        run: |
+          python -m pip install --upgrade pip maturin pytest
+          maturin build --release -o dist
+          python -m pip install dist/*.whl
+      - uses: actions/cache@v4
+        with:
+          path: data/packs
+          key: packs-v1-dev
+      - name: Download the development packs (1900-2100, minor bodies)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -m frenchephemeris.packs download --set dev
+      - run: cargo test --release --workspace --exclude fe-py
+      - run: python -m pytest -q tests

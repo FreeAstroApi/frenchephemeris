@@ -1,0 +1,19 @@
+[workspace]
+resolver = "2"
+members = ["crates/fe-core", "crates/fe-py"]
+
+[workspace.package]
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.88"
+license = "AGPL-3.0-only OR LicenseRef-FrenchEphemeris-Commercial"
+# Full texts: LICENSE (AGPL-3.0), COMMERCIAL-LICENSE.md; third-party notices: NOTICE.
+repository = "https://github.com/FreeAstroApi/frenchephemeris"
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+opt-level = 3
+
+[profile.dev]
+opt-level = 1

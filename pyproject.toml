@@ -1,0 +1,36 @@
+[build-system]
+requires = ["maturin>=1.7,<2"]
+build-backend = "maturin"
+
+[project]
+name = "frenchephemeris"
+version = "1.0.0"
+description = "JPL-derived, thread-safe ephemeris and astrology geometry engine"
+requires-python = ">=3.9"
+license = "AGPL-3.0-only OR LicenseRef-FrenchEphemeris-Commercial"
+license-files = ["LICENSE", "COMMERCIAL-LICENSE.md", "NOTICE"]
+readme = "README.md"
+dependencies = ["numpy>=1.21"]
+authors = [{ name = "Gabriel Naulleau (FreeAstroAPI)", email = "contact@freeastroapi.com" }]
+keywords = ["ephemeris", "astronomy", "astrology", "jpl", "de441", "houses", "ayanamsa"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+    "Topic :: Scientific/Engineering :: Astronomy",
+]
+
+[project.urls]
+Repository = "https://github.com/FreeAstroApi/frenchephemeris"
+Changelog = "https://github.com/FreeAstroApi/frenchephemeris/blob/main/CHANGELOG.md"
+"Commercial licence" = "https://github.com/FreeAstroApi/frenchephemeris/blob/main/COMMERCIAL-LICENSE.md"
+Homepage = "https://freeastroapi.com"
+
+[tool.maturin]
+manifest-path = "crates/fe-py/Cargo.toml"
+python-source = "python"
+module-name = "frenchephemeris._native"
+features = ["pyo3/extension-module"]

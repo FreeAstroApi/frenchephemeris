@@ -1,0 +1,406 @@
+{
+ "generated_utc": "2026-10-28T18:24:28Z",
+ "tool": "tools/fetch_minor.py",
+ "clean_room": "All minor-body data come from JPL. Swiss Ephemeris is used only as a black-box oracle in harness/check_minor.py, never as a data source.",
+ "sb441": {
+  "file": "sb441-n16.bsp",
+  "url": "https://ssd.jpl.nasa.gov/ftp/eph/small_bodies/asteroids_de441/sb441-n16.bsp",
+  "size_bytes": 645727232,
+  "last_modified": "Wed, 31 Mar 2021 21:23:14 GMT",
+  "how_read": "HTTP Range requests, 1 MiB chunk cache (data/sources/minor/sb441-n16_cache)",
+  "sha256": null,
+  "integrity": "not hashed (range-read); DAF/type-2 directory checks in tools/spk.py, record grid checked, record-boundary continuity <= 3e-7 km",
+  "kind": "JPL DE441 small-body perturber SPK (type 2, Chebyshev, 32-day records)",
+  "documentation": "https://ssd.jpl.nasa.gov/ftp/eph/small_bodies/asteroids_de441/SB441_IOM392R-21-005_perturbers.pdf",
+  "reference": "Park, Folkner, Williams, Boggs (2021), JPL IOM 392R-21-005; DE440/DE441 paper AJ 161:105",
+  "ifname": "sb441-n16.bsp",
+  "bodies": {
+   "Ceres": {
+    "spk_target_id": 2000001,
+    "spk_center_id": 10,
+    "segments_jd_tdb": [
+     [
+      -1200525.5,
+      399474.5
+     ],
+     [
+      399474.5,
+      1999474.5
+     ],
+     [
+      1999474.5,
+      3599474.5
+     ],
+     [
+      3599474.5,
+      5008242.5
+     ]
+    ],
+    "record_days": 32.0,
+    "n_coeff": 8,
+    "type": 2
+   },
+   "Pallas": {
+    "spk_target_id": 2000002,
+    "spk_center_id": 10,
+    "segments_jd_tdb": [
+     [
+      -1200525.5,
+      399474.5
+     ],
+     [
+      399474.5,
+      1999474.5
+     ],
+     [
+      1999474.5,
+      3599474.5
+     ],
+     [
+      3599474.5,
+      5008242.5
+     ]
+    ],
+    "record_days": 32.0,
+    "n_coeff": 8,
+    "type": 2
+   },
+   "Juno": {
+    "spk_target_id": 2000003,
+    "spk_center_id": 10,
+    "segments_jd_tdb": [
+     [
+      -1200525.5,
+      399474.5
+     ],
+     [
+      399474.5,
+      1999474.5
+     ],
+     [
+      1999474.5,
+      3599474.5
+     ],
+     [
+      3599474.5,
+      5008242.5
+     ]
+    ],
+    "record_days": 32.0,
+    "n_coeff": 8,
+    "type": 2
+   },
+   "Vesta": {
+    "spk_target_id": 2000004,
+    "spk_center_id": 10,
+    "segments_jd_tdb": [
+     [
+      -1200525.5,
+      399474.5
+     ],
+     [
+      399474.5,
+      1999474.5
+     ],
+     [
+      1999474.5,
+      3599474.5
+     ],
+     [
+      3599474.5,
+      5008242.5
+     ]
+    ],
+    "record_days": 32.0,
+    "n_coeff": 8,
+    "type": 2
+   }
+  },
+  "note": "Asteroid trajectories integrated simultaneously with the DE441 planets (the same ones used as perturbers in DE441 and in every Horizons small-body integration).",
+  "license": "JPL Solar System Dynamics data (NASA/JPL-Caltech). No licence terms are attached to the files; JPL asks for credit to the Horizons On-Line Ephemeris System / SSD group. The Horizons SPK comments state the files are informal releases, not for spacecraft-safety use. Confirm the attribution wording with JPL SSD before public redistribution of derived packs."
+ },
+ "horizons": [
+  {
+   "body": "Chiron",
+   "number": 2060,
+   "file": "hz_2060_chiron.bsp",
+   "size_bytes": 14242816,
+   "sha256": "edd609c5504993731fff6b70578c7789d7dca529e015267805fe084f727f859a",
+   "kind": "JPL Horizons small-body SPK (type 21)",
+   "request": {
+    "api": "https://ssd.jpl.nasa.gov/api/horizons.api",
+    "params": {
+     "COMMAND": "'2060;'",
+     "EPHEM_TYPE": "'SPK'",
+     "OBJ_DATA": "'YES'",
+     "START_TIME": "'1599-12-11'",
+     "STOP_TIME": "'2401-04-01'"
+    },
+    "retrieved_utc": null
+   },
+   "execution_date_pasadena": "Wed Oct 28 11:15:21 2026 (Pasadena time)",
+   "target_line": "2060 Chiron (1977 UB)           {source: Horizons_SPK:JPL#171}",
+   "solution_id": "JPL#171",
+   "solution_date": "2026-Jun-05_06:09:00",
+   "observations": "6026 (1895-2026)",
+   "spk_target_id": 20002060,
+   "spk_center_id": 10,
+   "spk_frame": 1,
+   "coord_center": "Sun                      ( 10)  {source: DE-0441LE-0441}",
+   "small_body_perturbers": "Yes                             {source: SB441-N16}",
+   "start_time": "A.D. 1599-Dec-11 00:00:00.0000  TDB",
+   "stop_time": "A.D. 2401-Apr-01 00:00:00.0000  TDB",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598097.5
+   ],
+   "n_segments": 39,
+   "force_model": "planets, Moon, 16 largest asteroids (SB441-N16), PPN solar relativity, Earth oblateness, non-gravitational terms of the solution (from the SPK comments)",
+   "horizons_span_limit": "Horizons refuses ephemerides for this body before A.D. 1599-DEC-11 TDB ('No ephemeris for target ... prior to'), so no JPL data exists before",
+   "license": "JPL Solar System Dynamics data (NASA/JPL-Caltech). No licence terms are attached to the files; JPL asks for credit to the Horizons On-Line Ephemeris System / SSD group. The Horizons SPK comments state the files are informal releases, not for spacecraft-safety use. Confirm the attribution wording with JPL SSD before public redistribution of derived packs."
+  },
+  {
+   "body": "Pholus",
+   "number": 5145,
+   "file": "hz_5145_pholus.bsp",
+   "size_bytes": 14345216,
+   "sha256": "dbd012db1985a8eb10c7b565e7d5ef221b46548416f970016355b2a16d21d20e",
+   "kind": "JPL Horizons small-body SPK (type 21)",
+   "request": {
+    "api": "https://ssd.jpl.nasa.gov/api/horizons.api",
+    "params": {
+     "COMMAND": "'5145;'",
+     "EPHEM_TYPE": "'SPK'",
+     "OBJ_DATA": "'YES'",
+     "START_TIME": "'1599-12-11'",
+     "STOP_TIME": "'2401-04-01'"
+    },
+    "retrieved_utc": null
+   },
+   "execution_date_pasadena": "Wed Oct 28 11:15:59 2026 (Pasadena time)",
+   "target_line": "5145 Pholus (1992 AD)           {source: Horizons_SPK:JPL#24}",
+   "solution_id": "JPL#24",
+   "solution_date": "2024-Oct-11_16:28:19",
+   "observations": "397 (1977-2018)",
+   "spk_target_id": 20005145,
+   "spk_center_id": 10,
+   "spk_frame": 1,
+   "coord_center": "Sun                      ( 10)  {source: DE-0441LE-0441}",
+   "small_body_perturbers": "Yes                             {source: SB441-N16}",
+   "start_time": "A.D. 1599-Dec-11 00:00:00.0000  TDB",
+   "stop_time": "A.D. 2401-Apr-01 00:00:00.0000  TDB",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598097.5
+   ],
+   "n_segments": 40,
+   "force_model": "planets, Moon, 16 largest asteroids (SB441-N16), PPN solar relativity, Earth oblateness, non-gravitational terms of the solution (from the SPK comments)",
+   "horizons_span_limit": "Horizons refuses ephemerides for this body before A.D. 1599-DEC-11 TDB ('No ephemeris for target ... prior to'), so no JPL data exists before",
+   "license": "JPL Solar System Dynamics data (NASA/JPL-Caltech). No licence terms are attached to the files; JPL asks for credit to the Horizons On-Line Ephemeris System / SSD group. The Horizons SPK comments state the files are informal releases, not for spacecraft-safety use. Confirm the attribution wording with JPL SSD before public redistribution of derived packs."
+  },
+  {
+   "body": "Eris",
+   "number": 136199,
+   "file": "hz_136199_eris.bsp",
+   "size_bytes": 14367744,
+   "sha256": "81ed1c611d0ce44fff618c0cd37245a991077bc160ec628ee84ea1771524a4b4",
+   "kind": "JPL Horizons small-body SPK (type 21)",
+   "request": {
+    "api": "https://ssd.jpl.nasa.gov/api/horizons.api",
+    "params": {
+     "COMMAND": "'136199;'",
+     "EPHEM_TYPE": "'SPK'",
+     "OBJ_DATA": "'YES'",
+     "START_TIME": "'1599-12-11'",
+     "STOP_TIME": "'2401-04-01'"
+    },
+    "retrieved_utc": null
+   },
+   "execution_date_pasadena": "Wed Oct 28 11:16:45 2026 (Pasadena time)",
+   "target_line": "136199 Eris (2003 UB313)        {source: Horizons_SPK:JPL#103}",
+   "solution_id": "JPL#103",
+   "solution_date": "2026-Jun-06_21:06:42",
+   "observations": "4064 (1954-2026)",
+   "spk_target_id": 20136199,
+   "spk_center_id": 10,
+   "spk_frame": 1,
+   "coord_center": "Sun                      ( 10)  {source: DE-0441LE-0441}",
+   "small_body_perturbers": "Yes                             {source: SB441-N16}",
+   "start_time": "A.D. 1599-Dec-11 00:00:00.0000  TDB",
+   "stop_time": "A.D. 2401-Apr-01 00:00:00.0000  TDB",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598097.5
+   ],
+   "n_segments": 40,
+   "force_model": "planets, Moon, 16 largest asteroids (SB441-N16), PPN solar relativity, Earth oblateness, non-gravitational terms of the solution (from the SPK comments)",
+   "horizons_span_limit": "Horizons refuses ephemerides for this body before A.D. 1599-DEC-11 TDB ('No ephemeris for target ... prior to'), so no JPL data exists before",
+   "license": "JPL Solar System Dynamics data (NASA/JPL-Caltech). No licence terms are attached to the files; JPL asks for credit to the Horizons On-Line Ephemeris System / SSD group. The Horizons SPK comments state the files are informal releases, not for spacecraft-safety use. Confirm the attribution wording with JPL SSD before public redistribution of derived packs."
+  },
+  {
+   "body": "Eros",
+   "number": 433,
+   "file": "hz_433_eros.bsp",
+   "size_bytes": 14435328,
+   "sha256": "bc76dd689c35c5d4d48f5d2df257525cc54fe10ed76c95c142ada1209e059004",
+   "kind": "JPL Horizons small-body SPK (type 21)",
+   "request": {
+    "api": "https://ssd.jpl.nasa.gov/api/horizons.api",
+    "params": {
+     "COMMAND": "'433;'",
+     "EPHEM_TYPE": "'SPK'",
+     "OBJ_DATA": "'YES'",
+     "START_TIME": "'1599-12-11'",
+     "STOP_TIME": "'2401-04-01'"
+    },
+    "retrieved_utc": null
+   },
+   "execution_date_pasadena": "Wed Oct 28 11:17:29 2026 (Pasadena time)",
+   "target_line": "433 Eros (A898 PA)              {source: Horizons_SPK:JPL#659}",
+   "solution_id": "JPL#659",
+   "solution_date": "2021-May-24_17:55:05",
+   "observations": "9130 (1893-2021)",
+   "spk_target_id": 20000433,
+   "spk_center_id": 10,
+   "spk_frame": 1,
+   "coord_center": "Sun                      ( 10)  {source: DE-0441LE-0441}",
+   "small_body_perturbers": "Yes                             {source: SB441-N16}",
+   "start_time": "A.D. 1599-Dec-11 00:00:00.0000  TDB",
+   "stop_time": "A.D. 2401-Apr-01 00:00:00.0000  TDB",
+   "coverage_jd_tdb": [
+    2305426.5,
+    2598097.5
+   ],
+   "n_segments": 40,
+   "force_model": "planets, Moon, 16 largest asteroids (SB441-N16), PPN solar relativity, Earth oblateness, non-gravitational terms of the solution (from the SPK comments)",
+   "horizons_span_limit": "Horizons refuses ephemerides for this body before A.D. 1599-DEC-11 TDB ('No ephemeris for target ... prior to'), so no JPL data exists before",
+   "license": "JPL Solar System Dynamics data (NASA/JPL-Caltech). No licence terms are attached to the files; JPL asks for credit to the Horizons On-Line Ephemeris System / SSD group. The Horizons SPK comments state the files are informal releases, not for spacecraft-safety use. Confirm the attribution wording with JPL SSD before public redistribution of derived packs."
+  }
+ ],
+ "integrations": {
+  "Chiron": {
+   "source": "FrenchEphemeris integration from JPL#171",
+   "kind": "own numerical integration (model extrapolation before JPL's first epoch)",
+   "product": "int_2060_chiron.npy",
+   "span_jd_tdb": [
+    1967601.5,
+    2305426.5
+   ],
+   "initial_state": {
+    "jd_tdb": 2305426.5,
+    "source": "Horizons SPK hz_2060_chiron.bsp (2002060)",
+    "bary_km_kmday": [
+     -849873012.7806998,
+     1139554479.9211922,
+     303504548.58369875,
+     -582379.7914303888,
+     -677994.9720775707,
+     -253593.191694631
+    ]
+   },
+   "jpl_solution": "JPL#171",
+   "covariance_from": "SBDB API orbit 171 (2026-06-05 06:09:00)",
+   "tool": "tools/integrate_minor.py + crates/fe-core/examples/integrate_minor.rs",
+   "model": "point masses Sun, planet-system barycentres (Earth+Moon for Eros), Ceres/Pallas/Juno/Vesta; 1PN Sun; main pack DE441 (<1550) / DE442; Gauss-Legendre 6-stage",
+   "step_days": 4.000011840484986,
+   "checks": {
+    "step_halving_max_km": 9.060817379674818,
+    "round_trip_km": 4.311991997495391
+   },
+   "details": "docs/MINOR_INTEGRATION.json"
+  },
+  "Pholus": {
+   "source": "FrenchEphemeris integration from JPL#24",
+   "kind": "own numerical integration (model extrapolation before JPL's first epoch)",
+   "product": "int_5145_pholus.npy",
+   "span_jd_tdb": [
+    1720624.5,
+    2305426.5
+   ],
+   "initial_state": {
+    "jd_tdb": 2305426.5,
+    "source": "Horizons SPK hz_5145_pholus.bsp (2005145)",
+    "bary_km_kmday": [
+     3079362898.4337907,
+     -2393957969.1363163,
+     -1663873845.7485979,
+     74471.68023891284,
+     365342.9035267401,
+     39089.83710295462
+    ]
+   },
+   "jpl_solution": "JPL#24",
+   "covariance_from": "SBDB API orbit 24 (2024-10-11 16:28:19)",
+   "tool": "tools/integrate_minor.py + crates/fe-core/examples/integrate_minor.rs",
+   "model": "point masses Sun, planet-system barycentres (Earth+Moon for Eros), Ceres/Pallas/Juno/Vesta; 1PN Sun; main pack DE441 (<1550) / DE442; Gauss-Legendre 6-stage",
+   "step_days": 4.000013679890561,
+   "checks": {
+    "step_halving_max_km": 0.00046099986696385706,
+    "round_trip_km": 0.00015554487303124734
+   },
+   "details": "docs/MINOR_INTEGRATION.json"
+  },
+  "Eris": {
+   "source": "FrenchEphemeris integration from JPL#103",
+   "kind": "own numerical integration (model extrapolation before JPL's first epoch)",
+   "product": "int_136199_eris.npy",
+   "span_jd_tdb": [
+    2268932.5,
+    2305426.5
+   ],
+   "initial_state": {
+    "jd_tdb": 2305426.5,
+    "source": "Horizons SPK hz_136199_eris.bsp (2136199)",
+    "bary_km_kmday": [
+     4110339978.784872,
+     5929348552.611474,
+     7049221661.486489,
+     -287155.20431290136,
+     -111405.96925369064,
+     63821.345623950234
+    ]
+   },
+   "jpl_solution": "JPL#103",
+   "covariance_from": "SBDB API orbit 103 (2026-06-06 21:06:42)",
+   "tool": "tools/integrate_minor.py + crates/fe-core/examples/integrate_minor.rs",
+   "model": "point masses Sun, planet-system barycentres (Earth+Moon for Eros), Ceres/Pallas/Juno/Vesta; 1PN Sun; main pack DE441 (<1550) / DE442; Gauss-Legendre 6-stage",
+   "step_days": 7.999561595791319,
+   "checks": {
+    "step_halving_max_km": 6.198883056640625e-06,
+    "round_trip_km": 1.966049969490843e-06
+   },
+   "details": "docs/MINOR_INTEGRATION.json"
+  },
+  "Eros": {
+   "source": "FrenchEphemeris integration from JPL#659",
+   "kind": "own numerical integration (model extrapolation before JPL's first epoch)",
+   "product": "int_433_eros.npy",
+   "span_jd_tdb": [
+    2268932.5,
+    2305426.5
+   ],
+   "initial_state": {
+    "jd_tdb": 2305426.5,
+    "source": "Horizons SPK hz_433_eros.bsp (2000433)",
+    "bary_km_kmday": [
+     -47106528.86817577,
+     144786419.19012612,
+     75003598.058089,
+     -2481321.1799186277,
+     -572365.8371504558,
+     -768008.6610980767
+    ]
+   },
+   "jpl_solution": "JPL#659",
+   "covariance_from": "SBDB API orbit 659 (2021-05-24 17:55:05)",
+   "tool": "tools/integrate_minor.py + crates/fe-core/examples/integrate_minor.rs",
+   "model": "point masses Sun, planet-system barycentres (Earth+Moon for Eros), Ceres/Pallas/Juno/Vesta; 1PN Sun; main pack DE441 (<1550) / DE442; Gauss-Legendre 6-stage",
+   "step_days": 0.5,
+   "checks": {
+    "step_halving_max_km": 2.4520843268692442e-05,
+    "round_trip_km": 7.357390545364532e-05
+   },
+   "details": "docs/MINOR_INTEGRATION.json"
+  }
+ }
+}

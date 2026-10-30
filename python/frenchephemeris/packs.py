@@ -3,6 +3,8 @@
 """Download the FEPK data packs (JPL-derived coefficient files) the engine reads.
 
     python -m frenchephemeris.packs download              # standard set (~256 MB)
+    python -m frenchephemeris.packs download --set modern   # 1800-2401, bit-identical, ~69 MB
+    python -m frenchephemeris.packs download --set compact  # 1800-2400, lossy refit, ~13 MB
     python -m frenchephemeris.packs download --set dev    # 1900-2100 only (~28 MB)
     python -m frenchephemeris.packs list
     python -m frenchephemeris.packs path
@@ -35,6 +37,10 @@ PACKS = {
                           "Chiron, Pholus, Ceres, Pallas, Juno, Vesta, Eris, Eros"),
     "fepk-de441-ext-near-future-v1.bin": (1968949, "066c7dd5e374602972da6f2261add6c6bfd56c437037319e06acb3ac72c2808a",
                                           "DE441 refit, years 2401 .. 2581"),
+    "fepk-de442-1800-2400-v1.bin": (61947800, "23098485e262eb527923721270936f14ae5e9760a10574e361be02e33b86a68b",
+                                    "DE442, years 1800 .. 2401, bit-identical to JPL"),
+    "fepk-de442-compact-1800-2400-v1.bin": (6546643, "866cc7c3ceb79943bff7d8d204f8ad1d61fdea94987813a99d90a9c3896c87fc",
+                                            "DE442 compact refit, years 1800 .. 2400, LOSSY (planets <= 0.001\", Moon <= 0.04\" of JPL)"),
     "fepk-de442-1900-2100-v1.bin": (20750344, "755ef97fbfaa866fe77537584eb29214136146baba9d72c766e7f71c09bc0f5e", "DE442, years 1900 .. 2100 (development pack)"),
     "fepk-de441-ext-past-v1.bin": (144031527, "3894de83aab7d5eb711144b224195e81e5edd07e99cedd4f3904a2730dba2bbf", "DE441 refit, years -13200 .. -2"),
     "fepk-de441-ext-future-v1.bin": (160945165, "c2dc933a66c82203a12e4ff328599cf8c4e079dde2e458218c9b19529014db4c", "DE441 refit, years 2401 .. 17191"),
@@ -42,6 +48,8 @@ PACKS = {
 }
 SETS = {
     "standard": ["fepk-de441-de442-v1.bin", "fepk-minor-v2.bin", "fepk-de441-ext-near-future-v1.bin"],
+    "modern": ["fepk-de442-1800-2400-v1.bin", "fepk-minor-v2.bin"],
+    "compact": ["fepk-de442-compact-1800-2400-v1.bin", "fepk-minor-v2.bin"],
     "dev": ["fepk-de442-1900-2100-v1.bin", "fepk-minor-v2.bin"],
     "extended": ["fepk-de441-ext-past-v1.bin", "fepk-de441-ext-future-v1.bin"],
     "asteroids": ["fepk-asteroids-v1.bin"],

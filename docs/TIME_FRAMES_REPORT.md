@@ -10,7 +10,7 @@ No Swiss source code was read.
 | Item | Where |
 |---|---|
 | `julday` / `revjul` (Gregorian and Julian, astronomical years) | `time.rs` |
-| Delta T, versioned (`DELTA_T_MODEL = "FE-DT/1 …"`), `DeltaTModel::{DEFAULT, SWISS_COMPAT}`, `delta_t_seconds_with`, `tidal_correction_seconds`, `ut_to_tt[_with]`, `tt_to_ut[_with]` | `time.rs`, tables in `time/tables.rs` |
+| Delta T, versioned (`DELTA_T_MODEL = "FE-DT/2 …"`), `DeltaTModel::{DEFAULT, SWISS_COMPAT}`, `delta_t_seconds_with`, `tidal_correction_seconds`, `ut_to_tt[_with]`, `tt_to_ut[_with]` | `time.rs`, tables in `time/tables.rs` |
 | TDB − TT: Fairhead & Bretagnon truncated to 87 terms (`tdb_minus_tt_seconds`) and the full 787-term series (`tdb_minus_tt_seconds_full`) | `time.rs` |
 | Precession: IAU 2006 (Fukushima–Williams `pfw06`/`fw2m`) and Vondrák 2011 (`ltp_ecliptic_pole`, `ltp_equator_pole`, `ltp`, `ltpb`); frame bias (`frame_bias`) | `frames.rs` |
 | Nutation: IAU 2000A (`nut00a`), IAU 2000A + IAU 2006 adjustments (`nut06a`), IAU 2000B (`nut00b`), Swiss-compatible variant (`nut_swiss_compat`), `nutation_matrix` | `frames.rs`, tables in `frames/tables.rs` |
@@ -39,7 +39,7 @@ are the IAU 2006 / 2006-2000A definitions (ERFA `gmst06` and `gst06a`). `FrameSe
 
 ## 2. Delta T
 
-### Model FE-DT/1 (default)
+### Model FE-DT/2 (default, since 1.1)
 
 | range (UT) | source |
 |---|---|
@@ -48,12 +48,26 @@ are the IAU 2006 / 2006-2000A definitions (ERFA `gmst06` and `gst06a`). `FrameSe
 | 1950.0 … 1955.0 | the spline plus a linear ramp of the 1955.0 (observed − spline) offset (+0.66 s), so the curve is continuous |
 | 1955.0 … 1973.0 | USNO `historic_deltat.data`, semi-annual observed values |
 | 1973-02-01 … 2026-10-01 | USNO `deltat.data`, monthly observed values, linearly interpolated |
-| after 2026-10-01 | ΔT_last + v·τ + 32.5·τ² s. τ is Julian centuries after the last value. v is the mean rate over the last 12 months (removes the annual term). |
+| 2026-11-01 … 2027-11-01 | IERS Bulletin A predictions: 32.184 s + (TAI − UTC) − (UT1 − UTC) from the predicted rows of `finals2000A.data` (`tools/update_delta_t.py`, refreshed each release) |
+| after 2027-11-01 | ΔT_last + v·τ + 32.5·τ² s. τ is Julian centuries after the last value. v is the mean rate over the last 10 years. |
+
+FE-DT/1 (0.1.x–1.0) used a 12-month rate from the last observed value. The rate over one year
+swings with Earth's decade fluctuations (0.04 to 0.20 s/yr in 2006–2027), and 5- and 10-year
+baselines agree to 0.6 s at 2100, so FE-DT/2 uses 10 years. Forecasts compared (Delta T, s):
+
+| year | FE-DT/1 | FE-DT/2 | Swiss 2.10 |
+|---|---|---|---|
+| 2027.5 | 69.30 | 69.43 (IERS) | 68.80 |
+| 2050 | 73.65 | 72.11 | 74.58 |
+| 2100 | 95.11 | 89.94 | 93.18 |
+
+Against the IERS predictions for Nov 2026 – Nov 2027, FE-DT/1 was within 0.14 s and Swiss
+within 0.63 s; FE-DT/2 uses them directly. The Moon moves by 0.49″ per second of ΔT.
 
 The future term keeps today's ΔT and rate. It adds the long-term acceleration of the SMH
 parabola, 65 s/cy², which is a LOD increase of +1.78 ms/cy and matches the +1.8 ms/cy measured
 by SMH 2016. The table has no ΔT jump at any boundary. Unit tests check continuity at −720,
-1950, 1955 and 2026-10.
+1950, 1955, 2026-10 and the end of the IERS predictions.
 
 Y = 2000 + (JD − 2451545)/365.2425. This decimal-year mapping reproduces Swiss's behaviour to
 ≤ 0.014 s. With a Julian-year mapping the error is 1.0 s, so this is the mapping Swiss uses.

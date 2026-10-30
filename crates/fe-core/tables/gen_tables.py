@@ -18,6 +18,8 @@ Inputs
                             figshare doi:10.6084/m9.figshare.13885863.v2 (https://ndownloader.figshare.com/files/26513569)
   - USNO-historic_deltat.data  https://maia.usno.navy.mil/ser7/historic_deltat.data (semi-annual, 1657-1984.5)
   - USNO-deltat.data        https://maia.usno.navy.mil/ser7/deltat.data (monthly, observed, 1973-02 .. latest)
+  - IERS-predicted-deltat.data  IERS Bulletin A predictions for the following ~13 months
+                            (tools/update_delta_t.py, from https://maia.usno.navy.mil/ser7/finals2000A.data)
 * IAU series (nutation 2000A/2000B, s06, EE complementary terms, Fairhead-Bretagnon TDB-TT):
   numeric coefficient tables from ERFA (BSD-3, derived from IAU SOFA), pinned commit
   ERFA_SHA below, downloaded to a cache directory on first run. The coefficients are the
@@ -110,7 +112,8 @@ def decimal_year_to_jd(yf):
 
 
 def observed_table():
-    """(jd_ut, delta_t) pairs: USNO historic semi-annual 1955.0..1973.0 then monthly 1973-02-01.."""
+    """(jd_ut, delta_t) pairs: USNO historic semi-annual 1955.0..1973.0, monthly 1973-02-01..latest,
+    then the IERS Bulletin A monthly predictions."""
     out = []
     for line in open(os.path.join(SRC, "USNO-historic_deltat.data")).readlines()[2:]:
         p = line.split()
@@ -123,6 +126,12 @@ def observed_table():
         p = line.split()
         if len(p) == 4:
             out.append((jd_greg(int(p[0]), int(p[1]), int(p[2])), float(p[3])))
+    pred = os.path.join(SRC, "IERS-predicted-deltat.data")
+    if os.path.exists(pred):
+        for line in open(pred):
+            p = line.split()
+            if len(p) == 4 and not line.startswith("#"):
+                out.append((jd_greg(int(p[0]), int(p[1]), int(p[2])), float(p[3])))
     jds = [j for j, _ in out]
     assert jds == sorted(jds) and len(set(jds)) == len(jds)
     return out
@@ -162,8 +171,11 @@ def write_time(cache):
         o.append("];\n\n")
     o.append(
         "/// Observed Delta T (TT-UT1, s) at JD(UT1): USNO historic_deltat.data semi-annual values 1955.0..1973.0,\n"
-        "/// then USNO deltat.data monthly values (https://maia.usno.navy.mil/ser7/).\n"
-        f"pub const OBSERVED: [(f64, f64); {len(obs)}] = [\n")
+        + ("/// then USNO deltat.data monthly values (https://maia.usno.navy.mil/ser7/), then the IERS\n"
+           "/// Bulletin A monthly predictions that follow them (tools/update_delta_t.py).\n"
+           if os.path.exists(os.path.join(SRC, "IERS-predicted-deltat.data"))
+           else "/// then USNO deltat.data monthly values (https://maia.usno.navy.mil/ser7/).\n")
+        + f"pub const OBSERVED: [(f64, f64); {len(obs)}] = [\n")
     for j, v in obs:
         o.append(f"    ({fnum(j)}, {fnum(v)}),\n")
     o.append("];\n\n")

@@ -19,7 +19,9 @@ ERIS = AST_OFFSET + 136199
 EROS = AST_OFFSET + 433
 
 # Main pack first; the 1900-2100 development pack is used only when it is absent.
-_DEFAULT_PACK_NAMES = ("fepk-de441-de442-v1.bin", "fepk-de442-1900-2100-v1.bin")
+# Bit-identical JPL packs first; the lossy compact refit only when nothing else is installed.
+_DEFAULT_PACK_NAMES = ("fepk-de441-de442-v1.bin", "fepk-de442-1800-2400-v1.bin", "fepk-de442-1900-2100-v1.bin",
+                      "fepk-de442-compact-1800-2400-v1.bin")
 _MINOR_PACK_NAME = "fepk-minor-v2.bin"
 # Extended-range refits of DE441 (-13200 .. -1 and 2401 .. 17191), optional
 _EXT_PACK_NAMES = ("fepk-de441-ext-past-v1.bin", "fepk-de441-ext-future-v1.bin")

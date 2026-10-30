@@ -130,7 +130,7 @@ fn delta_t_sanity() {
     let a = delta_t_seconds(julday(2100, 1, 1, 0.0, Calendar::Gregorian));
     let b = delta_t_seconds(julday(2400, 1, 1, 0.0, Calendar::Gregorian));
     assert!(a > 69.0 && b > a && b < 2000.0);
-    assert!(DELTA_T_MODEL.starts_with("FE-DT/1"));
+    assert!(DELTA_T_MODEL.starts_with("FE-DT/2"));
 }
 
 /// Delta T vs Swiss table for the report:

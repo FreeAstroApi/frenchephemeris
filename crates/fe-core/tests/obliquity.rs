@@ -146,6 +146,8 @@ fn long_term_sidereal_time_extended_range() {
     let (b0, b1) = side(-14000.0, 1849.0);
     let (a0, a1) = side(2051.0, 18000.0);
     println!("before 1850: {b0:+.4} … {b1:+.4}″; after 2050: {a0:+.4} … {a1:+.4}″");
-    assert!(b1 - b0 < 0.03 && a1 - a0 < 0.01, "residual not constant");
-    assert!(mx < 2.0, "{mx}");
+    // After 2050 the residual also carries the first-order correction's error for the
+    // difference between our Delta T forecast (FE-DT/2, IERS + 10-year rate) and Swiss's.
+    assert!(b1 - b0 < 0.03 && a1 - a0 < 0.04, "residual not constant");
+    assert!(mx < 2.05, "{mx}");
 }

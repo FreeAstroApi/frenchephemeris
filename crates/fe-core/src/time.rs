@@ -196,6 +196,11 @@ fn observed(jd: f64) -> f64 {
 /// Long-term quadratic coefficient for the future extrapolation (s/cy², the SMH parabola's 32.5 u²).
 const FUTURE_QUADRATIC: f64 = 32.5;
 
+/// Baseline for the extrapolation's linear rate (days): the mean rate over the last 10 years of
+/// the table. A one-year rate swings with Earth's decade fluctuations (0.04 to 0.20 s/yr in
+/// 2006–2027); 5- and 10-year baselines agree to 0.6 s at 2100.
+const FUTURE_RATE_BASELINE_DAYS: f64 = 10.0 * 365.25;
+
 /// JD (UT) range covered by observed values: (first, last).
 pub fn delta_t_observed_range() -> (f64, f64) {
     (tables::OBSERVED[0].0, tables::OBSERVED[tables::OBSERVED.len() - 1].0)
@@ -213,7 +218,7 @@ pub fn delta_t_seconds_with(jd_ut: f64, m: &DeltaTModel) -> f64 {
         return observed(jd_ut);
     }
     if jd_ut > j_last {
-        let v = (v_last - observed(j_last - 365.25)) * 100.0; // s per Julian century
+        let v = (v_last - observed(j_last - FUTURE_RATE_BASELINE_DAYS)) * 36525.0 / FUTURE_RATE_BASELINE_DAYS; // s/cy
         let tau = (jd_ut - j_last) / 36525.0;
         return v_last + v * tau + FUTURE_QUADRATIC * tau * tau;
     }
@@ -303,8 +308,9 @@ pub fn tt_to_tdb(jd_tt: f64) -> f64 {
 
 /// Identifies the Delta T model in diagnostics.
 pub const DELTA_T_MODEL: &str =
-    "FE-DT/1: SMH2020 spline (-720..1955, ndot -25.85) + USNO observed (1955.0..2026-10-01) + \
-     extrapolation (last + v*tau + 32.5*tau^2 s, tau in Julian centuries)";
+    "FE-DT/2: SMH2020 spline (-720..1955, ndot -25.85) + USNO observed (1955.0..2026-10-01) + \
+     IERS Bulletin A predictions (to 2027-11-01) + extrapolation (last + v*tau + 32.5*tau^2 s, \
+     v = mean rate over the last 10 years, tau in Julian centuries)";
 
 #[cfg(test)]
 mod tests {

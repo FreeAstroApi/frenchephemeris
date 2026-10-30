@@ -3,6 +3,28 @@
 All notable changes to FrenchEphemeris are listed here. Versions follow
 [Semantic Versioning](https://semver.org/).
 
+## 1.1.0 — 2026-10-30
+
+### Changed
+- **Delta T FE-DT/2.** IERS Bulletin A predictions for the 13 months after the last observed
+  value (`tools/update_delta_t.py`), then extrapolation with the mean rate of the last 10 years
+  instead of 12 months. Future positions move: Moon about 0.07″ in 2027, 0.85″ in 2050, 2.8″ in
+  2100. Two Swiss-comparison test tolerances at future dates were widened accordingly.
+
+### Added
+- `--set modern`: DE442 for 1800–2401, bit-identical to JPL (~69 MB with the minor bodies).
+- `--set compact`: lossy 6.5 MB refit for 1800–2400 (`tools/build_ext_pack.py --era compact`),
+  used only when no bit-identical pack is installed.
+- `frenchephemeris.house_variants`: house variants anchored on a point other than the
+  Ascendant — Sun, Moon or a node on the 1st cusp (sunrise, moonrise, nodal charts), Sun or
+  Moon on the 7th (sunset, moonset), equal houses with the MC in the middle of the 10th
+  (Vehlow-MC), whole-sign houses starting at any sign, and angles only.
+- `frenchephemeris.minor_uncertainty`: the 1-sigma error of Chiron, Pholus, Eris and Eros
+  positions (arcsec) and an `is_uncertain` flag (3 sigma above the 0.001° display step),
+  from JPL's orbit covariance propagated forward and backward (`tools/minor_uncertainty.py`),
+  never below JPL Horizons' own 3-sigma at the dates checked. Chiron: about 0.06″ in 2000,
+  6″ in 1000, 2.6′ in 720.
+
 ## 1.0.0 — 2026-10-30
 
 First public release. FrenchEphemeris has served all of FreeAstroAPI's production traffic

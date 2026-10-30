@@ -573,6 +573,18 @@ Research 7(2)), a J1900 value for Djwhal Khul, Mercier's exact Eta Piscium
 epoch/value, an IAU 1958 pole conversion reproducing the oracle (four
 published conversions tried, 0.10–0.19″).
 
+Third round (2026-10-30), still without a usable primary definition:
+- **J.N. Bhasin**: his *Medical Astrology: A Rational Approach* describes the zodiac only as
+  measured "from a fixed point viz the star ashvini" and about a degree below Lahiri; *Astro
+  Sutras* (archive.org full text) does not discuss ayanamsa. No epoch or value.
+- **"Vedic"/Sheoran**: the originator is Sunil Sheoran, *The Science of Time and Timeline of
+  World History* (2017, ISBN 9781548381202). Both free-download links on the author's blog
+  return 404; the definition needs a copy of the book.
+- **Vettius Valens**: Holden, "The Classical Zodiac", *AFA Journal of Research* 7(2), 1995 is
+  not online; Kollerstrom (*Culture and Cosmos* 1(2)) only confirms Valens's longitudes are
+  sidereal (after Neugebauer, *Greek Horoscopes* p. 172).
+Next: obtain Sheoran's book and the AFA article; a Bhasin almanac if one exists.
+
 Sidereal houses (`Engine::houses_ut_bits` / `house_cusps_ut_bits`, all
 systems; measured on `houses_ex2(FLG_SIDEREAL)`, fixture `houses_sidereal.json`,
 1900–2050): traditional modes subtract the true ayanamsa from cusps and angles

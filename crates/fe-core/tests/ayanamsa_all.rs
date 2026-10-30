@@ -263,7 +263,9 @@ fn projected_positions_vs_swiss() {
             _ => 0.002,
         };
         let tol_lat = if *b == 512 { 0.06 } else { 0.003 };
-        assert!(*l < tol_lon && *bt < tol_lat && *e < 0.003 && *s < 0.01, "mode {n} bits {b}");
+        // RA/Dec: 0.015" since FE-DT/2 (our Delta T forecast differs from Swiss after 2026;
+        // mode 34 reaches 0.011", far below the 3.6" display step).
+        assert!(*l < tol_lon && *bt < tol_lat && *e < 0.015 && *s < 0.01, "mode {n} bits {b}");
     }
 }
 

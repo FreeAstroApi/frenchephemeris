@@ -90,8 +90,9 @@ No sign or retrograde flips in 8,400 samples. What made historical charts match:
 Visible residuals that cannot be closed without copying Swiss numbers:
 
 - **After 2100**: Moon up to 32″ (≈ 0.009°) — Swiss's Delta T prediction curve matches no
-  published formula; ours extrapolates the latest observed rate with the SMH long-term
-  acceleration. Nobody knows the future Earth rotation.
+  published formula; ours uses the IERS Bulletin A predictions for the next 13 months, then
+  the last 10 years' rate with the SMH long-term acceleration (FE-DT/2, TIME_FRAMES_REPORT §2).
+  Nobody knows the future Earth rotation.
 - **Houses after 2050**: up to 10″ (≈ 0.003°) — Swiss adds an unpublished continuity
   constant (1.95″ in ARMC) at 2050; ours is continuous.
 - **Mean Lilith**: 0.25″ in 1900–2050 (last digit differs in ~3% of values) — Swiss uses
@@ -102,7 +103,8 @@ Visible residuals that cannot be closed without copying Swiss numbers:
   1240–1600 but differs by ~47″ in 900 and >1° before 720, when it passed 0.18 AU from
   Saturn. Before that encounter its position is physically undetermined in every engine
   (our 3σ from JPL's covariance: 20″ at 1000, 2′ at 750, ~1° at 675; Pholus up to ~10′).
-  Recommended: the API flags these points as uncertain rather than presenting them as exact.
+  `frenchephemeris.minor_uncertainty` now returns the 1-sigma error and an `is_uncertain`
+  flag for Chiron, Pholus, Eris and Eros, so callers can show these points as uncertain.
 - **Rise/set**: closed. Swiss's refraction (written with V. Reijs) is Sinclair's 1982
   low-altitude formula as printed in the Explanatory Supplement; implemented from that
   publication it matches Swiss to 0.00″ at 0–16° altitude, and sunrise/sunset to ≤ 0.18 s.

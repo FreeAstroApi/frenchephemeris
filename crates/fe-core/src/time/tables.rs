@@ -128,8 +128,9 @@ pub const SMH2020: [SplineRow; 58] = [
 ];
 
 /// Observed Delta T (TT-UT1, s) at JD(UT1): USNO historic_deltat.data semi-annual values 1955.0..1973.0,
-/// then USNO deltat.data monthly values (https://maia.usno.navy.mil/ser7/).
-pub const OBSERVED: [(f64, f64); 682] = [
+/// then USNO deltat.data monthly values (https://maia.usno.navy.mil/ser7/), then the IERS
+/// Bulletin A monthly predictions that follow them (tools/update_delta_t.py).
+pub const OBSERVED: [(f64, f64); 695] = [
     (2435108.5, 31.07),
     (2435291.0, 31.24),
     (2435473.5, 31.349),
@@ -812,6 +813,19 @@ pub const OBSERVED: [(f64, f64); 682] = [
     (2461253.5, 69.1713),
     (2461284.5, 69.1816),
     (2461314.5, 69.2065),
+    (2461345.5, 69.2385),
+    (2461375.5, 69.2701),
+    (2461406.5, 69.303),
+    (2461437.5, 69.3302),
+    (2461465.5, 69.3572),
+    (2461496.5, 69.3909),
+    (2461526.5, 69.4237),
+    (2461557.5, 69.4447),
+    (2461587.5, 69.4303),
+    (2461618.5, 69.3997),
+    (2461649.5, 69.3847),
+    (2461679.5, 69.3864),
+    (2461710.5, 69.4005),
 ];
 
 /// Fairhead & Bretagnon (1990) TDB-TT series, as in IERS Conventions / SOFA dtdb:

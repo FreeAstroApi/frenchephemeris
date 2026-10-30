@@ -53,7 +53,8 @@ reports in `docs/` describe how each comparison was made.
 ```bash
 pip install maturin && maturin build --release -o dist && pip install dist/*.whl
 python -m frenchephemeris.packs download          # standard packs, ~256 MB, checksummed
-python -m frenchephemeris.packs download --set dev   # or: 1900–2100 only, ~27 MB
+python -m frenchephemeris.packs download --set modern   # or: 1800–2401 only, ~69 MB
+python -m frenchephemeris.packs download --set dev      # or: 1900–2100 only, ~27 MB
 ```
 
 ```python
@@ -71,8 +72,10 @@ eng = fe.open_default()                      # native engine
 pos = eng.calc_batch_ut(jd + np.arange(1000.0), list(range(10)))   # shape (1000, 10, 6)
 ```
 
-`python -m frenchephemeris.packs list` shows every pack and set (`standard`, `dev`,
-`extended` for −13200 … +17191, `asteroids`, `all`). Packs go to `$FRENCHEPHEMERIS_DATA`
+`python -m frenchephemeris.packs list` shows every pack and set (`standard`, `modern`, `dev`,
+`extended` for −13200 … +17191, `asteroids`, `all`). Every set except `compact` stores JPL's
+coefficients exactly as published (bit-identical); `compact` (~13 MB, 1800–2400) is a lossy
+refit for size-constrained installs (planets ≤ 0.001″, Moon ≤ 0.04″ from JPL). Packs go to `$FRENCHEPHEMERIS_DATA`
 or a per-user data directory (`python -m frenchephemeris.packs path`).
 
 ## Building

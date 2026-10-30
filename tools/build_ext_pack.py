@@ -7,6 +7,8 @@
     python tools/build_ext_pack.py --era future   # main pack end (2401) .. DE441 end (17191)
     python tools/build_ext_pack.py --era future --max-chunks 1 --assemble-partial \
         --out data/packs/fepk-de441-ext-near-future-v1.bin   # 2401 .. ~2580 only (~ few MB)
+    python tools/build_ext_pack.py --era compact --start-year 1800 --end-year 2400
+        # compact refit of the local DE442 file for a year range (small download)
 
 Outputs `fepk-de441-ext-past-v1.bin` / `fepk-de441-ext-future-v1.bin` in
 data/packs/, separate from the main pack; `Pack::open_many` chains their series
@@ -53,7 +55,7 @@ import numpy as np
 from numpy.polynomial import chebyshev as C
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from spk import SPK, StreamRangeFile  # noqa: E402
+from spk import SPK, LocalFile, StreamRangeFile  # noqa: E402
 
 BUILDER_VERSION = "ext-1.0.0"
 MAGIC = b"FEPK\0\0\0\x01"
@@ -64,6 +66,9 @@ DATA = os.environ.get("FE_DATA_DIR", os.path.join(os.path.dirname(os.path.abspat
 MAIN_PACK = os.path.join(DATA, "packs", "fepk-de441-de442-v1.bin")
 CHUNK_DAYS = 65536
 EMRAT_DE441 = 81.300568221497215  # printed in the DE441 kernel comments
+# DE442: GMB/GMM - 1 from its GM table (EMRAT is not printed in its comments), as in the main pack
+EMRAT_DE442 = 81.30056846634166
+DE442_LOCAL = os.path.join(DATA, "sources", "de442.bsp")
 MIN_FREE = 2 << 30
 
 # body: (center, record days L, starting N, tolerance km)
@@ -215,18 +220,33 @@ class Prefetcher:
         return v
 
 
+def year_jd(year):
+    """JD (TDB) of 1 January 00:00 of a Gregorian year."""
+    a = (14 - 1) // 12
+    y, m = year + 4800 - a, 1 + 12 * a - 3
+    return (1 + (153 * m + 2) // 5 + 365 * y + y // 4 - y // 100 + y // 400 - 32045) - 0.5
+
+
 def build(args):
     era = args.era
-    # ssd.jpl.nasa.gov serves the same DE441 as one file (both parts' segments) and was
-    # several times faster than naif.jpl.nasa.gov here; --source naif uses the parts.
-    if args.source == "ssd":
-        url = SSD_DE441
+    if era == "compact":
+        url = args.de442
+        src = LocalFile(url)
+        src.bytes_fetched, src.last_modified = 0, None
+        compact = (year_jd(args.start_year), year_jd(args.end_year))
     else:
-        url = NAIF + ("de441_part-1.bsp" if era == "past" else "de441_part-2.bsp")
-    src = StreamRangeFile(url, parallel=args.parallel)
+        # ssd.jpl.nasa.gov serves the same DE441 as one file (both parts' segments) and was
+        # several times faster than naif.jpl.nasa.gov here; --source naif uses the parts.
+        if args.source == "ssd":
+            url = SSD_DE441
+        else:
+            url = NAIF + ("de441_part-1.bsp" if era == "past" else "de441_part-2.bsp")
+        src = StreamRangeFile(url, parallel=args.parallel)
     spk = SPK(src)
-    cov = main_pack_coverage()
-    out = args.out or os.path.join(DATA, "packs", f"fepk-de441-ext-{era}-v1.bin")
+    cov = None if era == "compact" else main_pack_coverage()
+    default_name = (f"fepk-de442-compact-{args.start_year}-{args.end_year}-v1.bin" if era == "compact"
+                    else f"fepk-de441-ext-{era}-v1.bin")
+    out = args.out or os.path.join(DATA, "packs", default_name)
     rng = np.random.default_rng(args.seed)
     bodies = [int(b) for b in args.bodies.split(",")] if args.bodies else list(BODIES)
 
@@ -237,13 +257,26 @@ def build(args):
         if free_bytes(os.path.dirname(out)) < MIN_FREE:
             raise SystemExit(f"free disk below 2 GB ({free_bytes(os.path.dirname(out))/1e9:.2f} GB): stopping")
         ctr, L, N0, tol = BODIES[b]
-        lo_main, hi_main = cov[(b, ctr)]
-        probe = lo_main - 1.0 if era == "past" else hi_main + 1.0
+        if era == "compact":
+            lo_main, hi_main = compact
+            probe = lo_main + 1.0
+        else:
+            lo_main, hi_main = cov[(b, ctr)]
+            probe = lo_main - 1.0 if era == "past" else hi_main + 1.0
         segs = [g for g in spk.segments if g.target == b and g.center == ctr and g.start_jd <= probe <= g.end_jd]
         if len(segs) != 1:
-            raise SystemExit(f"expected one DE441 segment for {b}/{ctr} covering JD {probe}")
+            raise SystemExit(f"expected one source segment for {b}/{ctr} covering JD {probe}")
         seg = segs[0]
-        if era == "past":
+        if era == "compact":
+            if not (seg.start_jd <= lo_main and hi_main <= seg.end_jd):
+                raise SystemExit(f"{b}/{ctr}: DE442 covers JD {seg.start_jd}..{seg.end_jd} only")
+            nrec_total = int(np.floor((hi_main - lo_main) / L))
+            e = lo_main + nrec_total * L
+            edges = [lo_main + k * CHUNK_DAYS for k in range(0, int((e - lo_main) // CHUNK_DAYS) + 1)]
+            if edges[-1] < e:
+                edges.append(e)
+            jobs = [(edges[k], edges[k + 1]) for k in range(len(edges) - 1)]
+        elif era == "past":
             seam = lo_main
             nrec_total = int(np.floor((seam - seg.start_jd) / L))
             a = seam - nrec_total * L
@@ -345,12 +378,13 @@ def assemble(args, era, out, parts, bodies, url, src, t_start):
             worst_chunks=sorted(bs, key=lambda s: -s["max_km"])[:3])
         while f.tell() % 8:
             f.write(b"\0")
+    emrat = EMRAT_DE442 if era == "compact" else EMRAT_DE441
     # Earth wrt EMB: alias of the Moon, scaled by -1/EMRAT, over the Moon's span
     if 301 in bodies:
         moon = sorted([r for r in table if r["target"] == 301], key=lambda r: r["start_jd_tdb"])
         lo, hi = moon[0]["start_jd_tdb"], moon[-1]["end_jd_tdb"]
         off = f.tell()
-        f.write(struct.pack("<d", -1.0 / EMRAT_DE441))
+        f.write(struct.pack("<d", -1.0 / emrat))
         table.append(dict(target=399, center=3, n_coeff=0, n_records=1, start_jd_tdb=lo,
                           interval_days=hi - lo, end_jd_tdb=hi, coeff_offset=off, n_coeff_f64=0,
                           kind=1, alias_target=301))
@@ -363,7 +397,8 @@ def assemble(args, era, out, parts, bodies, url, src, t_start):
         a, b2 = pair_cov.get(k, (np.inf, -np.inf))
         pair_cov[k] = (min(a, r["start_jd_tdb"]), max(b2, r["end_jd_tdb"]))
     manifest = {
-        "name": f"fepk-de441-ext-{era}",
+        "name": (f"fepk-de442-compact-{args.start_year}-{args.end_year}" if era == "compact"
+                 else f"fepk-de441-ext-{era}"),
         "format_version": FORMAT_VERSION,
         "created_utc": _dt.datetime.now(_dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "builder": {"tool": "tools/build_ext_pack.py", "version": BUILDER_VERSION, "argv": sys.argv[1:]},
@@ -376,12 +411,12 @@ def assemble(args, era, out, parts, bodies, url, src, t_start):
         "fit": {"method": "Chebyshev interpolation at Gauss-Lobatto nodes per record; float32 for degree >= n_coeff_f64",
                 "chunk_days": CHUNK_DAYS, "accept": "max held-out 3-D error <= 0.8 tol after float32 rounding",
                 "bodies": stats_all},
-        "earth": {"alias": "399 wrt 3 = -1/EMRAT x (301 wrt 3)", "EMRAT": EMRAT_DE441},
-        "constants": {"EMRAT": EMRAT_DE441, "AU_km": 149597870.7, "CLIGHT_km_s": 299792.458,
-                      "source": "DE441 kernel comments"},
+        "earth": {"alias": "399 wrt 3 = -1/EMRAT x (301 wrt 3)", "EMRAT": emrat},
+        "constants": {"EMRAT": emrat, "AU_km": 149597870.7, "CLIGHT_km_s": 299792.458,
+                      "source": "DE442 GM table (GMB/GMM - 1)" if era == "compact" else "DE441 kernel comments"},
         "series": [{k: r[k] for k in ("target", "center", "n_coeff", "n_coeff_f64", "n_records",
                                       "start_jd_tdb", "interval_days", "kind")} for r in table],
-        "license": "Derived from JPL DE441 (public): https://naif.jpl.nasa.gov/naif/rules.html",
+        "license": f"Derived from JPL {'DE442' if era == 'compact' else 'DE441'} (public): https://naif.jpl.nasa.gov/naif/rules.html",
     }
     man = json.dumps(manifest, indent=1).encode()
     pad = (-data_end) % 8
@@ -414,7 +449,11 @@ def assemble(args, era, out, parts, bodies, url, src, t_start):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--era", choices=["past", "future"], required=True)
+    ap.add_argument("--era", choices=["past", "future", "compact"], required=True)
+    ap.add_argument("--start-year", type=int, default=1800, help="compact: first year")
+    ap.add_argument("--end-year", type=int, default=2400, help="compact: end year (exclusive)")
+    ap.add_argument("--de442", default=DE442_LOCAL, help="compact: local de442.bsp")
+    ap.add_argument("--record-days", help="override record lengths, e.g. 1:64,301:16 (powers of 2)")
     ap.add_argument("--bodies", help="comma list (default all)")
     ap.add_argument("--max-chunks", type=int, help="test: only the chunks nearest the seam")
     ap.add_argument("--parallel", type=int, default=12)
@@ -425,7 +464,13 @@ def main():
     ap.add_argument("--keep-parts", action="store_true")
     ap.add_argument("--assemble-partial", action="store_true",
                     help="with --max-chunks: assemble a pack of just those chunks (e.g. 2401-2580)")
-    build(ap.parse_args())
+    args = ap.parse_args()
+    for item in (args.record_days or "").split(","):
+        if item:
+            body, days = (int(v) for v in item.split(":"))
+            ctr, _L, n0, tol = BODIES[body]
+            BODIES[body] = (ctr, days, n0, tol)
+    build(args)
 
 
 if __name__ == "__main__":

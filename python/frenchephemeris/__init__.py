@@ -24,6 +24,10 @@ _DEFAULT_PACK_NAMES = ("fepk-de441-de442-v1.bin", "fepk-de442-1800-2400-v1.bin",
                       "fepk-de442-compact-1800-2400-v1.bin", "fepk-de442-mobile-1800-2400-v1.bin")
 _MINOR_PACK_NAME = "fepk-minor-v2.bin"
 _MINOR_MOBILE_PACK_NAME = "fepk-minor-mobile-1800-2400-v1.bin"
+# Lossy 0..2400 packs shipped inside the wheel: the zero-setup default, and the fallback for
+# dates or bodies the installed exact packs do not cover.
+_LITE_PACK_NAMES = ("fepk-de441-lite-0-2400-v1.bin", "fepk-minor-lite-0-2400-v1.bin")
+_BUNDLED_DIR = Path(__file__).resolve().parent / "_data"
 # Extended-range refits of DE441 (-13200 .. -1 and 2401 .. 17191), optional
 _EXT_PACK_NAMES = ("fepk-de441-ext-past-v1.bin", "fepk-de441-ext-future-v1.bin")
 # 2401 .. 2581 only; used when the full future pack is absent (they overlap).
@@ -47,8 +51,19 @@ def pack_dirs() -> list[Path]:
     return [data_dir(), Path(__file__).resolve().parents[2] / "data" / "packs"]
 
 
+def lite_pack_paths() -> list[Path]:
+    """The lossy 0..2400 packs (planets, then minor bodies): from `pack_dirs()` if downloaded,
+    else the copies bundled in the package. Empty if neither exists."""
+    for d in pack_dirs() + [_BUNDLED_DIR]:
+        found = [d / n for n in _LITE_PACK_NAMES if (d / n).exists()]
+        if found and found[0].name == _LITE_PACK_NAMES[0]:
+            return found
+    return []
+
+
 def default_pack_path() -> Path:
-    """`FRENCHEPHEMERIS_PACK` env var, else the first main pack found in `pack_dirs()`."""
+    """`FRENCHEPHEMERIS_PACK` env var, else the first exact main pack found in `pack_dirs()`,
+    else the bundled lossy 0..2400 pack."""
     env = os.environ.get("FRENCHEPHEMERIS_PACK")
     if env:
         return Path(env)
@@ -56,6 +71,9 @@ def default_pack_path() -> Path:
         for d in pack_dirs():
             if (d / name).exists():
                 return d / name
+    lite = lite_pack_paths()
+    if lite:
+        return lite[0]
     raise FileNotFoundError(
         "no FEPK pack found: run `python -m frenchephemeris.packs download` "
         "(or set FRENCHEPHEMERIS_PACK / FRENCHEPHEMERIS_DATA)")
@@ -68,7 +86,7 @@ def default_minor_pack_path() -> Path | None:
     if env is not None:
         return Path(env) if env else None
     folder = default_pack_path().parent
-    for name in (_MINOR_PACK_NAME, _MINOR_MOBILE_PACK_NAME):
+    for name in (_MINOR_PACK_NAME, _MINOR_MOBILE_PACK_NAME, _LITE_PACK_NAMES[1]):
         if (folder / name).exists():
             return folder / name
     return None
@@ -129,9 +147,17 @@ def default_extra_packs() -> list:
 def open_default(swiss_delta_t: bool = True) -> Engine:
     """Main pack + extended-range packs + minor-body pack + asteroid bundle + cached
     on-demand asteroid packs, whichever are present, and the optional fixed-star
-    compatibility table (`default_star_compat_path`).
+    compatibility table (`default_star_compat_path`). With no exact pack installed, the
+    bundled lossy 0..2400 packs are used; with exact packs, they are the fallback for dates
+    and bodies outside them (`FRENCHEPHEMERIS_NO_FALLBACK=1` disables that).
     Outside the loaded coverage every call raises (deterministic out-of-range)."""
+    main = default_pack_path()
+    lite = lite_pack_paths()
+    on_lite = bool(lite) and main == lite[0]
     extra = [str(p) for p in default_ext_pack_paths()] + default_extra_packs()
+    if on_lite:
+        extra = [str(p) for p in lite[1:] if str(p) not in extra] + [e for e in extra if e != str(lite[0])]
+    fallback = None if on_lite or os.environ.get("FRENCHEPHEMERIS_NO_FALLBACK") else [str(p) for p in lite]
     compat = default_star_compat_path()
-    return Engine(str(default_pack_path()), swiss_delta_t, extra or None,
-                  star_compat=str(compat) if compat else None)
+    return Engine(str(main), swiss_delta_t, extra or None,
+                  star_compat=str(compat) if compat else None, fallback_packs=fallback or None)

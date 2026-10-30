@@ -14,3 +14,4 @@ __pycache__/
 # Private Swiss-oracle corpus (never published; see tools/privatize_oracle_fixtures.py)
 /private
 /dist/
+/python/frenchephemeris/_data/*.bin

@@ -29,6 +29,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Fetch the bundled lite packs
+        run: python tools/fetch_bundled_packs.py
       - uses: PyO3/maturin-action@v1
         with:
           target: ${{ matrix.target }}
@@ -39,7 +41,8 @@ jobs:
         shell: bash
         run: |
           python -m pip install dist/*.whl
-          python -c "import frenchephemeris, frenchephemeris.packs as p; print(p.SETS['standard'])"
+          cd "$RUNNER_TEMP"
+          python -c "import frenchephemeris.swe_compat as s; print(s.calc_ut(s.julday(1300, 1, 1, 0), s.MOON, 0)[0][0])"
       - uses: actions/upload-artifact@v4
         with:
           name: wheel-${{ matrix.os }}-${{ matrix.target }}

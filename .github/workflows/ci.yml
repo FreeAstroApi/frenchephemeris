@@ -37,6 +37,7 @@ jobs:
           python-version: "3.12"
       - name: Build and install the Python package
         run: |
+          python tools/fetch_bundled_packs.py
           python -m pip install --upgrade pip maturin pytest
           maturin build --release -o dist
           python -m pip install dist/*.whl

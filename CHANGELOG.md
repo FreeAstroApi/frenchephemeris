@@ -3,6 +3,23 @@
 All notable changes to FrenchEphemeris are listed here. Versions follow
 [Semantic Versioning](https://semver.org/).
 
+## 1.3.0 — 2026-10-30
+
+### Changed
+- **Works right after `pip install`.** The wheel includes a lossy data set for years 0 to
+  2400 (`lite`, 7.7 MB: planets and Sun within 0.007″ of JPL, minor bodies within 0.013″ (Eros 0.03″), Moon within
+  0.35″), so no download is needed to start.
+- **Lighter default download.** `python -m frenchephemeris.packs download` now fetches
+  `modern` (JPL's exact numbers for 1800 to 2401, ~69 MB); the former `standard` set is
+  `full` (`standard` still works).
+- **Fallback packs.** With exact packs installed, the built in set answers only for dates or
+  bodies they do not cover; each result comes from one pack (`Pack::with_fallback`,
+  `Engine(..., fallback_packs=[...])`, `FRENCHEPHEMERIS_NO_FALLBACK=1` to disable).
+
+### Added
+- `tools/build_ext_pack.py --source-pack <pack> --source-bodies planets`: refits of our own
+  packs across source seams (DE441/DE442 at 1550); `tools/fetch_bundled_packs.py`.
+
 ## 1.2.0 — 2026-10-30
 
 ### Added

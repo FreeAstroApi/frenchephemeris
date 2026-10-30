@@ -114,11 +114,14 @@ MINOR_BODIES = {
 class PackTruth:
     """Truth callable over one FEPK pair (for refits of our own minor-body pack)."""
 
-    def __init__(self, pack, target, center):
-        self.pack, self.target, self.center = pack, target, center
+    def __init__(self, pack, target, center, end=None):
+        self.pack, self.target, self.center, self.end = pack, target, center, end
 
     def __call__(self, jd, vel=False):
-        p, v = self.pack.state(self.target, self.center, np.asarray(jd, dtype=np.float64).ravel())
+        jd = np.asarray(jd, dtype=np.float64).ravel()
+        if self.end is not None:  # a chunk ending on a source seam: stay on this side of it
+            jd = np.minimum(jd, self.end - 1e-9)
+        p, v = self.pack.state(self.target, self.center, jd)
         return (p, v) if vel else p
 
 
@@ -331,8 +334,9 @@ def build(args):
         if args.source_pack:
             from fepk import Fepk
             source_pack = Fepk(args.source_pack)
-            BODIES.clear()
-            BODIES.update(MINOR_BODIES)
+            if args.source_bodies == "minor":
+                BODIES.clear()
+                BODIES.update(MINOR_BODIES)
     else:
         # ssd.jpl.nasa.gov serves the same DE441 as one file (both parts' segments) and was
         # several times faster than naif.jpl.nasa.gov here; --source naif uses the parts.
@@ -343,7 +347,8 @@ def build(args):
         src = StreamRangeFile(url, parallel=args.parallel)
     spk = None if source_pack else SPK(src)
     cov = None if era == "compact" else main_pack_coverage()
-    default_name = (f"fepk-minor-compact-{args.start_year}-{args.end_year}-v1.bin" if args.source_pack
+    default_name = (f"fepk-minor-compact-{args.start_year}-{args.end_year}-v1.bin"
+                    if args.source_pack and args.source_bodies == "minor"
                     else f"fepk-de442-compact-{args.start_year}-{args.end_year}-v1.bin" if era == "compact"
                     else f"fepk-de441-ext-{era}-v1.bin")
     out = args.out or os.path.join(DATA, "packs", default_name)
@@ -359,12 +364,25 @@ def build(args):
         ctr, L, N0, tol = BODIES[b]
         if source_pack:
             lo_main, hi_main = compact
-            nrec_total = int(np.floor((hi_main - lo_main) / L))
-            e = lo_main + nrec_total * L
-            edges = [lo_main + k * CHUNK_DAYS for k in range(0, int((e - lo_main) // CHUNK_DAYS) + 1)]
-            if edges[-1] < e:
-                edges.append(e)
-            jobs = [(edges[k], edges[k + 1]) for k in range(len(edges) - 1)]
+            cov_lo, cov_hi = source_pack.coverage(b, ctr)
+            if cov_lo > lo_main:  # body starts later in the source: begin at a whole day after
+                lo_main = float(np.ceil(cov_lo - 0.5) + 0.5)
+            hi_main = min(hi_main, cov_hi)
+            # Source seams (e.g. DE441 -> DE442 at 1550) are chunk boundaries: a record never
+            # straddles a discontinuity. Each segment is cut into CHUNK_DAYS chunks; its last
+            # chunk ends exactly at the seam with a slightly shorter record (see below).
+            seams = sorted({s["start"] for s in source_pack.series
+                            if s["target"] == b and s["center"] == ctr and lo_main < s["start"] < hi_main})
+            jobs = []
+            for a0, a1 in zip([lo_main] + seams, seams + [hi_main]):
+                c = a0
+                while a1 - c > CHUNK_DAYS:
+                    jobs.append((c, c + CHUNK_DAYS))
+                    c += CHUNK_DAYS
+                if a1 - c >= L or not jobs or jobs[-1][1] != c:
+                    jobs.append((c, a1))
+                else:  # remainder shorter than one record: extend the previous chunk to the seam
+                    jobs[-1] = (jobs[-1][0], a1)
             seg = None
         elif era == "compact":
             lo_main, hi_main = compact
@@ -424,16 +442,19 @@ def build(args):
             if free_bytes(os.path.dirname(out)) < MIN_FREE:
                 raise SystemExit("free disk below 2 GB: stopping (resumable)")
             if source_pack:
-                recs, truth = None, PackTruth(source_pack, b, ctr)
+                recs, truth = None, PackTruth(source_pack, b, ctr, end=c1)
             else:
                 i0, recs = pf.get()
                 truth = Truth(seg, i0, recs)
             nrec = int(round((c1 - c0) / L))
-            assert abs(c0 + nrec * L - c1) < 1e-9
+            Lc = L
+            if abs(c0 + nrec * L - c1) > 1e-9:  # chunk ending at a seam: shorten its records
+                nrec = int(np.ceil((c1 - c0) / L))
+                Lc = (c1 - c0) / nrec
             # smallest passing N, starting two below the previous chunk's
             N = max(5, N - 2)
             while True:
-                ok, cr, n64, st = fit_chunk(truth, c0, L, nrec, N, tol, rng)
+                ok, cr, n64, st = fit_chunk(truth, c0, Lc, nrec, N, tol, rng)
                 if ok:
                     break
                 N += 1
@@ -445,7 +466,7 @@ def build(args):
                 off = g.tell()
                 g.write(blob)
             state["rows"].append(dict(target=b, center=ctr, n_coeff=N, n_records=nrec, start_jd_tdb=c0,
-                                      interval_days=float(L), end_jd_tdb=c0 + nrec * L, rel_offset=off,
+                                      interval_days=float(Lc), end_jd_tdb=c0 + nrec * Lc, rel_offset=off,
                                       n_coeff_f64=0 if QUANT else n64, kind=2 if QUANT else 0,
                                       alias_target=0, nbytes=len(blob)))
             st.update(jd=[c0, c1], N=N, n_f64=n64)
@@ -577,7 +598,9 @@ def main():
     ap.add_argument("--start-year", type=int, default=1800, help="compact: first year")
     ap.add_argument("--end-year", type=int, default=2400, help="compact: end year (exclusive)")
     ap.add_argument("--de442", default=DE442_LOCAL, help="compact: local de442.bsp")
-    ap.add_argument("--source-pack", help="compact: refit the minor bodies of this FEPK pack instead")
+    ap.add_argument("--source-pack", help="compact: refit this FEPK pack instead of DE442")
+    ap.add_argument("--source-bodies", choices=["minor", "planets"], default="minor",
+                    help="with --source-pack: which body table to refit")
     ap.add_argument("--record-days", help="override record lengths, e.g. 1:64,301:16 (powers of 2)")
     ap.add_argument("--quant", action="store_true", help="bit-packed integer coefficients (KIND_QUANT)")
     ap.add_argument("--quant-c", type=float, default=0.6, help="--quant step q = C*tol/sqrt(N)")

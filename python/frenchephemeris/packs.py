@@ -2,18 +2,19 @@
 # Copyright (C) 2026 Gabriel Naulleau EI, trading as FreeAstroAPI
 """Download the FEPK data packs (JPL-derived coefficient files) the engine reads.
 
-    python -m frenchephemeris.packs download              # standard set (~256 MB)
-    python -m frenchephemeris.packs download --set modern   # 1800-2401, bit-identical, ~69 MB
-    python -m frenchephemeris.packs download --set compact  # 1800-2400, lossy refit, ~13 MB
+    python -m frenchephemeris.packs download                # modern set: 1800-2401, exact JPL, ~69 MB
+    python -m frenchephemeris.packs download --set full     # -2..2581, exact JPL, ~256 MB
+    python -m frenchephemeris.packs download --set dev      # 1900-2100 only, exact, ~27 MB
     python -m frenchephemeris.packs download --set mobile   # 1800-2400, lossy, ~2 MB (apps)
-    python -m frenchephemeris.packs download --set dev    # 1900-2100 only (~28 MB)
+    python -m frenchephemeris.packs download --set compact  # 1800-2400, lossy refit, ~13 MB
     python -m frenchephemeris.packs list
     python -m frenchephemeris.packs path
 
 Packs are published as assets of the `packs-v1` GitHub release, each with a SHA-256
 checked after download. They go to `FRENCHEPHEMERIS_DATA` if set, else a per-user data
-directory, where `frenchephemeris.open_default()` finds them. While the repository is
-not public, set `GITHUB_TOKEN` to a token that can read it.
+directory, where `frenchephemeris.open_default()` finds them. Without any download, the
+lossy 0..2400 `lite` packs bundled in the package are used; once exact packs are installed
+they take over, and the lite packs only cover dates or bodies outside them.
 """
 
 from __future__ import annotations
@@ -42,6 +43,10 @@ PACKS = {
                                     "DE442, years 1800 .. 2401, bit-identical to JPL"),
     "fepk-de442-compact-1800-2400-v1.bin": (6546643, "866cc7c3ceb79943bff7d8d204f8ad1d61fdea94987813a99d90a9c3896c87fc",
                                             "DE442 compact refit, years 1800 .. 2400, LOSSY (planets <= 0.001\", Moon <= 0.04\" of JPL)"),
+    "fepk-de441-lite-0-2400-v1.bin": (6890382, "041a66c17ebe48982f432f33ce6f768662436d385ed323bfe6d701e0aaf87e97",
+                                      "lite refit, 0 .. 2400, LOSSY (planets <= 0.007\", Moon <= 0.4\"; bundled in the wheel)"),
+    "fepk-minor-lite-0-2400-v1.bin": (844755, "e888453939dd3f86f440e4d38167e5ec1ccf5968f0063f6bc9dfe8a718181101",
+                                      "minor bodies lite refit, 0 .. 2400, LOSSY (<= 0.013\", Eros <= 0.03\"; bundled)"),
     "fepk-de442-mobile-1800-2400-v1.bin": (1736702, "72b51aa03a31bd62bf3787d58dc9cb7a9bf94d26d908b27b373924e9e8c50ae5",
                                            "DE442 mobile refit, 1800 .. 2400, LOSSY (planets <= 0.007\", Moon <= 0.4\" of JPL)"),
     "fepk-minor-mobile-1800-2400-v1.bin": (291426, "3ca25e4737301d8cb08929c240041c05336b6d253976233e4a1bdcdb533fbfcc",
@@ -52,15 +57,17 @@ PACKS = {
     "fepk-asteroids-v1.bin": (107936784, "afe56f112fa70566ece7985d3a84b70c0b5e0eb3259ba90d698af4a131da5079", "numbered asteroids bundle"),
 }
 SETS = {
-    "standard": ["fepk-de441-de442-v1.bin", "fepk-minor-v2.bin", "fepk-de441-ext-near-future-v1.bin"],
     "modern": ["fepk-de442-1800-2400-v1.bin", "fepk-minor-v2.bin"],
+    "full": ["fepk-de441-de442-v1.bin", "fepk-minor-v2.bin", "fepk-de441-ext-near-future-v1.bin"],
     "compact": ["fepk-de442-compact-1800-2400-v1.bin", "fepk-minor-v2.bin"],
     "mobile": ["fepk-de442-mobile-1800-2400-v1.bin", "fepk-minor-mobile-1800-2400-v1.bin"],
+    "lite": ["fepk-de441-lite-0-2400-v1.bin", "fepk-minor-lite-0-2400-v1.bin"],
     "dev": ["fepk-de442-1900-2100-v1.bin", "fepk-minor-v2.bin"],
     "extended": ["fepk-de441-ext-past-v1.bin", "fepk-de441-ext-future-v1.bin"],
     "asteroids": ["fepk-asteroids-v1.bin"],
 }
 SETS["all"] = sorted({n for names in SETS.values() for n in names})
+SETS["standard"] = SETS["full"]  # name before 1.3
 CHECKSUMS = "SHA256SUMS"
 
 
@@ -123,7 +130,7 @@ def _published_checksums(urls: dict[str, str], token: str | None) -> dict[str, s
     return {line.split()[1]: line.split()[0] for line in lines if len(line.split()) == 2}
 
 
-def download(pack_set: str = "standard", dest: str | Path | None = None, token: str | None = None,
+def download(pack_set: str = "modern", dest: str | Path | None = None, token: str | None = None,
              quiet: bool = False) -> list[Path]:
     """Download (or verify) the packs of `pack_set`; returns their paths."""
     names = SETS[pack_set]
@@ -167,7 +174,7 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="python -m frenchephemeris.packs", description=__doc__.split("\n\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
     d = sub.add_parser("download", help="download and verify a set of packs")
-    d.add_argument("--set", default="standard", choices=sorted(SETS))
+    d.add_argument("--set", default="modern", choices=sorted(SETS))
     d.add_argument("--dest", help=f"directory (default: {data_dir()})")
     sub.add_parser("list", help="list the published packs and sets")
     sub.add_parser("path", help="print the data directory")

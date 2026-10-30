@@ -26,36 +26,40 @@ Measurements behind every number are in the [reports](README.md).
 
 ```bash
 pip install frenchephemeris        # CPython 3.9+; wheels for Linux, macOS, Windows
-python -m frenchephemeris.packs download
+python -m frenchephemeris.packs download   # optional: exact JPL data for 1800 to 2401
 ```
 
-From source: Rust 1.88+, then `pip install maturin && maturin build --release -o dist &&
-pip install dist/*.whl`.
+The library works right after `pip install`: the wheel includes a compact lossy data set for
+years 0 to 2400. From source: Rust 1.88+, `python tools/fetch_bundled_packs.py`, then
+`pip install maturin && maturin build --release -o dist && pip install dist/*.whl`.
 
 ## 2. Data packs
 
 The engine reads FEPK packs: JPL Chebyshev coefficients, memory mapped from disk
 ([format](FORMAT.md)). Download a set with `python -m frenchephemeris.packs download
---set <name>` (each file is checked against a SHA-256 sum; files already present are verified
-and skipped):
+[--set <name>]` (each file is checked against a SHA 256 sum; files already present are
+verified and skipped):
 
 | Set | Files | Size | Years | Fidelity |
 |---|---|---|---|---|
-| `standard` (default) | main DE441/DE442 pack, minor bodies, 2401–2581 refit | ~256 MB | −2 … 2581 | bit identical to JPL |
-| `modern` | DE442 1800–2401, minor bodies | ~69 MB | 1800 … 2401 | bit identical |
-| `dev` | DE442 1900–2100, minor bodies | ~27 MB | 1900 … 2100 | bit identical |
+| built in (`lite`) | lossy refits of planets and minor bodies, inside the wheel | 7.7 MB | 0 … 2400 | planets ≤ 0.007″, Moon ≤ 0.4″ |
+| `modern` (default download) | DE442 1800 to 2401, minor bodies | ~69 MB | 1800 … 2401 | bit identical to JPL |
+| `full` | main DE441/DE442 pack, minor bodies, 2401 to 2581 refit | ~256 MB | −2 … 2581 | bit identical |
+| `dev` | DE442 1900 to 2100, minor bodies | ~27 MB | 1900 … 2100 | bit identical |
 | `extended` | DE441 refits before −2 and after 2401 | ~305 MB | −13198 … 17190 | planets ≤ 0.001″, Moon ≤ 0.1 km |
-| `asteroids` | 326-asteroid bundle | ~108 MB | per body | JPL small body fits |
+| `asteroids` | 326 asteroid bundle | ~108 MB | per body | JPL small body fits |
 | `compact` | lossy refit, minor bodies | ~13 MB | 1800 … 2400 | planets ≤ 0.001″, Moon ≤ 0.04″ |
 | `mobile` | quantized refits of planets and minor bodies | ~2 MB | 1800 … 2400 | planets ≤ 0.007″, Moon ≤ 0.4″ |
 
-`python -m frenchephemeris.packs list` prints every pack; `path` prints the data directory.
+`standard` is still accepted as the old name of `full`. `python -m frenchephemeris.packs list` prints every pack; `path` prints the data directory.
 
 **Where packs are found**, in order: `$FRENCHEPHEMERIS_PACK` (the main pack file), then
 `$FRENCHEPHEMERIS_DATA` or the per user data directory (`~/.local/share/frenchephemeris/packs`
 on Linux, `~/Library/Application Support/frenchephemeris/packs` on macOS,
 `%LOCALAPPDATA%\frenchephemeris\packs` on Windows), then `data/packs/` in a source
-checkout. Bit identical packs are preferred over lossy ones when several are installed.
+checkout, then the built in set. Bit identical packs are preferred over lossy ones; the
+built in set then answers only for dates or bodies the exact packs do not cover, never mixed
+within one result (`FRENCHEPHEMERIS_NO_FALLBACK=1` turns this off).
 `$FRENCHEPHEMERIS_MINOR_PACK` overrides the minor body pack ("" disables it).
 
 **Docker and servers:** run `python -m frenchephemeris.packs download --dest /app/packs`
@@ -274,7 +278,7 @@ with ThreadPoolExecutor(8) as pool:
 
 ```toml
 [dependencies]
-fe-core = { git = "https://github.com/FreeAstroApi/frenchephemeris", tag = "v1.2.0" }
+fe-core = { git = "https://github.com/FreeAstroApi/frenchephemeris", tag = "v1.3.0" }
 ```
 
 ```rust

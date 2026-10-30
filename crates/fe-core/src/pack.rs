@@ -103,6 +103,9 @@ pub struct Pack {
     /// Sorted ids of chainable small bodies beyond `MINOR_BODIES` (node N_NODES + i).
     extra: Vec<i32>,
     manifest_ranges: Vec<(usize, usize)>,
+    /// Used whole when this pack cannot answer (date outside its coverage, or a body it does
+    /// not hold): a lossy full-range pack behind exact packs of a shorter span.
+    fallback: Option<Box<Pack>>,
 }
 
 // Backing owns its memory (Mmap or Vec<u64>); everything else is plain data.
@@ -251,7 +254,7 @@ impl Pack {
                 }
             }
         }
-        Ok(Pack { manifest_ranges, backings, series, pairs, links, extra })
+        Ok(Pack { manifest_ranges, backings, series, pairs, links, extra, fallback: None })
     }
 
     #[inline]
@@ -312,7 +315,24 @@ impl Pack {
         }
     }
 
+    /// Use `fallback` for every request this pack cannot answer (out of range or unknown body).
+    /// The whole chain is then evaluated in the fallback, so one result never mixes packs.
+    pub fn with_fallback(mut self, fallback: Pack) -> Pack {
+        self.fallback = Some(Box::new(fallback));
+        self
+    }
+
     fn state_impl<const VEL: bool>(&self, target: i32, center: i32, jd: f64) -> Result<(Vec3, Vec3)> {
+        match self.state_own::<VEL>(target, center, jd) {
+            Err(e @ (Error::OutOfRange { .. } | Error::UnknownBody(_))) => match &self.fallback {
+                Some(f) => f.state_impl::<VEL>(target, center, jd).map_err(|_| e),
+                None => Err(e),
+            },
+            r => r,
+        }
+    }
+
+    fn state_own<const VEL: bool>(&self, target: i32, center: i32, jd: f64) -> Result<(Vec3, Vec3)> {
         let (ct, mut nt, rt) = self.chain(target)?;
         let (cc, mut nc, rc) = self.chain(center)?;
         if rt != rc {
@@ -386,6 +406,14 @@ impl Pack {
 
     /// TDB range over which `state(target, center, ..)` succeeds (intersection over the chain).
     pub fn chain_coverage(&self, target: i32, center: i32) -> Option<(f64, f64)> {
+        let own = self.chain_coverage_own(target, center);
+        match (own, self.fallback.as_ref().and_then(|f| f.chain_coverage(target, center))) {
+            (Some((a, b)), Some((c, d))) => Some((a.min(c), b.max(d))),
+            (o, f) => o.or(f),
+        }
+    }
+
+    fn chain_coverage_own(&self, target: i32, center: i32) -> Option<(f64, f64)> {
         let (ct, nt, rt) = self.chain(target).ok()?;
         let (cc, nc, rc) = self.chain(center).ok()?;
         if rt != rc {
@@ -417,7 +445,11 @@ impl Pack {
 
     /// Raw manifest JSON of every file, in `open_many` order.
     pub fn manifests(&self) -> Vec<&str> {
-        (0..self.backings.len()).map(|k| self.manifest_of(k)).collect()
+        let mut out: Vec<&str> = (0..self.backings.len()).map(|k| self.manifest_of(k)).collect();
+        if let Some(f) = &self.fallback {
+            out.extend(f.manifests());
+        }
+        out
     }
 
     fn manifest_of(&self, k: usize) -> &str {
@@ -585,6 +617,33 @@ fn cheb<const VEL: bool>(
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn fallback_answers_outside_the_primary_pack() {
+        use super::format::tests::{write_pack, TestSeries};
+        // fallback: 3 wrt 0 constant x = 9 over [0, 300]
+        let rec = vec![9.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+        let fb = write_pack(
+            &[TestSeries {
+                target: 3,
+                center: 0,
+                n_coeff: 2,
+                start: 0.0,
+                interval: 300.0,
+                records: vec![rec],
+            }],
+            r#"{"name":"fallback"}"#,
+        );
+        let pack = Pack::from_bytes(synthetic_pack()).unwrap().with_fallback(Pack::from_bytes(fb).unwrap());
+        assert_eq!(
+            pack.position(3, 0, 105.0).unwrap()[0],
+            Pack::from_bytes(synthetic_pack()).unwrap().position(3, 0, 105.0).unwrap()[0]
+        );
+        assert_eq!(pack.position(3, 0, 250.0).unwrap(), [9.0, 0.0, 0.0]); // outside the primary: fallback
+        assert!(matches!(pack.position(3, 0, 400.0), Err(Error::OutOfRange { body: 3, .. })));
+        assert_eq!(pack.chain_coverage(3, 0), Some((0.0, 300.0)));
+        assert_eq!(pack.manifests().len(), 2);
+    }
+
     #[test]
     fn quantized_bit_stream_round_trip() {
         // values packed little-endian at mixed widths, as tools/build_ext_pack.py writes them

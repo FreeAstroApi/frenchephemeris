@@ -16,8 +16,8 @@ It is the engine behind every calculation of [FreeAstroAPI](https://www.freeastr
 and an independent, clean room alternative to the Swiss Ephemeris.
 
 ```bash
-pip install frenchephemeris
-python -m frenchephemeris.packs download
+pip install frenchephemeris          # works immediately: years 0 to 2400 are built in
+python -m frenchephemeris.packs download   # optional: JPL's exact numbers for 1800 to 2401
 ```
 
 - **Accurate:** within 0.0005″ of JPL Horizons for years 0–1550; every eclipse of the NASA
@@ -26,8 +26,8 @@ python -m frenchephemeris.packs download
 - **Thread safe:** no global state; settings are per thread and per asyncio task.
 - **Complete:** 24 house systems, 46 ayanamsas, 1,175 fixed stars, Chiron, Pholus, main
   asteroids, any numbered asteroid, years −13198 … +17190.
-- **Small when you need it:** a 2 MB lossy pack set for mobile apps, or JPL's numbers
-  bit identical.
+- **No setup:** the package ships a compact data set for years 0 to 2400; download JPL's
+  exact numbers when you want them, or a 2 MB set for mobile apps.
 
 ## Contents
 
@@ -54,12 +54,15 @@ Prebuilt wheels (CPython 3.9 and later, one abi3 wheel per platform):
 
 ```bash
 pip install frenchephemeris
-python -m frenchephemeris.packs download          # standard data packs, ~256 MB, SHA-256 checked
+python -m frenchephemeris.packs download          # exact JPL data for 1800 to 2401, ~69 MB, SHA-256 checked
 ```
 
-The engine reads **data packs** (JPL coefficients in the FEPK format), downloaded once from
-the [packs v1 release](https://github.com/FreeAstroApi/frenchephemeris/releases/tag/packs-v1).
-See [Data packs](#data-packs) for smaller sets. To build from source you need Rust 1.88+ and
+The engine reads **data packs** (JPL coefficients in the FEPK format). The wheel includes a
+compact lossy set for years 0 to 2400 (7.7 MB), so the library works right after
+`pip install`. `packs download` adds JPL's exact numbers from the
+[packs v1 release](https://github.com/FreeAstroApi/frenchephemeris/releases/tag/packs-v1);
+they are then used wherever they apply, and the built in set covers the other dates. See
+[Data packs](#data-packs) for every set. To build from source you need Rust 1.88+ and
 [maturin](https://www.maturin.rs): `pip install maturin && maturin build --release`.
 
 ## Quickstart
@@ -103,7 +106,7 @@ their speeds.
 
 ```toml
 [dependencies]
-fe-core = { git = "https://github.com/FreeAstroApi/frenchephemeris", tag = "v1.2.0" }
+fe-core = { git = "https://github.com/FreeAstroApi/frenchephemeris", tag = "v1.3.0" }
 ```
 
 ```rust
@@ -124,8 +127,9 @@ against published SHA-256 sums. `list` shows every pack, `path` prints the data 
 
 | Set | Size | Years | Fidelity | Use |
 |---|---|---|---|---|
-| `standard` | ~256 MB | −2 … 2581 | JPL coefficients, bit identical | servers, the default |
-| `modern` | ~69 MB | 1800 … 2401 | bit identical | most charts, smaller install |
+| built in (`lite`) | 7.7 MB, in the wheel | 0 … 2400 | lossy, planets ≤ 0.007″, Moon ≤ 0.4″ | works with no download |
+| `modern` (the default download) | ~69 MB | 1800 … 2401 | JPL coefficients, bit identical | exact results for modern charts |
+| `full` | ~256 MB | −2 … 2581 | bit identical | exact results for every era |
 | `dev` | ~27 MB | 1900 … 2100 | bit identical | development, CI |
 | `extended` | ~305 MB | −13198 … 17190 | refit, ≤ 0.001″ planets | ancient and far future dates |
 | `asteroids` | ~108 MB | varies | refit | 326 asteroids used in astrology |
@@ -135,8 +139,10 @@ against published SHA-256 sums. `list` shows every pack, `path` prints the data 
 Packs go to `$FRENCHEPHEMERIS_DATA` if set, otherwise a per user data directory
 (`~/.local/share/frenchephemeris/packs`, `~/Library/Application Support/frenchephemeris/packs`
 or `%LOCALAPPDATA%\frenchephemeris\packs`). `$FRENCHEPHEMERIS_PACK` names the main pack
-directly. Packs are memory mapped, so worker processes share them. Outside the loaded range
-every call raises an error instead of returning an approximation.
+directly. Packs are memory mapped, so worker processes share them. Exact packs are always
+preferred; the built in set answers only for dates or bodies they do not cover
+(`FRENCHEPHEMERIS_NO_FALLBACK=1` turns that off). Outside every loaded pack, calls raise an
+error instead of returning an approximation.
 
 ## Features
 
@@ -225,9 +231,10 @@ It reads JPL's DE441/DE442 coefficients directly: within 0.0005″ of JPL Horizo
 newer DE442). Charts display 0.001° = 3.6″, far coarser than either figure.
 
 **Which data files do I need, and how large are they?**
-`python -m frenchephemeris.packs download` fetches the standard set (256 MB, years −2 to
-2581). `--set modern` (69 MB, 1800–2401) keeps the same bit identical data for fewer years;
-`--set mobile` (2 MB, 1800–2400) is a lossy set for apps.
+None to start: the package includes a compact set for years 0 to 2400 (planets within
+0.007″ of JPL, Moon within 0.4″). `python -m frenchephemeris.packs download` adds JPL's exact
+numbers for 1800 to 2401 (69 MB), `--set full` for −2 to 2581 (256 MB), and `--set mobile`
+(2 MB) is a lossy set for apps.
 
 **Can I use it in a mobile or embedded app?**
 Yes. The `mobile` set is 2.03 MB for 1800–2400, planets, Moon and minor bodies included,
@@ -245,8 +252,8 @@ nakshatra ready longitudes, the true node, and sunrise times for panchang. FreeA
 its Vedic, KP and dasha endpoints on it.
 
 **Which date range is covered?**
-Years −2 to 2581 with the standard set, −13198 to +17190 with the extended packs. Outside
-the loaded range, calls raise an error.
+Years 0 to 2400 out of the box, −2 to 2581 with `--set full`, and −13198 to +17190 with the
+extended packs. Outside the loaded range, calls raise an error.
 
 **Is it free for commercial use?**
 Yes under the AGPL-3.0, provided you meet its conditions (including publishing the source of

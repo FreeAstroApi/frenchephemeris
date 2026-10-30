@@ -198,17 +198,22 @@ impl Engine {
     /// interval both models are IAU 2006. `False`: IAU 2006 at all dates.
     #[new]
     /// `star_compat`: optional fixed-star compatibility alias table (TSV path).
-    #[pyo3(signature = (path, swiss_delta_t=true, extra_packs=None, swiss_sidereal_time=true, star_compat=None))]
+    /// `fallback_packs`: packs used whole for dates or bodies the main packs do not cover.
+    #[pyo3(signature = (path, swiss_delta_t=true, extra_packs=None, swiss_sidereal_time=true, star_compat=None, fallback_packs=None))]
     fn new(
         path: &str,
         swiss_delta_t: bool,
         extra_packs: Option<Vec<String>>,
         swiss_sidereal_time: bool,
         star_compat: Option<String>,
+        fallback_packs: Option<Vec<String>>,
     ) -> PyResult<Self> {
         let mut paths = vec![path.to_string()];
         paths.extend(extra_packs.unwrap_or_default());
-        let pack = fe_core::pack::Pack::open_many(&paths).map_err(to_py)?;
+        let mut pack = fe_core::pack::Pack::open_many(&paths).map_err(to_py)?;
+        if let Some(fb) = fallback_packs.filter(|v| !v.is_empty()) {
+            pack = pack.with_fallback(fe_core::pack::Pack::open_many(&fb).map_err(to_py)?);
+        }
         let mut cfg = if swiss_delta_t { EngineConfig::SWISS_DELTA_T } else { EngineConfig::DEFAULT };
         if swiss_sidereal_time {
             cfg.frames.sidereal = fe_core::frames::SiderealTime::SwissLongTerm;

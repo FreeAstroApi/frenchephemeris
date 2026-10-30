@@ -69,7 +69,7 @@ the row's reserved bytes 52–63 (zero in every v1 file, which a v2 reader check
 | off | type | field |
 |-----|------|-------|
 | 52  | u32  | `n_coeff_f64` — leading coefficients per component stored as f64; `0` or `>= n_coeff` = all f64 (v1 layout) |
-| 56  | u32  | `kind` — 0 Chebyshev series, 1 alias |
+| 56  | u32  | `kind` — 0 Chebyshev series, 1 alias, 2 quantized Chebyshev series |
 | 60  | i32  | `alias_target` (kind 1) |
 
 Header `format_version` is 2 for files that use these fields; readers accept 1 and 2.
@@ -87,6 +87,16 @@ below a quarter of the series' fit tolerance.
 Its value at t is `scale × state(alias_target wrt center, t)`, evaluated from
 the stored series of that pair, which must cover the alias series and must
 not itself be an alias. Used for Earth wrt EMB = −1/EMRAT × Moon wrt EMB.
+
+**Quantized** (kind 2, compact and mobile packs). `coeff_offset` points to a header:
+`q` (f64, km per integer step), `rec_bits` (u32), `n` (u32, = `n_coeff`), then `3n` bit
+widths `w[c][k]` (u8, component-major, zero-padded to a multiple of 8 bytes). The records
+follow: record i starts at bit `i·rec_bits` of a little-endian bit stream, and holds the
+`3n` coefficients `c[c][k] = q · v` as signed `w[c][k]`-bit two's-complement integers
+(`rec_bits = Σ w`; a width of 0 means the coefficient is 0). The stream is followed by 16
+zero bytes, so a 16-byte read window never leaves the file. `n_coeff` may be up to 64. The
+builder (`tools/build_ext_pack.py --quant`) chooses `q = C·tol/√n` and checks the decoded
+series against the source, as for the other kinds.
 
 Files are written data-first: coefficients from offset 64, then the series
 table, then the manifest (all offsets are absolute, so this is legal in v1 too).

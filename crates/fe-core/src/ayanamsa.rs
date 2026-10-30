@@ -470,7 +470,16 @@ pub fn kind(mode: Ayanamsa, bits: SidBits) -> Kind {
         User { t0, ayan_t0, t0_is_ut } => {
             Kind::Fixed(if t0_is_ut || bits.has(SidBits::USER_UT) { ut(t0) } else { t0 }, ayan_t0)
         }
-        JnBhasin | TrueSheoran | ValensMoon => Kind::Unsupported,
+        // J.N. Bhasin, introductory note to his translation of Sarvarth Chintamani: Lahiri's
+        // ayanamsa minus 1°07' (no Lahiri variant named; the variants differ by < 1").
+        JnBhasin => match kind(Lahiri, bits) {
+            Kind::Fixed(t0, a0) => Kind::Fixed(t0, a0 - dms(1.0, 7.0, 0.0)),
+            _ => unreachable!("Lahiri is a fixed-epoch mode"),
+        },
+        // S. Sheoran, The Science of Time and Timeline of World History (2017), §5.2,
+        // Table 1.16: Asellus Australis (δ Cnc) at 103°29'32.9375" of the fixed zodiac.
+        TrueSheoran => Kind::DeltaCnc(SHEORAN_STAR_LON_DEG),
+        ValensMoon => Kind::Unsupported,
     }
 }
 
@@ -478,7 +487,7 @@ pub fn kind(mode: Ayanamsa, bits: SidBits) -> Kind {
 pub fn original_model(mode: Ayanamsa) -> Option<orig_precession::OrigModel> {
     use orig_precession::OrigModel::*;
     match mode {
-        Ayanamsa::Lahiri => Some(Iau1976),
+        Ayanamsa::Lahiri | Ayanamsa::JnBhasin => Some(Iau1976),
         Ayanamsa::FaganBradley
         | Ayanamsa::Raman
         | Ayanamsa::Krishnamurti
@@ -500,6 +509,10 @@ pub fn reference(mode: Ayanamsa) -> Option<(f64, f64)> {
 /// Sidereal longitude of δ Cancri in the True-Pushya definition
 /// (P. V. R. Narasimha Rao): 16°00' Cancer = 106°.
 pub const TRUE_PUSHYA_STAR_LON_DEG: f64 = 106.0;
+
+/// Sidereal longitude of δ Cancri (Asellus Australis) in Sheoran's "Vedic" ayanamsa:
+/// 103°29'32.9375" (Sheoran 2017, Table 1.16).
+pub const SHEORAN_STAR_LON_DEG: f64 = 103.0 + 29.0 / 60.0 + 32.9375 / 3600.0;
 
 /// Mean fixed-epoch ayanamsa at `jd_tt` with option bits.
 pub fn fixed_mean_deg(mode: Ayanamsa, t0: f64, a0: f64, jd_tt: f64, bits: SidBits) -> f64 {

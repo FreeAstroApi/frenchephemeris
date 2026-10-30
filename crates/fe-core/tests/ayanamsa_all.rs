@@ -91,7 +91,12 @@ fn tolerance(m: Ayanamsa) -> f64 {
         GalEquIau1958 => 0.32,
         GalEquTrue | GalEquMula => 0.12,
         BabylAldebaran15Tau => 0.025,
-        JnBhasin | TrueSheoran | ValensMoon => f64::NAN,
+        // Published definitions that differ from Swiss's modes of the same name (GEOMETRY_REPORT):
+        // Sheoran's book places δ Cnc 0.57" below Swiss's value; Bhasin's own rule
+        // (Lahiri − 1°07') is about 1'18" below Swiss's J.N. Bhasin mode.
+        TrueSheoran => 0.6,
+        JnBhasin => 79.0,
+        ValensMoon => f64::NAN,
         _ => 0.002,
     }
 }

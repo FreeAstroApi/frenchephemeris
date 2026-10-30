@@ -3,6 +3,22 @@
 All notable changes to FrenchEphemeris are listed here. Versions follow
 [Semantic Versioning](https://semver.org/).
 
+## 1.2.0 — 2026-10-30
+
+### Added
+- **J.N. Bhasin ayanamsa**: Lahiri − 1°07′, the rule in Bhasin's introductory note to his
+  translation of *Sarvarth Chintamani* (1′18″ below Swiss's mode of this name).
+- **"Vedic"/Sheoran ayanamsa**: δ Cancri (Asellus Australis) at 103°29′32.9375″, from
+  Sheoran's *The Science of Time and Timeline of World History* (2017), Table 1.16
+  (0.57″ from Swiss's value). 46 of the 47 classic modes are now available.
+- **`--set mobile`** (2.03 MB): planets, Sun, Moon and the minor bodies for 1800–2400 in the
+  new quantized pack format (series kind 2, bit-packed integer coefficients; docs/FORMAT.md).
+  Smaller than Swiss Ephemeris's files for the same bodies and years (2.12 MB). Accuracy
+  against the full JPL packs: planets, Sun and minor bodies ≤ 0.007″, Eros 0.025″, Moon
+  0.36″. Batch speed about half of the full packs (2.4 million positions/s).
+- `tools/build_ext_pack.py`: `--quant`, `--tol-scale`, `--source-pack` (refit a minor-body
+  pack); records may hold up to 64 coefficients.
+
 ## 1.1.0 — 2026-10-30
 
 ### Changed

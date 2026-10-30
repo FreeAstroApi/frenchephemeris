@@ -9,6 +9,13 @@
         --out data/packs/fepk-de441-ext-near-future-v1.bin   # 2401 .. ~2580 only (~ few MB)
     python tools/build_ext_pack.py --era compact --start-year 1800 --end-year 2400
         # compact refit of the local DE442 file for a year range (small download)
+    python tools/build_ext_pack.py --era compact --quant --max-n 64 --tol-scale 10 \
+        --record-days 1:128,301:64,2:256,3:256,4:512,10:512 \
+        --out data/packs/fepk-de442-mobile-1800-2400-v1.bin          # mobile planets (1.74 MB)
+    python tools/build_ext_pack.py --era compact --quant --max-n 64 \
+        --source-pack data/packs/fepk-minor-v2.bin --record-days \
+        2000001:1024,2000002:1024,2000003:1024,2000004:1024,2002060:2048,2005145:2048,2000433:512 \
+        --out data/packs/fepk-minor-mobile-1800-2400-v1.bin         # mobile minor bodies (0.29 MB)
 
 Outputs `fepk-de441-ext-past-v1.bin` / `fepk-de441-ext-future-v1.bin` in
 data/packs/, separate from the main pack; `Pack::open_many` chains their series
@@ -88,7 +95,31 @@ BODIES = {
     8: (0, 1024, 5, 0.9),
     9: (0, 1024, 5, 0.9),
 }
-MAX_N = 32
+MAX_N = 32  # --max-n
+
+# Minor bodies for --era compact --source-pack (refit of fepk-minor-v2.bin): (center, record days,
+# starting N, tolerance km). Budgets ~0.01" at each body's closest approach to Earth.
+MINOR_BODIES = {
+    2000001: (0, 256, 12, 8.0),     # Ceres
+    2000002: (0, 256, 12, 8.0),     # Pallas
+    2000003: (0, 256, 12, 8.0),     # Juno
+    2000004: (0, 256, 12, 8.0),     # Vesta
+    2002060: (0, 512, 10, 40.0),    # Chiron
+    2005145: (0, 512, 10, 40.0),    # Pholus
+    2136199: (0, 1024, 6, 200.0),   # Eris
+    2000433: (10, 64, 12, 1.0),     # Eros (wrt Sun)
+}
+
+
+class PackTruth:
+    """Truth callable over one FEPK pair (for refits of our own minor-body pack)."""
+
+    def __init__(self, pack, target, center):
+        self.pack, self.target, self.center = pack, target, center
+
+    def __call__(self, jd, vel=False):
+        p, v = self.pack.state(self.target, self.center, np.asarray(jd, dtype=np.float64).ravel())
+        return (p, v) if vel else p
 
 
 def free_bytes(path):
@@ -136,6 +167,20 @@ def lobatto(N):
     return np.cos(np.pi * np.arange(N) / (N - 1))
 
 
+QSTATS = []
+QUANT = False  # --quant: KIND_QUANT records (integers of step q), set in main()
+
+
+QUANT_C = 0.6  # --quant-c: q = C*tol/sqrt(N) (0 = worst-case step 0.4*tol/N)
+
+
+def quant_step(tol, N):
+    """Integer step (km): rounding adds at most N*q/2 = 0.2 tol per component."""
+    if QUANT_C:
+        return QUANT_C * tol / np.sqrt(N)
+    return 0.4 * tol / N
+
+
 def fit_chunk(truth, start, L, nrec, N, tol, rng):
     """Fit nrec records of L days from `start` with N coefficients. Returns
     (ok, coef (nrec,3,N) f64 after rounding, n64, stats)."""
@@ -150,7 +195,12 @@ def fit_chunk(truth, start, L, nrec, N, tol, rng):
         if mag[k:].sum() * 2.0**-24 <= 0.25 * tol:
             n64 = k
             break
-    coef[n64:] = coef[n64:].astype(np.float32).astype(np.float64)
+    if QUANT:
+        q = quant_step(tol, N)
+        coef = np.round(coef / q) * q
+        n64 = N
+    else:
+        coef[n64:] = coef[n64:].astype(np.float32).astype(np.float64)
     mids = np.cos(np.pi * (np.arange(N - 1) + 0.5) / (N - 1))
     u = np.concatenate([mids[None, :].repeat(nrec, 0), rng.uniform(-1, 1, (nrec, 3 * N))], axis=1)
     jd = starts[:, None] + (u + 1.0) * (0.5 * L)
@@ -180,6 +230,49 @@ def encode(cr, n64):
     if pad:
         lo = np.concatenate([lo, np.zeros((nrec, pad), "<f4")], axis=1)
     return np.concatenate([hi.view(np.uint8), lo.view(np.uint8)], axis=1).tobytes()
+
+
+def encode_quant(cr, tol):
+    """(nrec, N, 3) multiples of q -> KIND_QUANT block (header, bit-packed records, padding)."""
+    nrec, N, _ = cr.shape
+    q = quant_step(tol, N)
+    ints = np.rint(cr.transpose(0, 2, 1) / q).astype(np.int64)  # (nrec, 3, N)
+    hi, lo = ints.max(axis=0), ints.min(axis=0)
+    widths = np.zeros((3, N), dtype=np.int64)
+    for a in range(3):
+        for k in range(N):
+            m = max(int(hi[a, k]), -int(lo[a, k]) - 1, 0)
+            widths[a, k] = 0 if hi[a, k] == 0 and lo[a, k] == 0 else m.bit_length() + 1
+    w = widths.ravel()
+    rec_bits = int(w.sum())
+    if os.environ.get("FE_QUANT_STATS"):
+        # Rice-code estimate: per (component, degree) parameter from the mean |v|
+        z = np.abs(ints).reshape(nrec, -1).astype(float)
+        mean = z.mean(axis=0)
+        kpar = np.maximum(np.floor(np.log2(np.maximum(mean, 1.0) * 0.69)), 0)
+        rice = (np.floor(z / 2.0 ** kpar) + 1 + kpar + 1).sum()  # unary + stop + k bits + sign
+        QSTATS.append((nrec * rec_bits, float(rice) + 32 * nrec))
+    out = bytearray(struct.pack("<dII", q, rec_bits, N))
+    out += bytes(w.astype(np.uint8)) + bytes((-3 * N) % 8)
+    acc, accbits = 0, 0
+    flat = ints.reshape(nrec, -1)
+    for r in range(nrec):
+        rec, off = 0, 0
+        for v, b in zip(flat[r].tolist(), w.tolist()):
+            if b:
+                rec |= (v & ((1 << b) - 1)) << off
+                off += b
+        acc |= rec << accbits
+        accbits += rec_bits
+        if accbits >= 1 << 15:
+            nb = accbits // 8
+            out += (acc & ((1 << (8 * nb)) - 1)).to_bytes(nb, "little")
+            acc >>= 8 * nb
+            accbits -= 8 * nb
+    nb = (accbits + 7) // 8
+    out += acc.to_bytes(nb, "little") + bytes(16)
+    out += bytes((-len(out)) % 8)
+    return bytes(out)
 
 
 def record_bytes(N, n64):
@@ -229,11 +322,17 @@ def year_jd(year):
 
 def build(args):
     era = args.era
+    source_pack = None
     if era == "compact":
-        url = args.de442
+        url = args.source_pack or args.de442
         src = LocalFile(url)
         src.bytes_fetched, src.last_modified = 0, None
         compact = (year_jd(args.start_year), year_jd(args.end_year))
+        if args.source_pack:
+            from fepk import Fepk
+            source_pack = Fepk(args.source_pack)
+            BODIES.clear()
+            BODIES.update(MINOR_BODIES)
     else:
         # ssd.jpl.nasa.gov serves the same DE441 as one file (both parts' segments) and was
         # several times faster than naif.jpl.nasa.gov here; --source naif uses the parts.
@@ -242,9 +341,10 @@ def build(args):
         else:
             url = NAIF + ("de441_part-1.bsp" if era == "past" else "de441_part-2.bsp")
         src = StreamRangeFile(url, parallel=args.parallel)
-    spk = SPK(src)
+    spk = None if source_pack else SPK(src)
     cov = None if era == "compact" else main_pack_coverage()
-    default_name = (f"fepk-de442-compact-{args.start_year}-{args.end_year}-v1.bin" if era == "compact"
+    default_name = (f"fepk-minor-compact-{args.start_year}-{args.end_year}-v1.bin" if args.source_pack
+                    else f"fepk-de442-compact-{args.start_year}-{args.end_year}-v1.bin" if era == "compact"
                     else f"fepk-de441-ext-{era}-v1.bin")
     out = args.out or os.path.join(DATA, "packs", default_name)
     rng = np.random.default_rng(args.seed)
@@ -257,17 +357,29 @@ def build(args):
         if free_bytes(os.path.dirname(out)) < MIN_FREE:
             raise SystemExit(f"free disk below 2 GB ({free_bytes(os.path.dirname(out))/1e9:.2f} GB): stopping")
         ctr, L, N0, tol = BODIES[b]
-        if era == "compact":
+        if source_pack:
+            lo_main, hi_main = compact
+            nrec_total = int(np.floor((hi_main - lo_main) / L))
+            e = lo_main + nrec_total * L
+            edges = [lo_main + k * CHUNK_DAYS for k in range(0, int((e - lo_main) // CHUNK_DAYS) + 1)]
+            if edges[-1] < e:
+                edges.append(e)
+            jobs = [(edges[k], edges[k + 1]) for k in range(len(edges) - 1)]
+            seg = None
+        elif era == "compact":
             lo_main, hi_main = compact
             probe = lo_main + 1.0
         else:
             lo_main, hi_main = cov[(b, ctr)]
             probe = lo_main - 1.0 if era == "past" else hi_main + 1.0
-        segs = [g for g in spk.segments if g.target == b and g.center == ctr and g.start_jd <= probe <= g.end_jd]
+        segs = [None] if source_pack else [
+            g for g in spk.segments if g.target == b and g.center == ctr and g.start_jd <= probe <= g.end_jd]
         if len(segs) != 1:
             raise SystemExit(f"expected one source segment for {b}/{ctr} covering JD {probe}")
         seg = segs[0]
-        if era == "compact":
+        if source_pack:
+            pass  # jobs computed above
+        elif era == "compact":
             if not (seg.start_jd <= lo_main and hi_main <= seg.end_jd):
                 raise SystemExit(f"{b}/{ctr}: DE442 covers JD {seg.start_jd}..{seg.end_jd} only")
             nrec_total = int(np.floor((hi_main - lo_main) / L))
@@ -298,20 +410,24 @@ def build(args):
         jpath, bpath = os.path.join(parts, f"{b}.json"), os.path.join(parts, f"{b}.bin")
         state = json.load(open(jpath)) if os.path.exists(jpath) else {"rows": [], "stats": []}
         done = {r["start_jd_tdb"] for r in state["rows"]}
-        size_ok = sum(r["n_records"] * record_bytes(r["n_coeff"], r["n_coeff_f64"]) for r in state["rows"])
+        size_ok = sum(r.get("nbytes", r["n_records"] * record_bytes(r["n_coeff"], r["n_coeff_f64"]))
+                      for r in state["rows"])
         with open(bpath, "ab") as g:
             g.truncate(size_ok)
         todo = [j for j in jobs if j[0] not in done]
         if not todo:
             print(f"body {b}: complete ({len(state['rows'])} chunks)", flush=True)
             continue
-        pf = Prefetcher(seg, todo)
+        pf = None if source_pack else Prefetcher(seg, todo)
         N = max([N0] + [r["n_coeff"] for r in state["rows"][-1:]])
         for k, (c0, c1) in enumerate(todo):
             if free_bytes(os.path.dirname(out)) < MIN_FREE:
                 raise SystemExit("free disk below 2 GB: stopping (resumable)")
-            i0, recs = pf.get()
-            truth = Truth(seg, i0, recs)
+            if source_pack:
+                recs, truth = None, PackTruth(source_pack, b, ctr)
+            else:
+                i0, recs = pf.get()
+                truth = Truth(seg, i0, recs)
             nrec = int(round((c1 - c0) / L))
             assert abs(c0 + nrec * L - c1) < 1e-9
             # smallest passing N, starting two below the previous chunk's
@@ -323,14 +439,15 @@ def build(args):
                 N += 1
                 if N > MAX_N:
                     raise SystemExit(f"body {b}: no N <= {MAX_N} reaches {tol} km in chunk {c0}..{c1}")
-            blob = encode(cr, n64)
-            assert len(blob) == nrec * record_bytes(N, n64)
+            blob = encode_quant(cr, tol) if QUANT else encode(cr, n64)
+            assert QUANT or len(blob) == nrec * record_bytes(N, n64)
             with open(bpath, "ab") as g:
                 off = g.tell()
                 g.write(blob)
             state["rows"].append(dict(target=b, center=ctr, n_coeff=N, n_records=nrec, start_jd_tdb=c0,
                                       interval_days=float(L), end_jd_tdb=c0 + nrec * L, rel_offset=off,
-                                      n_coeff_f64=n64, kind=0, alias_target=0))
+                                      n_coeff_f64=0 if QUANT else n64, kind=2 if QUANT else 0,
+                                      alias_target=0, nbytes=len(blob)))
             st.update(jd=[c0, c1], N=N, n_f64=n64)
             state["stats"].append(st)
             with open(jpath + ".tmp", "w") as g:
@@ -352,13 +469,17 @@ def assemble(args, era, out, parts, bodies, url, src, t_start):
     table, stats_all = [], {}
     f = open(tmp, "wb")
     f.write(bytes(64))
+    sizes = {}
     for b in bodies:
         st = json.load(open(os.path.join(parts, f"{b}.json")))
+        sizes[b] = sum(r.get("nbytes", r["n_records"] * record_bytes(r["n_coeff"], r["n_coeff_f64"]))
+                       for r in st["rows"])
         base = f.tell()
         with open(os.path.join(parts, f"{b}.bin"), "rb") as g:
             shutil.copyfileobj(g, f, 1 << 20)
         for r in st["rows"]:
             r = dict(r)
+            r.pop("nbytes", None)
             r["coeff_offset"] = base + r.pop("rel_offset")
             table.append(r)
         bs = st["stats"]
@@ -374,7 +495,7 @@ def assemble(args, era, out, parts, bodies, url, src, t_start):
             r_min_km=min(s["r_min_km"] for s in bs),
             coverage_jd_tdb=[min(r["start_jd_tdb"] for r in rows), max(r["end_jd_tdb"] for r in rows)],
             n_series=len(rows),
-            bytes=sum(r["n_records"] * record_bytes(r["n_coeff"], r["n_coeff_f64"]) for r in rows),
+            bytes=sizes[b],
             worst_chunks=sorted(bs, key=lambda s: -s["max_km"])[:3])
         while f.tell() % 8:
             f.write(b"\0")
@@ -443,6 +564,9 @@ def assemble(args, era, out, parts, bodies, url, src, t_start):
     side = dict(manifest, file={"path": os.path.basename(out), "size_bytes": total, "sha256": h.hexdigest()})
     with open(out + ".manifest.json", "w") as g:
         json.dump(side, g, indent=1)
+    if QSTATS:
+        fixed, rice = (sum(v) / 8e6 for v in zip(*QSTATS))
+        print(f"coefficient bits: fixed-width {fixed:.2f} MB, Rice-coded estimate {rice:.2f} MB")
     print(f"wrote {out}: {total} bytes ({total/1e6:.1f} MB), {len(table)} series, streamed "
           f"{src.bytes_fetched/1e6:.0f} MB in {time.time()-t_start:.0f} s")
 
@@ -453,7 +577,12 @@ def main():
     ap.add_argument("--start-year", type=int, default=1800, help="compact: first year")
     ap.add_argument("--end-year", type=int, default=2400, help="compact: end year (exclusive)")
     ap.add_argument("--de442", default=DE442_LOCAL, help="compact: local de442.bsp")
+    ap.add_argument("--source-pack", help="compact: refit the minor bodies of this FEPK pack instead")
     ap.add_argument("--record-days", help="override record lengths, e.g. 1:64,301:16 (powers of 2)")
+    ap.add_argument("--quant", action="store_true", help="bit-packed integer coefficients (KIND_QUANT)")
+    ap.add_argument("--quant-c", type=float, default=0.6, help="--quant step q = C*tol/sqrt(N)")
+    ap.add_argument("--max-n", type=int, default=32, help="largest coefficient count per record (<= 64)")
+    ap.add_argument("--tol-scale", type=float, default=1.0, help="multiply every error budget")
     ap.add_argument("--bodies", help="comma list (default all)")
     ap.add_argument("--max-chunks", type=int, help="test: only the chunks nearest the seam")
     ap.add_argument("--parallel", type=int, default=12)
@@ -465,11 +594,17 @@ def main():
     ap.add_argument("--assemble-partial", action="store_true",
                     help="with --max-chunks: assemble a pack of just those chunks (e.g. 2401-2580)")
     args = ap.parse_args()
+    global QUANT, QUANT_C, MAX_N
+    QUANT, QUANT_C, MAX_N = args.quant, args.quant_c, args.max_n
+    for table in (BODIES, MINOR_BODIES):
+        for body, (ctr, L, n0, tol) in list(table.items()):
+            table[body] = (ctr, L, n0, tol * args.tol_scale)
     for item in (args.record_days or "").split(","):
         if item:
             body, days = (int(v) for v in item.split(":"))
-            ctr, _L, n0, tol = BODIES[body]
-            BODIES[body] = (ctr, days, n0, tol)
+            table = MINOR_BODIES if body in MINOR_BODIES else BODIES
+            ctr, _L, n0, tol = table[body]
+            table[body] = (ctr, days, n0, tol)
     build(args)
 
 

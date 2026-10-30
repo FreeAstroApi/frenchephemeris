@@ -5,6 +5,7 @@
     python -m frenchephemeris.packs download              # standard set (~256 MB)
     python -m frenchephemeris.packs download --set modern   # 1800-2401, bit-identical, ~69 MB
     python -m frenchephemeris.packs download --set compact  # 1800-2400, lossy refit, ~13 MB
+    python -m frenchephemeris.packs download --set mobile   # 1800-2400, lossy, ~2 MB (apps)
     python -m frenchephemeris.packs download --set dev    # 1900-2100 only (~28 MB)
     python -m frenchephemeris.packs list
     python -m frenchephemeris.packs path
@@ -41,6 +42,10 @@ PACKS = {
                                     "DE442, years 1800 .. 2401, bit-identical to JPL"),
     "fepk-de442-compact-1800-2400-v1.bin": (6546643, "866cc7c3ceb79943bff7d8d204f8ad1d61fdea94987813a99d90a9c3896c87fc",
                                             "DE442 compact refit, years 1800 .. 2400, LOSSY (planets <= 0.001\", Moon <= 0.04\" of JPL)"),
+    "fepk-de442-mobile-1800-2400-v1.bin": (1736702, "72b51aa03a31bd62bf3787d58dc9cb7a9bf94d26d908b27b373924e9e8c50ae5",
+                                           "DE442 mobile refit, 1800 .. 2400, LOSSY (planets <= 0.007\", Moon <= 0.4\" of JPL)"),
+    "fepk-minor-mobile-1800-2400-v1.bin": (291426, "3ca25e4737301d8cb08929c240041c05336b6d253976233e4a1bdcdb533fbfcc",
+                                           "minor bodies mobile refit, 1800 .. 2400, LOSSY (<= 0.007\", Eros <= 0.03\")"),
     "fepk-de442-1900-2100-v1.bin": (20750344, "755ef97fbfaa866fe77537584eb29214136146baba9d72c766e7f71c09bc0f5e", "DE442, years 1900 .. 2100 (development pack)"),
     "fepk-de441-ext-past-v1.bin": (144031527, "3894de83aab7d5eb711144b224195e81e5edd07e99cedd4f3904a2730dba2bbf", "DE441 refit, years -13200 .. -2"),
     "fepk-de441-ext-future-v1.bin": (160945165, "c2dc933a66c82203a12e4ff328599cf8c4e079dde2e458218c9b19529014db4c", "DE441 refit, years 2401 .. 17191"),
@@ -50,6 +55,7 @@ SETS = {
     "standard": ["fepk-de441-de442-v1.bin", "fepk-minor-v2.bin", "fepk-de441-ext-near-future-v1.bin"],
     "modern": ["fepk-de442-1800-2400-v1.bin", "fepk-minor-v2.bin"],
     "compact": ["fepk-de442-compact-1800-2400-v1.bin", "fepk-minor-v2.bin"],
+    "mobile": ["fepk-de442-mobile-1800-2400-v1.bin", "fepk-minor-mobile-1800-2400-v1.bin"],
     "dev": ["fepk-de442-1900-2100-v1.bin", "fepk-minor-v2.bin"],
     "extended": ["fepk-de441-ext-past-v1.bin", "fepk-de441-ext-future-v1.bin"],
     "asteroids": ["fepk-asteroids-v1.bin"],

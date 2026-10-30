@@ -15,7 +15,7 @@ L ≈ several weeks.
 | Positions | `calc`, `calc_ut` | yes. Sun–Pluto, mean/true node, mean/osculating Lilith, Earth, Chiron, Pholus, Ceres, Pallas, Juno, Vesta, Eris, Eros |
 | Flags | TRUEPOS, NONUT, EQUATORIAL, J2000, NOABERR, NOGDEFL, HELCTR, BARYCTR, TOPOCTR, SIDEREAL, SPEED, XYZ, RADIANS, ICRS, ASTROMETRIC, SPEED3 | yes (B1–B3 done 2026-10-29) |
 | Houses | `houses`, `houses_ex`, `houses_ex2`, `houses_armc`, `houses_armc_ex2`, `house_pos`, `gauquelin_sector`, `house_name` | yes, all documented systems: P K O R C T E W A V D N B X F M H U Y L Q S I i G J |
-| Sidereal | `set_sid_mode`, `get_ayanamsa(_ex)(_ut)`, `get_ayanamsa_name`, `SE_SIDM_USER`, SIDBIT options | 44 of 47 modes (all but J.N. Bhasin, Sheoran, Valens), all six SIDBITs, per call; see GEOMETRY_REPORT §2 |
+| Sidereal | `set_sid_mode`, `get_ayanamsa(_ex)(_ut)`, `get_ayanamsa_name`, `SE_SIDM_USER`, SIDBIT options | 46 of 47 modes (all but Vettius Valens), all six SIDBITs, per call; see GEOMETRY_REPORT §2 |
 | Stars | `fixstar(2)(_ut)` | yes, 410+ stars, Swiss-compatible names in progress |
 | Events | `rise_trans`, `rise_trans_true_hor`, `pheno(_ut)`, `solcross(_ut)`, `mooncross(_ut)`, `time_equ`, `lmt_to_lat`, `lat_to_lmt` | yes |
 | Eclipses | `lun_eclipse_when/how`, `sol_eclipse_when_glob/when_loc/where/how`, `lun_occult_when_glob/when_loc/where` | yes, all fields (saros, local noon, shadow limits added 2026-10-29) |

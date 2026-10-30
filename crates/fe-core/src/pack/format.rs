@@ -63,6 +63,11 @@ impl Backing {
 /// Series kinds (v2).
 pub(super) const KIND_CHEBYSHEV: u32 = 0;
 pub(super) const KIND_ALIAS: u32 = 1;
+/// Quantized Chebyshev series (compact packs). The coefficient block starts with a header:
+/// q (f64, km per integer step), rec_bits (u32), n (u32), then 3·n bit widths (u8, padded to
+/// 8 bytes); then the records, each 3·n signed integers in that order (two's complement,
+/// little-endian bit stream, fixed rec_bits per record), followed by 16 zero bytes.
+pub(super) const KIND_QUANT: u32 = 2;
 
 /// One series row, with derived values pre-computed for evaluation.
 #[derive(Clone, Debug)]
@@ -90,6 +95,12 @@ pub(super) struct Series {
     pub alias_pair: usize,
     /// Which file of a multi-pack `Pack` holds the coefficients (0 = first).
     pub backing: usize,
+    /// KIND_QUANT: integer step (km), bits per record, bit width per [component][degree],
+    /// byte offset of the first record.
+    pub quant_q: f64,
+    pub quant_rec_bits: usize,
+    pub quant_widths: Vec<u8>,
+    pub quant_data: usize,
     #[allow(dead_code)]
     pub source_index: u32,
 }
@@ -205,11 +216,15 @@ pub(super) fn parse(b: &[u8]) -> Result<Parsed> {
                 scale,
                 alias_pair: usize::MAX,
                 backing: 0,
+                quant_q: 0.0,
+                quant_rec_bits: 0,
+                quant_widths: Vec::new(),
+                quant_data: 0,
                 source_index,
             });
             continue;
         }
-        if kind != KIND_CHEBYSHEV {
+        if kind != KIND_CHEBYSHEV && kind != KIND_QUANT {
             return Err(bad(format!("{id}: unknown series kind {kind}")));
         }
         if !(2..=super::MAX_COEFF).contains(&n_coeff) {
@@ -227,6 +242,49 @@ pub(super) fn parse(b: &[u8]) -> Result<Parsed> {
         }
         if !coeff_off.is_multiple_of(8) || coeff_off < data_off {
             return Err(bad(format!("{id}: misaligned or misplaced coefficients")));
+        }
+        if kind == KIND_QUANT {
+            let co = coeff_off as usize;
+            checked_range(coeff_off, 16, b.len(), &id)?;
+            let q = f64_at(b, co);
+            let rec_bits = u32_at(b, co + 8) as usize;
+            if u32_at(b, co + 12) as usize != n_coeff || !(q.is_finite() && q > 0.0) {
+                return Err(bad(format!("{id}: bad quantized header")));
+            }
+            let wlen = (3 * n_coeff).div_ceil(8) * 8;
+            let (w0, w1) = checked_range(coeff_off + 16, 3 * n_coeff as u64, b.len(), &id)?;
+            let widths = b[w0..w1].to_vec();
+            if widths.iter().any(|&w| w > 64) || widths.iter().map(|&w| w as usize).sum::<usize>() != rec_bits
+            {
+                return Err(bad(format!("{id}: bad quantized bit widths")));
+            }
+            let data = co + 16 + wlen;
+            let nbytes = (n_records * rec_bits).div_ceil(8) + 16;
+            checked_range(data as u64, nbytes as u64, b.len(), &id)?;
+            series.push(Series {
+                target,
+                center,
+                n_coeff,
+                n_records,
+                start,
+                interval,
+                inv_interval: 1.0 / interval,
+                end,
+                coeff_index: 0,
+                n_f64: n_coeff,
+                rec_words: 0,
+                kind,
+                alias_target: 0,
+                scale: 1.0,
+                alias_pair: usize::MAX,
+                backing: 0,
+                quant_q: q,
+                quant_rec_bits: rec_bits,
+                quant_widths: widths,
+                quant_data: data,
+                source_index,
+            });
+            continue;
         }
         let n_f64 = if n_f64_raw == 0 || n_f64_raw >= n_coeff { n_coeff } else { n_f64_raw };
         // f64 block [3][n_f64], then f32 block [3][n_coeff - n_f64] padded to 8 bytes
@@ -250,6 +308,10 @@ pub(super) fn parse(b: &[u8]) -> Result<Parsed> {
             scale: 1.0,
             alias_pair: usize::MAX,
             backing: 0,
+            quant_q: 0.0,
+            quant_rec_bits: 0,
+            quant_widths: Vec::new(),
+            quant_data: 0,
             source_index,
         });
     }

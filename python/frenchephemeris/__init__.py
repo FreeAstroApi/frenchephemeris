@@ -21,8 +21,9 @@ EROS = AST_OFFSET + 433
 # Main pack first; the 1900-2100 development pack is used only when it is absent.
 # Bit-identical JPL packs first; the lossy compact refit only when nothing else is installed.
 _DEFAULT_PACK_NAMES = ("fepk-de441-de442-v1.bin", "fepk-de442-1800-2400-v1.bin", "fepk-de442-1900-2100-v1.bin",
-                      "fepk-de442-compact-1800-2400-v1.bin")
+                      "fepk-de442-compact-1800-2400-v1.bin", "fepk-de442-mobile-1800-2400-v1.bin")
 _MINOR_PACK_NAME = "fepk-minor-v2.bin"
+_MINOR_MOBILE_PACK_NAME = "fepk-minor-mobile-1800-2400-v1.bin"
 # Extended-range refits of DE441 (-13200 .. -1 and 2401 .. 17191), optional
 _EXT_PACK_NAMES = ("fepk-de441-ext-past-v1.bin", "fepk-de441-ext-future-v1.bin")
 # 2401 .. 2581 only; used when the full future pack is absent (they overlap).
@@ -66,8 +67,11 @@ def default_minor_pack_path() -> Path | None:
     env = os.environ.get("FRENCHEPHEMERIS_MINOR_PACK")
     if env is not None:
         return Path(env) if env else None
-    p = default_pack_path().parent / _MINOR_PACK_NAME
-    return p if p.exists() else None
+    folder = default_pack_path().parent
+    for name in (_MINOR_PACK_NAME, _MINOR_MOBILE_PACK_NAME):
+        if (folder / name).exists():
+            return folder / name
+    return None
 
 
 def default_ext_pack_paths() -> list[Path]:

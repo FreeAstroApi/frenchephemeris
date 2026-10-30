@@ -461,7 +461,7 @@ brackets). "UT" = calendar instant read as UT and converted with
 | 5 | Krishnamurti | 22.363889° at J1900, offset 0.828″ | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
 | 6 | Djwhal Khul | 30° on 1 July 2117 0h UT (Age of Aquarius 2117, G. Dawson) | 4.81 | 4.87 | 4.88 | 4.88 |
 | 7 | Yukteshwar | 21.082222° at J1900 | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
-| 8 | J.N. Bhasin | — no published definition available | n/a | | | |
+| 8 | J.N. Bhasin | Lahiri − 1°07′ (Bhasin, introductory note to his translation of *Sarvarth Chintamani*); differs from Swiss's mode of this name | 78.15 | 78.17 | 78.17 | 78.17 |
 | 9–11 | Kugler 1/2/3 | −5°40′ / −4°16′ / −3°25′ at 1 Jan −100 0h UT | 0.0120 | 0.0120 | 0.0120 | 0.0120 |
 | 12 | Huber | −4°28′ at 1 Jan −100 0h UT (Huber 1958, value as corrected in SE 2.05) | 0.0120 | 0.0120 | 0.0120 | 0.0120 |
 | 13 | Eta Piscium | −5°04′46″ at 1 Jan −129 0h UT (Mercier) | 0.9307 | 0.9307 | 0.9307 | 0.9307 |
@@ -483,7 +483,7 @@ brackets). "UT" = calendar instant read as UT and converted with
 | 36 | Dhruva/GC/Mula (Wilhelm) | polar projection of Sgr A* (great circle through the mean pole) − 246°40′ | 0.818 [0.821] | 0.435 [0.438] | 0.113 [0.103] | 0.155 [0.142] |
 | 37 | Aryabhata 522 | 0 at 522-03-21 05:46:44 UT | 0.0000 | 0.0000 | 0.0001 | 0.0000 |
 | 38 | Britton | −3.2° at 1 Jan year 0, 0h UT | 0.0001 | 0.0001 | 0.0001 | 0.0001 |
-| 39 | "Vedic"/Sheoran | — no published definition available (oracle: δ Cnc-anchored) | n/a | | | |
+| 39 | "Vedic"/Sheoran | δ Cnc (Asellus Australis) at 103°29′32.9375″, true position (Sheoran, *The Science of Time and Timeline of World History*, 2017, §5.2, Table 1.16) | 0.59 | 0.59 | 0.59 | 0.59 |
 | 40 | Cochrane | apparent λ(Sgr A*) − 270° | as 17 | | | |
 | 41 | Fiorenza | 25° on 1 Jan 2000 0h UT | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
 | 42 | Vettius Valens | — no published definition available (Holden 1995 not accessible) | n/a | | | |
@@ -583,7 +583,11 @@ Third round (2026-10-30), still without a usable primary definition:
 - **Vettius Valens**: Holden, "The Classical Zodiac", *AFA Journal of Research* 7(2), 1995 is
   not online; Kollerstrom (*Culture and Cosmos* 1(2)) only confirms Valens's longitudes are
   sidereal (after Neugebauer, *Greek Horoscopes* p. 172).
-Next: obtain Sheoran's book and the AFA article; a Bhasin almanac if one exists.
+Resolved 2026-10-30 from primary sources supplied by the product owner: Sheoran's 2017 eBook
+(Table 1.16) and Bhasin's own note (Lahiri − 1°07′). Both differ from Swiss's modes of the same
+name: Sheoran's δ Cnc is 0.57″ below Swiss's value (invisible at the 0.001° display), Bhasin's rule
+is 1′18″ below Swiss's J.N. Bhasin mode (visible; we keep the author's rule). Vettius Valens
+still needs Holden 1995 (AFA Journal of Research 7(2), p. 12).
 
 Sidereal houses (`Engine::houses_ut_bits` / `house_cusps_ut_bits`, all
 systems; measured on `houses_ex2(FLG_SIDEREAL)`, fixture `houses_sidereal.json`,

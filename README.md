@@ -75,7 +75,9 @@ pos = eng.calc_batch_ut(jd + np.arange(1000.0), list(range(10)))   # shape (1000
 `python -m frenchephemeris.packs list` shows every pack and set (`standard`, `modern`, `dev`,
 `extended` for −13200 … +17191, `asteroids`, `all`). Every set except `compact` stores JPL's
 coefficients exactly as published (bit-identical); `compact` (~13 MB, 1800–2400) is a lossy
-refit for size-constrained installs (planets ≤ 0.001″, Moon ≤ 0.04″ from JPL). Packs go to `$FRENCHEPHEMERIS_DATA`
+refit for size-constrained installs (planets ≤ 0.001″, Moon ≤ 0.04″ from JPL), and `mobile`
+(2.0 MB, 1800–2400, planets and minor bodies ≤ 0.007″, Moon ≤ 0.4″) is for apps: smaller than
+the Swiss Ephemeris files for the same years and bodies (2.1 MB). Packs go to `$FRENCHEPHEMERIS_DATA`
 or a per-user data directory (`python -m frenchephemeris.packs path`).
 
 ## Building

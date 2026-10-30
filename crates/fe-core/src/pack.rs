@@ -37,7 +37,7 @@ mod format;
 use format::{parse, Backing, Series, KIND_ALIAS};
 
 /// Maximum Chebyshev coefficients per component accepted by the reader.
-pub const MAX_COEFF: usize = 32;
+pub const MAX_COEFF: usize = 64;
 
 /// NAIF ids (2000000 + MPC number) of the chainable minor bodies:
 /// Ceres, Pallas, Juno, Vesta, Eros, Chiron, Pholus, Eris.
@@ -438,6 +438,9 @@ fn eval_series<const VEL: bool>(s: &Series, b: &Backing, t: f64) -> (Vec3, Vec3)
     }
     let t0 = s.start + i as f64 * s.interval;
     let u = 2.0 * (t - t0) * s.inv_interval - 1.0;
+    if s.kind == format::KIND_QUANT {
+        return eval_quant::<VEL>(s, b.bytes(), i, u);
+    }
     let base = s.coeff_index + i * s.rec_words;
     if s.n_f64 == n {
         let rec = &b.f64s()[base..base + 3 * n];
@@ -453,6 +456,35 @@ fn eval_series<const VEL: bool>(s: &Series, b: &Backing, t: f64) -> (Vec3, Vec3)
         let lo = &b.f32s()[f0..f0 + 3 * m];
         cheb_mixed::<VEL>(hi, lo, n64, m, u, s.inv_interval)
     }
+}
+
+/// Decode record `i` of a quantized series (`format::KIND_QUANT`) and evaluate it.
+#[inline(always)]
+fn eval_quant<const VEL: bool>(s: &Series, bytes: &[u8], i: usize, u: f64) -> (Vec3, Vec3) {
+    let n = s.n_coeff;
+    let mut c = [[0.0f64; MAX_COEFF]; 3];
+    let mut pos = s.quant_data * 8 + i * s.quant_rec_bits;
+    for (comp, row) in c.iter_mut().enumerate() {
+        for (k, out) in row.iter_mut().take(n).enumerate() {
+            let w = s.quant_widths[comp * n + k] as u32;
+            *out = read_signed(bytes, pos, w) as f64 * s.quant_q;
+            pos += w as usize;
+        }
+    }
+    cheb::<VEL>(&c[0][..n], &c[1][..n], &c[2][..n], n, u, s.inv_interval)
+}
+
+/// Signed `w`-bit integer at bit `pos` of a little-endian bit stream (w <= 64; the stream is
+/// followed by 16 zero bytes, so the 16-byte window never runs past the file).
+#[inline(always)]
+fn read_signed(bytes: &[u8], pos: usize, w: u32) -> i64 {
+    if w == 0 {
+        return 0;
+    }
+    let o = pos >> 3;
+    let x = u128::from_le_bytes(bytes[o..o + 16].try_into().unwrap()) >> (pos & 7);
+    let v = (x as i128) << (128 - w);
+    (v >> (128 - w)) as i64
 }
 
 /// `cheb` for a mixed record, reading the f32 tail in place (no copy).
@@ -553,6 +585,27 @@ fn cheb<const VEL: bool>(
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn quantized_bit_stream_round_trip() {
+        // values packed little-endian at mixed widths, as tools/build_ext_pack.py writes them
+        let vals: [(i64, u32); 6] =
+            [(-5, 4), (123_456_789_012, 41), (0, 0), (-1, 1), (7, 4), (-(1 << 40), 42)];
+        let (mut acc, mut nbits) = (0u128, 0u32);
+        for (v, w) in vals {
+            if w > 0 {
+                acc |= ((v as u128) & ((1u128 << w) - 1)) << nbits;
+                nbits += w;
+            }
+        }
+        let mut bytes = acc.to_le_bytes().to_vec();
+        bytes.extend([0u8; 16]);
+        let mut pos = 0;
+        for (v, w) in vals {
+            assert_eq!(super::read_signed(&bytes, pos, w), v);
+            pos += w as usize;
+        }
+    }
+
     use super::format::tests::synthetic_pack;
     use super::*;
 

@@ -1,19 +1,19 @@
-# FrenchEphemeris — open-source ephemeris library for Python and Rust
+# French Ephemeris
 
 [![PyPI](https://img.shields.io/pypi/v/frenchephemeris.svg)](https://pypi.org/project/frenchephemeris/)
 [![Python](https://img.shields.io/pypi/pyversions/frenchephemeris.svg)](https://pypi.org/project/frenchephemeris/)
 [![CI](https://github.com/FreeAstroApi/frenchephemeris/actions/workflows/ci.yml/badge.svg)](https://github.com/FreeAstroApi/frenchephemeris/actions/workflows/ci.yml)
 [![License: AGPL-3.0 or commercial](https://img.shields.io/badge/license-AGPL--3.0%20or%20commercial-blue.svg)](https://github.com/FreeAstroApi/frenchephemeris/blob/main/COMMERCIAL-LICENSE.md)
 
-**FrenchEphemeris** is a fast, thread-safe **ephemeris and astrology calculation library**
+**FrenchEphemeris** is a fast, thread safe **ephemeris and astrology calculation library**
 written in Rust, with Python bindings. It computes planetary, lunar and asteroid positions
-from **NASA/JPL DE441/DE442** — the same data JPL Horizons serves — together with house
+from **NASA/JPL DE441/DE442**, the same data JPL Horizons serves, together with house
 cusps, ayanamsas, lunar nodes and Lilith, fixed stars, rise and set times, solar and lunar
-eclipses, occultations and heliacal events. A **pyswisseph-style API** (`swe_compat`) lets
+eclipses, occultations and heliacal events. A **pyswisseph style API** (`swe_compat`) lets
 existing Swiss Ephemeris code switch with one import change.
 
 It is the engine behind every calculation of [FreeAstroAPI](https://www.freeastroapi.com),
-and an independent, clean-room alternative to the Swiss Ephemeris.
+and an independent, clean room alternative to the Swiss Ephemeris.
 
 ```bash
 pip install frenchephemeris
@@ -23,11 +23,11 @@ python -m frenchephemeris.packs download
 - **Accurate:** within 0.0005″ of JPL Horizons for years 0–1550; every eclipse of the NASA
   Five Millennium Canons found, years 0–2400.
 - **Fast:** ~500,000 positions/s per call from Python, ~4.5 million/s in batches.
-- **Thread-safe:** no global state; settings are per thread and per asyncio task.
+- **Thread safe:** no global state; settings are per thread and per asyncio task.
 - **Complete:** 24 house systems, 46 ayanamsas, 1,175 fixed stars, Chiron, Pholus, main
   asteroids, any numbered asteroid, years −13198 … +17190.
 - **Small when you need it:** a 2 MB lossy pack set for mobile apps, or JPL's numbers
-  bit-identical.
+  bit identical.
 
 ## Contents
 
@@ -58,7 +58,7 @@ python -m frenchephemeris.packs download          # standard data packs, ~256 MB
 ```
 
 The engine reads **data packs** (JPL coefficients in the FEPK format), downloaded once from
-the [packs-v1 release](https://github.com/FreeAstroApi/frenchephemeris/releases/tag/packs-v1).
+the [packs v1 release](https://github.com/FreeAstroApi/frenchephemeris/releases/tag/packs-v1).
 See [Data packs](#data-packs) for smaller sets. To build from source you need Rust 1.88+ and
 [maturin](https://www.maturin.rs): `pip install maturin && maturin build --release`.
 
@@ -124,18 +124,18 @@ against published SHA-256 sums. `list` shows every pack, `path` prints the data 
 
 | Set | Size | Years | Fidelity | Use |
 |---|---|---|---|---|
-| `standard` | ~256 MB | −2 … 2581 | JPL coefficients, bit-identical | servers, the default |
-| `modern` | ~69 MB | 1800 … 2401 | bit-identical | most charts, smaller install |
-| `dev` | ~27 MB | 1900 … 2100 | bit-identical | development, CI |
-| `extended` | ~305 MB | −13198 … 17190 | refit, ≤ 0.001″ planets | ancient and far-future dates |
+| `standard` | ~256 MB | −2 … 2581 | JPL coefficients, bit identical | servers, the default |
+| `modern` | ~69 MB | 1800 … 2401 | bit identical | most charts, smaller install |
+| `dev` | ~27 MB | 1900 … 2100 | bit identical | development, CI |
+| `extended` | ~305 MB | −13198 … 17190 | refit, ≤ 0.001″ planets | ancient and far future dates |
 | `asteroids` | ~108 MB | varies | refit | 326 asteroids used in astrology |
 | `compact` | ~13 MB | 1800 … 2400 | lossy, planets ≤ 0.001″, Moon ≤ 0.04″ | small installs |
 | `mobile` | ~2 MB | 1800 … 2400 | lossy, planets ≤ 0.007″, Moon ≤ 0.4″ | mobile and embedded apps |
 
-Packs go to `$FRENCHEPHEMERIS_DATA` if set, otherwise a per-user data directory
+Packs go to `$FRENCHEPHEMERIS_DATA` if set, otherwise a per user data directory
 (`~/.local/share/frenchephemeris/packs`, `~/Library/Application Support/frenchephemeris/packs`
 or `%LOCALAPPDATA%\frenchephemeris\packs`). `$FRENCHEPHEMERIS_PACK` names the main pack
-directly. Packs are memory-mapped, so worker processes share them. Outside the loaded range
+directly. Packs are memory mapped, so worker processes share them. Outside the loaded range
 every call raises an error instead of returning an approximation.
 
 ## Features
@@ -143,12 +143,12 @@ every call raises an error instead of returning an approximation.
 | Area | What is included |
 |---|---|
 | Bodies | Sun, Moon, Mercury … Pluto; mean and true lunar node; mean, osculating and interpolated Lilith (apogee and perigee); Chiron, Pholus, Ceres, Pallas, Juno, Vesta, Eris, Eros; a 326-asteroid bundle; any numbered asteroid on demand from JPL; Uranian and other hypothetical bodies |
-| Coordinates | apparent, true or astrometric; geocentric, topocentric, heliocentric, barycentric, planet-centric; ecliptic or equatorial; of date, J2000 or ICRS; Cartesian; speeds |
+| Coordinates | apparent, true or astrometric; geocentric, topocentric, heliocentric, barycentric, planet centric; ecliptic or equatorial; of date, J2000 or ICRS; Cartesian; speeds |
 | Houses | 24 systems (Placidus, Koch, Whole Sign, Equal, Campanus, Regiomontanus, Porphyry, Alcabitius, Topocentric, Morinus, Meridian, Gauquelin sectors, Krusinski, APC, Sunshine, …), house position of a point, plus variants anchored on the Sun, Moon or nodes (`house_variants`) |
-| Sidereal | 46 ayanamsas (Lahiri, Raman, Krishnamurti, Fagan/Bradley, True Citra, True Pushya, J.N. Bhasin, Sheoran, galactic-centre and Babylonian modes, …), user-defined, all `SIDBIT` options |
+| Sidereal | 46 ayanamsas (Lahiri, Raman, Krishnamurti, Fagan/Bradley, True Citra, True Pushya, J.N. Bhasin, Sheoran, galactic centre and Babylonian modes, …), user defined, all `SIDBIT` options |
 | Stars | 1,175 fixed stars from the Hipparcos New Reduction with IAU names, rigorous space motion |
 | Events | rise, set and meridian transit, twilight; Sun, Moon and heliocentric crossings (ingresses, returns); solar and lunar eclipses (global and local); lunar occultations; heliacal rising and setting; in the Rust core also exact aspects, lunations and stations (`fe_core::search`) |
-| Time | Delta T from observations, IERS predictions and a published long-term model; UTC with leap seconds; TT, TDB, UT1; calendar conversions |
+| Time | Delta T from observations, IERS predictions and a published long term model; UTC with leap seconds; TT, TDB, UT1; calendar conversions |
 | Uncertainty | 1σ position error and an "uncertain" flag for Chiron, Pholus, Eris and Eros from JPL's orbit covariance (`minor_uncertainty`) |
 
 The complete function list is in the [user guide](https://github.com/FreeAstroApi/frenchephemeris/blob/main/docs/GUIDE.md).
@@ -178,7 +178,7 @@ dates 1900–2100, with speeds):
 | One body per call, 1 thread | ~500,000 | ~313,000 |
 | One body per call, 8 threads | ~580,000 | ~311,000 |
 | Sidereal (Lahiri), 1 thread | ~386,000 | ~262,000 |
-| Batch API, 10 bodies × 10,000 times | ~4,460,000 | — |
+| Batch API, 10 bodies × 10,000 times | ~4,460,000 |, |
 
 The engine is immutable and `Send + Sync`; single positions keep the GIL (a few
 microseconds of work), batches and searches release it.
@@ -190,8 +190,8 @@ FreeAstroAPI, from published sources only. Where an independent reference exists
 Horizons, NASA eclipse canons, IERS Delta T), FrenchEphemeris is the closer of the two;
 where none exists (future Earth rotation, Mean Lilith conventions), the reports say so. Data
 files are a choice: Swiss ships small lossy files, FrenchEphemeris ships JPL's numbers
-bit-identical, plus a lossy `mobile` set that is smaller than Swiss's files for the same
-years. The full point-by-point comparison is in
+bit identical, plus a lossy `mobile` set that is smaller than Swiss's files for the same
+years. The full point by point comparison is in
 [docs/ENGINE_REPORT.md](https://github.com/FreeAstroApi/frenchephemeris/blob/main/docs/ENGINE_REPORT.md)
 and [docs/SWISS_GAP_ANALYSIS.md](https://github.com/FreeAstroApi/frenchephemeris/blob/main/docs/SWISS_GAP_ANALYSIS.md).
 
@@ -209,7 +209,7 @@ and [docs/SWISS_GAP_ANALYSIS.md](https://github.com/FreeAstroApi/frenchephemeris
 ## FAQ
 
 **What is FrenchEphemeris?**
-An open-source ephemeris library for Python and Rust that computes the positions of the Sun,
+An open source ephemeris library for Python and Rust that computes the positions of the Sun,
 Moon, planets, asteroids and stars from NASA/JPL data, with the geometry astrology needs:
 houses, ayanamsas, nodes, crossings, eclipses and rise/set times.
 
@@ -226,7 +226,7 @@ newer DE442). Charts display 0.001° = 3.6″, far coarser than either figure.
 
 **Which data files do I need, and how large are they?**
 `python -m frenchephemeris.packs download` fetches the standard set (256 MB, years −2 to
-2581). `--set modern` (69 MB, 1800–2401) keeps the same bit-identical data for fewer years;
+2581). `--set modern` (69 MB, 1800–2401) keeps the same bit identical data for fewer years;
 `--set mobile` (2 MB, 1800–2400) is a lossy set for apps.
 
 **Can I use it in a mobile or embedded app?**
@@ -234,14 +234,14 @@ Yes. The `mobile` set is 2.03 MB for 1800–2400, planets, Moon and minor bodies
 with planets within 0.007″ and the Moon within 0.4″ of JPL. The Rust crate depends only on
 `memmap2` and `thiserror`.
 
-**Is it thread-safe? Can I use it in FastAPI, Django or Celery?**
+**Is it thread safe? Can I use it in FastAPI, Django or Celery?**
 Yes. There is no global mutable state; the sidereal mode, observer position and Delta T
 settings in `swe_compat` are stored per thread and per asyncio task, so concurrent requests
 never see each other's settings.
 
 **Does it support Vedic and KP astrology?**
 Yes: 46 ayanamsas including Lahiri, Raman, Krishnamurti and True Chitra, sidereal houses,
-nakshatra-ready longitudes, the true node, and sunrise times for panchang. FreeAstroAPI runs
+nakshatra ready longitudes, the true node, and sunrise times for panchang. FreeAstroAPI runs
 its Vedic, KP and dasha endpoints on it.
 
 **Which date range is covered?**
@@ -250,7 +250,7 @@ the loaded range, calls raise an error.
 
 **Is it free for commercial use?**
 Yes under the AGPL-3.0, provided you meet its conditions (including publishing the source of
-modified versions you offer over a network). For closed-source products, the commercial
+modified versions you offer over a network). For closed source products, the commercial
 licence costs USD 200 once per company, with every future version and unlimited end users.
 
 **Who maintains it, and is it used in production?**
@@ -263,16 +263,16 @@ Open an issue for wrong results or crashes; report vulnerabilities privately as 
 
 ## Licensing
 
-FrenchEphemeris is **dual-licensed**:
+FrenchEphemeris is **dual licensed**:
 
-- **AGPL-3.0-only** ([LICENSE](https://github.com/FreeAstroApi/frenchephemeris/blob/main/LICENSE)) — free, with the AGPL's obligations, including
+- **AGPL-3.0-only** ([LICENSE](https://github.com/FreeAstroApi/frenchephemeris/blob/main/LICENSE)), free, with the AGPL's obligations, including
   offering the source of modified versions to users who interact with them over a network
   (§ 13); or
-- a **commercial licence** — USD 200 one-time, per company, for the full term of
+- a **commercial licence**, USD 200 one time, per company, for the full term of
   copyright with all updates,
-  including use behind your own APIs and apps for unlimited end users — for closed-source
-  or otherwise non-AGPL use; see
-  [COMMERCIAL-LICENSE.md](https://github.com/FreeAstroApi/frenchephemeris/blob/main/COMMERCIAL-LICENSE.md), contact
+  including use behind your own APIs and apps for unlimited end users, for closed source
+  or otherwise non AGPL use; see
+  [the commercial licence terms](https://github.com/FreeAstroApi/frenchephemeris/blob/main/COMMERCIAL-LICENSE.md), contact
   [contact@freeastroapi.com](mailto:contact@freeastroapi.com).
 
 SPDX: `AGPL-3.0-only OR LicenseRef-FrenchEphemeris-Commercial`.
@@ -281,15 +281,15 @@ Contributions require the contributor licence agreement in [CONTRIBUTING.md](htt
 
 ## Data sources and attribution
 
-Third-party data and their terms are listed in [NOTICE](https://github.com/FreeAstroApi/frenchephemeris/blob/main/NOTICE): NASA/JPL DE441/DE442 and
-small-body ephemerides (Park et al. 2021), ERFA (BSD-3) coefficient tables, the IAU WGSN
+Third party data and their terms are listed in [NOTICE](https://github.com/FreeAstroApi/frenchephemeris/blob/main/NOTICE): NASA/JPL DE441/DE442 and
+small body ephemerides (Park et al. 2021), ERFA (BSD-3) coefficient tables, the IAU WGSN
 star names (CC BY 4.0), Hipparcos (ESA; van Leeuwen 2007), SIMBAD (CDS), IERS EOP and leap
 seconds, USNO and Stephenson–Morrison–Hohenkerk Delta T, NASA eclipse catalogues
 (F. Espenak), the ELP 2000-82B and ELP/MPP02 lunar theories (Chapront-Touzé, Chapront,
 Francou), and the published astronomy and astrology
-definitions behind each feature. Per-constant provenance is in the `docs/*REPORT*.md` files.
+definitions behind each feature. Per constant provenance is in the `docs/*REPORT*.md` files.
 
-The Swiss Ephemeris was used only as a black-box oracle through its public API to measure
+The Swiss Ephemeris was used only as a black box oracle through its public API to measure
 compatibility. No Swiss code, data files or outputs are part of this repository; the
 oracle comparison fixtures are kept in a private corpus (`FE_ORACLE_DIR`), and the tests
 that need them are skipped without it.
@@ -300,7 +300,7 @@ that need them are skipped without it.
 implementation; it is not affiliated with, sponsored or endorsed by the owner or the
 authors of the Swiss Ephemeris. The
 name is used here only to describe compatibility and to report measured comparisons. The
-`swe_compat` Python module is an interface-compatibility layer that accepts the same
+`swe_compat` Python module is an interface compatibility layer that accepts the same
 function names and argument shapes; it contains no Swiss Ephemeris code.
 
 "FrenchEphemeris" and "FreeAstroAPI" are trade names of Gabriel Naulleau EI; see
@@ -312,8 +312,8 @@ FrenchEphemeris is provided "as is", without warranty of any kind, as stated in 
 AGPL-3.0 (sections 15–16) and in the commercial licence. Results are intended for
 astrology, education and general astronomy. It is **not** designed or certified for
 navigation, surveying, spacecraft operations, legal or civil timekeeping, or any
-safety-critical use. Positions far from the present (before about 1600 and after about
-2100) inherit the uncertainties of the underlying models (Delta T, minor-body orbits),
+safety critical use. Positions far from the present (before about 1600 and after about
+2100) inherit the uncertainties of the underlying models (Delta T, minor body orbits),
 which are documented in the reports.
 
 ## Security

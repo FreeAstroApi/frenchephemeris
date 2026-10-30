@@ -1,9 +1,8 @@
 # FrenchEphemeris — architecture and decisions
 
-Goal: replace Swiss Ephemeris in FreeAstroAPI with an independently implemented,
-faster, thread-safe engine whose numbers come from JPL, and whose astrology
-semantics (houses, ayanamsas, flags, nodes, Lilith) match the Swiss behaviour
-that the API exposes today.
+Goal: an independently implemented, fast, thread-safe engine whose numbers come
+from JPL, and whose astrology semantics (houses, ayanamsas, flags, nodes, Lilith)
+follow the conventions astrology software established.
 
 ## Sources of truth
 

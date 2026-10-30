@@ -185,8 +185,8 @@ microseconds of work), batches and searches release it.
 
 ## FrenchEphemeris and the Swiss Ephemeris
 
-FrenchEphemeris was written as an independent replacement for the Swiss Ephemeris in
-FreeAstroAPI, from published sources only. Where an independent reference exists (JPL
+FrenchEphemeris is an independent implementation, written from published sources only.
+Where an independent reference exists (JPL
 Horizons, NASA eclipse canons, IERS Delta T), FrenchEphemeris is the closer of the two;
 where none exists (future Earth rotation, Mean Lilith conventions), the reports say so. Data
 files are a choice: Swiss ships small lossy files, FrenchEphemeris ships JPL's numbers

@@ -3,6 +3,16 @@
 All notable changes to FrenchEphemeris are listed here. Versions follow
 [Semantic Versioning](https://semver.org/).
 
+## 1.4.0 — 2026-10-31
+
+### Added
+- **Charts away from Earth** (optional extension: `frenchephemeris.ext.space`, cargo feature
+  `space`). An observer on the surface of Mercury, Venus, the Moon, Mars, Jupiter, Saturn,
+  Uranus, Neptune or Pluto, at the centre of a world, or at any point in space: positions with
+  speeds, azimuth and elevation, houses and angles on the world's own rotation, Earth's
+  tropical zodiac or the world's native zodiac, Mars Sol Date and local Mars time. IAU 2015
+  rotation models; validated against JPL Horizons (docs/SPACE_REPORT.md).
+
 ## 1.3.0 — 2026-10-30
 
 ### Changed

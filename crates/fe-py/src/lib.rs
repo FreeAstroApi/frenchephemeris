@@ -18,6 +18,7 @@ mod events;
 mod extras;
 mod heliacal;
 mod houses;
+mod space;
 
 pub const FLG_HELCTR: i32 = 8;
 pub const FLG_TRUEPOS: i32 = 16;
@@ -416,6 +417,7 @@ fn _native(m: &Bound<'_, PyModule>) -> PyResult<()> {
     eclipses::register(m)?;
     extras::register(m)?;
     heliacal::register(m)?;
+    space::register(m)?;
     m.add("EphemerisError", m.py().get_type::<EphemerisError>())?;
     m.add("OutOfRangeError", m.py().get_type::<OutOfRangeError>())?;
     m.add("PolarHousesError", m.py().get_type::<PolarHousesError>())?;

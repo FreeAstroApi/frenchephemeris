@@ -28,6 +28,7 @@ feature; each states what was compared, on how many samples, and how to reproduc
 | [MINOR_BODIES_REPORT.md](MINOR_BODIES_REPORT.md) | Chiron, Pholus, Ceres–Vesta, Eris, Eros: sources, integration, uncertainty |
 | [ASTEROIDS_REPORT.md](ASTEROIDS_REPORT.md) | the 326-asteroid bundle and on demand asteroids |
 | [FICTITIOUS_BODIES.md](FICTITIOUS_BODIES.md) | Uranian and other hypothetical bodies, the ELP based lunar apsides |
+| [SPACE_REPORT.md](SPACE_REPORT.md) | charts away from Earth (`space` extension): IAU rotation models, sites, native zodiac, houses, against JPL Horizons |
 | [EXTENDED_RANGE_REPORT.md](EXTENDED_RANGE_REPORT.md) | the −13198 … +17190 refit packs |
 | [DATA_REPORT.md](DATA_REPORT.md) | the main pack: JPL sources, checksums, DE441/DE442 seams, bit identity checks |
 | [SWISS_GAP_ANALYSIS.md](SWISS_GAP_ANALYSIS.md) | feature by feature coverage of the classic Swiss Ephemeris API |

@@ -39,6 +39,8 @@ crates/fe-core     Rust kernel (no global state, Send + Sync everywhere)
   lunar_local.rs   lunar eclipses visible from a place (lun_eclipse_when_loc)
   extras.rs        ECL_NUT, calc_pctr, helio_cross, mooncross_node, sidtime0, UTC via the engine
   utc.rs           UTC with IERS leap seconds, time zones, date checks
+  space.rs         (feature `space`) observers on other worlds or in space: IAU 2015 rotation, sites,
+                   native zodiac, houses on the world's rotation, Mars time
   util.rs          split_deg, centisecond helpers, normalisation, body/ayanamsa names
 crates/fe-py       PyO3 bindings -> python package `frenchephemeris`
 tools/             offline pack builders (Python; SPK types 2/21, HTTP ranges; fit_minor.py)

@@ -106,7 +106,7 @@ their speeds.
 
 ```toml
 [dependencies]
-fe-core = { git = "https://github.com/FreeAstroApi/frenchephemeris", tag = "v1.3.0" }
+fe-core = { git = "https://github.com/FreeAstroApi/frenchephemeris", tag = "v1.4.0" }
 ```
 
 ```rust
@@ -155,6 +155,7 @@ error instead of returning an approximation.
 | Stars | 1,175 fixed stars from the Hipparcos New Reduction with IAU names, rigorous space motion |
 | Events | rise, set and meridian transit, twilight; Sun, Moon and heliocentric crossings (ingresses, returns); solar and lunar eclipses (global and local); lunar occultations; heliacal rising and setting; in the Rust core also exact aspects, lunations and stations (`fe_core::search`) |
 | Time | Delta T from observations, IERS predictions and a published long term model; UTC with leap seconds; TT, TDB, UT1; calendar conversions |
+| Extensions | optional charts away from Earth: an observer on Mars, the Moon or any planet out to Pluto, at a world's centre or anywhere in space, with houses, horizon, Earth's or the world's own zodiac, and Mars time (`frenchephemeris.ext.space`, cargo feature `space`) |
 | Uncertainty | 1σ position error and an "uncertain" flag for Chiron, Pholus, Eris and Eros from JPL's orbit covariance (`minor_uncertainty`) |
 
 The complete function list is in the [user guide](https://github.com/FreeAstroApi/frenchephemeris/blob/main/docs/GUIDE.md).
@@ -210,6 +211,7 @@ and [docs/SWISS_GAP_ANALYSIS.md](https://github.com/FreeAstroApi/frenchephemeris
 | [Online docs](https://www.freeastroapi.com/docs/utilities/frenchephemeris) | the same quickstart on freeastroapi.com |
 | [Engine report](https://github.com/FreeAstroApi/frenchephemeris/blob/main/docs/ENGINE_REPORT.md) | accuracy, Swiss compatibility, speed |
 | [Pack format](https://github.com/FreeAstroApi/frenchephemeris/blob/main/docs/FORMAT.md) | the FEPK file format |
+| [Charts away from Earth](https://github.com/FreeAstroApi/frenchephemeris/blob/main/docs/SPACE_REPORT.md) | the `space` extension: method and validation against JPL Horizons |
 | [Changelog](https://github.com/FreeAstroApi/frenchephemeris/blob/main/CHANGELOG.md) | releases |
 
 ## FAQ

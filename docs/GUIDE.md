@@ -278,7 +278,8 @@ with ThreadPoolExecutor(8) as pool:
 
 ```toml
 [dependencies]
-fe-core = { git = "https://github.com/FreeAstroApi/frenchephemeris", tag = "v1.3.0" }
+fe-core = { git = "https://github.com/FreeAstroApi/frenchephemeris", tag = "v1.4.0" }
+# charts away from Earth: features = ["space"]
 ```
 
 ```rust
@@ -293,7 +294,35 @@ let eq = fe_core::search::longitude_crossings(&eng, Body::Sun, 0.0, 2451544.5, 2
 The engine is `Send + Sync`: share one `Engine` across threads. `Pack::open_many` chains
 several packs. See [ARCHITECTURE.md](ARCHITECTURE.md).
 
-## 16. Building packs yourself
+## 16. Extension: charts away from Earth
+
+`frenchephemeris.ext.space` casts a chart for someone born on Mars, on the Moon, on any
+planet out to Pluto, at the centre of a world or anywhere in space. Times are JD UT, as for
+`calc_ut`.
+
+```python
+import frenchephemeris
+from frenchephemeris.ext import space
+
+eng = frenchephemeris.open_default()
+jezero = space.Site("mars", lon=77.45, lat=18.44)     # east longitude, latitude
+chart = space.chart(eng, 2460000.5, jezero, house_system="P")
+chart["bodies"]["earth"]                             # lon, lat, distance_au, speeds, retrograde
+chart["houses"]["asc"], chart["houses"]["cusps"]
+
+space.chart(eng, 2460000.5, jezero, zodiac="native")  # Mars's own zodiac
+space.horizon(eng, 2460000.5, "sun", jezero)          # azimuth, elevation
+space.position(eng, 2460000.5, "earth", space.Point("sun", z=1e9))   # anywhere in space
+space.mars_time(2460000.5, lon=77.45)                # sol date, Mars time, local solar time
+```
+
+`zodiac="earth"` (default) gives longitudes in Earth's tropical zodiac; `zodiac="native"`
+uses the world's orbital plane with 0° at its own vernal equinox. Houses follow the world's
+rotation, so the Ascendant is its rising point, also on Venus, Uranus and Pluto, which spin
+backwards. In Rust, enable the `space` feature and use `fe_core::space`. Method and
+validation against JPL Horizons: [SPACE_REPORT.md](SPACE_REPORT.md).
+
+## 17. Building packs yourself
 
 Every published pack can be rebuilt from the public JPL files:
 

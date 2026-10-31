@@ -28,6 +28,8 @@ pub mod occultations; // lunar occultations of planets and stars
 pub mod pack; // JPL-derived coefficient pack reader
 pub mod points; // lunar nodes, Lilith
 pub mod search; // ingress / aspect / station / return root finding
+#[cfg(feature = "space")]
+pub mod space; // charts for observers away from Earth
 pub mod stars; // fixed stars: catalogue, space motion, apparent places
 pub mod time; // calendar, UT/TT/TDB, Delta T
 pub mod utc; // UTC with leap seconds, time zones, date checks

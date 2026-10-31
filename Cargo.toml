@@ -1,9 +1,9 @@
 [workspace]
 resolver = "2"
-members = ["crates/fe-core", "crates/fe-py"]
+members = ["crates/fe-core", "crates/fe-py", "crates/fe-wasm"]
 
 [workspace.package]
-version = "1.4.0"
+version = "1.5.0"
 edition = "2021"
 rust-version = "1.88"
 license = "AGPL-3.0-only OR LicenseRef-FrenchEphemeris-Commercial"

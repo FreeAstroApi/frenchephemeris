@@ -43,6 +43,7 @@ crates/fe-core     Rust kernel (no global state, Send + Sync everywhere)
                    native zodiac, houses on the world's rotation, Mars time
   util.rs          split_deg, centisecond helpers, normalisation, body/ayanamsa names
 crates/fe-py       PyO3 bindings -> python package `frenchephemeris`
+crates/fe-wasm     wasm-bindgen bindings -> npm package `frenchephemeris` (js/: ES module API, tests)
 tools/             offline pack builders (Python; SPK types 2/21, HTTP ranges; fit_minor.py)
 harness/           differential tests vs JPL direct, Swiss oracle, Horizons
 bench/             speed benchmarks vs pyswisseph

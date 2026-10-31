@@ -24,10 +24,10 @@ MAS = math.pi / 180 / 3600 / 1000
 C_AU_DAY = 299792.458 * 86400 / 149597870.7
 
 epoch, stars, _ = load()
-# Every 8th star plus the high proper-motion / nearby / ayanamsa stars.
+# Every 60th star (about 150) plus the high proper-motion / nearby / ayanamsa stars.
 keep = {"Spica", "Asellus Australis", "Rigil Kentaurus", "Toliman", "Sirius", "Procyon", "Arcturus",
         "Aldebaran", "Regulus", "Antares", "Polaris", "Achird", "Barnard's Star", "Deneb", "Rigel"}
-sel = [dict(s, idx=i) for i, s in enumerate(stars) if i % 8 == 0 or s["name"] in keep]
+sel = [dict(s, idx=i) for i, s in enumerate(stars) if i % 60 == 0 or s["name"] in keep]
 tdbs = [1721424.0, 1830000.5, 2000000.5, 2299160.5, 2415020.0, 2451545.0, 2460000.5, 2524594.0, 2597641.5]
 
 rows = []

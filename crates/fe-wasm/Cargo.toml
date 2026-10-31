@@ -1,0 +1,16 @@
+[package]
+name = "fe-wasm"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+fe-core = { path = "../fe-core", features = ["space"] }
+# Pinned to a release at least two weeks old; the wasm-bindgen CLI must be the same version.
+wasm-bindgen = "=0.2.129"

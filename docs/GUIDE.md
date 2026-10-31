@@ -19,8 +19,10 @@ Measurements behind every number are in the [reports](README.md).
 - [12. Minor body uncertainty](#12-minor-body-uncertainty)
 - [13. Threads, async code and servers](#13-threads-async-code-and-servers)
 - [14. Errors](#14-errors)
-- [15. Rust](#15-rust)
-- [16. Building packs yourself](#16-building-packs-yourself)
+- [15. JavaScript and WebAssembly](#15-javascript-and-webassembly)
+- [16. Rust](#16-rust)
+- [17. Extension: charts away from Earth](#17-extension-charts-away-from-earth)
+- [18. Building packs yourself](#18-building-packs-yourself)
 
 ## 1. Installation
 
@@ -201,7 +203,7 @@ system plane, original precession models). Identifiers for the native engine:
 
 ## 9. Fixed stars
 
-1,175 stars from the Hipparcos New Reduction (van Leeuwen 2007) with IAU WGSN names,
+8,969 stars, every Hipparcos star down to magnitude 6.5, from the Hipparcos New Reduction (van Leeuwen 2007) with IAU WGSN names,
 SIMBAD radial velocities and rigorous space motion. Look them up by traditional name,
 Bayer/Flamsteed designation or catalogue number: `swe.fixstar2_ut("Spica", jd, 0)` returns
 `(position, "Spica,alVir", flags)`. See [STARS_REPORT.md](STARS_REPORT.md) and
@@ -274,11 +276,32 @@ with ThreadPoolExecutor(8) as pool:
 | `frenchephemeris.PolarHousesError` | Placidus, Koch and similar systems at polar latitudes |
 | `FileNotFoundError` | no pack installed: run `python -m frenchephemeris.packs download` |
 
-## 15. Rust
+## 15. JavaScript and WebAssembly
+
+The npm package `frenchephemeris` is the Rust engine compiled to WebAssembly (`crates/fe-wasm`)
+with a small ES module API (`js/index.js`). It ships the mobile data set (years 1800 to 2400)
+and gives the same numbers as the Python package with the same packs (checked by
+`js/test/engine.test.js` against `js/test/gen_reference.py`).
+
+```js
+import { load, julday, signOf } from "frenchephemeris";
+
+const eph = await load();                                   // or load({ mainPack, minorPack }) with other packs
+const jd = julday(1990, 5, 17, 14.5);
+eph.calcUt(jd, "moon", { sidereal: "lahiri" });            // { lon, lat, distance, lonSpeed, ..., retrograde }
+eph.houses(jd, 48.8566, 2.3522, "P");                      // { cusps, asc, mc, ... }
+eph.fixstar("Spica", jd);                                   // { name, magnitude, lon, ... }
+eph.spaceChart(jd, { world: "mars", lon: 77.45, lat: 18.44 });
+```
+
+Build: `rustup target add wasm32-unknown-unknown`, `cargo install wasm-bindgen-cli --version 0.2.129`,
+then `tools/build_npm.sh`; test with `cd js && npm test`.
+
+## 16. Rust
 
 ```toml
 [dependencies]
-fe-core = { git = "https://github.com/FreeAstroApi/frenchephemeris", tag = "v1.4.0" }
+fe-core = { git = "https://github.com/FreeAstroApi/frenchephemeris", tag = "v1.5.0" }
 # charts away from Earth: features = ["space"]
 ```
 
@@ -294,7 +317,7 @@ let eq = fe_core::search::longitude_crossings(&eng, Body::Sun, 0.0, 2451544.5, 2
 The engine is `Send + Sync`: share one `Engine` across threads. `Pack::open_many` chains
 several packs. See [ARCHITECTURE.md](ARCHITECTURE.md).
 
-## 16. Extension: charts away from Earth
+## 17. Extension: charts away from Earth
 
 `frenchephemeris.ext.space` casts a chart for someone born on Mars, on the Moon, on any
 planet out to Pluto, at the centre of a world or anywhere in space. Times are JD UT, as for
@@ -322,7 +345,7 @@ rotation, so the Ascendant is its rising point, also on Venus, Uranus and Pluto,
 backwards. In Rust, enable the `space` feature and use `fe_core::space`. Method and
 validation against JPL Horizons: [SPACE_REPORT.md](SPACE_REPORT.md).
 
-## 17. Building packs yourself
+## 18. Building packs yourself
 
 Every published pack can be rebuilt from the public JPL files:
 

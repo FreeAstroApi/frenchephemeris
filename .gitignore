@@ -15,3 +15,12 @@ __pycache__/
 /private
 /dist/
 /python/frenchephemeris/_data/*.bin
+
+# npm package build outputs (tools/build_npm.sh)
+/js/pkg/
+/js/data/
+/js/node_modules/
+/js/LICENSE
+/js/COMMERCIAL-LICENSE.md
+/js/NOTICE
+/js/*.tgz

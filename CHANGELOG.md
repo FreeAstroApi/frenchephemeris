@@ -3,6 +3,22 @@
 All notable changes to FrenchEphemeris are listed here. Versions follow
 [Semantic Versioning](https://semver.org/).
 
+## 1.5.0 — 2026-10-31
+
+### Added
+- **JavaScript package** (`npm install frenchephemeris`): the engine compiled to WebAssembly
+  for Node.js, Deno, Bun and browsers, with the mobile data set (1800 to 2400) included.
+  Positions, houses, ayanamsas, fixed stars, charts and charts from Mars, with the same numbers as
+  the Python package (`crates/fe-wasm`, `js/`, `tools/build_npm.sh`).
+- **Every naked-eye star.** The fixed-star catalogue grows from 1,175 to 8,969 objects: every
+  Hipparcos star with V ≤ 6.5 that has a Hipparcos 2007 solution, with IAU names where they
+  exist and SIMBAD designations otherwise. Every name and designation that worked before returns
+  the same star and string (checked key by key). The native library grows by about 2.3 MB.
+
+### Fixed
+- Star records whose SIMBAD V magnitude has no bibcode said `no V` in their provenance; they now
+  say `V SIMBAD (no bibcode)`. The magnitudes were unaffected.
+
 ## 1.4.0 — 2026-10-31
 
 ### Added

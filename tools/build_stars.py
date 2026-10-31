@@ -16,7 +16,10 @@ Every name and designation in the default catalogue comes from a public source:
 * DEFINED: names of two conventional reference points.
 
 Objects: the IAU-named stars, the alias targets, and `tools/star_extra_objects.tsv`
-(HIP numbers / SIMBAD identifiers only, no names), plus SYSTEMS and DEFINED.
+(HIP numbers / SIMBAD identifiers only, no names), plus SYSTEMS and DEFINED; then every
+star of the Hipparcos Catalogue (ESA 1997, CDS I/239, field H5) with V <= BRIGHT_VMAG
+(naked-eye stars) that has a Hipparcos 2007 solution. These "bright" additions register names and designations only after
+every other object, so they never change what an existing name or designation returns.
 
 Astrometry: Hipparcos, the New Reduction (van Leeuwen 2007, A&A 474, 653; CDS
 catalogue I/311, read from a VizieR mirror): ICRS, epoch J1991.25 (TT). Objects
@@ -105,6 +108,8 @@ HIP_EPOCH_JD = 2448349.0625
 J2000 = 2451545.0
 # Magnitude returned for objects without a V magnitude (the classic API's sentinel).
 NO_MAG = 999.99
+# Every Hipparcos star at least this bright (Hipparcos Catalogue V, field H5) is in the catalogue.
+BRIGHT_VMAG = 6.5
 
 
 # Record key of the alpha Cen AB barycentre (no HIP number; hip = 0 in the table).
@@ -236,7 +241,14 @@ def extra_objects() -> list:
     return out
 
 
-def wanted() -> tuple[list[int], list[str]]:
+def bright_hips() -> set[int]:
+    """HIP numbers of the naked-eye stars (Hipparcos Catalogue V <= BRIGHT_VMAG)."""
+    path = CACHE / "hip1_bright.json"
+    return {int(r["HIP"]) for r in json.loads(path.read_text())} if path.exists() else set()
+
+
+def core_wanted() -> tuple[set[int], set[str]]:
+    """The named and listed objects, before the naked-eye additions."""
     hips = {r["hip"] for r in parse_csn(CACHE / "IAU-CSN.txt")}
     hips |= {h for _, h in EXTRA_ALIASES if isinstance(h, int)}
     for sy in SYSTEMS.values():
@@ -244,7 +256,12 @@ def wanted() -> tuple[list[int], list[str]]:
     objs = {h for _, h in EXTRA_ALIASES if isinstance(h, str) and h not in SYSTEMS}
     for k in extra_objects():
         (hips if isinstance(k, int) else objs).add(k)
-    return sorted(hips), sorted(objs)
+    return hips, objs
+
+
+def wanted() -> tuple[list[int], list[str]]:
+    hips, objs = core_wanted()
+    return sorted(hips | bright_hips()), sorted(objs)
 
 
 SIMBAD_COLS = ("b.main_id, b.ra, b.dec, b.pmra, b.pmdec, b.plx_value, b.rvz_radvel, b.coo_bibcode, "
@@ -304,6 +321,11 @@ def fetch() -> None:
     csn = CACHE / "IAU-CSN.txt"
     if not csn.exists():
         csn.write_bytes(curl(CSN_URL))
+    bright = CACHE / "hip1_bright.json"
+    if not bright.exists():
+        rows = vizier_tsv("I/239/hip_main", "HIP,Vmag", {"Vmag": f"<={BRIGHT_VMAG}"})
+        assert len(rows) > 8000, f"unexpected Hipparcos V <= {BRIGHT_VMAG} count: {len(rows)}"
+        bright.write_text(json.dumps([{"HIP": r["HIP"], "Vmag": r["Vmag"]} for r in rows], indent=0))
     hips, objs = wanted()
     # Hipparcos 2007 (CDS I/311/hip2). VizieR serves RArad/DErad in degrees as doubles;
     # the catalogue values are radians to 1e-10, restored by rounding.
@@ -710,6 +732,10 @@ def build() -> None:
             recs[k]["names"].append((a, "Allen 1899 / traditional"))
     for k in extra_objects():
         ensure(k)
+    core_hips, _ = core_wanted()
+    # Naked-eye additions need a Hipparcos 2007 solution (4 close doubles have none; SIMBAD's
+    # places for them are Gaia-derived).
+    added = {h for h in bright_hips() if h not in core_hips and h in hip2 and ensure(h)}
     for k in SYSTEMS:
         ensure(k)
         recs[k]["desigs"].append(SYSTEMS[k]["desig"])
@@ -738,10 +764,16 @@ def build() -> None:
         if v is None and k in comps:
             v = vflux.get(int(comps[k]["oid"]))
             v = (v[0], f"{v[1]} (component A)") if v else None
+        if v is not None and g(v[1]) and isinstance(k, int) and k in hip1_v:
+            # A Gaia-derived V (CC BY-SA): the Hipparcos Catalogue V instead.
+            changes.append((record_id(k), "vmag", v[1], "Hipparcos Catalogue 1997 field H5"))
+            v = None
         if v is None and isinstance(k, int) and k in hip1_v:
             v = (hip1_v[k], "Hipparcos Catalogue 1997 field H5")
         rec["vmag"], rec["vref"] = v if v else (NO_MAG, "")
-    bright = sorted(recs, key=lambda k: (recs[k]["vmag"], record_id(k)))
+    # Registration order for shared keys: existing objects first (brightest first), then the
+    # naked-eye additions, so an addition never takes a key an existing object answers to.
+    bright = sorted(recs, key=lambda k: (k in added, recs[k]["vmag"], record_id(k)))
 
     # Names: IAU-CSN, then traditional aliases and conventional names, then SIMBAD
     # names (brightest object first). The first registration of a key wins.
@@ -788,6 +820,13 @@ def build() -> None:
                 desig_keys[fold(d)] = k
                 spell.setdefault("," + fold(d), d)
 
+    # An addition whose usual designation belongs to an existing object shows its own
+    # next designation, or its HIP number.
+    for k in added:
+        rec = recs[k]
+        if rec["desig"] and desig_keys.get(fold(rec["desig"])) != k:
+            own = [d for d in rec["desig_keys"] if desig_keys.get(fold(d)) == k]
+            rec["desig"] = own[0] if own else f"HIP {k}"
     for k, rec in recs.items():
         assert not rec["desig"] or desig_keys.get(fold(rec["desig"])) == k, \
             f"{record_id(k)}: designation {rec['desig']!r} belongs to another record"
@@ -857,7 +896,11 @@ def build() -> None:
     for k in order:
         rec = recs[k]
         s = {"id": record_id(k), "name": rec["name"], "nom": rec["desig"], "desig": rec["desig"], "vmag": rec["vmag"]}
-        ref = rec["ref"] + (f"; V {rec['vref']}" if rec["vref"] else "; no V")
+        if rec["vmag"] == NO_MAG:
+            vnote = "; no V"
+        else:  # some SIMBAD V values carry no bibcode
+            vnote = f"; V {rec['vref'] or 'SIMBAD (no bibcode)'}"
+        ref = rec["ref"] + vnote
         lines.append(record_line(s, rec["hip"], rec["a"], rec["rv"], ref))
     lines += ["];", ""]
     lines.append("/// Default returned string of each record (same order as `STARS`).")
@@ -865,10 +908,10 @@ def build() -> None:
     lines += [f"    {rs_str(recs[k]['full'])}," for k in order]
     lines += ["];", ""]
     for title, table in (("NAMES", name_keys), ("DESIGNATIONS", desig_keys)):
-        rows = sorted((key, recs[k]["full"], index[k]) for key, k in table.items())
-        lines.append("/// (folded key, returned \"Name,designation\", star index), sorted by key.")
-        lines.append(f"pub static {title}: [(&str, &str, u16); {len(rows)}] = [")
-        lines += [f"    ({rs_str(key)}, {rs_str(full)}, {i})," for key, full, i in rows]
+        rows = sorted((key, index[k]) for key, k in table.items())
+        lines.append("/// (folded key, star index), sorted by key; the returned string is `FULL[index]`.")
+        lines.append(f"pub static {title}: [(&str, u16); {len(rows)}] = [")
+        lines += [f"    ({rs_str(key)}, {i})," for key, i in rows]
         lines += ["];", ""]
     # No Gaia-derived value may remain: every bibcode cited by a record is checked.
     bib_re = re.compile(r"(?<![\w.])(\d{4}[^\s;,()]{15})(?![\w.])")

@@ -1,0 +1,45 @@
+{
+  "name": "frenchephemeris",
+  "version": "1.5.0",
+  "description": "French Ephemeris for JavaScript: NASA JPL planetary positions, houses, ayanamsas, fixed stars and charts from Mars, in WebAssembly",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "pkg/engine.js",
+    "pkg/engine.d.ts",
+    "pkg/engine_bg.wasm",
+    "pkg/engine_bg.wasm.d.ts",
+    "data/fepk-de442-mobile-1800-2400-v1.bin",
+    "data/fepk-minor-mobile-1800-2400-v1.bin",
+    "LICENSE",
+    "COMMERCIAL-LICENSE.md",
+    "NOTICE",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": ["ephemeris", "astrology", "astronomy", "jpl", "wasm", "webassembly", "birth chart", "houses", "ayanamsa", "swiss ephemeris alternative"],
+  "license": "AGPL-3.0-only OR LicenseRef-FrenchEphemeris-Commercial",
+  "author": "Gabriel Naulleau (FreeAstroAPI) <contact@freeastroapi.com>",
+  "homepage": "https://www.freeastroapi.com/frenchephemeris",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FreeAstroApi/frenchephemeris.git",
+    "directory": "js"
+  }
+}

@@ -24,7 +24,7 @@ python -m frenchephemeris.packs download   # optional: JPL's exact numbers for 1
   Five Millennium Canons found, years 0–2400.
 - **Fast:** ~500,000 positions/s per call from Python, ~4.5 million/s in batches.
 - **Thread safe:** no global state; settings are per thread and per asyncio task.
-- **Complete:** 24 house systems, 46 ayanamsas, 1,175 fixed stars, Chiron, Pholus, main
+- **Complete:** 24 house systems, 46 ayanamsas, 8,969 fixed stars (every naked-eye star), Chiron, Pholus, main
   asteroids, any numbered asteroid, years −13198 … +17190.
 - **No setup:** the package ships a compact data set for years 0 to 2400; download JPL's
   exact numbers when you want them, or a 2 MB set for mobile apps.
@@ -64,6 +64,21 @@ compact lossy set for years 0 to 2400 (7.7 MB), so the library works right after
 they are then used wherever they apply, and the built in set covers the other dates. See
 [Data packs](#data-packs) for every set. To build from source you need Rust 1.88+ and
 [maturin](https://www.maturin.rs): `pip install maturin && maturin build --release`.
+
+**JavaScript** (Node.js 18+, Deno, Bun, browsers): the same engine compiled to WebAssembly,
+with the 2 MB mobile data set for years 1800 to 2400 included.
+
+```bash
+npm install frenchephemeris
+```
+
+```js
+import { load, julday } from "frenchephemeris";
+const eph = await load();
+eph.chart(julday(1990, 5, 17, 14.5), 48.8566, 2.3522);   // planets with signs, houses
+```
+
+See [js/README.md](js/README.md). Build it with `tools/build_npm.sh`.
 
 ## Quickstart
 
@@ -106,7 +121,7 @@ their speeds.
 
 ```toml
 [dependencies]
-fe-core = { git = "https://github.com/FreeAstroApi/frenchephemeris", tag = "v1.4.0" }
+fe-core = { git = "https://github.com/FreeAstroApi/frenchephemeris", tag = "v1.5.0" }
 ```
 
 ```rust
@@ -152,7 +167,7 @@ error instead of returning an approximation.
 | Coordinates | apparent, true or astrometric; geocentric, topocentric, heliocentric, barycentric, planet centric; ecliptic or equatorial; of date, J2000 or ICRS; Cartesian; speeds |
 | Houses | 24 systems (Placidus, Koch, Whole Sign, Equal, Campanus, Regiomontanus, Porphyry, Alcabitius, Topocentric, Morinus, Meridian, Gauquelin sectors, Krusinski, APC, Sunshine, …), house position of a point, plus variants anchored on the Sun, Moon or nodes (`house_variants`) |
 | Sidereal | 46 ayanamsas (Lahiri, Raman, Krishnamurti, Fagan/Bradley, True Citra, True Pushya, J.N. Bhasin, Sheoran, galactic centre and Babylonian modes, …), user defined, all `SIDBIT` options |
-| Stars | 1,175 fixed stars from the Hipparcos New Reduction with IAU names, rigorous space motion |
+| Stars | 8,969 fixed stars: every Hipparcos star down to magnitude 6.5, from the Hipparcos New Reduction, with IAU names, rigorous space motion |
 | Events | rise, set and meridian transit, twilight; Sun, Moon and heliocentric crossings (ingresses, returns); solar and lunar eclipses (global and local); lunar occultations; heliacal rising and setting; in the Rust core also exact aspects, lunations and stations (`fe_core::search`) |
 | Time | Delta T from observations, IERS predictions and a published long term model; UTC with leap seconds; TT, TDB, UT1; calendar conversions |
 | Extensions | optional charts away from Earth: an observer on Mars, the Moon or any planet out to Pluto, at a world's centre or anywhere in space, with houses, horizon, Earth's or the world's own zodiac, and Mars time (`frenchephemeris.ext.space`, cargo feature `space`) |

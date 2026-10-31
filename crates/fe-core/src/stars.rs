@@ -61,9 +61,9 @@ pub fn catalog() -> &'static [StarRecord] {
 
 /// Every accepted name: (display name, star record).
 pub fn names() -> impl Iterator<Item = (&'static str, &'static StarRecord)> {
-    catalog::NAMES
-        .iter()
-        .map(|&(_, full, i)| (full.split(',').next().unwrap_or(""), &catalog::STARS[i as usize]))
+    catalog::NAMES.iter().map(|&(_, i)| {
+        (catalog::FULL[i as usize].split(',').next().unwrap_or(""), &catalog::STARS[i as usize])
+    })
 }
 
 /// A resolved star: the catalogue record and the full name string it was found under.
@@ -99,8 +99,11 @@ fn fold(s: &str) -> String {
     s.chars().filter(|c| !c.is_whitespace()).flat_map(char::to_lowercase).collect()
 }
 
-fn find_idx(t: &'static [(&'static str, &'static str, u16)], key: &str) -> Option<(usize, &'static str)> {
-    t.binary_search_by(|(k, ..)| (*k).cmp(key)).ok().map(|i| (t[i].2 as usize, t[i].1))
+fn find_idx(t: &'static [(&'static str, u16)], key: &str) -> Option<(usize, &'static str)> {
+    t.binary_search_by(|(k, _)| (*k).cmp(key)).ok().map(|i| {
+        let idx = t[i].1 as usize;
+        (idx, catalog::FULL[idx])
+    })
 }
 
 /// Resolve a star name in the default (public) catalogue, case-insensitively and
